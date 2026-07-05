@@ -50,7 +50,7 @@ Files:
 
 Fastest route:
 
-1. Create or confirm a PayPal Business account.
+1. Create or confirm a PayPal Business account. If you are in mainland China and selling for profit as an individual seller, PayPal's China account selection page says to choose the business account route rather than the personal account route.
 2. Create a PayPal Payment Link or Buy Button for `Rust Raid Prep Pack`.
 3. Price it at `9.00 USD`.
 4. Set a clear product description and delivery expectation.
@@ -69,6 +69,12 @@ window.RAIDBENCH_CONFIG = {
 ```
 
 Do not enable payment until delivery records are ready.
+
+Detailed setup checklist:
+
+```text
+operations/paypal-receiving-setup.md
+```
 
 ## Delivery Records
 
@@ -123,6 +129,7 @@ Move toward credits later if:
 
 ## Official References
 
+- PayPal China account selection: https://www.paypal.com/c2/webapps/mpp/account-selection
 - PayPal Payment Links and Buttons: https://developer.paypal.com/studio/checkout/payment-links-and-buttons
 - PayPal Standard Checkout: https://developer.paypal.com/studio/checkout/standard
 - PayPal Seller Protection: https://www.paypal.com/us/legalhub/paypal/seller-protection

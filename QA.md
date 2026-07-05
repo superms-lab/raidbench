@@ -187,7 +187,7 @@ Known limitations:
 
 - No real checkout is active until a PayPal Payment Link or Buy Button URL is added.
 - Early-access form stores no backend data; it only emits local/GA events for validation.
-- Real delivery automation is not built yet.
+- Real delivery automation is not built yet. Manual delivery assets are prepared in `operations/paid-pack/`.
 
 ## Stage 6 Credits And Cloud Readiness QA
 
@@ -282,3 +282,34 @@ Known limitations:
 
 - Source collection records metadata and status only; it does not replace manual/in-game verification.
 - Generated pages still require review after major game patches.
+
+## PayPal And Delivery Asset QA
+
+Status:
+
+```text
+Passed local setup and delivery asset QA. Real PayPal checkout still requires the owner's approved PayPal Business account and hosted payment link.
+```
+
+Implemented:
+
+- Added `operations/paypal-receiving-setup.md` with the PayPal Business account path, required seller materials, product setup, and manual delivery flow.
+- Added local-only `operations/paid-pack/RaidBench-Rust-Raid-Prep-Pack-v1.html` as the editable source for the buyer-facing pack.
+- Generated local-only `operations/paid-pack/RaidBench-Rust-Raid-Prep-Pack-v1.pdf` as the first buyer delivery PDF.
+- Added local-only `operations/paid-pack/RaidBench-Rust-Raid-Prep-Pack-v1.csv` for Google Sheets import.
+- Added `.gitignore` rules so generated paid delivery assets are not pushed to the public GitHub Pages repo.
+- Updated the premium page payment-plan copy to clarify PayPal Business checkout and prepared PDF delivery.
+
+Checks completed:
+
+- Parsed `premium.html` and the paid-pack delivery HTML with `HTMLParser`.
+- JavaScript syntax check passed for `premium.js`.
+- Generated a 6-page A4 PDF with Chromium/Playwright.
+- Confirmed the PDF is unencrypted and opens as a normal document.
+- Rendered page 1 of the PDF for visual inspection.
+- Confirmed the CSV, HTML, and PDF files exist in `operations/paid-pack/`.
+
+Known limitations:
+
+- `config.js` still has an empty `paypalPaymentLink` because the owner's PayPal receiving account is not approved yet.
+- Manual delivery is ready, but automated delivery after payment is not built yet.
