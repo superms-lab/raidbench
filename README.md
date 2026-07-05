@@ -66,6 +66,14 @@ Stage 7 notes live in `STAGE7_POE2_ROUTE_PLAN.md`.
 The POE2 validation hub is `poe2.html`. It is intentionally lightweight and does not attempt to
 replace a full Path of Building-style planner.
 
+## Content Production
+
+The operating playbook lives in `operations/content-production-playbook.md`.
+
+The first 30-day content calendar lives in `operations/30-day-content-calendar.csv`.
+
+The first paid deliverable draft lives in `operations/raid-prep-pack-v1.md`.
+
 ## Legal Note
 
 RaidBench is an unofficial fan-made planning tool and is not affiliated with or endorsed by Facepunch Studios. All trademarks and game names belong to their respective owners.

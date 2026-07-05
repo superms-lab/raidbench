@@ -1,0 +1,31 @@
+day,track,page_or_asset,problem_solved,source_to_check,monetization_link
+1,Rust,rust-armored-wall-raid-cost.html,How much boom for armored wall,Facepunch wiki + in-game check,Raid Prep Pack
+2,Rust,rust-cheapest-raid-method.html,Which raid method is cheapest by target,Existing calculator data + in-game check,Raid Prep Pack
+3,Rust,rust-solo-raid-checklist.html,What should a solo bring before raiding,Community questions + calculator,Raid Prep Pack
+4,Rust,rust-duo-raid-roles.html,How two players split raid roles,Community questions,Raid Prep Pack
+5,Rust,rust-why-did-my-base-decay.html,Why did the base decay,Facepunch TC/upkeep docs,Raid Prep Pack
+6,Rust,rust-wipe-day-upgrade-order.html,What to upgrade first on wipe day,Facepunch changes + community questions,Raid Prep Pack
+7,Rust,update existing raid pages,Refresh tables and internal links,Facepunch changes,Raid Prep Pack
+8,Rust,rust-raid-profit-calculator-outline.html,Was the raid worth it,Calculator usage + community questions,Raid Prep Pack
+9,Rust,rust-explosive-ammo-door-path.html,When explosive ammo is worth using,Calculator data,Raid Prep Pack
+10,Rust,rust-rocket-splash-basics.html,When rockets beat direct damage,In-game check,Raid Prep Pack
+11,Rust,rust-tc-upkeep-weekly-sheet.html,How much upkeep to farm for a week,Facepunch TC docs,Raid Prep Pack
+12,Rust,rust-small-base-target-score.html,Which small base is worth raiding,Community questions,Raid Prep Pack
+13,Rust,rust-garage-door-path-example.html,Example raid path through garage doors,Calculator data,Raid Prep Pack
+14,Rust,raid-prep-pack-v1.md,Create paid deliverable,Current site pages,PayPal checkout
+15,POE2,poe2-outdated-build-guide-checklist.html,How to know if a build guide is outdated,Official patch notes + forums,Future POE2 pack
+16,POE2,poe2-defense-checklist.html,What defenses to check before bosses,Official forum + gameplay notes,Future POE2 pack
+17,POE2,poe2-leveling-vs-endgame-build.html,Why leveling builds differ from endgame,Official updates + community questions,Future POE2 pack
+18,POE2,poe2-build-intake-form-outline.html,What info a planner should ask for,Existing roadmap,Future credits
+19,POE2,poe2-class-skill-budget-template.html,How to describe a build request,Community build requests,Future credits
+20,POE2,poe2-loot-priority-by-archetype.html,What loot to notice early,Official patch notes + community,Future POE2 pack
+21,POE2,update existing POE2 pages,Refresh and link pages,Official POE2 news,Future POE2 pack
+22,Rust,short video script 1,Show garage door calculation in 30 seconds,Calculator page,Raid Prep Pack
+23,Rust,short video script 2,Show weekly upkeep calculation in 30 seconds,Upkeep page,Raid Prep Pack
+24,Rust,short video script 3,Show solo raid checklist mistake,Raid Prep Pack,Raid Prep Pack
+25,Rust,community answer draft 1,Answer a real sulfur cost question,Reddit/Steam discussion,Raid Prep Pack
+26,Rust,community answer draft 2,Answer TC upkeep question,Reddit/Steam discussion,Raid Prep Pack
+27,POE2,community answer draft 3,Answer outdated build guide question,Official forum/Reddit,POE2 Lab
+28,Ops,Search Console review,Pick pages with impressions,Search Console,Next content sprint
+29,Ops,GA4 event review,Pick pages with calculator/premium clicks,GA4,Next content sprint
+30,Ops,monetization decision,Enable PayPal or keep collecting intent,Premium events,PayPal checkout
