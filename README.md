@@ -29,8 +29,8 @@ Fixed local preview port:
 Start command from the repository root:
 
 ```bash
-PORT=$(awk -F= '/^PORT=/{print $2}' rust-raidbench/.env)
-python3 -m http.server "$PORT" --directory rust-raidbench
+PORT=$(awk -F= '/^PORT=/{print $2}' .env)
+python3 -m http.server "$PORT" --directory .
 ```
 
 ## Deployment
