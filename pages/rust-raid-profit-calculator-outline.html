@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rust raid profit calculator outline - RaidBench</title>
+    <meta name="description" content="A simple way to judge whether a raid was worth the sulfur before building a full profit calculator." />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://supermszhanghao-eng.github.io/raidbench/pages/rust-raid-profit-calculator-outline.html" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="../index.html" aria-label="RaidBench home"><span class="brand-mark">RB</span><span>RaidBench</span></a>
+      <nav class="nav" aria-label="Primary"><a href="../index.html#tools">Tools</a><a href="../index.html#guides">Guides</a><a href="../premium.html">Premium</a><a href="../poe2.html">POE2 Lab</a></nav>
+      <a class="header-action" href="../index.html#raid-calculator">Open Calculator</a>
+    </header>
+    <main class="article-main">
+      <a class="breadcrumb" href="../index.html">RaidBench / Rust Guides</a>
+      <section class="article-hero">
+        <h1>Rust raid profit calculator outline</h1>
+        <p>A simple way to judge whether a raid was worth the sulfur before building a full profit calculator.</p>
+        <div class="article-cta">
+          <a class="primary-action" href="../index.html#raid-calculator">Use calculator</a>
+          <a class="secondary-action" href="../premium.html" data-offer-id="raid-prep-pack-9" data-price-usd="9">Get raid prep pack</a>
+        </div>
+      </section>
+      <section class="article-grid">
+        <article class="article-card">
+          <h2>Short answer</h2>
+          <p>A raid is profitable only if recovered value beats sulfur, gear, time, and risk. For early validation, track sulfur spent, boom lost, gear lost, and loot recovered instead of pretending every item has a stable price.</p>
+          
+          <table>
+            <thead>
+              <tr><th>Line item</th><th>Write down</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Sulfur spent</td><td>Total sulfur equivalent from boom used.</td></tr>
+              <tr><td>Gear lost</td><td>Kits, weapons, meds, ammo.</td></tr>
+              <tr><td>Loot recovered</td><td>Sulfur, metal, HQM, comps, weapons.</td></tr>
+              <tr><td>Time cost</td><td>Farm time plus raid time.</td></tr>
+              <tr><td>Risk result</td><td>Counters, deaths, base exposure.</td></tr>
+            </tbody>
+          </table>
+        </article>
+        <article class="article-card">
+          <h2>Checklist</h2>
+          <ul><li>Record estimated sulfur before the raid.</li><li>Record actual sulfur after the raid.</li><li>Separate emotional win from material profit.</li><li>Use the result to choose future targets.</li></ul>
+        </article>
+        <article class="article-card">
+          <h2>Example</h2>
+          <p>A raid that returns guns but burns all sulfur may feel good but still slow down the next objective.</p>
+        </article>
+        <article class="article-card">
+          <h2>Common mistakes</h2>
+          <ul><li>Counting only loot and ignoring boom cost.</li><li>Ignoring failed attempts.</li><li>Calling a raid profitable without tracking actual spend.</li></ul>
+        </article>
+        
+        <article class="article-card">
+          <h2>Related tools and guides</h2>
+          <div class="article-cta">
+            <a class="primary-action" href="../index.html#raid-calculator">Use raid calculator</a>
+            <a class="secondary-action" href="./rust-small-base-target-score.html">rust small base target score</a><a class="secondary-action" href="./rust-sulfur-farming-route.html">rust sulfur farming route</a><a class="secondary-action" href="./rust-cheapest-raid-method.html">rust cheapest raid method</a>
+          </div>
+        </article>
+        <article class="article-card source-list">
+          <h2>Source notes</h2>
+          <ul><li>RaidBench calculator estimates</li><li>Community raid review patterns</li><li>In-game verification recommended</li></ul>
+          <p>Last checked: 2026-07-05. Verify after major Rust patches.</p>
+        </article>
+        <article class="article-card">
+          <h2>Paid worksheet angle</h2>
+          <p>The Rust Raid Prep Pack includes a post-raid review sheet.</p>
+        </article>
+      </section>
+    </main>
+    <footer class="footer"><p>RaidBench is an unofficial fan-made Rust planning guide.</p><p>Verify numbers after major patches.</p></footer>
+    <script src="../config.js"></script>
+    <script src="../analytics.js"></script>
+  </body>
+</html>

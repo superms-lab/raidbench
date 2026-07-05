@@ -245,3 +245,40 @@ Known limitations:
 - POE2 content is intentionally generic because Early Access balance changes frequently.
 - No passive tree renderer, item database, DPS simulator, or economy tracker is built.
 - Content should be refreshed against official POE2 sources before serious SEO expansion.
+
+## Content Automation QA
+
+Status:
+
+```text
+Passed local content automation QA.
+```
+
+Implemented:
+
+- Added `content/rust-problem-guides.json` as the first structured guide dataset.
+- Added `scripts/generate-guides.mjs` to generate guide pages and append sitemap URLs.
+- Added `scripts/collect-content-sources.mjs` to collect lightweight official-source snapshots.
+- Added `operations/review-checklist.md` for human review before publishing generated pages.
+- Generated 10 Rust problem guide pages from structured data.
+- Added generated guide links to the homepage.
+- Added buyer-facing files under `operations/paid-pack/` for the $9 Rust Raid Prep Pack.
+
+Checks completed:
+
+- Ran `node scripts/generate-guides.mjs`; it generated 10 Rust problem guide pages.
+- Re-ran the generator without creating duplicate sitemap URLs.
+- Ran `node scripts/collect-content-sources.mjs`; it wrote `content/inbox/source-snapshot-2026-07-05.json`.
+- JavaScript syntax passed for `scripts/generate-guides.mjs` and `scripts/collect-content-sources.mjs`.
+- Parsed 27 HTML pages with `HTMLParser`.
+- Parsed `sitemap.xml`; it now lists 27 unique URLs, including 10 generated Rust problem guide URLs.
+- Local HTTP checks returned 200 for `/`, a representative generated guide page, and `/sitemap.xml`.
+- Playwright confirmed the homepage exposes 10 generated problem guide links.
+- Playwright confirmed a generated guide page renders 7 content cards, 4 comparison rows, and analytics.
+- Desktop and mobile generated-guide checks had no horizontal overflow.
+- Confirmed the paid pack folder contains 8 buyer-facing files.
+
+Known limitations:
+
+- Source collection records metadata and status only; it does not replace manual/in-game verification.
+- Generated pages still require review after major game patches.

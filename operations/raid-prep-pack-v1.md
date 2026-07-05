@@ -3,6 +3,12 @@
 Status: draft deliverable
 Price target: USD 9
 
+Delivery folder:
+
+```text
+operations/paid-pack/
+```
+
 ## 1. Raid Target Score
 
 Score a target before farming sulfur.

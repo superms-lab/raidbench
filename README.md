@@ -74,6 +74,17 @@ The first 30-day content calendar lives in `operations/30-day-content-calendar.c
 
 The first paid deliverable draft lives in `operations/raid-prep-pack-v1.md`.
 
+The buyer-facing paid pack files live in `operations/paid-pack/`.
+
+Generated guide data lives in `content/rust-problem-guides.json`.
+
+Run:
+
+```bash
+node scripts/generate-guides.mjs
+node scripts/collect-content-sources.mjs
+```
+
 ## Legal Note
 
 RaidBench is an unofficial fan-made planning tool and is not affiliated with or endorsed by Facepunch Studios. All trademarks and game names belong to their respective owners.

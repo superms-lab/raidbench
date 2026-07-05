@@ -1,0 +1,315 @@
+[
+  {
+    "slug": "rust-armored-wall-raid-cost",
+    "title": "Rust armored wall raid cost",
+    "description": "How much boom you need for an armored wall, with sulfur estimates and when to avoid wall-side raids.",
+    "problem": "How much does it cost to raid an armored wall?",
+    "shortAnswer": "An armored wall is one of the most expensive common raid targets. Treat it as a serious commitment: 15 rockets, 8 C4, 46 satchels, or about 800 explosive ammo in the current RaidBench estimate table.",
+    "table": {
+      "headers": ["Method", "Amount", "Estimated sulfur", "Best use"],
+      "rows": [
+        ["Rockets", "15", "21,000", "Fast splash pressure when multiple pieces can be damaged."],
+        ["C4", "8", "17,600", "Direct wall break when splash does not matter."],
+        ["Satchels", "46", "22,080", "Usually too slow unless there is no better option."],
+        ["Explosive ammo", "800", "20,000", "Only when you can shoot safely for a long time."]
+      ]
+    },
+    "checklist": [
+      "Scout the door path before choosing wall-side entry.",
+      "Add a buffer for one extra door or wall.",
+      "Do not commit if counters can easily hold your shooting angle.",
+      "Prefer rockets only if splash damage creates extra value."
+    ],
+    "example": "If the visible path is one armored wall plus one garage door, estimate about 21,000 sulfur for rockets plus 4,200 for the garage door, then add at least a 15-25% buffer.",
+    "mistakes": [
+      "Raiding armored wall-side without checking if the door path is cheaper.",
+      "Bringing exact sulfur with no buffer.",
+      "Using explosive ammo in a spot that exposes the shooter for too long."
+    ],
+    "related": ["rust-garage-door-raid-cost.html", "rust-cheapest-raid-method.html", "rust-solo-raid-checklist.html"],
+    "sources": ["RaidBench calculator estimates", "Facepunch/Rust official updates", "In-game verification recommended after major patches"],
+    "monetization": "Use the Rust Raid Prep Pack to score whether this raid is worth the sulfur before crafting boom."
+  },
+  {
+    "slug": "rust-cheapest-raid-method",
+    "title": "Rust cheapest raid method by target",
+    "description": "Compare the cheapest sulfur path for common Rust raid targets and understand when cheapest is not actually best.",
+    "problem": "Which raid method is cheapest for each target?",
+    "shortAnswer": "The cheapest sulfur method is often explosive ammo or satchels, but the best method depends on speed, safety, splash value, and counters. Use cheapest as the starting point, not the final decision.",
+    "table": {
+      "headers": ["Target", "Lowest estimate", "Tradeoff"],
+      "rows": [
+        ["Sheet Metal Door", "Explosive ammo: 1,575 sulfur", "Slow and exposes shooter."],
+        ["Garage Door", "Explosive ammo: about 3,750 sulfur", "Lower sulfur but high time risk."],
+        ["Stone Wall", "C4: 4,400 sulfur", "Fast but no splash."],
+        ["Sheet Metal Wall", "C4: 8,800 sulfur", "Good direct damage but expensive inventory."],
+        ["Armored Wall", "C4: 17,600 sulfur", "Only worth it if the wall path is truly best."]
+      ]
+    },
+    "checklist": [
+      "Pick the cheapest method first.",
+      "Ask whether speed matters more than sulfur.",
+      "Check whether rockets can splash multiple targets.",
+      "Add risk cost for counters and long shooting time."
+    ],
+    "example": "Explosive ammo can be cheaper for a garage door, but rockets may be better if splash also damages another door, deployable, or wall.",
+    "mistakes": [
+      "Choosing explosive ammo only because it is cheaper on paper.",
+      "Ignoring failed satchel timing and counter risk.",
+      "Forgetting to value rocket splash."
+    ],
+    "related": ["rust-explosive-ammo-vs-rockets.html", "rust-armored-wall-raid-cost.html", "rust-rocket-splash-basics.html"],
+    "sources": ["RaidBench calculator estimates", "Facepunch/Rust official updates", "In-game verification recommended after major patches"],
+    "monetization": "The Rust Raid Prep Pack includes a target scoring worksheet for deciding when cheap is too risky."
+  },
+  {
+    "slug": "rust-solo-raid-checklist",
+    "title": "Rust solo raid checklist",
+    "description": "A practical solo raid checklist for sulfur, inventory, sealing, escape routes, and stop conditions.",
+    "problem": "What should a solo player check before starting a raid?",
+    "shortAnswer": "A solo raid needs a clear stop condition, enough boom for one surprise layer, and a plan for counters. The checklist matters because a solo player cannot split scouting, placing boom, sealing, and fighting as easily as a duo.",
+    "table": {
+      "headers": ["Category", "Bring or decide"],
+      "rows": [
+        ["Boom", "Estimated cost plus one extra layer buffer."],
+        ["Survival", "Meds, ammo, fallback weapon, armor you can afford to lose."],
+        ["Control", "Building plan, seal materials, doors/locks if needed."],
+        ["Exit", "Bank route, backup path, stop condition."]
+      ]
+    },
+    "checklist": [
+      "Calculate the visible path first.",
+      "Add 20-30% sulfur buffer for unknowns.",
+      "Bring seal materials before starting.",
+      "Decide what makes you leave.",
+      "Bank loot early instead of over-staying."
+    ],
+    "example": "For a two-door sheet metal path, plan beyond the visible two doors. Add buffer for an airlock, loot room door, or unexpected garage door.",
+    "mistakes": [
+      "Crafting all sulfur into one boom type before scouting enough.",
+      "Starting without seal materials.",
+      "Continuing after the raid becomes more expensive than the expected loot."
+    ],
+    "related": ["rust-raid-cost-calculator.html", "rust-small-base-target-score.html", "rust-sulfur-farming-route.html"],
+    "sources": ["RaidBench calculator estimates", "Community question patterns", "In-game verification recommended"],
+    "monetization": "The paid pack turns this into a printable pre-raid checklist."
+  },
+  {
+    "slug": "rust-duo-raid-roles",
+    "title": "Rust duo raid roles checklist",
+    "description": "A simple duo raid role split for boom placement, counter-watch, sealing, and loot movement.",
+    "problem": "How should two players split roles during a raid?",
+    "shortAnswer": "A duo raid works best when one player owns the raid path and one player owns safety. Without role clarity, duos waste time, miss counters, and lose loot during the breach.",
+    "table": {
+      "headers": ["Role", "Primary job", "Backup job"],
+      "rows": [
+        ["Boom lead", "Place boom and call next target.", "Track remaining sulfur."],
+        ["Security", "Watch counters and flank angles.", "Carry seal materials."],
+        ["Loot runner", "Move high-value loot early.", "Call stop condition."],
+        ["Both", "Know exit and bank route.", "Avoid tunnel vision."]
+      ]
+    },
+    "checklist": [
+      "Agree who places boom before leaving base.",
+      "Keep one player watching during every breach.",
+      "Move loot in waves, not only at the end.",
+      "Have a shared stop condition."
+    ],
+    "example": "If the boom lead is breaking a garage door, the second player should not stare at the door. They should hold the flank and prepare seal materials.",
+    "mistakes": [
+      "Both players looting at the same time.",
+      "No one carrying seal materials.",
+      "Switching boom types mid-raid without recalculating cost."
+    ],
+    "related": ["rust-solo-raid-checklist.html", "rust-garage-door-path-example.html", "rust-raid-cost-calculator.html"],
+    "sources": ["RaidBench calculator estimates", "Community question patterns", "In-game verification recommended"],
+    "monetization": "The Rust Raid Prep Pack includes a duo role sheet."
+  },
+  {
+    "slug": "rust-why-did-my-base-decay",
+    "title": "Why did my Rust base decay?",
+    "description": "Common reasons a Rust base decays, including missing upkeep, wrong material, tool cupboard issues, and building changes.",
+    "problem": "Why did my base start decaying even though I thought it had upkeep?",
+    "shortAnswer": "Most decay problems come from one of four things: the tool cupboard ran out of one required material, the base changed after expansion, upkeep was placed in the wrong TC, or the structure was outside protection.",
+    "table": {
+      "headers": ["Cause", "What to check"],
+      "rows": [
+        ["Missing material", "Stone, metal, HQM, and wood are tracked separately."],
+        ["Base expansion", "New honeycomb or doors increased upkeep."],
+        ["Wrong TC", "Material was placed in a different cupboard."],
+        ["Outside coverage", "Some pieces may not be protected as expected."]
+      ]
+    },
+    "checklist": [
+      "Check every material category, not only total time.",
+      "Recheck upkeep after expanding.",
+      "Keep at least one emergency day before roaming or raiding.",
+      "Use the upkeep estimator for weekly targets."
+    ],
+    "example": "A base can show plenty of stone but still decay metal pieces if the cupboard has no metal fragments left.",
+    "mistakes": [
+      "Only looking at one resource stack.",
+      "Forgetting that upgrades change upkeep.",
+      "Leaving for a raid with no emergency upkeep buffer."
+    ],
+    "related": ["rust-base-upkeep-calculator.html", "rust-tc-upkeep-weekly-sheet.html", "rust-wipe-day-upgrade-order.html"],
+    "sources": ["Facepunch/Rust official updates", "Tool cupboard upkeep behavior", "In-game verification recommended"],
+    "monetization": "The Rust Raid Prep Pack includes a weekly upkeep worksheet."
+  },
+  {
+    "slug": "rust-wipe-day-upgrade-order",
+    "title": "Rust wipe day base upgrade order",
+    "description": "A practical wipe day upgrade order for reducing early raid risk without overbuilding upkeep.",
+    "problem": "What should I upgrade first on wipe day?",
+    "shortAnswer": "On wipe day, upgrade in the order that protects loot and controls upkeep: core security first, then doors, then honeycomb, then comfort and expansion. Overbuilding too early can create upkeep pressure.",
+    "table": {
+      "headers": ["Priority", "Upgrade", "Reason"],
+      "rows": [
+        ["1", "Secure core and TC", "Protect ownership and early loot."],
+        ["2", "Door path", "Doors are common early raid targets."],
+        ["3", "Key walls/honeycomb", "Protect most likely raid side."],
+        ["4", "Storage and workbench area", "Improve function after security."],
+        ["5", "Expansion", "Only after upkeep is manageable."]
+      ]
+    },
+    "checklist": [
+      "Do not expand faster than you can upkeep.",
+      "Prioritize the loot path over decorative space.",
+      "Recalculate weekly upkeep after every major upgrade.",
+      "Keep one emergency upkeep day."
+    ],
+    "example": "A small secure core with a manageable upkeep target is often better than a larger base that becomes expensive before you can defend it.",
+    "mistakes": [
+      "Building a large footprint before farming upkeep.",
+      "Leaving weak doors on an upgraded core.",
+      "Forgetting to add upkeep after upgrading walls."
+    ],
+    "related": ["rust-base-upkeep-calculator.html", "rust-why-did-my-base-decay.html", "rust-small-base-target-score.html"],
+    "sources": ["Facepunch/Rust official updates", "Community base-building questions", "In-game verification recommended"],
+    "monetization": "The paid worksheet helps plan weekly upkeep before expanding."
+  },
+  {
+    "slug": "rust-raid-profit-calculator-outline",
+    "title": "Rust raid profit calculator outline",
+    "description": "A simple way to judge whether a raid was worth the sulfur before building a full profit calculator.",
+    "problem": "Was the raid worth it?",
+    "shortAnswer": "A raid is profitable only if recovered value beats sulfur, gear, time, and risk. For early validation, track sulfur spent, boom lost, gear lost, and loot recovered instead of pretending every item has a stable price.",
+    "table": {
+      "headers": ["Line item", "Write down"],
+      "rows": [
+        ["Sulfur spent", "Total sulfur equivalent from boom used."],
+        ["Gear lost", "Kits, weapons, meds, ammo."],
+        ["Loot recovered", "Sulfur, metal, HQM, comps, weapons."],
+        ["Time cost", "Farm time plus raid time."],
+        ["Risk result", "Counters, deaths, base exposure."]
+      ]
+    },
+    "checklist": [
+      "Record estimated sulfur before the raid.",
+      "Record actual sulfur after the raid.",
+      "Separate emotional win from material profit.",
+      "Use the result to choose future targets."
+    ],
+    "example": "A raid that returns guns but burns all sulfur may feel good but still slow down the next objective.",
+    "mistakes": [
+      "Counting only loot and ignoring boom cost.",
+      "Ignoring failed attempts.",
+      "Calling a raid profitable without tracking actual spend."
+    ],
+    "related": ["rust-small-base-target-score.html", "rust-sulfur-farming-route.html", "rust-cheapest-raid-method.html"],
+    "sources": ["RaidBench calculator estimates", "Community raid review patterns", "In-game verification recommended"],
+    "monetization": "The Rust Raid Prep Pack includes a post-raid review sheet."
+  },
+  {
+    "slug": "rust-explosive-ammo-door-path",
+    "title": "Rust explosive ammo door path",
+    "description": "When explosive ammo makes sense for a door path and when rockets or C4 are safer.",
+    "problem": "Should I use explosive ammo through a door path?",
+    "shortAnswer": "Explosive ammo is attractive when the path is short, the shooting angle is safe, and sulfur efficiency matters. It becomes risky when the raid is loud, exposed, or likely to attract counters before you finish.",
+    "table": {
+      "headers": ["Door", "Explosive ammo estimate", "Risk note"],
+      "rows": [
+        ["Sheet Metal Door", "63", "Efficient if you can shoot safely."],
+        ["Garage Door", "About 150", "Longer exposure; watch counters."],
+        ["Armored Door", "200", "Often too slow under pressure."]
+      ]
+    },
+    "checklist": [
+      "Confirm the angle is safe before starting.",
+      "Bring enough ammo for one extra door.",
+      "Decide when to swap to faster boom.",
+      "Do not tunnel vision while shooting."
+    ],
+    "example": "Explosive ammo can be fine for one sheet door. For several garage doors, the time risk can make rockets or C4 more practical.",
+    "mistakes": [
+      "Using explosive ammo in a high-traffic area.",
+      "Standing exposed while shooting.",
+      "Forgetting ammo/gun durability and counters."
+    ],
+    "related": ["rust-explosive-ammo-vs-rockets.html", "rust-garage-door-raid-cost.html", "rust-solo-raid-checklist.html"],
+    "sources": ["RaidBench calculator estimates", "In-game verification recommended after major patches"],
+    "monetization": "The paid checklist helps choose a stop condition before a long door path."
+  },
+  {
+    "slug": "rust-rocket-splash-basics",
+    "title": "Rust rocket splash basics",
+    "description": "When rocket splash makes a raid path better than the cheapest direct damage method.",
+    "problem": "When are rockets better than cheaper direct damage?",
+    "shortAnswer": "Rockets become better when splash damages more than the first target. If splash is wasted, cheaper direct methods may win. If splash opens several pieces or speeds up pressure, rockets can justify higher sulfur.",
+    "table": {
+      "headers": ["Situation", "Rocket value"],
+      "rows": [
+        ["Single isolated door", "Often low value."],
+        ["Wall plus nearby deployables", "Potentially high value."],
+        ["Grouped doors or splashable path", "High value if aimed well."],
+        ["Online raid pressure", "Speed may matter more than sulfur."]
+      ]
+    },
+    "checklist": [
+      "Look for multiple pieces in splash range.",
+      "Avoid rockets when splash hits nothing useful.",
+      "Use rockets when speed and pressure matter.",
+      "Recalculate if the path changes."
+    ],
+    "example": "A stone wall may cost more with rockets than C4 on paper, but splash can matter if it damages nearby doors or a second wall.",
+    "mistakes": [
+      "Treating rocket cost as only single-target damage.",
+      "Using rockets where splash is wasted.",
+      "Ignoring the value of raid speed."
+    ],
+    "related": ["rust-cheapest-raid-method.html", "rust-stone-wall-raid-cost.html", "rust-explosive-ammo-vs-rockets.html"],
+    "sources": ["RaidBench calculator estimates", "In-game verification recommended after major patches"],
+    "monetization": "The Rust Raid Prep Pack includes a route worksheet for noting splash opportunities."
+  },
+  {
+    "slug": "rust-tc-upkeep-weekly-sheet",
+    "title": "Rust TC upkeep weekly sheet",
+    "description": "Convert tool cupboard daily upkeep into weekly targets with a buffer before raiding or logging off.",
+    "problem": "How much upkeep should I farm for the week?",
+    "shortAnswer": "Multiply each daily tool cupboard resource by seven, then add a buffer before raids, long roams, or offline time. Track wood, stone, metal, and HQM separately.",
+    "table": {
+      "headers": ["Resource", "Daily", "Weekly formula", "Buffer idea"],
+      "rows": [
+        ["Wood", "TC value", "daily x 7", "Add one extra day if used."],
+        ["Stone", "TC value", "daily x 7", "Add 10-20% for expansion."],
+        ["Metal fragments", "TC value", "daily x 7", "Add buffer before upgrading doors."],
+        ["HQM", "TC value", "daily x 7", "Track carefully; small shortages matter."]
+      ]
+    },
+    "checklist": [
+      "Copy daily values from TC.",
+      "Multiply each material separately.",
+      "Add one emergency day.",
+      "Recheck after expanding."
+    ],
+    "example": "If the TC shows 2,500 stone and 800 metal per day, weekly targets are 17,500 stone and 5,600 metal before buffer.",
+    "mistakes": [
+      "Only farming the largest material.",
+      "Forgetting HQM or metal after upgrades.",
+      "Not recalculating after honeycomb."
+    ],
+    "related": ["rust-base-upkeep-calculator.html", "rust-why-did-my-base-decay.html", "rust-wipe-day-upgrade-order.html"],
+    "sources": ["Facepunch/Rust official updates", "Tool cupboard upkeep behavior", "In-game verification recommended"],
+    "monetization": "The paid pack includes a weekly upkeep worksheet."
+  }
+]
