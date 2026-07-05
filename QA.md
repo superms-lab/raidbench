@@ -63,7 +63,7 @@ Passed public GitHub Pages deployment checks.
 Public URL:
 
 ```text
-https://supermszhanghao-eng.github.io/raidbench/
+https://raidbench.com/
 ```
 
 Checks completed:
@@ -313,3 +313,31 @@ Known limitations:
 
 - `config.js` still has an empty `paypalPaymentLink` because the owner's PayPal receiving account is not approved yet.
 - Manual delivery is ready, but automated delivery after payment is not built yet.
+
+## Cloudflare Pages Custom Domain QA
+
+Status:
+
+```text
+Cloudflare Pages deployment is live. Custom domain is added but waiting for DNS CNAME records.
+```
+
+Implemented:
+
+- Created Cloudflare Pages project `raidbench`.
+- Deployed the static site to Cloudflare Pages.
+- Added `raidbench.com` and `www.raidbench.com` as Pages custom domains.
+- Updated canonical URLs, `robots.txt`, `sitemap.xml`, and guide generator output to use `https://raidbench.com`.
+
+Checks completed:
+
+- `https://raidbench.pages.dev/` returned HTTP 200.
+- `https://raidbench.pages.dev/pages/rust-armored-wall-raid-cost.html` returned HTTP 200.
+- Parsed 27 HTML pages with `HTMLParser`.
+- Parsed `sitemap.xml`; it lists 27 unique URLs and all 27 use `https://raidbench.com`.
+- JavaScript syntax checks passed for `app.js`, `analytics.js`, `premium.js`, and `scripts/generate-guides.mjs`.
+
+Known limitations:
+
+- Cloudflare API reports both custom domains as pending with `CNAME record not set`.
+- Wrangler OAuth has Pages write access but not DNS write access, so DNS records must be added in the Cloudflare dashboard or with a DNS-edit API token.

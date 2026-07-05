@@ -12,13 +12,13 @@ PoE2 expansion.
 Site:
 
 ```text
-https://supermszhanghao-eng.github.io/raidbench/
+https://raidbench.com/
 ```
 
 Sitemap:
 
 ```text
-https://supermszhanghao-eng.github.io/raidbench/sitemap.xml
+https://raidbench.com/sitemap.xml
 ```
 
 ## Google Search Console Setup
@@ -26,7 +26,7 @@ https://supermszhanghao-eng.github.io/raidbench/sitemap.xml
 Use URL-prefix verification for the fastest path:
 
 ```text
-https://supermszhanghao-eng.github.io/raidbench/
+https://raidbench.com/
 ```
 
 Recommended verification options:
@@ -43,17 +43,17 @@ After verification:
 
 Priority URLs to inspect first:
 
-- `https://supermszhanghao-eng.github.io/raidbench/`
-- `https://supermszhanghao-eng.github.io/raidbench/pages/rust-raid-cost-calculator.html`
-- `https://supermszhanghao-eng.github.io/raidbench/pages/rust-garage-door-raid-cost.html`
-- `https://supermszhanghao-eng.github.io/raidbench/pages/rust-explosive-ammo-vs-rockets.html`
+- `https://raidbench.com/`
+- `https://raidbench.com/pages/rust-raid-cost-calculator.html`
+- `https://raidbench.com/pages/rust-garage-door-raid-cost.html`
+- `https://raidbench.com/pages/rust-explosive-ammo-vs-rockets.html`
 
 ## GA4 Setup
 
 Create a GA4 web data stream for:
 
 ```text
-https://supermszhanghao-eng.github.io/raidbench/
+https://raidbench.com/
 ```
 
 Then paste the Measurement ID into `config.js`:

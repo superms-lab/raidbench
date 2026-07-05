@@ -48,7 +48,7 @@ function relatedHtml(items = []) {
 function pageHtml(guide) {
   const title = escapeHtml(guide.title);
   const description = escapeHtml(guide.description);
-  const canonical = `https://supermszhanghao-eng.github.io/raidbench/pages/${guide.slug}.html`;
+  const canonical = `https://raidbench.com/pages/${guide.slug}.html`;
 
   return `<!doctype html>
 <html lang="en">
@@ -126,7 +126,7 @@ let sitemap = fs.readFileSync(sitemapPath, "utf8");
 const insertBefore = "\n</urlset>";
 const existingUrls = new Set([...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => match[1]));
 const newUrls = data
-  .map((guide) => `https://supermszhanghao-eng.github.io/raidbench/pages/${guide.slug}.html`)
+  .map((guide) => `https://raidbench.com/pages/${guide.slug}.html`)
   .filter((url) => !existingUrls.has(url))
   .map(
     (url) => `  <url>

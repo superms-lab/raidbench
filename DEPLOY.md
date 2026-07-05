@@ -37,7 +37,7 @@ Do not use port `4173` for this project.
 Current expected GitHub Pages URL:
 
 ```text
-https://supermszhanghao-eng.github.io/raidbench/
+https://raidbench.com/
 ```
 
 Then update:
@@ -49,7 +49,7 @@ Then update:
 Current GitHub Pages deployment:
 
 ```text
-https://supermszhanghao-eng.github.io/raidbench/
+https://raidbench.com/
 ```
 
 Repository:

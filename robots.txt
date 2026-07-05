@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://supermszhanghao-eng.github.io/raidbench/sitemap.xml
+Sitemap: https://raidbench.com/sitemap.xml

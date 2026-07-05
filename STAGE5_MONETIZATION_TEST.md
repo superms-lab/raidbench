@@ -29,7 +29,7 @@ Delivery: manual first, automated later
 Public offer page:
 
 ```text
-https://supermszhanghao-eng.github.io/raidbench/premium.html
+https://raidbench.com/premium.html
 ```
 
 Current mode:

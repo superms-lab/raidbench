@@ -14,7 +14,7 @@ hosting.
 Current site:
 
 ```text
-https://supermszhanghao-eng.github.io/raidbench/
+https://raidbench.com/
 ```
 
 Current hosting:
