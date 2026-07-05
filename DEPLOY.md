@@ -46,10 +46,22 @@ Then update:
 - `sitemap.xml`
 - Open Graph URL metadata if added later
 
+Current GitHub Pages deployment:
+
+```text
+https://supermszhanghao-eng.github.io/raidbench/
+```
+
+Repository:
+
+```text
+https://github.com/supermszhanghao-eng/raidbench
+```
+
 ## Stage 2 Checklist
 
-- Deploy static site.
-- Confirm `/`, `/robots.txt`, and `/sitemap.xml` are reachable.
+- Deploy static site. Done on GitHub Pages.
+- Confirm `/`, `/robots.txt`, and `/sitemap.xml` are reachable. Done.
 - Add the site to Google Search Console.
 - Submit sitemap.
 - Add analytics.

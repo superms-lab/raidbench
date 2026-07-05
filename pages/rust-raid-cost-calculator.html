@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rust Raid Cost Calculator - RaidBench</title>
+    <meta
+      name="description"
+      content="Use the RaidBench Rust raid cost calculator to estimate rockets, C4, satchels, explosive ammo, sulfur, and gunpowder before a raid."
+    />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://supermszhanghao-eng.github.io/raidbench/pages/rust-raid-cost-calculator.html" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="../index.html" aria-label="RaidBench home">
+        <span class="brand-mark">RB</span>
+        <span>RaidBench</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="../index.html#tools">Tools</a>
+        <a href="../index.html#guides">Guides</a>
+        <a href="../index.html#database">Database</a>
+      </nav>
+      <a class="header-action" href="../index.html#raid-calculator">Open Calculator</a>
+    </header>
+    <main class="article-main">
+      <a class="breadcrumb" href="../index.html">RaidBench / Guides</a>
+      <section class="article-hero">
+        <h1>Rust raid cost calculator</h1>
+        <p>
+          Estimate how many rockets, C4 charges, satchels, explosive ammo rounds, sulfur, and
+          gunpowder you need before committing to a raid path.
+        </p>
+        <div class="article-cta">
+          <a class="primary-action" href="../index.html#raid-calculator">Use the live calculator</a>
+          <a class="secondary-action" href="./rust-explosive-ammo-vs-rockets.html">Compare methods</a>
+        </div>
+      </section>
+      <section class="article-grid">
+        <article class="article-card">
+          <h2>Quick reference</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Target</th>
+                <th>Rockets</th>
+                <th>C4</th>
+                <th>Satchels</th>
+                <th>Explosive ammo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Sheet Metal Door</td><td>2</td><td>1</td><td>4</td><td>63</td></tr>
+              <tr><td>Garage Door</td><td>3</td><td>2</td><td>9</td><td>About 150</td></tr>
+              <tr><td>Armored Door</td><td>4</td><td>2</td><td>12</td><td>200</td></tr>
+              <tr><td>Stone Wall</td><td>4</td><td>2</td><td>10</td><td>185</td></tr>
+              <tr><td>Sheet Metal Wall</td><td>8</td><td>4</td><td>23</td><td>400</td></tr>
+              <tr><td>Armored Wall</td><td>15</td><td>8</td><td>46</td><td>800</td></tr>
+            </tbody>
+          </table>
+        </article>
+        <article class="article-card">
+          <h2>How to use it</h2>
+          <ol>
+            <li>Pick the target: door, wall, or common base layer.</li>
+            <li>Choose the raid method you expect to use.</li>
+            <li>Add every target in the planned path, including backup doors and walls.</li>
+            <li>Check the sulfur estimate, then add a buffer for missed splash and counters.</li>
+          </ol>
+        </article>
+        <article class="article-card source-list">
+          <h2>Sources and notes</h2>
+          <p>
+            RaidBench keeps conservative community estimates and should be checked after major Rust
+            updates. Useful external references:
+            <a href="https://wiki.facepunch.com/rust/">Facepunch Rust Wiki</a>,
+            <a href="https://rusthelp.com/">RustHelp</a>, and
+            <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2881742212">community raid cost charts</a>.
+          </p>
+        </article>
+      </section>
+    </main>
+    <footer class="footer">
+      <p>RaidBench is an unofficial fan-made planning tool and is not affiliated with or endorsed by Facepunch Studios.</p>
+      <p>All trademarks and game names belong to their respective owners.</p>
+    </footer>
+  </body>
+</html>
