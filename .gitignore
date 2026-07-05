@@ -2,3 +2,6 @@
 operations/paid-pack/RaidBench-Rust-Raid-Prep-Pack-v1.html
 operations/paid-pack/RaidBench-Rust-Raid-Prep-Pack-v1.pdf
 operations/paid-pack/RaidBench-Rust-Raid-Prep-Pack-v1.csv
+
+# Wrangler local cache.
+.wrangler/
