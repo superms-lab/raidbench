@@ -1,6 +1,6 @@
 # Cloud Hosting Options
 
-Last updated: 2026-07-05
+Last updated: 2026-07-15
 
 ## Principle
 
@@ -20,11 +20,17 @@ https://raidbench.com/
 Current hosting:
 
 ```text
-GitHub Pages
+Cloudflare Pages
 ```
 
-This is acceptable for the static MVP because it costs nothing and does not depend on the local
-computer.
+This is acceptable for the static MVP because it costs nothing, does not depend on the local
+computer, and already hosts `raidbench.com` plus `www.raidbench.com`.
+
+Current Cloudflare Pages project:
+
+```text
+raidbench
+```
 
 ## Recommended Next Cloud Path
 
@@ -95,8 +101,8 @@ Use a VPS only when:
 
 Use this order:
 
-1. Keep the current GitHub Pages site for static validation.
-2. Move frontend to Cloudflare Pages when a custom domain is ready.
+1. Keep the current Cloudflare Pages static site for content and SEO validation.
+2. Use GitHub as the source archive and change history.
 3. Add Cloudflare Workers + D1 for credits and PayPal webhook handling.
 4. Consider a VPS only after repeated paid usage exists.
 
@@ -114,7 +120,7 @@ This keeps cost low and avoids managing a server too early.
 
 ## Current Blockers
 
-- No purchased cloud account/server yet.
+- No VPS is needed yet.
 - No real PayPal Business payment link yet.
 - No GA4 Measurement ID yet.
 - No Search Console verification yet.
