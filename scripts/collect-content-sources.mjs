@@ -3,6 +3,12 @@ import path from "node:path";
 
 const root = process.cwd();
 const outDir = path.join(root, "content", "inbox");
+const today = new Intl.DateTimeFormat("en-CA", {
+  timeZone: "Asia/Shanghai",
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+}).format(new Date());
 const sources = [
   {
     id: "rust-official",
@@ -77,6 +83,6 @@ for (const source of sources) {
   }
 }
 
-const outputPath = path.join(outDir, `source-snapshot-${new Date().toISOString().slice(0, 10)}.json`);
+const outputPath = path.join(outDir, `source-snapshot-${today}.json`);
 fs.writeFileSync(outputPath, `${JSON.stringify(results, null, 2)}\n`);
 console.log(`Wrote ${outputPath}`);

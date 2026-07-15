@@ -1,0 +1,273 @@
+[
+  {
+    "slug": "poe2-outdated-build-guide-checklist",
+    "title": "POE2 outdated build guide checklist",
+    "description": "A quick checklist for deciding whether a Path of Exile 2 build guide is still safe to follow after patches and economy shifts.",
+    "problem": "How do I know if a POE2 build guide is outdated?",
+    "shortAnswer": "Treat every build guide as version-sensitive until it proves otherwise. A good POE2 guide names the patch context, explains leveling separately from endgame, lists required items, and gives budget fallbacks when trade prices move.",
+    "table": {
+      "headers": ["Check", "Good signal", "Warning sign"],
+      "rows": [
+        ["Patch context", "Names the current update or recent balance period.", "No date, no patch, or comments say it stopped working."],
+        ["Leveling path", "Separates campaign skills from endgame setup.", "Only shows final gear and assumes you already have it."],
+        ["Defenses", "Explains life, energy shield, resistances, recovery, and mobility.", "Only talks about damage numbers."],
+        ["Required items", "Marks uniques, weapon type, gems, and substitutions.", "One expensive item quietly carries the whole build."],
+        ["Boss plan", "Shows where damage windows and movement matter.", "Only clears easy packs in a highlight clip."]
+      ]
+    },
+    "checklist": [
+      "Look for the last updated date before copying passive, gem, or gear choices.",
+      "Check whether the guide still matches the current class, skill, and endgame systems.",
+      "Write down the required items before committing to the build.",
+      "Confirm there is a cheap version that still works before expensive upgrades.",
+      "Avoid builds that hide defenses behind perfect gear."
+    ],
+    "example": "If a build says it is a league starter but needs a rare weapon, multiple specific affixes, and a unique jewel before the damage works, treat it as an endgame build with a leveling problem.",
+    "mistakes": [
+      "Copying a high-budget showcase as a starter build.",
+      "Ignoring patch comments under the guide.",
+      "Buying one expensive item before checking the rest of the gear path.",
+      "Following a build with no defensive explanation."
+    ],
+    "related": ["poe2-starter-build-checklist.html", "poe2-endgame-defense-checklist.html", "poe2-build-audit-product.html"],
+    "sources": ["Official Path of Exile news and patch context", "Official Path of Exile 2 product information", "Community demand signals from Reddit, Steam discussions, and guide comments"],
+    "monetization": "A paid Build Audit can turn this checklist into a personalized pass/fail review before a player spends currency."
+  },
+  {
+    "slug": "poe2-endgame-defense-checklist",
+    "title": "POE2 endgame defense checklist",
+    "description": "A defensive readiness checklist for POE2 players entering endgame maps, bosses, and harder encounters.",
+    "problem": "Why does my POE2 build die in endgame?",
+    "shortAnswer": "Most early endgame deaths come from missing defensive layers, not only low damage. Before blaming the skill, check resistances, recovery, movement, crowd control risk, and whether your gear actually supports the build's stated defenses.",
+    "table": {
+      "headers": ["Layer", "Question to answer", "Why it matters"],
+      "rows": [
+        ["Resistances", "Are key resistances capped for the content you are running?", "Uncapped damage types make normal hits feel like one-shots."],
+        ["Life or ES", "Is your main pool high enough for mistakes?", "Glass builds need cleaner execution and better gear."],
+        ["Recovery", "Can you recover after a partial hit?", "No recovery turns every mistake into a death spiral."],
+        ["Mobility", "Can you leave danger quickly?", "Boss and rare mechanics punish slow repositioning."],
+        ["Damage uptime", "Can you deal damage while staying safe?", "Standing still too long is often the real failure point."]
+      ]
+    },
+    "checklist": [
+      "Record your actual defensive stats before changing damage gear.",
+      "Separate map deaths from boss deaths; they often need different fixes.",
+      "Check whether your build guide assumes defensive gear you do not have.",
+      "Practice the boss movement pattern before forcing more damage.",
+      "Upgrade recovery and mobility before chasing a small DPS gain."
+    ],
+    "example": "A player may have enough tooltip damage for a boss but still fail because the build requires standing still during unsafe windows. The fix may be mobility timing, not a new weapon.",
+    "mistakes": [
+      "Replacing defensive gear with damage gear too early.",
+      "Following a showcase build that assumes perfect positioning.",
+      "Ignoring recovery until every fight feels unfair.",
+      "Changing skills before identifying the death pattern."
+    ],
+    "related": ["poe2-boss-prep-checklist.html", "poe2-outdated-build-guide-checklist.html", "poe2-build-audit-product.html"],
+    "sources": ["Official Path of Exile news and patch context", "Official Path of Exile 2 product information", "Community player questions about endgame survivability"],
+    "monetization": "A paid Progression Fix can ask for the player's class, skill, gear blockers, and death pattern, then return a prioritized defense checklist."
+  },
+  {
+    "slug": "poe2-boss-prep-checklist",
+    "title": "POE2 boss prep checklist",
+    "description": "A practical POE2 boss preparation checklist covering defenses, movement, damage windows, and attempt review.",
+    "problem": "What should I check before attempting a POE2 boss?",
+    "shortAnswer": "A boss attempt should have a short prep loop: confirm defenses, know the dangerous mechanic, plan movement, define damage windows, and review why the previous attempt failed. Do not keep retrying with the same blind setup.",
+    "table": {
+      "headers": ["Step", "What to write down", "Decision"],
+      "rows": [
+        ["Defenses", "Resistances, main pool, recovery, mobility.", "Fix obvious gaps before spending attempts."],
+        ["Mechanic", "The one attack or phase that kills you most.", "Practice avoiding that first."],
+        ["Damage window", "When you can safely stand still or commit.", "Stop attacking during unsafe windows."],
+        ["Gear swap", "One small defensive or utility swap to test.", "Change one variable at a time."],
+        ["Review", "Death cause after each attempt.", "Do not guess after repeated failures."]
+      ]
+    },
+    "checklist": [
+      "Record what killed the previous attempt.",
+      "Add one defensive or utility change before the next attempt.",
+      "Identify safe damage windows instead of holding DPS constantly.",
+      "Keep movement available for known danger phases.",
+      "Stop after repeated deaths and review the build, not just execution."
+    ],
+    "example": "If the boss only kills you during one phase, changing your main damage skill may not help. A mobility, recovery, or resistance adjustment may produce the fastest improvement.",
+    "mistakes": [
+      "Retrying immediately without identifying the death cause.",
+      "Over-focusing on damage while ignoring movement timing.",
+      "Changing five gear pieces at once and losing track of what helped.",
+      "Assuming every boss problem is a build problem."
+    ],
+    "related": ["poe2-endgame-defense-checklist.html", "poe2-starter-build-checklist.html", "poe2-build-audit-product.html"],
+    "sources": ["Official Path of Exile news and patch context", "Official Path of Exile 2 product information", "Community boss-help question patterns"],
+    "monetization": "A paid Boss Prep Pack can provide a one-page attempt plan and review template for a specific boss."
+  },
+  {
+    "slug": "poe2-loot-filter-setup-checklist",
+    "title": "POE2 loot filter setup checklist",
+    "description": "A beginner-safe POE2 loot filter checklist for reducing screen clutter without hiding progression items too early.",
+    "problem": "How should I set up a POE2 loot filter without missing important items?",
+    "shortAnswer": "A loot filter should match your stage of progression. Early players need readability without hiding useful bases, currency, and upgrades; later players can tighten the filter around their build and farming route.",
+    "table": {
+      "headers": ["Stage", "Filter goal", "Avoid"],
+      "rows": [
+        ["Campaign", "Keep upgrades, currency, and useful bases visible.", "Using an endgame-strict filter too early."],
+        ["Early endgame", "Highlight build-relevant bases and currency.", "Hiding items before you understand their value."],
+        ["Farming route", "Reduce noise around the content you repeat.", "Copying a filter made for a different economy or build."],
+        ["Review", "Update after patch or build changes.", "Assuming one filter fits the whole season."]
+      ]
+    },
+    "checklist": [
+      "Start less strict if you are still learning item value.",
+      "Keep build-relevant weapon and armor bases visible.",
+      "Review filter settings after changing builds.",
+      "Do not copy a high-end farming filter for campaign progression.",
+      "Use a manual review list for items you are unsure about."
+    ],
+    "example": "A new player may think a stricter filter is better, but hiding too much early can remove learning signals and slow upgrades.",
+    "mistakes": [
+      "Using a streamer filter without understanding its assumptions.",
+      "Hiding progression bases too early.",
+      "Never updating the filter after changing builds.",
+      "Treating the filter as an economy guide."
+    ],
+    "related": ["poe2-item-value-triage.html", "poe2-currency-farming-checklist.html", "poe2-starter-build-checklist.html"],
+    "sources": ["Official Path of Exile news and patch context", "Official Path of Exile 2 product information", "Community demand around loot filtering and item value confusion"],
+    "monetization": "A paid Item Triage can help players decide which item categories to keep visible for their current build stage."
+  },
+  {
+    "slug": "poe2-currency-farming-checklist",
+    "title": "POE2 currency farming checklist",
+    "description": "A POE2 currency farming checklist for choosing repeatable content, avoiding over-investment, and tracking profit honestly.",
+    "problem": "What is the best POE2 currency farming strategy for my build?",
+    "shortAnswer": "The best farming route is the one your build can repeat quickly and safely. Before copying a high-end strategy, check entry cost, death risk, clear speed, trade effort, and whether your build can handle the content consistently.",
+    "table": {
+      "headers": ["Question", "Why it matters", "Track"],
+      "rows": [
+        ["Can I clear it safely?", "Deaths erase time and momentum.", "Deaths per run."],
+        ["What is the entry cost?", "Some strategies need investment first.", "Cost before returns."],
+        ["How long is one loop?", "Slow loops hide poor profit.", "Minutes per run."],
+        ["Can I sell the output?", "Paper value is not cash flow.", "Items actually sold."],
+        ["Does my build fit?", "Not every build farms every mechanic well.", "Failed or skipped encounters."]
+      ]
+    },
+    "checklist": [
+      "Choose one repeatable route before changing your whole build.",
+      "Track ten runs before judging profit.",
+      "Count deaths, entry cost, and unsold items.",
+      "Prefer stable farming over risky high-roll claims.",
+      "Upgrade only the bottleneck that slows the route."
+    ],
+    "example": "A flashy route that needs expensive setup may be worse than a safer route your build can repeat with low deaths and low trade friction.",
+    "mistakes": [
+      "Calling a route profitable based on one lucky drop.",
+      "Ignoring entry cost and failed runs.",
+      "Copying a strategy from a build with much better clear speed.",
+      "Counting items at listed value instead of sold value."
+    ],
+    "related": ["poe2-endgame-route-scorecard.html", "poe2-item-value-triage.html", "poe2-build-audit-product.html"],
+    "sources": ["Official Path of Exile news and patch context", "Official Path of Exile 2 product information", "Community questions about currency farming and endgame efficiency"],
+    "monetization": "A paid Farming Route Scorecard can help players pick a route based on their build strength and time budget."
+  },
+  {
+    "slug": "poe2-item-value-triage",
+    "title": "POE2 item value triage",
+    "description": "A simple POE2 item value triage flow for deciding what to inspect, keep, price-check, or ignore.",
+    "problem": "How do I know if a POE2 item is worth keeping or selling?",
+    "shortAnswer": "Do not try to price every drop. Triage items by build relevance, base type, useful affix combinations, required level, and whether there is actual trade demand. A fast decision flow is more useful than perfect price knowledge.",
+    "table": {
+      "headers": ["Decision", "Keep looking if", "Move on if"],
+      "rows": [
+        ["Build relevance", "It matches a popular skill, weapon, or defense need.", "It has random stats with no clear user."],
+        ["Base quality", "The base type is desirable for current builds.", "The base is weak for its level or slot."],
+        ["Affix group", "Several useful stats work together.", "Good stats fight each other or support no plan."],
+        ["Liquidity", "Similar items appear to sell.", "Only fantasy listings exist."],
+        ["Personal use", "It improves your current build now.", "It would sit in stash indefinitely."]
+      ]
+    },
+    "checklist": [
+      "Sort drops into use, price-check, craft-test, and ignore buckets.",
+      "Do not stash every maybe item.",
+      "Check whether the item solves a real build problem.",
+      "Watch for affixes that work together, not isolated high numbers.",
+      "Review stale stash tabs weekly."
+    ],
+    "example": "An item with one impressive stat may still be worthless if the rest of the item does not support a real build or trade buyer.",
+    "mistakes": [
+      "Keeping everything because it might be useful later.",
+      "Overpricing items that never sell.",
+      "Ignoring build context when judging affixes.",
+      "Confusing listed prices with completed demand."
+    ],
+    "related": ["poe2-loot-filter-setup-checklist.html", "poe2-currency-farming-checklist.html", "poe2-build-audit-product.html"],
+    "sources": ["Official Path of Exile news and patch context", "Official Path of Exile 2 product information", "Community item-price and loot confusion patterns"],
+    "monetization": "A paid Item Value Decision can use a short intake form and return keep/sell/vendor/craft guidance."
+  },
+  {
+    "slug": "poe2-endgame-route-scorecard",
+    "title": "POE2 endgame route scorecard",
+    "description": "A POE2 endgame route scorecard for comparing farming, bossing, mapping, and progression choices.",
+    "problem": "Which POE2 endgame route should I run next?",
+    "shortAnswer": "Choose endgame content by fit, not hype. Score each route by build compatibility, safety, investment cost, learning burden, trade friction, and whether it moves your next upgrade forward.",
+    "table": {
+      "headers": ["Score area", "Low score", "High score"],
+      "rows": [
+        ["Build fit", "Your build struggles with the mechanic.", "Your build clears it naturally."],
+        ["Safety", "Frequent deaths or failed runs.", "Stable completion with low deaths."],
+        ["Investment", "Requires gear or entry cost you cannot sustain.", "Can start with current resources."],
+        ["Learning", "You do not understand why runs fail.", "Mistakes are clear and fixable."],
+        ["Upgrade path", "Rewards do not help your next goal.", "Outputs directly fund or support upgrades."]
+      ]
+    },
+    "checklist": [
+      "List two possible routes and score both before switching.",
+      "Run a small test batch instead of changing your whole plan.",
+      "Track completion rate before profit claims.",
+      "Do not run content your build barely survives.",
+      "Pick the route that funds the next upgrade, not the most popular route."
+    ],
+    "example": "A route can be worse for a top player but better for you if it has fewer deaths, less setup cost, and clearer upgrades.",
+    "mistakes": [
+      "Switching route every time a video claims a new best strategy.",
+      "Ignoring failure rate.",
+      "Counting rewards that you cannot sell or use.",
+      "Choosing bossing when the build is still a mapping build."
+    ],
+    "related": ["poe2-currency-farming-checklist.html", "poe2-endgame-defense-checklist.html", "poe2-build-audit-product.html"],
+    "sources": ["Official Path of Exile news and patch context", "Official Path of Exile 2 product information", "Community endgame progression and farming-route questions"],
+    "monetization": "A paid Route Scorecard can convert player goals, build state, and time budget into a suggested next route."
+  },
+  {
+    "slug": "poe2-build-audit-product",
+    "title": "POE2 build audit product",
+    "description": "A draft paid product design for POE2 players who want a build, boss, farming, or item decision review.",
+    "problem": "What should RaidBench charge for in POE2?",
+    "shortAnswer": "The first paid POE2 product should be a lightweight audit, not a full planner. Players can submit class, skill, level, goal, gear blockers, and current pain point; RaidBench returns a prioritized checklist rather than promising a perfect build.",
+    "table": {
+      "headers": ["Paid action", "Credits", "Output"],
+      "rows": [
+        ["Build Audit", "10", "Patch-sensitivity, defenses, gear blockers, next three fixes."],
+        ["Boss Prep", "6", "Attempt checklist, defensive swaps, movement reminders."],
+        ["Farming Route Score", "8", "Route fit, risk, entry cost, and tracking sheet."],
+        ["Item Value Decision", "3", "Keep, sell, vendor, craft-test, or personal-use note."],
+        ["Progression Plan", "15", "Priority roadmap for campaign, early endgame, or upgrade path."]
+      ]
+    },
+    "checklist": [
+      "Use intake forms so the product is repeatable.",
+      "Avoid promising exact DPS or guaranteed profit.",
+      "State that advice is patch-sensitive and unofficial.",
+      "Deliver a concise checklist within a defined time window.",
+      "Keep evidence of delivery for refund and payment disputes."
+    ],
+    "example": "A player submits a build that dies in early endgame. The paid output should not be a giant essay; it should identify the top three likely blockers and the next test run.",
+    "mistakes": [
+      "Selling copied build guides.",
+      "Promising best-in-slot results without current data.",
+      "Charging for vague advice that free guides already provide.",
+      "Building a full planner before proving people will pay for audits."
+    ],
+    "related": ["poe2-outdated-build-guide-checklist.html", "poe2-endgame-defense-checklist.html", "poe2-currency-farming-checklist.html"],
+    "sources": ["Official Path of Exile news and patch context", "Official Path of Exile 2 product information", "RaidBench monetization test plan"],
+    "monetization": "This is the POE2 paid offer backbone for USD, EUR, and GBP pricing."
+  }
+]

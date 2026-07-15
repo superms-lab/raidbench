@@ -1,0 +1,62 @@
+[
+  {
+    "id": "rust-official",
+    "track": "Rust",
+    "url": "https://rust.facepunch.com/news",
+    "purpose": "Official Rust news and patch context",
+    "ok": true,
+    "status": 200,
+    "fetchedAt": "2026-07-15T00:52:26.993Z",
+    "title": "News — Rust",
+    "description": "",
+    "bytesSampled": 41531
+  },
+  {
+    "id": "rust-commits",
+    "track": "Rust",
+    "url": "https://commits.facepunch.com/r/rust_reboot",
+    "purpose": "Official Rust commit stream for change awareness",
+    "ok": true,
+    "status": 200,
+    "fetchedAt": "2026-07-15T00:52:27.961Z",
+    "title": "Facepunch Commits",
+    "description": "",
+    "bytesSampled": 120000
+  },
+  {
+    "id": "poe2-official",
+    "track": "POE2",
+    "url": "https://pathofexile2.com/",
+    "purpose": "Official Path of Exile 2 product and update context",
+    "ok": true,
+    "status": 200,
+    "fetchedAt": "2026-07-15T00:52:29.399Z",
+    "title": "Path of Exile 2",
+    "description": "",
+    "bytesSampled": 7399
+  },
+  {
+    "id": "poe-news",
+    "track": "POE2",
+    "url": "https://www.pathofexile.com/news",
+    "purpose": "Official Path of Exile news and patch context",
+    "ok": true,
+    "status": 200,
+    "fetchedAt": "2026-07-15T00:52:30.468Z",
+    "title": "News - Path of Exile - A Free Online Action RPG",
+    "description": "Path of Exile is a free online-only action RPG under development by Grinding Gear Games in New Zealand.",
+    "bytesSampled": 23821
+  },
+  {
+    "id": "poe2-steam",
+    "track": "POE2",
+    "url": "https://store.steampowered.com/app/2694490/Path_of_Exile_2/",
+    "purpose": "Steam store positioning and player-facing metadata",
+    "ok": true,
+    "status": 200,
+    "fetchedAt": "2026-07-15T00:52:30.761Z",
+    "title": "Site Error",
+    "description": "",
+    "bytesSampled": 30074
+  }
+]

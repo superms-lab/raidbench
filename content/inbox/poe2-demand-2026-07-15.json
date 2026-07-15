@@ -1,0 +1,66 @@
+[
+  {
+    "id": "poe2-reddit-hot",
+    "type": "reddit-listing",
+    "url": "https://www.reddit.com/r/PathOfExile2/hot.json?limit=25",
+    "purpose": "Current high-engagement POE2 community questions and complaints",
+    "ok": false,
+    "status": 0,
+    "fetchedAt": "2026-07-14T16:34:59.803Z",
+    "error": "fetch failed"
+  },
+  {
+    "id": "poe2-reddit-build-help",
+    "type": "reddit-search",
+    "url": "https://www.reddit.com/r/PathOfExile2/search.json?q=build%20help&restrict_sr=1&sort=new&limit=25",
+    "purpose": "Recent build-help demand",
+    "ok": false,
+    "status": 0,
+    "fetchedAt": "2026-07-14T16:35:10.319Z",
+    "error": "fetch failed"
+  },
+  {
+    "id": "poe2-reddit-boss-help",
+    "type": "reddit-search",
+    "url": "https://www.reddit.com/r/PathOfExile2/search.json?q=boss%20help&restrict_sr=1&sort=new&limit=25",
+    "purpose": "Recent boss-prep demand",
+    "ok": false,
+    "status": 0,
+    "fetchedAt": "2026-07-14T16:35:20.834Z",
+    "error": "fetch failed"
+  },
+  {
+    "id": "poe2-reddit-loot-filter",
+    "type": "reddit-search",
+    "url": "https://www.reddit.com/r/PathOfExile2/search.json?q=loot%20filter&restrict_sr=1&sort=new&limit=25",
+    "purpose": "Recent loot-filter demand",
+    "ok": false,
+    "status": 0,
+    "fetchedAt": "2026-07-14T16:35:31.352Z",
+    "error": "fetch failed"
+  },
+  {
+    "id": "poe2-official-news",
+    "type": "html-title",
+    "url": "https://www.pathofexile.com/news",
+    "purpose": "Official patch and news context",
+    "ok": true,
+    "status": 200,
+    "fetchedAt": "2026-07-14T16:35:32.242Z",
+    "contentType": "text/html; charset=UTF-8",
+    "title": "News - Path of Exile - A Free Online Action RPG",
+    "bytesSampled": 23630
+  },
+  {
+    "id": "poe2-official-site",
+    "type": "html-title",
+    "url": "https://pathofexile2.com/",
+    "purpose": "Official product context",
+    "ok": true,
+    "status": 200,
+    "fetchedAt": "2026-07-14T16:35:33.514Z",
+    "contentType": "text/html; charset=UTF-8",
+    "title": "Path of Exile 2",
+    "bytesSampled": 7399
+  }
+]

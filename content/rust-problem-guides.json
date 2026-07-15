@@ -90,7 +90,7 @@
       "Starting without seal materials.",
       "Continuing after the raid becomes more expensive than the expected loot."
     ],
-    "related": ["rust-raid-cost-calculator.html", "rust-small-base-target-score.html", "rust-sulfur-farming-route.html"],
+    "related": ["rust-raid-cost-calculator.html", "rust-cheapest-raid-method.html", "rust-sulfur-farming-route.html"],
     "sources": ["RaidBench calculator estimates", "Community question patterns", "In-game verification recommended"],
     "monetization": "The paid pack turns this into a printable pre-raid checklist."
   },
@@ -121,7 +121,7 @@
       "No one carrying seal materials.",
       "Switching boom types mid-raid without recalculating cost."
     ],
-    "related": ["rust-solo-raid-checklist.html", "rust-garage-door-path-example.html", "rust-raid-cost-calculator.html"],
+    "related": ["rust-solo-raid-checklist.html", "rust-garage-door-raid-cost.html", "rust-raid-cost-calculator.html"],
     "sources": ["RaidBench calculator estimates", "Community question patterns", "In-game verification recommended"],
     "monetization": "The Rust Raid Prep Pack includes a duo role sheet."
   },
@@ -184,7 +184,7 @@
       "Leaving weak doors on an upgraded core.",
       "Forgetting to add upkeep after upgrading walls."
     ],
-    "related": ["rust-base-upkeep-calculator.html", "rust-why-did-my-base-decay.html", "rust-small-base-target-score.html"],
+    "related": ["rust-base-upkeep-calculator.html", "rust-why-did-my-base-decay.html", "rust-cheapest-raid-method.html"],
     "sources": ["Facepunch/Rust official updates", "Community base-building questions", "In-game verification recommended"],
     "monetization": "The paid worksheet helps plan weekly upkeep before expanding."
   },
@@ -216,7 +216,7 @@
       "Ignoring failed attempts.",
       "Calling a raid profitable without tracking actual spend."
     ],
-    "related": ["rust-small-base-target-score.html", "rust-sulfur-farming-route.html", "rust-cheapest-raid-method.html"],
+    "related": ["rust-raid-cost-calculator.html", "rust-sulfur-farming-route.html", "rust-cheapest-raid-method.html"],
     "sources": ["RaidBench calculator estimates", "Community raid review patterns", "In-game verification recommended"],
     "monetization": "The Rust Raid Prep Pack includes a post-raid review sheet."
   },
