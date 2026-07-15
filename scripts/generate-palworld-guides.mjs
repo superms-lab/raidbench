@@ -6,6 +6,7 @@ const dataPath = path.join(root, "content", "palworld-problem-guides.json");
 const pagesDir = path.join(root, "pages");
 const data = JSON.parse(fs.readFileSync(dataPath, "utf8"));
 const lastmod = "2026-07-15";
+const hiddenPattern = /(paid|product|credit)/i;
 
 function escapeHtml(value = "") {
   return String(value)
@@ -35,13 +36,14 @@ function listHtml(items = []) {
 }
 
 function relatedHtml(items = []) {
-  if (!items.length) return "";
+  const publicItems = items.filter((item) => !hiddenPattern.test(item));
+  if (!publicItems.length) return "";
   return `
         <article class="article-card">
           <h2>Related Palworld guides</h2>
           <div class="article-cta">
             <a class="primary-action" href="../palworld.html">Open Palworld Lab</a>
-            ${items.map((item) => `<a class="secondary-action" href="./${escapeHtml(item)}">${escapeHtml(item.replace(".html", "").replaceAll("-", " "))}</a>`).join("")}
+            ${publicItems.map((item) => `<a class="secondary-action" href="./${escapeHtml(item)}">${escapeHtml(item.replace(".html", "").replaceAll("-", " "))}</a>`).join("")}
           </div>
         </article>`;
 }
@@ -50,6 +52,7 @@ function pageHtml(guide) {
   const title = escapeHtml(guide.title);
   const description = escapeHtml(guide.description);
   const canonical = `https://raidbench.com/pages/${guide.slug}.html`;
+  const hiddenDraft = hiddenPattern.test(guide.slug);
 
   return `<!doctype html>
 <html lang="en">
@@ -58,15 +61,15 @@ function pageHtml(guide) {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>${title} - RaidBench</title>
     <meta name="description" content="${description}" />
-    <meta name="robots" content="index,follow" />
+    <meta name="robots" content="${hiddenDraft ? "noindex,nofollow" : "index,follow"}" />
     <link rel="canonical" href="${canonical}" />
-    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="../styles.css?v=20260715b" />
   </head>
   <body>
     <header class="site-header">
       <a class="brand" href="../index.html" aria-label="RaidBench home"><span class="brand-mark">RB</span><span>RaidBench</span></a>
-      <nav class="nav" aria-label="Primary"><a href="../palworld.html">Palworld Lab</a><a href="../premium.html">Premium</a><a href="../poe2.html">POE2 Lab</a><a href="../index.html#guides">Rust Guides</a></nav>
-      <a class="header-action" href="../premium.html#palworld-credits">Palworld Credits</a>
+      <nav class="nav" aria-label="Primary"><a href="../palworld.html">Palworld Lab</a><a href="../poe2.html">POE2 Lab</a><a href="../index.html#guides">Rust Guides</a></nav>
+      <a class="header-action" href="../palworld.html">Open Lab</a>
     </header>
     <main class="article-main">
       <a class="breadcrumb" href="../palworld.html">RaidBench / Palworld Lab</a>
@@ -74,7 +77,7 @@ function pageHtml(guide) {
         <h1>${title}</h1>
         <p>${description}</p>
         <div class="article-cta">
-          <a class="primary-action" href="../premium.html#palworld-credits">View planning credits</a>
+          <a class="primary-action" href="#checklist">Run the checklist</a>
           <a class="secondary-action" href="../palworld.html">Back to Palworld Lab</a>
         </div>
       </section>
@@ -84,7 +87,7 @@ function pageHtml(guide) {
           <p>${escapeHtml(guide.shortAnswer)}</p>
           ${tableHtml(guide.table)}
         </article>
-        <article class="article-card">
+        <article class="article-card" id="checklist">
           <h2>Checklist</h2>
           ${listHtml(guide.checklist)}
         </article>
@@ -101,10 +104,6 @@ function pageHtml(guide) {
           <h2>Source notes</h2>
           ${listHtml(guide.sources)}
           <p>Last checked: ${lastmod}. Refresh after major Palworld updates, balance changes, or repeated community questions.</p>
-        </article>
-        <article class="article-card">
-          <h2>Paid angle</h2>
-          <p>${escapeHtml(guide.monetization)}</p>
         </article>
       </section>
     </main>
@@ -127,6 +126,7 @@ let sitemap = fs.readFileSync(sitemapPath, "utf8");
 const insertBefore = "\n</urlset>";
 const existingUrls = new Set([...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => match[1]));
 const newUrls = data
+  .filter((guide) => !hiddenPattern.test(guide.slug))
   .map((guide) => `https://raidbench.com/pages/${guide.slug}.html`)
   .filter((url) => !existingUrls.has(url))
   .map(

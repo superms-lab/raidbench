@@ -7,12 +7,6 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://raidbench.com/premium.html</loc>
-    <lastmod>2026-07-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://raidbench.com/poe2.html</loc>
     <lastmod>2026-07-05</lastmod>
     <changefreq>weekly</changefreq>
@@ -229,12 +223,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://raidbench.com/pages/poe2-build-audit-product.html</loc>
-    <lastmod>2026-07-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://raidbench.com/pages/palworld-beginner-progression-checklist.html</loc>
     <lastmod>2026-07-15</lastmod>
     <changefreq>weekly</changefreq>
@@ -266,12 +254,6 @@
   </url>
   <url>
     <loc>https://raidbench.com/pages/palworld-resource-route-planner.html</loc>
-    <lastmod>2026-07-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://raidbench.com/pages/palworld-paid-product-menu.html</loc>
     <lastmod>2026-07-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>

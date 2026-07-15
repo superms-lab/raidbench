@@ -121,7 +121,7 @@
       "Bring a team with clear roles.",
       "Check gear durability and ammo before entering.",
       "Change one variable after a failed attempt.",
-      "Do not rely on bug behavior for a paid strategy."
+      "Do not rely on bug behavior for a bug-dependent strategy."
     ],
     "example": "If the boss repeatedly wins during one phase, the fix may be movement timing or type coverage rather than simply grinding more levels.",
     "mistakes": [

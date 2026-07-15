@@ -32,7 +32,7 @@ body {
     linear-gradient(180deg, #0f1211 0%, #121713 46%, #0e1110 100%);
   color: var(--text);
   font-family:
-    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    "IBM Plex Sans", "Aptos", "Segoe UI", ui-sans-serif, system-ui, sans-serif;
 }
 
 a {
@@ -161,12 +161,51 @@ main {
   letter-spacing: 0;
 }
 
+.eyebrow {
+  margin: 0 0 12px;
+  color: var(--amber-strong);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.tool-intro .eyebrow,
+.premium-hero .eyebrow {
+  margin: 0 0 12px;
+  color: var(--amber-strong);
+  font-size: 12px;
+  font-weight: 900;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
 .tool-intro p {
   margin: 16px 0 0;
   max-width: 560px;
   color: var(--muted);
   font-size: 16px;
   line-height: 1.62;
+}
+
+.hook-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.hook-strip span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 11px;
+  border: 1px solid rgba(115, 214, 154, 0.34);
+  border-radius: 8px;
+  background: rgba(115, 214, 154, 0.08);
+  color: #c5f5d6;
+  font-size: 13px;
+  font-weight: 850;
 }
 
 .hero-visual {
@@ -495,6 +534,11 @@ th {
   padding: 14px;
 }
 
+.diagnostic-box {
+  border-color: rgba(115, 214, 154, 0.34);
+  background: rgba(115, 214, 154, 0.07);
+}
+
 .cta-box .monetization-link {
   margin-top: 14px;
 }
@@ -510,6 +554,13 @@ th {
   border-radius: 8px;
   background:
     linear-gradient(135deg, rgba(229, 162, 58, 0.13), rgba(115, 214, 154, 0.06)),
+    var(--bg-soft);
+}
+
+.diagnostic-band {
+  border-color: rgba(115, 214, 154, 0.34);
+  background:
+    linear-gradient(135deg, rgba(115, 214, 154, 0.13), rgba(229, 162, 58, 0.06)),
     var(--bg-soft);
 }
 

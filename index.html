@@ -16,7 +16,7 @@
       content="Estimate rockets, C4, satchels, explosive ammo, sulfur, and weekly upkeep for Rust base planning."
     />
     <meta property="og:type" content="website" />
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./styles.css?v=20260715b" />
   </head>
   <body>
     <header class="site-header">
@@ -30,7 +30,6 @@
         <a href="#database">Database</a>
         <a href="./palworld.html">Palworld Lab</a>
         <a href="./poe2.html">POE2 Lab</a>
-        <a href="./premium.html">Premium</a>
         <a href="#updates">Updates</a>
       </nav>
       <a class="header-action" href="#raid-calculator">Open Calculator</a>
@@ -40,11 +39,17 @@
       <section class="tool-grid" id="tools" aria-label="Rust planning tools">
         <article class="panel raid-panel" id="raid-calculator">
           <div class="tool-intro">
-            <h1 id="hero-title">Rust raid cost and upkeep planning in one clean bench.</h1>
+            <p class="eyebrow">Unofficial player planning lab</p>
+            <h1 id="hero-title">Find the expensive mistake before you commit the run.</h1>
             <p>
               Estimate common raid paths, sulfur requirements, and weekly base upkeep before you
               farm, scout, or commit to a target.
             </p>
+            <div class="hook-strip" aria-label="RaidBench value points">
+              <span>Cost first</span>
+              <span>Patch-aware notes</span>
+              <span>No checkout required</span>
+            </div>
           </div>
           <div class="panel-heading">
             <div>
@@ -228,7 +233,7 @@
             <span>12</span>
             <div>
               <h3>POE2 Build Audit Lab</h3>
-              <p>Version-aware build, boss, item, and farming checklists before paid audits open.</p>
+              <p>Version-aware build, boss, item, and farming checklists for early decision checks.</p>
             </div>
           </a>
         </div>
@@ -274,13 +279,13 @@
             Early validation content should answer narrow searches: sheet door costs, garage door
             choices, stone-wall math, and when rockets beat satchels.
           </p>
-          <div class="cta-box">
-            <h3>$9 raid prep pack</h3>
+          <div class="cta-box diagnostic-box">
+            <h3>Decision hook</h3>
             <p>
-              The first monetization test is a lightweight checklist and worksheet pack, not an
-              account system or credits ledger.
+              A player should leave with one clear answer: raid now, farm more, change path, or
+              avoid the target.
             </p>
-            <a class="secondary-action monetization-link" href="./premium.html" data-offer-id="raid-prep-pack-9" data-price-usd="9">View premium test</a>
+            <a class="secondary-action" href="#raid-calculator">Run the calculator</a>
           </div>
         </article>
       </section>
@@ -367,15 +372,16 @@
         </div>
       </section>
 
-      <section class="monetization-band" id="premium">
+      <section class="monetization-band diagnostic-band" id="diagnostic">
         <div>
-          <h2>Premium validation test</h2>
+          <h2>Player decision bench</h2>
           <p>
-            If the free calculator gets real use, the first paid offer will be a simple $9 Raid
-            Prep Pack with planning worksheets and checklists.
+            RaidBench is built around small decisions players make under pressure: whether a raid
+            path is worth the sulfur, whether a base can survive the week, and whether a guide is
+            still safe after an update.
           </p>
         </div>
-        <a class="primary-action" href="./premium.html" data-offer-id="raid-prep-pack-9" data-price-usd="9">Open $9 offer</a>
+        <a class="primary-action" href="#guides">Open free guides</a>
       </section>
 
       <section class="lab-band" id="poe2-lab">
@@ -397,7 +403,7 @@
           <h2>Validation mode</h2>
           <p>
             This MVP is built to test search traffic and tool usage first. Payments, accounts, and
-            credits come after the tool proves repeat value.
+            customer accounts stay hidden until the collection and delivery workflow is ready.
           </p>
         </div>
         <form class="email-form">

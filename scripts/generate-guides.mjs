@@ -59,12 +59,12 @@ function pageHtml(guide) {
     <meta name="description" content="${description}" />
     <meta name="robots" content="index,follow" />
     <link rel="canonical" href="${canonical}" />
-    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="../styles.css?v=20260715b" />
   </head>
   <body>
     <header class="site-header">
       <a class="brand" href="../index.html" aria-label="RaidBench home"><span class="brand-mark">RB</span><span>RaidBench</span></a>
-      <nav class="nav" aria-label="Primary"><a href="../index.html#tools">Tools</a><a href="../index.html#guides">Guides</a><a href="../premium.html">Premium</a><a href="../poe2.html">POE2 Lab</a></nav>
+      <nav class="nav" aria-label="Primary"><a href="../index.html#tools">Tools</a><a href="../index.html#guides">Guides</a><a href="../palworld.html">Palworld Lab</a><a href="../poe2.html">POE2 Lab</a></nav>
       <a class="header-action" href="../index.html#raid-calculator">Open Calculator</a>
     </header>
     <main class="article-main">
@@ -74,7 +74,7 @@ function pageHtml(guide) {
         <p>${description}</p>
         <div class="article-cta">
           <a class="primary-action" href="../index.html#raid-calculator">Use calculator</a>
-          <a class="secondary-action" href="../premium.html" data-offer-id="raid-prep-pack-9" data-price-usd="9">Get raid prep pack</a>
+          <a class="secondary-action" href="../index.html#guides">Open guide index</a>
         </div>
       </section>
       <section class="article-grid">
@@ -100,10 +100,6 @@ function pageHtml(guide) {
           <h2>Source notes</h2>
           ${listHtml(guide.sources)}
           <p>Last checked: 2026-07-05. Verify after major Rust patches.</p>
-        </article>
-        <article class="article-card">
-          <h2>Paid worksheet angle</h2>
-          <p>${escapeHtml(guide.monetization)}</p>
         </article>
       </section>
     </main>
