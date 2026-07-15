@@ -63,7 +63,10 @@ function pageHtml(guide) {
     <meta name="description" content="${description}" />
     <meta name="robots" content="${hiddenDraft ? "noindex,nofollow" : "index,follow"}" />
     <link rel="canonical" href="${canonical}" />
-    <link rel="stylesheet" href="../styles.css?v=20260715b" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#101312" />
+    <link rel="stylesheet" href="../styles.css?v=20260715d" />
   </head>
   <body>
     <header class="site-header">

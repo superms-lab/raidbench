@@ -1,0 +1,15 @@
+{
+  "name": "RaidBench",
+  "short_name": "RaidBench",
+  "description": "Unofficial player planning tools and guide checklists.",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "64x64",
+      "type": "image/svg+xml"
+    }
+  ],
+  "theme_color": "#101312",
+  "background_color": "#101312",
+  "display": "standalone"
+}
