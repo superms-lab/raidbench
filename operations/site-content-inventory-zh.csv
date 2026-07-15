@@ -1,0 +1,10 @@
+route,public_surface,owner_zh_summary,risk_level,risk_note,publish_status
+/,Home,Rust raid 成本与维护成本工具首页，核心钩子是帮助玩家行动前避免昂贵错误,low,当前无付费入口，No checkout required 可以保留,published
+/palworld.html,Palworld Lab,Palworld 基地/自动化/Boss/繁殖/资源路线攻略入口,low,避免漏洞路线的声明应保留,published
+/poe2.html,POE2 Lab,POE2 版本敏感攻略入口，帮助玩家花游戏内 currency 前检查 build/路线/防御,medium,currency 是游戏内通货，玩家语境正常但站长需理解,published
+/privacy.html,Privacy Policy,隐私政策，说明统计数据、邮箱、未来支付处理方式,low,支付商只作为未来可能处理方出现，不是当前售卖承诺,published
+/terms.html,Terms of Service,服务条款，说明非官方、数字产品未来规则、免责声明,low,非官方和版本变化免责声明必须保留,published
+/refund-policy.html,Refund Policy,退款政策，说明当前未启用真实 checkout，未来数字产品退款规则,low,适合等真实支付上线前再复核,published
+/premium.html,Disabled redirect,原 Rust 付费测试页已经替换为安全跳转页,medium,支付和交付闭环完成前不展示付费草案,disabled
+/pages/poe2-build-audit-product.html,Disabled redirect,POE2 付费审计产品草案已替换为安全跳转页,medium,只能放后台或内部文档，不能在支付前公开,disabled
+/pages/palworld-paid-product-menu.html,Disabled redirect,Palworld 付费产品菜单草案已替换为安全跳转页,medium,只能放后台或内部文档，不能在支付前公开,disabled

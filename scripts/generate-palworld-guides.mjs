@@ -121,6 +121,7 @@ function pageHtml(guide) {
 fs.mkdirSync(pagesDir, { recursive: true });
 
 for (const guide of data) {
+  if (hiddenPattern.test(guide.slug)) continue;
   fs.writeFileSync(path.join(pagesDir, `${guide.slug}.html`), pageHtml(guide));
 }
 
@@ -147,4 +148,4 @@ if (newUrls) {
   fs.writeFileSync(sitemapPath, sitemap);
 }
 
-console.log(`Generated ${data.length} Palworld problem guide pages.`);
+console.log(`Generated ${data.filter((guide) => !hiddenPattern.test(guide.slug)).length} Palworld problem guide pages.`);

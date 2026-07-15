@@ -49,7 +49,7 @@ GA4 is configured in `config.js`. Leave `ga4MeasurementId` blank until the real 
 
 Stage 5 notes live in `STAGE5_MONETIZATION_TEST.md`.
 
-The first offer page is `premium.html`. PayPal checkout remains disabled until `premiumOffer.paypalPaymentLink` is configured in `config.js`.
+Public paid offer pages are currently disabled. Keep monetization drafts in `operations/` until payment, support, delivery records, and refund handling are ready.
 
 ## Cloud And Credits
 

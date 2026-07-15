@@ -26,25 +26,15 @@ Delivery: manual first, automated later
 
 ## Current Implementation
 
-Public offer page:
+Public paid offer pages are disabled until payment, support, delivery records, and refund handling
+are ready. Keep monetization drafts in `operations/` rather than deploying them to the public site.
 
-```text
-https://raidbench.com/premium.html
-```
+Internal files:
 
-Current mode:
-
-```text
-Early access / purchase intent only. Real checkout is disabled until PayPal is configured.
-```
-
-Files:
-
-- `premium.html` - offer page.
-- `premium.js` - checkout/interest behavior and events.
-- `config.js` - PayPal payment link configuration.
+- `config.js` - future PayPal payment link configuration.
 - `operations/delivery-log-template.csv` - manual fulfillment record template.
 - `operations/raid-prep-pack-outline.md` - first product outline.
+- `operations/paid-pack/` - draft paid deliverable files.
 
 ## PayPal Setup
 
@@ -68,7 +58,7 @@ window.RAIDBENCH_CONFIG = {
 };
 ```
 
-Do not enable payment until delivery records are ready.
+Do not enable payment or publish paid product pages until delivery records are ready.
 
 Detailed setup checklist:
 

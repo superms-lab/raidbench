@@ -23,8 +23,17 @@ npx wrangler pages deploy /tmp/raidbench-pages --project-name raidbench --branch
 ```
 
 Create `/tmp/raidbench-pages` from the public static files only. Do not upload the whole repository
-because it contains operations docs, scripts, and source snapshots that are not needed on the public
-site.
+because it contains operations docs, scripts, source snapshots, and monetization drafts that are not
+needed on the public site.
+
+Current public-file copy list:
+
+```bash
+rm -rf /tmp/raidbench-pages
+mkdir -p /tmp/raidbench-pages
+cp -R assets pages /tmp/raidbench-pages/
+cp _headers _redirects favicon.svg site.webmanifest index.html poe2.html palworld.html premium.html privacy.html terms.html refund-policy.html styles.css app.js config.js analytics.js robots.txt sitemap.xml /tmp/raidbench-pages/
+```
 
 ## Static Site Settings
 
