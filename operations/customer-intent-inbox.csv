@@ -1,0 +1,2 @@
+date,source,url,game,language,chinese_summary,pain_type,urgency,willingness_to_pay,safe_to_reply,link_allowed,reply_level,draft_english_reply,status,result,next_content_action
+2026-07-15,example,https://example.com/thread,palworld,en,玩家不知道基地生产链为什么卡住,base_automation,medium,possible,yes,unknown,L1,"Short answer: split the issue into worker suitability, storage distance, and queue priority. Test one change at a time before moving the whole base.",draft,not_posted,Turn repeated base bottleneck questions into scorecard improvements
