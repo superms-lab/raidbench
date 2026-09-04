@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "status",
+    "target_title",
+    "target_reddit_url",
+    "published_at",
+    "intent_zh",
+    "draft_text",
+    "verification_note"
+  ],
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": ["candidate", "none"]
+    },
+    "target_title": {
+      "type": "string"
+    },
+    "target_reddit_url": {
+      "type": "string"
+    },
+    "published_at": {
+      "type": "string"
+    },
+    "intent_zh": {
+      "type": "string"
+    },
+    "draft_text": {
+      "type": "string"
+    },
+    "verification_note": {
+      "type": "string"
+    }
+  }
+}

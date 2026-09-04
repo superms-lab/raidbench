@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RaidBench Rust Raid Cost Widget</title>
+    <meta name="robots" content="noindex,nofollow" />
+    <link rel="stylesheet" href="../embed.css?v=20260820a" />
+  </head>
+  <body>
+    <main class="widget" aria-label="Rust raid cost calculator">
+      <header>
+        <a class="widget-brand" href="https://raidbench.com/?utm_source=embed&amp;utm_medium=referral&amp;utm_campaign=rust_widget" target="_blank" rel="noopener noreferrer">RaidBench</a>
+        <span>Vanilla Rust PC</span>
+      </header>
+
+      <div class="widget-controls">
+        <label>
+          Target
+          <select id="embed-target"></select>
+        </label>
+        <label>
+          Method
+          <select id="embed-method">
+            <option value="rockets">Rockets</option>
+            <option value="c4">C4</option>
+            <option value="satchels">Satchels</option>
+            <option value="explosiveAmmo">Explosive ammo</option>
+          </select>
+        </label>
+        <label>
+          Quantity
+          <input id="embed-quantity" type="number" min="1" max="99" value="1" inputmode="numeric" />
+        </label>
+      </div>
+
+      <section class="widget-result" aria-live="polite">
+        <div><span>Items</span><strong id="embed-items">0</strong></div>
+        <div><span>Sulfur</span><strong id="embed-sulfur">0</strong></div>
+        <div><span>Gunpowder</span><strong id="embed-gunpowder">0</strong></div>
+      </section>
+
+      <footer>
+        <span id="embed-reviewed">Patch-aware reference</span>
+        <a id="embed-full-route" href="https://raidbench.com/" target="_blank" rel="noopener noreferrer">Plan the full route</a>
+      </footer>
+    </main>
+
+    <script src="../raid-data.js?v=20260820a"></script>
+    <script src="../route-state.js?v=20260820a"></script>
+    <script src="../config.js?v=20260820a"></script>
+    <script src="../analytics.js?v=20260820a"></script>
+    <script src="../embed.js?v=20260820a"></script>
+  </body>
+</html>

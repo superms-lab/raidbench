@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "project-zomboid-save-change-risk",
+  "gameId": "project-zomboid",
+  "reviewedAt": "2026-09-03",
+  "instructions": "Replace the default inputs with current player-entered values, then retain the assumptions with any shared result.",
+  "inputs": {
+    "saveImportance": 5,
+    "modCount": 10,
+    "changeScope": 3,
+    "compatibilityConfidence": 2,
+    "backupReady": 0
+  },
+  "assumptions": [
+    "This is a RaidBench planning score, not a probability of corruption.",
+    "A complete backup includes the save data needed to restore the world, not only a screenshot or settings note.",
+    "Change one variable at a time when possible."
+  ]
+}

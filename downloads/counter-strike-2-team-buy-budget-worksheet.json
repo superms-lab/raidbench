@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "counter-strike-2-team-buy-budget",
+  "gameId": "counter-strike-2",
+  "reviewedAt": "2026-09-03",
+  "instructions": "Replace the default inputs with current player-entered values, then retain the assumptions with any shared result.",
+  "inputs": {
+    "players": 5,
+    "averageCash": 4200,
+    "carriedValue": 0,
+    "targetKitCost": 4800,
+    "nextRoundReserve": 5000
+  },
+  "assumptions": [
+    "Enter current in-game values; the tool does not embed weapon or utility prices.",
+    "Average cash is a planning shortcut and cannot replace checking extreme differences between players.",
+    "Carried equipment value is optional and should include only usable equipment."
+  ]
+}

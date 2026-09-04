@@ -46,6 +46,35 @@ Returns current computed balance.
 }
 ```
 
+### GET /api/products
+
+Returns draft or active credit packs and action costs. Do not expose draft checkout URLs until a real payment provider is approved.
+
+```json
+{
+  "checkoutEnabled": false,
+  "packs": [
+    {
+      "sku": "credits-starter-100",
+      "name": "Starter Credits",
+      "credits": 100,
+      "prices": {
+        "USD": 4.99,
+        "EUR": 4.99,
+        "GBP": 4.49
+      }
+    }
+  ],
+  "actions": [
+    {
+      "id": "poe2-build-audit",
+      "label": "POE2 Build Audit",
+      "credits": 10
+    }
+  ]
+}
+```
+
 ### POST /api/credits/quote
 
 Request:
@@ -98,3 +127,7 @@ Must be idempotent by PayPal event ID and transaction ID.
 ### GET /api/admin/ledger
 
 Admin-only ledger export for dispute and reconciliation work.
+
+### GET /api/admin/deliveries
+
+Admin-only export of paid advice delivery records for customer support, refund review, and tax/accounting evidence.

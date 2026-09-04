@@ -1,0 +1,21 @@
+[Unit]
+Description=Publish the weekly RaidBench calculator presets and data assets
+Wants=network-online.target docker.service
+After=network-online.target docker.service
+Requires=docker.service
+StartLimitIntervalSec=2h
+StartLimitBurst=4
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/raidbench-publisher
+ExecStartPre=/usr/bin/install -d -o raidbench-agent -g raidbench-agent -m 0750 /opt/raidbench-publisher/workspace/.wrangler /opt/raidbench-publisher/workspace/.wrangler/tmp
+ExecStartPre=/usr/bin/chown -R raidbench-agent:raidbench-agent /opt/raidbench-publisher/workspace
+ExecStart=/usr/bin/docker compose -f /opt/raidbench-publisher/compose.yaml run --rm --no-deps -e RAIDBENCH_DIST_DIR=/tmp/raidbench-pages content-agent node scripts/publish-weekly-growth-assets.mjs
+TimeoutStartSec=30min
+Restart=on-failure
+RestartSec=20min
+Nice=10
+
+[Install]
+WantedBy=multi-user.target

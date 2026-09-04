@@ -1,0 +1,5 @@
+date,channel,game,title_or_topic,target_url,status,risk_level,owner_notes,result_url,metrics_notes
+2026-07-20,owned_site,POE2,POE2 campaign to endgame checklist,/pages/poe2-campaign-to-endgame-checklist.html,planned,green,,,
+2026-07-22,owned_site,Rust,Rust raid buffer calculator guide,/pages/rust-raid-buffer-calculator-guide.html,planned,green,,,
+2026-07-24,owned_site,Palworld,Palworld base automation scorecard,/pages/palworld-base-automation-scorecard.html,planned,green,,,
+2026-07-28,forum_draft,POE2,How do I know if a build guide is outdated?,/pages/poe2-outdated-build-guide-checklist.html,draft,yellow,,,

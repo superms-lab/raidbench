@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Player Account - RaidBench</title>
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="description" content="RaidBench player account for verified answers, credits, and delivery history." />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content="#101312" />
+    <link rel="stylesheet" href="./styles.css?v=20260720c" />
+    <link rel="stylesheet" href="./customer.css?v=20260904b" />
+  </head>
+  <body class="account-page">
+    <header class="site-header account-header">
+      <a class="brand" href="./index.html" aria-label="RaidBench home">
+        <span class="brand-mark">RB</span>
+        <span>RaidBench</span>
+      </a>
+      <span class="account-header-label">Player account</span>
+      <button class="secondary-action account-signout" id="signout-button" type="button" hidden>Sign out</button>
+    </header>
+
+    <main class="account-shell">
+      <section class="account-auth" id="auth-view">
+        <div class="auth-visual">
+          <img src="./assets/survival-base.png" alt="Original survival base landscape artwork" />
+          <div class="auth-visual-copy">
+            <h1>Raid math checked twice.</h1>
+            <p>Because sulfur is expensive and confidence should not be.</p>
+          </div>
+        </div>
+        <div class="auth-workspace">
+          <div class="auth-access" id="auth-access-view">
+            <div>
+              <h2>Open your RaidBench account</h2>
+              <p>Credits, requests, evidence, and completed answers stay together in one account.</p>
+            </div>
+
+            <div class="purchase-intent" id="purchase-intent" hidden>
+              <span>Selected offer</span>
+              <strong id="purchase-intent-title"></strong>
+              <p id="purchase-intent-copy"></p>
+            </div>
+
+            <button class="primary-action demo-entry" id="demo-entry" type="button" hidden>
+              Open local demo account
+            </button>
+
+            <div class="auth-divider" id="auth-divider"><span>Account access</span></div>
+            <div class="segmented-control" role="tablist" aria-label="Account access mode">
+              <button type="button" role="tab" data-auth-mode="login" aria-selected="true">Sign in</button>
+              <button type="button" role="tab" data-auth-mode="register" aria-selected="false">Create account</button>
+            </div>
+
+            <form class="auth-form" id="auth-form">
+              <label class="register-only" hidden>
+                Display name
+                <input name="displayName" type="text" maxlength="80" autocomplete="name" />
+              </label>
+              <label>
+                Email
+                <input name="email" type="email" required autocomplete="email" />
+              </label>
+              <label>
+                Password
+                <input name="password" type="password" minlength="10" maxlength="200" required autocomplete="current-password" />
+              </label>
+              <label class="register-only" hidden>
+                Region
+                <select name="region">
+                  <option value="US">United States</option>
+                  <option value="CA">Canada</option>
+                </select>
+              </label>
+              <button class="primary-action" type="submit" id="auth-submit">Sign in</button>
+            </form>
+            <button class="auth-link" id="forgot-password" type="button" hidden>Forgot your password?</button>
+            <p class="auth-help" id="password-help">Need help signing in? Contact <a href="mailto:support@raidbench.com">support@raidbench.com</a>.</p>
+          </div>
+
+          <section class="auth-recovery" id="reset-request-view" hidden>
+            <div>
+              <p class="account-kicker">Account recovery</p>
+              <h2>Return to the workbench</h2>
+              <p>Enter your account email. If it matches an account, we will send a single-use link valid for 30 minutes.</p>
+            </div>
+            <form class="auth-form" id="reset-request-form">
+              <label>
+                Account email
+                <input name="email" type="email" required autocomplete="email" />
+              </label>
+              <button class="primary-action" type="submit" id="reset-request-submit">Send reset link</button>
+              <button class="secondary-action auth-back" type="button" data-auth-back>Back to sign in</button>
+            </form>
+            <p class="auth-notice" id="reset-request-status" role="status" hidden></p>
+          </section>
+
+          <section class="auth-recovery" id="reset-confirm-view" hidden>
+            <div>
+              <p class="account-kicker">Secure account recovery</p>
+              <h2>Set a new password</h2>
+              <p>Use at least 10 characters. Completing this step signs out every existing session for the account.</p>
+            </div>
+            <form class="auth-form" id="reset-confirm-form">
+              <label>
+                New password
+                <input name="password" type="password" minlength="10" maxlength="200" required autocomplete="new-password" />
+              </label>
+              <label>
+                Confirm new password
+                <input name="passwordConfirm" type="password" minlength="10" maxlength="200" required autocomplete="new-password" />
+              </label>
+              <button class="primary-action" type="submit" id="reset-confirm-submit">Update password</button>
+              <button class="secondary-action auth-back" type="button" data-auth-back>Back to sign in</button>
+            </form>
+          </section>
+        </div>
+      </section>
+
+      <section class="account-app" id="app-view" hidden>
+        <div class="account-masthead">
+          <div>
+            <p class="account-kicker">Verified game decisions</p>
+            <h1 id="account-greeting">Welcome back.</h1>
+            <p>Use instant Rust calculations or send a Palworld bottleneck for an evidence-bounded review with independent QA.</p>
+          </div>
+          <div class="balance-block">
+            <span>Available credits</span>
+            <strong id="credit-balance">0</strong>
+            <small id="reserved-credits" hidden></small>
+            <button class="secondary-action" type="button" data-open-tab="credits">Add credits</button>
+          </div>
+        </div>
+
+        <div class="service-rail" aria-label="Delivery commitments">
+          <div><span>Rust calculation</span><strong>Under 10 seconds</strong></div>
+          <div><span>Palworld review</span><strong>Typically under 10 minutes</strong></div>
+          <div><span>Unsupported data</span><strong>No charge</strong></div>
+          <div><span>Primary delivery</span><strong>Inside your account</strong></div>
+        </div>
+
+        <div class="account-tabs" role="tablist" aria-label="Player account sections">
+          <button type="button" role="tab" data-tab="ask" aria-selected="true">Ask RaidBench</button>
+          <button type="button" role="tab" data-tab="answers" aria-selected="false">My answers <span id="answer-count">0</span></button>
+          <button type="button" role="tab" data-tab="credits" aria-selected="false">Credits</button>
+        </div>
+
+        <section class="account-panel" id="tab-ask" data-tab-panel="ask">
+          <div class="request-heading">
+            <div>
+              <h2>Choose a verified review</h2>
+              <p>Every paid result states its evidence boundary, review date, limitations, and QA decision. Unsupported requests close without a charge.</p>
+            </div>
+            <div class="segmented-control answer-mode" role="tablist" aria-label="Answer type">
+              <button type="button" role="tab" data-answer-mode="instant" aria-selected="true">Route check</button>
+              <button type="button" role="tab" data-answer-mode="raid_plan" aria-selected="false">Raid plan</button>
+              <button type="button" role="tab" data-answer-mode="palworld" id="palworld-mode" aria-selected="false" hidden>Palworld review</button>
+            </div>
+          </div>
+
+          <form class="request-form" id="instant-form">
+            <div class="request-fields">
+              <label>
+                Target
+                <select name="targetId" id="instant-target" required></select>
+              </label>
+              <label>
+                Quantity
+                <input name="quantity" type="number" min="1" max="99" value="1" required />
+              </label>
+              <label>
+                Breach method
+                <select name="method" id="instant-method" required></select>
+              </label>
+              <label>
+                Decision priority
+                <select name="routePreference">
+                  <option value="lowest_sulfur">Lowest sulfur</option>
+                  <option value="fewest_items">Fewest placements</option>
+                </select>
+              </label>
+            </div>
+            <div class="request-fields inventory-fields">
+              <label>
+                Rockets on hand
+                <input name="ownedRockets" type="number" min="0" max="99999" placeholder="Optional" />
+              </label>
+              <label>
+                C4 on hand
+                <input name="ownedC4" type="number" min="0" max="99999" placeholder="Optional" />
+              </label>
+              <label>
+                Satchels on hand
+                <input name="ownedSatchels" type="number" min="0" max="99999" placeholder="Optional" />
+              </label>
+              <label>
+                Explosive ammo on hand
+                <input name="ownedExplosiveAmmo" type="number" min="0" max="99999" placeholder="Optional" />
+              </label>
+              <label>
+                Server rules
+                <select name="serverType">
+                  <option value="vanilla">Vanilla Rust PC</option>
+                  <option value="custom">Custom or modded server</option>
+                </select>
+              </label>
+            </div>
+            <div class="request-submit-row">
+              <div>
+                <strong id="instant-price">10 credits</strong>
+                <span>Includes all four method comparisons, inventory fit, exact shortfalls, evidence, and QA.</span>
+              </div>
+              <button class="primary-action" type="submit">Compare my route</button>
+            </div>
+          </form>
+
+          <form class="request-form" id="plan-form" hidden>
+            <div class="route-lines" id="route-lines"></div>
+            <button class="secondary-action add-route" id="add-route" type="button">Add another breach layer</button>
+            <div class="plan-fields">
+              <label>
+                Planning buffer
+                <select name="bufferPercent">
+                  <option value="10">10%</option>
+                  <option value="15" selected>15%</option>
+                  <option value="20">20%</option>
+                  <option value="0">No buffer</option>
+                </select>
+              </label>
+              <label>
+                Sulfur already available
+                <input name="availableSulfur" type="number" min="0" step="1" placeholder="Optional" />
+              </label>
+              <label>
+                Team size
+                <input name="teamSize" type="number" min="1" max="20" value="1" />
+              </label>
+              <label>
+                Decision priority
+                <select name="routePreference">
+                  <option value="lowest_sulfur">Lowest sulfur</option>
+                  <option value="fewest_items">Fewest placements</option>
+                </select>
+              </label>
+              <label>
+                Server rules
+                <select name="serverType">
+                  <option value="vanilla">Vanilla Rust PC</option>
+                  <option value="custom">Custom or modded server</option>
+                </select>
+              </label>
+            </div>
+            <label class="plan-notes">
+              Planning notes
+              <textarea name="notes" maxlength="1000" rows="3" placeholder="Optional context for this saved plan"></textarea>
+            </label>
+            <div class="request-submit-row">
+              <div>
+                <strong id="plan-price">120 credits</strong>
+                <span>Includes route alternatives, buffer decision, team assignments, stop conditions, evidence, and independent recalculation.</span>
+              </div>
+              <button class="primary-action" type="submit">Build verified raid plan</button>
+            </div>
+          </form>
+
+          <form class="request-form multigame-request" id="palworld-form" hidden>
+            <div class="multigame-intro">
+              <div>
+                <span class="status-tag">Independent QA</span>
+                <h3>Palworld base and progression review</h3>
+                <p>Describe one measurable bottleneck. RaidBench will separate what you observed from what can actually be verified, then return a prioritized test plan.</p>
+              </div>
+              <strong id="palworld-price">80 credits</strong>
+            </div>
+            <div class="request-fields palworld-context-fields">
+              <label>
+                Game version shown in your client
+                <input name="gameVersion" type="text" minlength="2" maxlength="80" placeholder="Example: 1.0.3" required />
+              </label>
+              <label>
+                World or server type
+                <select name="serverType" required>
+                  <option value="">Choose one</option>
+                  <option>Single-player world</option>
+                  <option>Private co-op host</option>
+                  <option>Dedicated server, no production-changing mods</option>
+                  <option>Dedicated server with mods or custom settings</option>
+                </select>
+              </label>
+            </div>
+            <div class="palworld-long-fields">
+              <label>
+                What decision do you need help making?
+                <textarea name="questionText" minlength="20" maxlength="2000" rows="3" placeholder="Example: Ore reaches the work area, but nearby storage never changes. Which handoff should I test first?" required></textarea>
+              </label>
+              <label>
+                Current goal
+                <textarea name="currentGoal" minlength="10" maxlength="1000" rows="2" placeholder="Name one result you want to improve or verify." required></textarea>
+              </label>
+              <label>
+                Current base or progression state
+                <textarea name="baseOrProgressionState" minlength="20" maxlength="2000" rows="4" placeholder="Include the relevant setup, assignments, storage, timestamps, attempt counts, or before-and-after values." required></textarea>
+              </label>
+              <label>
+                Observed problem
+                <textarea name="observedProblem" minlength="10" maxlength="1200" rows="3" placeholder="Report only what you observed. Avoid guessing the cause." required></textarea>
+              </label>
+            </div>
+            <div class="request-submit-row">
+              <div>
+                <strong>Reserved now, charged only after QA approval</strong>
+                <span>Usually delivered inside this account within 10 minutes. If evidence or QA is insufficient, the request closes at 0 credits; hard stop 30 minutes.</span>
+              </div>
+              <button class="primary-action" type="submit">Queue independent review</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="account-panel answers-workspace" id="tab-answers" data-tab-panel="answers" hidden>
+          <div class="answer-index">
+            <div class="section-title-row">
+              <div>
+                <h2>My answers</h2>
+                <p>Completed results and held requests remain visible here.</p>
+              </div>
+            </div>
+            <div class="answer-list" id="answer-list"></div>
+          </div>
+          <article class="answer-detail" id="answer-detail" aria-live="polite">
+            <div class="empty-answer">
+              <h3>No answer selected</h3>
+              <p>Choose a completed answer to open its totals, evidence, and QA record.</p>
+            </div>
+          </article>
+        </section>
+
+        <section class="account-panel" id="tab-credits" data-tab-panel="credits" hidden>
+          <div class="section-title-row">
+            <div>
+              <h2>Credits</h2>
+              <p>USD billing for launch customers in the United States and Canada.</p>
+            </div>
+            <div class="checkout-state" id="checkout-state"></div>
+          </div>
+          <div class="credit-pack-list" id="credit-pack-list"></div>
+          <div class="checkout-disclosure">
+            <div class="merchant-disclosure" id="merchant-disclosure"></div>
+            <label class="checkout-consent">
+              <input id="checkout-consent" type="checkbox" />
+              <span>I accept the <a href="./terms.html" target="_blank" rel="noopener">Terms</a> and <a href="./refund-policy.html" target="_blank" rel="noopener">Refund Policy</a>, and request immediate delivery of credits to this account after payment confirmation.</span>
+            </label>
+          </div>
+          <p class="credit-policy">Unused credits remain in the account. Verified answers are charged only after QA; stale, unsupported, or custom-server requests are held with no debit.</p>
+          <section class="order-history-section" aria-labelledby="order-history-title">
+            <div>
+              <h3 id="order-history-title">Order history</h3>
+              <p>Purchase status and references retained for account support.</p>
+            </div>
+            <div class="order-history" id="order-history"></div>
+          </section>
+        </section>
+      </section>
+    </main>
+
+    <div class="account-toast" id="account-toast" role="status" aria-live="polite" hidden></div>
+    <script src="./config.js?v=20260801b"></script>
+    <script src="./analytics.js?v=20260809a"></script>
+    <script src="./route-state.js?v=20260820a"></script>
+    <script src="./customer.js?v=20260904b"></script>
+  </body>
+</html>

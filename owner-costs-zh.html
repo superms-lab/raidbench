@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>RaidBench 成本与利润</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <style>
+      :root { color-scheme: light; --ink:#17212a; --muted:#65717c; --line:#dce2e6; --paper:#fff; --canvas:#f4f6f7; --green:#16794b; --red:#a43f38; --amber:#9a660b; --blue:#246797; }
+      * { box-sizing:border-box; }
+      body { margin:0; min-width:320px; background:var(--canvas); color:var(--ink); font-family:Inter,"PingFang SC","Microsoft YaHei",system-ui,sans-serif; letter-spacing:0; }
+      button,input,select { font:inherit; }
+      .topbar { min-height:64px; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:0 28px; border-bottom:1px solid var(--line); background:var(--paper); }
+      .brand { font-size:17px; font-weight:750; }
+      .nav { display:flex; gap:8px; }
+      .nav a { color:var(--muted); text-decoration:none; padding:8px 10px; border-radius:5px; }
+      .nav a[aria-current="page"] { color:var(--ink); background:#edf1f3; }
+      .page { width:min(1220px,calc(100% - 40px)); margin:0 auto; padding:30px 0 54px; }
+      h1 { margin:0; font-size:28px; line-height:1.2; }
+      h2 { margin:0; font-size:18px; }
+      h3 { margin:0; font-size:14px; }
+      .subtitle,.note,.source { color:var(--muted); font-size:13px; line-height:1.55; }
+      .subtitle { margin:8px 0 0; }
+      .section { margin-top:28px; padding-top:24px; border-top:1px solid var(--line); }
+      .section-head { display:flex; align-items:baseline; justify-content:space-between; gap:18px; margin-bottom:16px; }
+      .controls { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; }
+      .control { display:grid; gap:7px; padding:13px; border:1px solid var(--line); border-radius:7px; background:var(--paper); }
+      .control label { color:var(--muted); font-size:12px; }
+      .control input,.control select { width:100%; min-height:38px; padding:7px 9px; border:1px solid #bcc7cf; border-radius:5px; background:#fff; color:var(--ink); }
+      .scenario-row { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+      .scenario { min-height:36px; padding:0 12px; border:1px solid #bcc7cf; border-radius:5px; background:#fff; color:var(--ink); cursor:pointer; }
+      .scenario[aria-pressed="true"] { border-color:var(--blue); color:var(--blue); background:#eaf2f8; }
+      .metrics { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; }
+      .metric { min-height:108px; padding:17px; border:1px solid var(--line); border-radius:7px; background:var(--paper); }
+      .metric span { color:var(--muted); font-size:12px; }
+      .metric strong { display:block; margin-top:12px; font-size:27px; font-variant-numeric:tabular-nums; }
+      .metric:nth-child(1) strong { color:var(--blue); } .metric:nth-child(2) strong { color:var(--green); } .metric:nth-child(3) strong { color:var(--amber); }
+      .table-wrap { overflow-x:auto; border:1px solid var(--line); border-radius:7px; background:var(--paper); }
+      table { width:100%; border-collapse:collapse; min-width:860px; }
+      th,td { padding:11px 12px; border-bottom:1px solid #edf0f2; font-size:12px; text-align:right; white-space:nowrap; }
+      th { color:var(--muted); background:#f9fafb; font-weight:650; }
+      th:first-child,td:first-child { text-align:left; white-space:normal; }
+      tbody tr:last-child td { border-bottom:0; }
+      .good { color:var(--green); font-weight:700; } .hold { color:var(--red); font-weight:700; }
+      .alert { margin-top:14px; padding:14px 16px; border-left:4px solid var(--red); background:#fff; color:#5d2926; font-size:13px; line-height:1.55; }
+      .notes { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+      .note-block { padding:16px 0; border-top:1px solid var(--line); }
+      .note-block p { margin:8px 0 0; }
+      @media (max-width:900px) { .controls,.metrics { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+      @media (max-width:560px) { .topbar { padding:0 16px; } .page { width:calc(100% - 24px); padding-top:22px; } .controls { grid-template-columns:1fr; } .metrics { grid-template-columns:1fr 1fr; gap:8px; } .metric { min-height:96px; padding:14px; } .metric strong { font-size:23px; } .notes { grid-template-columns:1fr; } }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">RaidBench 经营后台</div>
+      <nav class="nav" aria-label="经营后台"><a href="./owner-traffic-zh.html">流量</a><a href="./owner-acquisition-zh.html">获客</a><a href="./owner-demand-zh.html">需求</a><a href="./owner-products-zh.html">产品准入</a><a href="./owner-costs-zh.html" aria-current="page">成本与利润</a></nav>
+    </header>
+    <main class="page">
+      <h1>成本与利润测算</h1>
+      <p class="subtitle">先证明每一单有贡献，再讨论放大流量。税务预留是经营假设，不是税务结论。</p>
+
+      <section class="section">
+        <div class="section-head"><h2>计算假设</h2><span class="source" id="source-date">正在读取成本模型</span></div>
+        <div class="controls">
+          <div class="control"><label for="provider">收款方案</label><select id="provider"></select></div>
+          <div class="control"><label for="payment-percent">支付费率 %</label><input id="payment-percent" type="number" min="0" step="0.01" /></div>
+          <div class="control"><label for="payment-fixed">每笔固定费用 USD</label><input id="payment-fixed" type="number" min="0" step="0.01" /></div>
+          <div class="control"><label for="fx">汇兑与提现预留 %</label><input id="fx" type="number" min="0" step="0.1" /></div>
+          <div class="control"><label for="tax">税务预留 %</label><input id="tax" type="number" min="0" step="0.5" /></div>
+          <div class="control"><label for="refund">退款预留 %</label><input id="refund" type="number" min="0" step="0.5" /></div>
+          <div class="control"><label for="cac">每单广告获客成本 USD</label><input id="cac" type="number" min="0" step="0.5" /></div>
+          <div class="control"><label for="reviewer-rate">审查与客服小时成本 USD</label><input id="reviewer-rate" type="number" min="0" step="1" /></div>
+          <div class="control"><label for="chargeback">每单拒付风险预留 USD</label><input id="chargeback" type="number" min="0" step="0.1" /></div>
+          <div class="control"><label for="fixed-cost">每月固定成本 USD</label><input id="fixed-cost" type="number" min="0" step="1" /></div>
+          <div class="control"><label for="monthly-orders">预计每月订单</label><input id="monthly-orders" type="number" min="1" step="1" /></div>
+          <div class="control"><label for="ai-multiplier">AI 与工具成本倍率</label><input id="ai-multiplier" type="number" min="0.1" step="0.1" /></div>
+        </div>
+        <div class="scenario-row" id="scenario-row"></div>
+      </section>
+
+      <section class="section">
+        <div class="section-head"><h2>商品单位经济</h2><span class="note">净利润已分摊当前固定成本假设</span></div>
+        <div class="metrics">
+          <div class="metric"><span>每月固定成本</span><strong id="metric-fixed">--</strong></div>
+          <div class="metric"><span>可销售 SKU</span><strong id="metric-viable">--</strong></div>
+          <div class="metric"><span>最佳单笔净贡献</span><strong id="metric-best">--</strong></div>
+          <div class="metric"><span>未通过成本门槛的点数服务</span><strong id="metric-credit-fail">--</strong></div>
+        </div>
+        <div class="table-wrap" style="margin-top:16px"><table><thead><tr><th>商品</th><th>售价</th><th>支付/汇兑/税务</th><th>AI 与独立审查</th><th>人工审查与客服</th><th>广告 CAC</th><th>每单净利润</th><th>净利率</th><th>结论</th></tr></thead><tbody id="product-body"></tbody></table></div>
+      </section>
+
+      <section class="section">
+        <div class="section-head"><h2>点数服务单位经济</h2><span class="note">按最不利点数包分摊支付费用，并使用各自交付成本</span></div>
+        <div class="table-wrap"><table><thead><tr><th>服务</th><th>消耗点数</th><th>保守毛收入</th><th>变动成本</th><th>单次贡献</th><th>贡献率</th><th>结论</th></tr></thead><tbody id="credit-body"></tbody></table></div>
+        <div class="alert" id="credit-alert">正在核算点数方案。</div>
+      </section>
+
+      <section class="section">
+        <div class="section-head"><h2>达到月净收入所需订单</h2><span class="note">不代表能够实现，只用于反推流量和交付能力</span></div>
+        <div class="table-wrap"><table><thead><tr><th>商品</th><th>月净收入 $2,000</th><th>月净收入 $5,000</th><th>月净收入 $20,000</th></tr></thead><tbody id="target-body"></tbody></table></div>
+      </section>
+
+      <section class="section notes">
+        <div class="note-block"><h3>成本口径</h3><p class="note">每单净利润 = 售价减支付、汇兑、税务预留、退款、拒付、AI 草拟、独立模型复核、人工异常审查、客服、交付、广告成本和固定成本分摊。</p></div>
+        <div class="note-block"><h3>启动纪律</h3><p class="note">任何 SKU 同时满足“回答 QA 通过”和“单位经济通过”后才能开启结账。不能因为付款功能可用就跳过内容验证。</p></div>
+      </section>
+    </main>
+    <script>
+      const ids = ["payment-percent","payment-fixed","fx","tax","refund","cac","reviewer-rate","chargeback","fixed-cost","monthly-orders","ai-multiplier"];
+      const el = (id) => document.getElementById(id);
+      const usd = new Intl.NumberFormat("en-US", { style:"currency", currency:"USD" });
+      let model;
+      let skus;
+
+      function value(id) { return Number(el(id).value || 0); }
+      function productEconomics(product) {
+        const price = Number(product.price);
+        const payment = price * value("payment-percent") / 100 + value("payment-fixed");
+        const fx = price * value("fx") / 100;
+        const tax = price * value("tax") / 100;
+        const refund = price * value("refund") / 100;
+        const ai = (Number(product.aiResearchAndDraftCost) + Number(product.aiIndependentReviewCost)) * value("ai-multiplier");
+        const labor = (Number(product.reviewMinutes) + Number(product.supportMinutes)) / 60 * value("reviewer-rate");
+        const fixed = value("fixed-cost") / Math.max(1, value("monthly-orders"));
+        const nonLabor = payment + fx + tax + refund + value("chargeback") + Number(product.deliveryCost);
+        const contribution = price - nonLabor - ai - labor - value("cac");
+        const net = contribution - fixed;
+        const margin = price ? net / price * 100 : 0;
+        return { ...product, price, paymentFxTax:payment + fx + tax + refund + value("chargeback"), ai, labor, contribution, net, margin, fixed, status:contribution > 0 && margin >= Number(product.targetContributionMarginPercent) ? "viable" : "hold" };
+      }
+      function creditAudit() {
+        const provider = model.providers.find((item) => item.id === el("provider").value);
+        const profiles = new Map(model.creditDeliveryProfiles.map((profile) => [profile.id, profile]));
+        return skus.actions.map((action) => {
+          if (!String(action.status).startsWith("ready")) return { ...action, status:"blocked", gross:0, cost:0, gap:0, margin:0 };
+          const profile = profiles.get(action.deliveryClass);
+          const cases = skus.packs.map((pack) => {
+            const share = Number(action.credits) / Number(pack.credits);
+            const gross = Number(pack.prices.USD) * share;
+            const payment = gross * value("payment-percent") / 100 + value("payment-fixed") * share;
+            const reserves = gross * (value("fx") + value("tax") + value("refund")) / 100;
+            const chargeback = value("chargeback") * share;
+            const labor = (Number(profile.reviewMinutes) + Number(profile.supportMinutes)) / 60 * value("reviewer-rate");
+            const delivery = Number(profile.aiCost) * value("ai-multiplier") + labor + Number(profile.deliveryCost);
+            const cost = payment + reserves + chargeback + delivery;
+            return { gross, cost, gap:gross - cost };
+          });
+          const conservative = cases.sort((a,b) => a.gap - b.gap)[0];
+          const margin = conservative.gross ? conservative.gap / conservative.gross * 100 : 0;
+          const status = conservative.gap > 0 && margin >= Number(profile.targetContributionMarginPercent) ? "viable" : "failed";
+          return { ...action, ...conservative, margin, status, provider:provider.id };
+        });
+      }
+      function render() {
+        const products = model.products.map(productEconomics);
+        const credits = creditAudit();
+        el("product-body").innerHTML = products.map((p) => `<tr><td>${p.name}</td><td>${usd.format(p.price)}</td><td>${usd.format(p.paymentFxTax)}</td><td>${usd.format(p.ai)}</td><td>${usd.format(p.labor)}</td><td>${usd.format(value("cac"))}</td><td>${usd.format(p.net)}</td><td>${p.margin.toFixed(1)}%</td><td class="${p.status === "viable" ? "good" : "hold"}">${p.status === "viable" ? "可测试" : "暂缓"}</td></tr>`).join("");
+        el("credit-body").innerHTML = credits.map((c) => `<tr><td>${c.label}</td><td>${c.credits}</td><td>${usd.format(c.gross)}</td><td>${usd.format(c.cost)}</td><td>${usd.format(c.gap)}</td><td>${c.status === "blocked" ? "-" : `${c.margin.toFixed(1)}%`}</td><td class="${c.status === "viable" ? "good" : "hold"}">${c.status === "viable" ? "可测试" : c.status === "blocked" ? "内容待审" : "成本不通过"}</td></tr>`).join("");
+        const launchReady = credits.filter((c) => c.status !== "blocked");
+        const failed = launchReady.filter((c) => c.status === "failed").length;
+        const viable = launchReady.filter((c) => c.status === "viable").length;
+        el("credit-alert").textContent = failed ? `有 ${failed} 个拟上线点数服务未通过单位经济门槛，必须继续隐藏。` : `北美首发的 ${viable} 个 Rust 点数服务已通过当前成本门槛；POE2 等内容仍按回答 QA 状态暂缓。`;
+        el("target-body").innerHTML = products.map((p) => `<tr><td>${p.name}</td>${[2000,5000,20000].map((target) => `<td>${p.contribution > 0 ? Math.ceil((target + value("fixed-cost")) / p.contribution) : "不可达"}</td>`).join("")}</tr>`).join("");
+        el("metric-fixed").textContent = usd.format(value("fixed-cost"));
+        el("metric-viable").textContent = products.filter((p) => p.status === "viable").length;
+        el("metric-best").textContent = usd.format(Math.max(...products.map((p) => p.net)));
+        el("metric-credit-fail").textContent = failed;
+      }
+      function applyScenario(scenario) {
+        el("fx").value = scenario.fxAndWithdrawalPercent;
+        el("tax").value = scenario.taxReservePercent;
+        el("refund").value = scenario.refundReservePercent;
+        el("cac").value = scenario.advertisingCac;
+        el("reviewer-rate").value = scenario.reviewerHourlyCost;
+        el("chargeback").value = scenario.chargebackReservePerOrder;
+        el("monthly-orders").value = scenario.monthlyOrders;
+        document.querySelectorAll(".scenario").forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.id === scenario.id)));
+        render();
+      }
+      async function init() {
+        [model, skus] = await Promise.all([fetch("./content/unit-economics.json", { cache:"no-store" }).then((r) => r.json()), fetch("./content/skus.json", { cache:"no-store" }).then((r) => r.json())]);
+        el("source-date").textContent = `成本模型日期：${model.asOf}`;
+        el("provider").innerHTML = model.providers.map((p) => `<option value="${p.id}">${p.name}</option>`).join("");
+        const fixedTotal = model.monthlyFixedCosts.reduce((sum,item) => sum + Number(item.amount), 0);
+        el("fixed-cost").value = fixedTotal;
+        el("ai-multiplier").value = 1;
+        el("scenario-row").innerHTML = model.scenarios.map((s) => `<button class="scenario" data-id="${s.id}" type="button" aria-pressed="false">${s.name}</button>`).join("");
+        function applyProvider() { const p=model.providers.find((item) => item.id === el("provider").value); el("payment-percent").value=p.percentageFee; el("payment-fixed").value=p.fixedFee; render(); }
+        el("provider").value = model.defaultProviderId;
+        el("provider").addEventListener("change", applyProvider);
+        el("scenario-row").addEventListener("click", (event) => { const button=event.target.closest(".scenario"); if(button) applyScenario(model.scenarios.find((s) => s.id === button.dataset.id)); });
+        ids.forEach((id) => el(id).addEventListener("input", render));
+        applyProvider();
+        applyScenario(model.scenarios.find((s) => s.id === model.defaultScenarioId));
+      }
+      init().catch(() => { el("source-date").textContent = "成本模型读取失败"; });
+    </script>
+  </body>
+</html>

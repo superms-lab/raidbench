@@ -1,0 +1,12 @@
+[Unit]
+Description=Run three RaidBench patch-sensitive refresh checks each week
+
+[Timer]
+OnCalendar=Mon,Wed,Fri *-*-* 02:10:00 UTC
+RandomizedDelaySec=10min
+Persistent=true
+AccuracySec=1min
+Unit=raidbench-patch-refresh.service
+
+[Install]
+WantedBy=timers.target

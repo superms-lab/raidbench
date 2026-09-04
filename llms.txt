@@ -1,0 +1,72 @@
+# RaidBench
+
+> RaidBench is an independent, patch-aware game planning site. Its current paid product is a verified vanilla Rust PC raid-cost answer or multi-layer raid plan delivered inside a player account.
+
+Last reviewed: 2026-09-04
+
+## Game directory
+
+- [All RaidBench games](https://raidbench.com/games): The shared directory for twelve game sections.
+- [Rust](https://raidbench.com/games/rust/): Raid routes, upkeep, wipe planning, and resource decisions for vanilla Rust PC.
+- [Path of Exile 2](https://raidbench.com/games/poe2/): Patch-aware build, defense, item, boss, and progression decisions for Path of Exile 2.
+- [Palworld](https://raidbench.com/games/palworld/): Base operations, progression, breeding goals, resource routes, and boss preparation.
+- [Project Zomboid](https://raidbench.com/games/project-zomboid/): Build-aware survival planning, character choices, sandbox settings, and recovery workflows.
+- [Escape from Tarkov](https://raidbench.com/games/escape-from-tarkov/): Quest routes, extraction decisions, equipment budgets, and patch-sensitive progression checks.
+- [ARK: Survival Ascended](https://raidbench.com/games/ark-survival-ascended/): Taming, breeding, resource, progression, and server-setting decisions with explicit assumptions.
+- [Warframe](https://raidbench.com/games/warframe/): Returning-player priorities, build checks, farming routes, and progression planning.
+- [Once Human](https://raidbench.com/games/once-human/): Season-aware builds, base production, resource priorities, and migration decisions.
+- [Counter-Strike 2](https://raidbench.com/games/counter-strike-2/): Economy, utility, settings, map decisions, and repeatable improvement checklists.
+- [Dota 2](https://raidbench.com/games/dota-2/): Patch-specific hero, lane, item, objective, and replay-decision guidance.
+- [PUBG: BATTLEGROUNDS](https://raidbench.com/games/pubg-battlegrounds/): Weapon, attachment, drop, rotation, and survival decisions for current maps and patches.
+- [Tom Clancy's Rainbow Six Siege](https://raidbench.com/games/rainbow-six-siege/): Operator choices, site setups, counters, loadouts, and patch-aware round plans.
+
+## Free multi-game decision tools
+
+- [All free tools](https://raidbench.com/tools): Calculators, comparisons, risk planners, and downloadable results using player-entered assumptions.
+- [Project Zomboid save-change risk planner](https://raidbench.com/tools/project-zomboid-save-change-risk/): Score the operational risk of changing sandbox settings, build branches, or mods before touching an established Project Zomboid world.
+- [Escape from Tarkov loadout replacement budget](https://raidbench.com/tools/escape-from-tarkov-loadout-budget/): Calculate the complete user-entered cost of one Tarkov loadout, a replacement batch, and how many kits fit the current budget.
+- [ARK Survival Ascended roster material planner](https://raidbench.com/tools/ark-survival-ascended-roster-materials/): Turn user-entered per-saddle material requirements into a full roster budget with replacements and a configurable reserve.
+- [Warframe upgrade priority comparator](https://raidbench.com/tools/warframe-upgrade-priority-comparator/): Compare two Warframe upgrades by problem fit, reuse across loadouts, resource efficiency, and confidence in the current evidence.
+- [Once Human scenario fit comparator](https://raidbench.com/tools/once-human-scenario-comparator/): Compare two Once Human scenarios or character paths by schedule, group compatibility, goal fit, carryover confidence, and maintenance burden.
+- [CS2 team buy budget calculator](https://raidbench.com/tools/counter-strike-2-team-buy-budget/): Compare current team money and carried equipment with a user-entered target kit and next-round reserve before calling buy, force, or save.
+- [Dota 2 item decision comparator](https://raidbench.com/tools/dota-2-item-decision-comparator/): Compare two Dota 2 purchases by threat response, timing, role fit, component usefulness, and overlap with allied items.
+- [PUBG rotation timing planner](https://raidbench.com/tools/pubg-battlegrounds-rotation-timing/): Estimate travel time and departure margin from player-entered distance, practical speed, terrain delay, expected contact, and zone time remaining.
+- [Rainbow Six Siege operator unlock comparator](https://raidbench.com/tools/rainbow-six-siege-operator-comparator/): Compare two Siege operators by missing team role, map frequency, personal execution, team overlap, and confidence in current patch information.
+
+## Free Rust tools
+
+- [Rust Raid Cost and Upkeep Calculator](https://raidbench.com/): Build a route, compare rockets, C4, satchels, and explosive ammo, estimate sulfur and gunpowder, and copy a shareable route link.
+- [Rust raid-cost dataset (JSON)](https://raidbench.com/rust-raid-costs.json): Verified vanilla Rust PC target counts, sulfur roll-ups, source links, and freshness metadata.
+- [Rust raid-cost table (CSV)](https://raidbench.com/rust-raid-costs.csv): Reusable raid-cost rows for spreadsheets, tools, and independent analysis.
+- [Free Rust raid-cost widget](https://raidbench.com/rust-raid-calculator-widget): A compact calculator that community and guide sites can embed without an account or API key.
+- [Verified Rust Answer Offer](https://raidbench.com/rust-raid-plan): One verified target answer starts at $5; a complete multi-layer raid plan is $19. Unsupported or stale requests are held without a credit charge.
+
+## High-intent Rust guides
+
+- [Rust C4 vs rockets: speed, sulfur, and splash compared](https://raidbench.com/pages/rust-c4-vs-rockets): Choose C4 or rockets by direct cost, splash opportunity, exposure time, inventory pressure, and the route beyond the first layer.
+- [Rust door path vs wall path for a small base](https://raidbench.com/pages/rust-small-base-raid-path): Compare the door, wall, and roof paths into a Rust 1x2 or 2x2 by confirmed layers, sulfur, splash, exposure, TC probability, and exit options.
+- [Rust raid break-even calculator: was the raid worth it?](https://raidbench.com/pages/rust-raid-profit-calculator-outline): Estimate raid break-even from boom used, recovered loot, lost kits, time, counters, and strategic value without pretending every item has one fixed price.
+- [Is a 100-rocket base worth raiding in Rust?](https://raidbench.com/pages/rust-100-rocket-base-worth-raiding): A target-selection framework for expensive Rust bases: route confidence, likely loot, strategic value, counter exposure, reserve boom, and reasons to walk away.
+
+## Current update briefs
+
+- [Rust Breach and Clear: raid cost, upkeep, and route check](https://raidbench.com/pages/rust-breach-and-clear-raid-upkeep-check): What Breach and Clear changes around a raid: group-scaled TC upkeep, monument blockers, grenade stacks, and the standard explosive math that was separately rechecked.
+- [Rust Power Trip raid meta: what changed for compounds and farming](https://raidbench.com/pages/rust-power-trip-raid-meta-guide): The Power Trip changes that affect raid preparation: static high-wall upkeep, tighter water-well stock, safe-zone resource spawns, and powered monument recyclers.
+- [Rust Common Ground raid windows: the Softcore rules that matter](https://raidbench.com/pages/rust-common-ground-raid-windows-guide): A player-focused explanation of Softcore raid windows, Tool Cupboard protection, young-TC exceptions, and what remains attackable.
+- [Rust Apartment Complex renter checklist](https://raidbench.com/pages/rust-apartment-complex-renter-checklist): What to verify before renting an Apartment Complex room, from included utilities to scrap payments and eviction risk.
+- [Palworld v1.0.1 save-data fix: what players should do next](https://raidbench.com/pages/palworld-v1-0-1-save-data-fix-checklist): A cautious post-update checklist after the official fix for unintended save-data discards and the persistent burning-status issue.
+- [Palworld 1.0 progression reset: Sunreach, Awakening, and Mutation priorities](https://raidbench.com/pages/palworld-1-0-sunreach-progression-reset): A clean planning order for returning players facing Sunreach, 72 new Pals, Awakening, Mutation, and broad balance changes.
+- [POE2 0.4.0i build impact check](https://raidbench.com/pages/poe2-0-4-0i-build-impact-check): Which builds and boss situations are directly affected by the official 0.4.0i fixes, and which guides do not need a broad rewrite.
+
+## Editorial and commercial policies
+
+- [Editorial standards](https://raidbench.com/about): Sources, freshness windows, review boundaries, and correction policy.
+- [Privacy](https://raidbench.com/privacy)
+- [Terms](https://raidbench.com/terms)
+- [Refund policy](https://raidbench.com/refund-policy)
+
+## Important limitations
+
+- Rust calculations are scoped to vanilla Rust PC. Custom and modded servers can differ.
+- Hidden base layers, player execution, counters, loot, and server-specific rules cannot be guaranteed.
+- RaidBench is independent and is not affiliated with or endorsed by Facepunch Studios or other game publishers.

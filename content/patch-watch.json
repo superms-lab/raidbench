@@ -1,0 +1,266 @@
+[
+  {
+    "slug": "rust-breach-and-clear-raid-upkeep-check",
+    "game": "Rust",
+    "version": "Breach and Clear",
+    "publishedAt": "2026-09-03",
+    "reviewedAt": "2026-09-04",
+    "status": "Current official update",
+    "title": "Rust Breach and Clear: raid cost, upkeep, and route check",
+    "description": "What Breach and Clear changes around a raid: group-scaled TC upkeep, monument blockers, grenade stacks, and the standard explosive math that was separately rechecked.",
+    "question": "Did Rust Breach and Clear change raid costs or raid preparation?",
+    "shortAnswer": "The official Breach and Clear notes do not list a direct change to the standard door and wall counts or explosive recipes monitored by RaidBench, and those values passed a separate source check. Preparation still changes: larger authorized groups can add TC upkeep tax, red-keycard monument blockers can delay access, and standardized grenade stack sizes can change inventory planning.",
+    "impact": [
+      ["Explosive math", "The six monitored vanilla door and wall targets, sulfur-per-item values, and official explosive recipe markers passed a separate post-update verification."],
+      ["Group TC upkeep", "The first four counted players add no new tax; the next six add 2% each, subsequent players add 4% each, and the official maximum tax is 300%."],
+      ["Monument access", "New blockers appear at monuments with red-keycard puzzle rooms. The official update describes them as damage-gated obstacles and says they begin decaying after 24 hours if not destroyed."],
+      ["Inventory planning", "Grenade stack sizes were reduced and standardized, so plans that depend on old carry layouts deserve an in-game inventory check."],
+      ["Garage-door handling", "Unlocked garage doors can now be picked up without building privilege, matching other doors; teams should recheck assumptions around unsecured access and ownership." ]
+    ],
+    "checklist": [
+      "Use current RaidBench explosive counts only for the six named vanilla targets and methods.",
+      "Read the TC's displayed upkeep after the current authorization and code-lock group is established.",
+      "Do not assume a red-keycard route is immediately open at the start of a wipe.",
+      "Recheck grenade stack sizes in the live inventory before assigning carry roles.",
+      "Treat monument blockers, hidden base layers, splash, misses, counters, and custom-server settings as separate route risks."
+    ],
+    "notChanged": "Breach and Clear is not evidence that every old explosive count changed. The post-update verifier found no mismatch in the six monitored target counts, sulfur values, or official recipe markers. It also does not establish a universal cost for the new monument blockers.",
+    "source": {
+      "label": "Facepunch - Breach and Clear update",
+      "url": "https://rust.facepunch.com/news/breach-and-clear"
+    },
+    "refreshTrigger": "Review after any Facepunch change to building health, explosive recipes, grenade inventory, group upkeep scaling, or monument blockers.",
+    "related": ["rust-base-upkeep-calculator.html", "rust-tool-cupboard-upkeep-guide.html", "rust-cheapest-raid-method.html", "rust-solo-raid-checklist.html"]
+  },
+  {
+    "slug": "rust-power-trip-raid-meta-guide",
+    "game": "Rust",
+    "version": "Power Trip",
+    "publishedAt": "2026-08-06",
+    "reviewedAt": "2026-08-09",
+    "status": "Current official update",
+    "title": "Rust Power Trip raid meta: what changed for compounds and farming",
+    "description": "The Power Trip changes that affect raid preparation: static high-wall upkeep, tighter water-well stock, safe-zone resource spawns, and powered monument recyclers.",
+    "question": "Did Rust Power Trip change raid costs or raid preparation?",
+    "shortAnswer": "The official Power Trip notes do not list a direct recipe or target-count change for rockets, C4, satchels, or explosive ammo. Raid preparation still changes around them: high walls now use a static 20% upkeep cost, water-well vendor stock is tighter, ore nodes and woodpiles no longer spawn in safe zones, and powered monuments can change recycler routing.",
+    "impact": [
+      ["Explosive math", "No direct explosive recipe or target-count change was found in the official Power Trip notes; RaidBench counts were separately rechecked against the monitored sources."],
+      ["Compound upkeep", "High walls now have a static upkeep cost of 20%, so large external-TC and wall networks deserve a fresh upkeep calculation."],
+      ["Water-well vendors", "Stock was reduced from 10 to 2 and restock time increased from 2 minutes to 10 minutes."],
+      ["Safe-zone farming", "Ore nodes and woodpiles can no longer spawn in safe zones."],
+      ["Recycler routing", "Power Plant progression can improve recycler operation and unlock a special high-efficiency recycler, changing where teams may choose to process components."]
+    ],
+    "checklist": [
+      "Keep current explosive counts only after checking the server is vanilla and the RaidBench verification date is current.",
+      "Recalculate upkeep for compounds that depend heavily on high walls and external cupboards.",
+      "Do not plan a farming route around safe-zone ore nodes or woodpiles.",
+      "Treat water-well tools and tea materials as a limited boost rather than a dependable bulk supply.",
+      "Recheck recycler risk and travel time before changing the team's component route."
+    ],
+    "notChanged": "Power Trip is not evidence that every old raid guide is invalid. The official notes do not announce direct changes to standard explosive recipes or building target counts; custom servers can still differ.",
+    "source": {
+      "label": "Facepunch - Power Trip update",
+      "url": "https://rust.facepunch.com/news/power-trip"
+    },
+    "refreshTrigger": "Review after any Facepunch change to explosives, building health, high-wall upkeep, recycler efficiency, vendor stock, or resource spawning.",
+    "related": ["rust-tc-upkeep-weekly-sheet.html", "rust-sulfur-farming-route.html", "rust-fast-vs-efficient-raiding.html", "rust-cheapest-raid-method.html"]
+  },
+  {
+    "slug": "rust-common-ground-raid-windows-guide",
+    "game": "Rust",
+    "version": "Common Ground",
+    "publishedAt": "2026-07-02",
+    "reviewedAt": "2026-07-17",
+    "status": "Current official update",
+    "title": "Rust Common Ground raid windows: the Softcore rules that matter",
+    "description": "A player-focused explanation of Softcore raid windows, Tool Cupboard protection, young-TC exceptions, and what remains attackable.",
+    "question": "How do Rust raid windows work after the Common Ground update?",
+    "shortAnswer": "On Softcore servers using the default settings, building blocks and doors inside an eligible Tool Cupboard radius are protected outside the configured raid window. The official default window is 6 PM to 9 PM in the server's local time. A Tool Cupboard must be at least one hour old to provide that protection, and exposed deployables or an unprotected TC can still be attacked.",
+    "impact": [
+      ["Who is affected", "Softcore players and server owners using the raid-window system."],
+      ["Default timing", "6 PM to 9 PM in the server's local time; server owners can change it."],
+      ["Protected", "Building blocks, doors, floors, roofs, and ladder hatches within an eligible TC radius."],
+      ["Still vulnerable", "Deployables and a Tool Cupboard that is left exposed."],
+      ["Important exception", "A Tool Cupboard younger than one hour does not activate raid blocking."]
+    ],
+    "checklist": [
+      "Confirm the server is running Softcore and has raid windows enabled.",
+      "Check the server's local time instead of assuming your own time zone.",
+      "Do not rely on a newly placed Tool Cupboard for immediate protection.",
+      "Protect deployables and the Tool Cupboard even outside the raid window.",
+      "Recheck custom server rules before planning a raid or logging off."
+    ],
+    "notChanged": "The update does not make every object invulnerable outside the window, and custom servers can change the default schedule and related settings.",
+    "source": {
+      "label": "Facepunch - Common Ground update",
+      "url": "https://rust.facepunch.com/news/common-ground"
+    },
+    "refreshTrigger": "Review when Facepunch changes Softcore raid-window rules, Tool Cupboard protection, or related server variables.",
+    "related": ["rust-tool-cupboard-upkeep-guide.html", "rust-solo-raid-checklist.html", "rust-wipe-day-upgrade-order.html"]
+  },
+  {
+    "slug": "rust-apartment-complex-renter-checklist",
+    "game": "Rust",
+    "version": "Common Ground",
+    "publishedAt": "2026-07-02",
+    "reviewedAt": "2026-07-17",
+    "status": "Current official update",
+    "title": "Rust Apartment Complex renter checklist",
+    "description": "What to verify before renting an Apartment Complex room, from included utilities to scrap payments and eviction risk.",
+    "question": "Is renting an Apartment Complex room worth it in Rust?",
+    "shortAnswer": "An apartment can accelerate the start of a wipe because room tiers may include storage, furnaces, or other conveniences. Treat the room as rented infrastructure rather than permanent ownership: keep scrap in the slot by the door, confirm what the chosen room includes, and avoid storing everything there until you understand the eviction rules.",
+    "impact": [
+      ["Best use", "Fast early-wipe shelter and utilities while a permanent base is still being planned."],
+      ["Ongoing cost", "Scrap must be kept in the payment slot next to the room door."],
+      ["Main risk", "Missed rent can lead to eviction and loss of possessions stored in the room."],
+      ["Room choice", "Different room tiers offer different space and included conveniences."],
+      ["Planning rule", "Compare rent and location against the time saved on shelter, storage, and smelting."]
+    ],
+    "checklist": [
+      "Inspect the room tier and included features before paying.",
+      "Set aside enough scrap for the full play session and expected offline period.",
+      "Keep high-value items in a fallback location until the rent loop is familiar.",
+      "Check travel distance to monuments, farming routes, and your planned permanent base.",
+      "Move critical loot before the rent buffer reaches zero."
+    ],
+    "notChanged": "An apartment is a temporary logistics option. It does not replace scouting, secure storage discipline, or a permanent base plan.",
+    "source": {
+      "label": "Facepunch - Common Ground update",
+      "url": "https://rust.facepunch.com/news/common-ground"
+    },
+    "refreshTrigger": "Review if Facepunch changes apartment pricing, room features, eviction behavior, or monument access.",
+    "related": ["rust-wipe-day-upgrade-order.html", "rust-base-upkeep-calculator.html", "rust-tool-cupboard-upkeep-guide.html"]
+  },
+  {
+    "slug": "palworld-v1-0-1-save-data-fix-checklist",
+    "game": "Palworld",
+    "version": "v1.0.1",
+    "publishedAt": "2026-07-15",
+    "reviewedAt": "2026-07-17",
+    "status": "Current hotfix",
+    "title": "Palworld v1.0.1 save-data fix: what players should do next",
+    "description": "A cautious post-update checklist after the official fix for unintended save-data discards and the persistent burning-status issue.",
+    "question": "Did Palworld v1.0.1 fix the save-data problem?",
+    "shortAnswer": "The official v1.0.1 notes say the update fixed an issue that could unintentionally discard save data after certain operations. It also fixed a burning status that could continue after touching a campfire. Update the game before resuming important progression, then verify that the expected world and character save loads correctly before making major changes.",
+    "impact": [
+      ["Fixed", "An issue that could unintentionally discard save data after certain operations."],
+      ["Also fixed", "Burning status continuing after contact with a campfire."],
+      ["Player action", "Install v1.0.1 and verify the correct save before a long session."],
+      ["Server action", "Confirm host and client versions match before multiplayer progression."],
+      ["Risk posture", "Keep normal backups where the platform or server workflow allows them."]
+    ],
+    "checklist": [
+      "Confirm the title screen or platform update history shows v1.0.1 or later.",
+      "Load the intended world and check recent structures, inventory, and progression.",
+      "Avoid overwriting a suspicious save until the correct file or backup is identified.",
+      "For multiplayer, confirm the host has updated before reconnecting.",
+      "Keep backup practices in place even after a specific bug is fixed."
+    ],
+    "notChanged": "The short hotfix note addresses two named bugs; it is not a guarantee against every possible save, mod, server, or platform problem.",
+    "source": {
+      "label": "Palworld Steam announcement - v1.0.1 Bug fixes",
+      "url": "https://store.steampowered.com/news/app/1623730/view/710029448730116120"
+    },
+    "refreshTrigger": "Review after any later save-system hotfix, rollback notice, or platform-specific advisory.",
+    "related": ["palworld-beginner-progression-checklist.html", "palworld-base-automation-scorecard.html", "palworld-resource-route-planner.html"]
+  },
+  {
+    "slug": "palworld-1-0-sunreach-progression-reset",
+    "game": "Palworld",
+    "version": "v1.0",
+    "publishedAt": "2026-07-10",
+    "reviewedAt": "2026-07-17",
+    "status": "Current major release",
+    "title": "Palworld 1.0 progression reset: Sunreach, Awakening, and Mutation priorities",
+    "description": "A clean planning order for returning players facing Sunreach, 72 new Pals, Awakening, Mutation, and broad balance changes.",
+    "question": "What should a returning player do first in Palworld 1.0?",
+    "shortAnswer": "Start with an audit, not a spending spree. Palworld 1.0 adds Sunreach, 72 new Pals, Awakening and Mutation systems, rebalanced Pals, and large changes to base building and multiplayer. Verify the old base loop, rebuild one dependable production chain, review the combat team under the new balance, and only then commit rare materials to the new strengthening systems.",
+    "impact": [
+      ["New area", "Sunreach expands exploration and progression routes."],
+      ["Roster change", "72 new Pals raise the total to 287 in the official release notes."],
+      ["New progression", "Awakening and Mutation add new strengthening decisions."],
+      ["Balance impact", "Pal stats and abilities were broadly rebalanced."],
+      ["Operational impact", "Base building, multiplayer, and other systems received large overhauls."]
+    ],
+    "checklist": [
+      "Load the existing base and identify broken or slower production links.",
+      "Recheck work suitability and combat roles after the broad Pal rebalance.",
+      "Establish one stable food, sphere, repair, and transport loop.",
+      "Scout Sunreach with recovery supplies and spare capture resources.",
+      "Test Awakening and Mutation on a controlled target before using scarce materials widely."
+    ],
+    "notChanged": "A major release does not make every older strategy useless. Keep any loop that still produces the required materials safely and consistently.",
+    "source": {
+      "label": "Palworld Steam announcement - v1.0 Official Release Changelog",
+      "url": "https://store.steampowered.com/news/app/1623730/view/686383649529010623"
+    },
+    "refreshTrigger": "Review after Palworld balance patches, Awakening or Mutation changes, or Sunreach progression updates.",
+    "related": ["palworld-beginner-progression-checklist.html", "palworld-base-automation-scorecard.html", "palworld-breeding-goal-checklist.html"]
+  },
+  {
+    "slug": "poe2-0-4-0i-build-impact-check",
+    "game": "POE2",
+    "version": "0.4.0i",
+    "publishedAt": "2026-03-24",
+    "reviewedAt": "2026-07-17",
+    "status": "Latest official patch found",
+    "title": "POE2 0.4.0i build impact check",
+    "description": "Which builds and boss situations are directly affected by the official 0.4.0i fixes, and which guides do not need a broad rewrite.",
+    "question": "Does POE2 patch 0.4.0i make my build guide outdated?",
+    "shortAnswer": "Patch 0.4.0i is a narrow fix set, not a broad balance pass. Recheck a guide if it depends on critical-hit chance after shapeshifting or if it discussed bosses failing to emerge with a stolen Proximal Intangibility modifier. Builds outside those cases do not become outdated solely because of this patch, although older patch and economy checks still apply.",
+    "impact": [
+      ["Direct build impact", "A shapeshifting critical-hit condition was fixed so it no longer depends on another shapeshift-tracking stat."],
+      ["Boss impact", "Some bosses failing to emerge with a stolen Proximal Intangibility modifier were fixed."],
+      ["Event support", "The patch added support for upcoming race events."],
+      ["Cosmetic fix", "A Phoenix level-up effect trigger was corrected."],
+      ["Broad balance", "No broad skill, passive, item, or economy rebalance is listed in 0.4.0i."]
+    ],
+    "checklist": [
+      "Check whether the build uses shapeshifting and the named critical-hit condition.",
+      "Remove any workaround that only existed for the fixed tracking bug.",
+      "Re-test the affected damage condition in a controlled encounter.",
+      "Do not label unrelated builds outdated from this patch alone.",
+      "Continue checking the guide's original patch, required items, and economy assumptions."
+    ],
+    "notChanged": "The patch notes do not announce a general build rebalance, so unrelated skill trees and item priorities require their own evidence before being changed.",
+    "source": {
+      "label": "Grinding Gear Games - 0.4.0i Patch Notes (staff post)",
+      "url": "https://www.pathofexile.com/forum/view-thread/3924026/filter-account-type/staff"
+    },
+    "refreshTrigger": "Review when Grinding Gear Games publishes a later POE2 patch, balance update, or correction affecting these mechanics.",
+    "related": ["poe2-outdated-build-guide-checklist.html", "poe2-endgame-defense-checklist.html", "poe2-boss-prep-checklist.html"]
+  },
+  {
+    "slug": "poe2-wolf-pack-spirit-hotfix-status",
+    "game": "POE2",
+    "version": "0.4.0h Hotfix 1",
+    "publishedAt": "2026-03-17",
+    "reviewedAt": "2026-07-17",
+    "status": "Officially fixed",
+    "title": "POE2 Wolf Pack Spirit bug: official hotfix status and cleanup steps",
+    "description": "The official status of the Wolf Pack Spirit reservation bug and a short checklist for removing old workaround advice.",
+    "question": "Is the POE2 Wolf Pack permanent Spirit reservation bug still active?",
+    "shortAnswer": "Grinding Gear Games states that 0.4.0h Hotfix 1 fixed Wolf Pack permanently reserving Spirit until the skill gem was removed. Guides that tell players to repeatedly remove the gem as the primary workaround are now stale for updated clients. Install the current game version, rebuild the weapon-swap state once, and investigate separately if the reservation problem continues.",
+    "impact": [
+      ["Official status", "Fixed in 0.4.0h Hotfix 1."],
+      ["Old symptom", "Wolf Pack could permanently reserve Spirit until its gem was removed."],
+      ["Guide impact", "Pre-hotfix workaround instructions should be labeled historical or removed."],
+      ["Player action", "Update, re-equip the setup, and retest weapon swapping."],
+      ["If it persists", "Record the current version and setup, then treat it as a separate unresolved case."]
+    ],
+    "checklist": [
+      "Install 0.4.0h Hotfix 1 or any later client version.",
+      "Remove and reinsert the Wolf Pack gem once to clear an old state.",
+      "Test both weapon sets and record the Spirit total before and after swapping.",
+      "Discard guides that present the pre-hotfix workaround as current behavior.",
+      "If the issue remains, capture the exact setup and report it against the current version."
+    ],
+    "notChanged": "The hotfix addresses the named permanent reservation bug; it does not prove that every Spirit, companion, or weapon-swap issue has the same cause.",
+    "source": {
+      "label": "Grinding Gear Games - 0.4.0h Hotfix 1",
+      "url": "https://www.pathofexile.com/forum/view-thread/3921167/filter-account-type/staff"
+    },
+    "refreshTrigger": "Review after later companion, Spirit reservation, or weapon-swap changes.",
+    "related": ["poe2-outdated-build-guide-checklist.html", "poe2-item-value-triage.html", "poe2-boss-prep-checklist.html"]
+  }
+]

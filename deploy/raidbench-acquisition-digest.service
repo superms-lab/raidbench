@@ -1,0 +1,26 @@
+[Unit]
+Description=Send the daily RaidBench acquisition brief to Feishu
+Wants=network-online.target raidbench-community-scout.service
+After=network-online.target raidbench-community-scout.service
+StartLimitIntervalSec=20min
+StartLimitBurst=4
+
+[Service]
+Type=oneshot
+Restart=on-failure
+RestartSec=5min
+User=raidbench-agent
+Group=raidbench-agent
+WorkingDirectory=/opt/raidbench-publisher/workspace
+EnvironmentFile=/opt/raidbench-agent/secrets/content-agent.env
+EnvironmentFile=/opt/raidbench/secrets/runtime.env
+ExecStart=/usr/bin/python3 scripts/send_feishu_acquisition_digest.py --draft-dir /opt/raidbench-agent/artifacts/content-automation/community-drafts --draft-dir /opt/raidbench-publisher/workspace/private-data/content-automation/community-drafts --state /opt/raidbench-agent/artifacts/acquisition-digest-state.json
+NoNewPrivileges=true
+PrivateDevices=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/opt/raidbench-agent/artifacts
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+LockPersonality=true
+MemoryMax=192M

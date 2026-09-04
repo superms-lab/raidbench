@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "ark-survival-ascended-roster-materials",
+  "gameId": "ark-survival-ascended",
+  "reviewedAt": "2026-09-03",
+  "instructions": "Replace the default inputs with current player-entered values, then retain the assumptions with any shared result.",
+  "inputs": {
+    "creatures": 18,
+    "replacements": 2,
+    "hidePerSaddle": 0,
+    "fiberPerSaddle": 0,
+    "metalPerSaddle": 0,
+    "reservePercent": 10
+  },
+  "assumptions": [
+    "Copy material requirements from the blueprint shown on the current server.",
+    "Server settings, crafting skills, mods, and blueprint quality can change the entered requirements.",
+    "The tool rounds each material total upward."
+  ]
+}

@@ -1,0 +1,1032 @@
+{
+  "schemaVersion": "1.0.0",
+  "reviewedAt": "2026-09-03",
+  "packs": [
+    {
+      "gameId": "project-zomboid",
+      "scope": "Decision frameworks for the current stable Project Zomboid branch. Back up saves and recheck build-specific behavior before changing an established world.",
+      "guides": [
+        {
+          "slug": "project-zomboid-change-sandbox-settings-mid-save",
+          "title": "Can you change zombie settings mid-save in Project Zomboid?",
+          "description": "A cautious test plan for changing zombie behavior in an existing Project Zomboid world without treating an unverified edit as reversible.",
+          "question": "Can I change zombie settings without abandoning my current save?",
+          "answer": "Treat a mid-save sandbox change as a migration, not a casual toggle. Duplicate the save first, record the current build and settings, change one variable in the copy, and verify both existing and newly loaded areas before trusting the result.",
+          "patchSensitive": true,
+          "usesDemandSignal": true,
+          "decisionRows": [
+            ["The world matters", "Confirm the save and game build are backed up", "Test only on a duplicate"],
+            ["One setting is unclear", "Change one zombie variable at a time", "Compare behavior before adding more edits"],
+            ["Existing areas differ", "Test an explored area and a newly loaded area", "Keep or roll back based on both results"]
+          ],
+          "checklist": ["Record the current build number and sandbox values", "Create a separate copy of the complete save directory", "Make one controlled settings change in the copied world", "Load an existing area and a newly visited area", "Keep the original untouched until several sessions are stable"],
+          "stopConditions": ["Stop if the copied world fails to load or loses expected data", "Roll back if the change affects more systems than the one being tested"],
+          "mistakes": ["Editing the only copy of a long-running world", "Changing several population variables in one test", "Assuming existing cells and new cells must update identically"],
+          "related": ["project-zomboid-trait-plan-by-playstyle", "project-zomboid-build-update-save-checklist"]
+        },
+        {
+          "slug": "project-zomboid-trait-plan-by-playstyle",
+          "title": "Project Zomboid trait planning by actual playstyle",
+          "description": "Choose character traits around the first jobs, risks, and recovery plan you will really use instead of copying a universal build.",
+          "question": "Which Project Zomboid traits fit the way I actually play?",
+          "answer": "Start from the jobs you expect to perform during the first week, then choose traits that reduce the risks you repeatedly face. A strong build is one whose disadvantages you can manage consistently, not the build with the most impressive spreadsheet total.",
+          "patchSensitive": false,
+          "usesDemandSignal": false,
+          "decisionRows": [
+            ["Frequent early combat", "Check fatigue, endurance, and escape habits", "Favor reliability over narrow bonuses"],
+            ["Long-term crafting", "List the skills your base plan actually needs", "Invest where repetition saves time"],
+            ["Unfamiliar negative trait", "Describe how it will be managed every day", "Remove it if the answer is vague"]
+          ],
+          "checklist": ["Write down the first three jobs this character must perform", "Identify the failure that ended the previous run", "Match positive traits to repeated actions rather than rare events", "Explain how every negative trait will be controlled", "Keep one simpler backup build for comparison"],
+          "stopConditions": ["Rework the build if one negative trait controls the entire run", "Delay optimization when you cannot explain the first-week routine"],
+          "mistakes": ["Copying a veteran build without the same habits", "Buying skill efficiency that never supports the plan", "Treating point balance as proof that the build is practical"],
+          "related": ["project-zomboid-first-safehouse-decision", "project-zomboid-vehicle-trip-prep"]
+        },
+        {
+          "slug": "project-zomboid-first-safehouse-decision",
+          "title": "How to choose a first safehouse in Project Zomboid",
+          "description": "Compare access, visibility, escape routes, storage, and daily travel before investing supplies in an early Project Zomboid base.",
+          "question": "What makes an early safehouse worth committing to?",
+          "answer": "Choose the location that supports several safe daily loops and at least two exits. A larger building is not automatically safer: travel exposure, poor sight lines, difficult clearing, and one-way access can make an impressive base expensive to maintain.",
+          "patchSensitive": false,
+          "usesDemandSignal": false,
+          "decisionRows": [
+            ["Short supply runs", "Map food, water, tools, and medical access", "Prefer repeatable low-exposure routes"],
+            ["Surprise pressure", "Identify two exits and fallback buildings", "Avoid a base with one trapped approach"],
+            ["Long-term expansion", "Check storage, vehicles, farming, and noise", "Commit only after a short trial stay"]
+          ],
+          "checklist": ["Clear and inspect the immediate perimeter", "Walk two independent routes to essential supplies", "Confirm more than one practical exit", "Spend one night before moving irreplaceable equipment", "Keep a small fallback cache away from the main building"],
+          "stopConditions": ["Leave if daily travel repeatedly forces high-risk crossings", "Do not commit if clearing the perimeter consumes more resources than the location saves"],
+          "mistakes": ["Choosing only for building size", "Ignoring vehicle access and blocked exits", "Moving every valuable item before testing the area"],
+          "related": ["project-zomboid-trait-plan-by-playstyle", "project-zomboid-vehicle-trip-prep"]
+        },
+        {
+          "slug": "project-zomboid-mod-conflict-isolation",
+          "title": "Project Zomboid mod conflict isolation checklist",
+          "description": "Find a broken Project Zomboid mod combination with a repeatable clean test instead of repeatedly damaging the main save.",
+          "question": "How do I identify which mod is breaking the game or save?",
+          "answer": "Reproduce the problem in a disposable profile, confirm the unmodded baseline, and restore mods in small groups. Keep the load order and game build fixed during each comparison so a successful launch actually tells you something.",
+          "patchSensitive": true,
+          "usesDemandSignal": false,
+          "decisionRows": [
+            ["Problem exists unmodded", "Test a clean profile on the same build", "Investigate the base game or local files first"],
+            ["Problem disappears clean", "Enable half the suspect set", "Continue narrowing the failing group"],
+            ["Load order matters", "Repeat with the same mods in controlled order", "Record the smallest failing combination"]
+          ],
+          "checklist": ["Back up the affected save before changing the mod list", "Record the game build and complete enabled-mod order", "Confirm a clean disposable profile can reproduce or clear the issue", "Restore mods in bounded groups rather than one random order", "Keep logs and the smallest failing combination"],
+          "stopConditions": ["Stop using the main save when a test changes map or item data", "Do not declare a fix until the same setup survives a restart"],
+          "mistakes": ["Testing directly on the only valuable save", "Changing build, mods, and load order together", "Assuming one successful launch proves long-session stability"],
+          "related": ["project-zomboid-build-update-save-checklist", "project-zomboid-change-sandbox-settings-mid-save"]
+        },
+        {
+          "slug": "project-zomboid-vehicle-trip-prep",
+          "title": "Project Zomboid vehicle trip preparation checklist",
+          "description": "Plan fuel, storage, tools, alternate roads, and a return condition before turning a supply run into a stranded recovery mission.",
+          "question": "What should I check before taking a vehicle on a long supply run?",
+          "answer": "Prepare the return before planning the loot. Check the vehicle, fuel margin, route alternatives, repair needs, and what can be abandoned. The trip is ready when one blocked road or damaged part does not erase the entire run.",
+          "patchSensitive": false,
+          "usesDemandSignal": false,
+          "decisionRows": [
+            ["Route is unfamiliar", "Mark a primary and fallback road", "Turn back before fuel removes the choice"],
+            ["Vehicle is essential", "Inspect condition and carry relevant tools", "Avoid using the only working vehicle as a gamble"],
+            ["Cargo may be heavy", "Reserve space for recovery supplies", "Define what gets left behind first"]
+          ],
+          "checklist": ["Inspect critical vehicle condition before loading", "Carry fuel and recovery tools appropriate to the plan", "Mark at least one alternate road and safe stopping point", "Reserve inventory space for emergency movement", "Set a fuel or damage threshold that triggers the return"],
+          "stopConditions": ["Return when the remaining fuel no longer protects a route change", "Abandon optional cargo before risking the only transport"],
+          "mistakes": ["Planning cargo capacity but not the return journey", "Taking the only functioning vehicle without a fallback", "Continuing after the route and vehicle assumptions both fail"],
+          "related": ["project-zomboid-first-safehouse-decision", "project-zomboid-trait-plan-by-playstyle"]
+        },
+        {
+          "slug": "project-zomboid-build-update-save-checklist",
+          "title": "Project Zomboid build update save-safety checklist",
+          "description": "Revalidate saves, mods, settings, and rollback options before opening an established Project Zomboid world after a major build update.",
+          "question": "How should I reopen an old world after a major Project Zomboid update?",
+          "answer": "Preserve the old environment first. Record the previous build and mod list, duplicate the save, read the current official notes, and open only the copy. Test core inventory, map, vehicle, and base behavior before resuming normal play.",
+          "patchSensitive": true,
+          "usesDemandSignal": false,
+          "decisionRows": [
+            ["Major build changed", "Read the official stable and legacy notes", "Decide whether to update now or remain on the old branch"],
+            ["Mods are involved", "Check each required mod against the target build", "Remove uncertainty in a copied profile"],
+            ["Copy opens correctly", "Test core systems across multiple sessions", "Promote the copy only after a stable review"]
+          ],
+          "checklist": ["Record the currently working build and mod order", "Back up the complete save before launching the update", "Review official notes for save and system changes", "Open a copy and inspect inventory, map, vehicles, and base data", "Keep a documented rollback path until testing is complete"],
+          "stopConditions": ["Stop when the update converts data you cannot recreate", "Return to the preserved build if required mods are not compatible"],
+          "mistakes": ["Letting the launcher update the only save path", "Assuming a mod loading screen means full compatibility", "Deleting the rollback copy after one short session"],
+          "related": ["project-zomboid-mod-conflict-isolation", "project-zomboid-change-sandbox-settings-mid-save"]
+        }
+      ]
+    },
+    {
+      "gameId": "escape-from-tarkov",
+      "scope": "Decision frameworks for the current Escape from Tarkov release. Exact weapon, ammunition, trader, task, and extraction details must be checked against the active patch and mode.",
+      "guides": [
+        {
+          "slug": "escape-from-tarkov-budget-weapon-choice",
+          "title": "Escape from Tarkov budget weapon choice by real access",
+          "description": "Choose a dependable Tarkov weapon around ammunition access, trader level, task needs, replacement cost, and recoil you can actually control.",
+          "question": "What should be my go-to gun at my current level and budget?",
+          "answer": "The best default is the platform you can replace with ammunition that suits the intended target and a configuration you can control. Compare complete recurring cost and access, not an isolated weapon statistic or a streamer build.",
+          "patchSensitive": true,
+          "usesDemandSignal": true,
+          "decisionRows": [
+            ["Task dictates range", "Define map, distance, and target before buying", "Choose the platform after the job is clear"],
+            ["Ammunition is limited", "Confirm repeatable access under current traders", "Prefer a sustainable combination"],
+            ["Build is expensive", "Price the complete replacement kit", "Set a loss budget before entering the raid"]
+          ],
+          "checklist": ["Define the map, task, and expected engagement distance", "Confirm current ammunition and magazine access", "Build the complete kit and record its replacement cost", "Test recoil and handling before risking several copies", "Keep a cheaper fallback using supplies already available"],
+          "stopConditions": ["Reject the build if ammunition cannot be replenished consistently", "Downgrade when one loss would prevent the next required task attempt"],
+          "mistakes": ["Choosing a gun without checking ammunition access", "Comparing base weapon prices instead of complete kits", "Copying a build that assumes higher trader access"],
+          "related": ["escape-from-tarkov-ammo-armor-assumption-check", "escape-from-tarkov-stash-keep-sell-triage"]
+        },
+        {
+          "slug": "escape-from-tarkov-ammo-armor-assumption-check",
+          "title": "Tarkov ammunition and armor assumption check",
+          "description": "Recheck current ammunition access, intended targets, armor assumptions, cost, and evidence before treating an old chart as a raid plan.",
+          "question": "Can I still trust this ammunition or armor recommendation?",
+          "answer": "Trust the recommendation only after matching it to the current patch, mode, trader access, and expected targets. A chart can remain numerically accurate while becoming impractical because access, price, or common protection changed.",
+          "patchSensitive": true,
+          "usesDemandSignal": false,
+          "decisionRows": [
+            ["Guide predates the patch", "Check current official changes and access", "Retire assumptions that no longer match"],
+            ["Target is unspecified", "Define likely armor and engagement range", "Compare against the actual task"],
+            ["Recommendation is unaffordable", "Price enough rounds for repeated attempts", "Use the best sustainable option rather than one magazine"]
+          ],
+          "checklist": ["Record the active patch and selected game mode", "Confirm how the recommended ammunition is currently obtained", "Define likely targets and engagement distance", "Budget ammunition for more than one raid", "Retest after balance or trader changes"],
+          "stopConditions": ["Stop using the recommendation when its source does not name a current version", "Reject advice that omits acquisition limits or intended targets"],
+          "mistakes": ["Treating a damage number as the complete decision", "Ignoring access and replacement cost", "Applying one target assumption to every map and task"],
+          "related": ["escape-from-tarkov-budget-weapon-choice", "escape-from-tarkov-wipe-progression-priorities"]
+        },
+        {
+          "slug": "escape-from-tarkov-quest-route-plan",
+          "title": "Escape from Tarkov quest route planning checklist",
+          "description": "Break a Tarkov quest into spawn-dependent objectives, safe branches, extraction choices, and a stop rule before committing expensive equipment.",
+          "question": "How should I plan a quest route without forcing one bad path?",
+          "answer": "Plan branches rather than one perfect line. Separate mandatory objectives from optional loot, define which spawns make the attempt reasonable, choose fallback extractions, and leave once the quest value exceeds the value of staying longer.",
+          "patchSensitive": true,
+          "usesDemandSignal": false,
+          "decisionRows": [
+            ["Spawn supports the objective", "Estimate exposure to the first required point", "Run the primary route only when it remains credible"],
+            ["Spawn is unfavorable", "Use a fallback task or delayed approach", "Avoid crossing the map only to rescue the plan"],
+            ["Objective is complete", "Compare remaining loot with extraction risk", "Leave when optional value cannot justify failure"]
+          ],
+          "checklist": ["Confirm current quest conditions and required map", "Create primary and fallback routes for different spawns", "Mark at least two relevant extraction options", "Separate mandatory items from optional loot", "Set an extraction trigger before the raid starts"],
+          "stopConditions": ["Abandon the route when current patch or map details are unverified", "Extract after completing the objective if the remaining plan adds only optional value"],
+          "mistakes": ["Using one route for every spawn", "Combining too many unrelated objectives", "Finishing the quest and then losing it to unnecessary looting"],
+          "related": ["escape-from-tarkov-extraction-readiness", "escape-from-tarkov-wipe-progression-priorities"]
+        },
+        {
+          "slug": "escape-from-tarkov-extraction-readiness",
+          "title": "Escape from Tarkov extraction readiness checklist",
+          "description": "Confirm extraction availability, requirements, timing, route exposure, and fallback options before relying on an exit under pressure.",
+          "question": "What should I verify before committing to an extraction route?",
+          "answer": "An extraction is part of the plan only when its current availability and requirements are confirmed. Know the fallback, preserve enough time to reach it, and avoid routing every valuable raid through one conditional exit.",
+          "patchSensitive": true,
+          "usesDemandSignal": false,
+          "decisionRows": [
+            ["Exit may be conditional", "Confirm its current requirement and status", "Carry the requirement or choose another plan"],
+            ["Time margin is shrinking", "Estimate travel plus one blocked approach", "Leave before the fallback disappears"],
+            ["Primary route is contested", "Identify a lower-value alternate exit", "Protect survival instead of defending the original plan"]
+          ],
+          "checklist": ["Check the current map and mode-specific extraction list", "Confirm every condition attached to the preferred exit", "Choose a fallback on the opposite route branch", "Reserve time for a blocked road or detour", "Reassess immediately after completing the main objective"],
+          "stopConditions": ["Do not rely on an exit whose current conditions are uncertain", "Switch routes when the time margin no longer protects the fallback"],
+          "mistakes": ["Memorizing an old extraction without checking the patch", "Arriving with no time for the extraction condition", "Keeping the primary route after its assumptions fail"],
+          "related": ["escape-from-tarkov-quest-route-plan", "escape-from-tarkov-budget-weapon-choice"]
+        },
+        {
+          "slug": "escape-from-tarkov-stash-keep-sell-triage",
+          "title": "Tarkov stash keep-or-sell triage",
+          "description": "Classify Tarkov stash items by near-term tasks, repeatable access, storage pressure, replacement cost, and current patch relevance.",
+          "question": "How do I decide what to keep instead of filling the stash?",
+          "answer": "Keep items tied to a near-term verified use, expensive replacement, or constrained access. Sell duplicates and speculative stock that blocks functional kits. The goal is not maximum theoretical value; it is a stash that supports the next several decisions.",
+          "patchSensitive": true,
+          "usesDemandSignal": false,
+          "decisionRows": [
+            ["Needed soon", "Match the item to a current task or upgrade", "Keep only the required quantity"],
+            ["Easy to replace", "Confirm repeatable trader or raid access", "Convert excess storage into usable funds"],
+            ["Value is speculative", "Name the exact future use and timing", "Sell when the plan is only a possibility"]
+          ],
+          "checklist": ["List the next three tasks or upgrades", "Tag items required for those confirmed goals", "Check current trader and crafting access before hoarding", "Set quantity limits for common duplicates", "Preserve enough space to assemble complete raid kits"],
+          "stopConditions": ["Stop hoarding when storage pressure prevents normal preparation", "Recheck items whose value depends on an outdated task or recipe"],
+          "mistakes": ["Keeping every item mentioned by an old checklist", "Valuing items without considering storage cost", "Selling constrained task items before checking near-term requirements"],
+          "related": ["escape-from-tarkov-budget-weapon-choice", "escape-from-tarkov-wipe-progression-priorities"]
+        },
+        {
+          "slug": "escape-from-tarkov-wipe-progression-priorities",
+          "title": "Escape from Tarkov wipe progression priorities",
+          "description": "Choose the next Tarkov progression goal by access, survival rate, task dependencies, equipment budget, and time available this wipe.",
+          "question": "What should I prioritize next during the current wipe?",
+          "answer": "Prioritize the bottleneck that unlocks several useful options, not the task with the loudest reward. Compare trader access, required maps, survival cost, and time. Work in short loops that still create value when one raid fails.",
+          "patchSensitive": true,
+          "usesDemandSignal": false,
+          "decisionRows": [
+            ["One unlock blocks several plans", "Map its immediate dependencies", "Focus the shortest reliable sequence"],
+            ["Task repeatedly consumes kits", "Review route, map knowledge, and attempt cost", "Change the method before repeating"],
+            ["Playtime is limited", "Choose objectives that fit one session", "Bank progress instead of forcing long chains"]
+          ],
+          "checklist": ["List the next meaningful unlocks rather than every task", "Identify dependencies shared by several goals", "Estimate the kit and time cost of each attempt", "Choose a repeatable route that supports more than one outcome", "Review priorities after official task or trader changes"],
+          "stopConditions": ["Pause a task when repeated losses exceed its near-term unlock value", "Replan when current wipe changes invalidate the dependency chain"],
+          "mistakes": ["Following a complete task list without personal priorities", "Ignoring the cost of repeated failed attempts", "Spreading resources across several blocked quest lines"],
+          "related": ["escape-from-tarkov-quest-route-plan", "escape-from-tarkov-ammo-armor-assumption-check"]
+        }
+      ]
+    },
+    {
+      "gameId": "ark-survival-ascended",
+      "scope": "Planning frameworks for ARK: Survival Ascended. Map, server, difficulty, loot-quality, taming, breeding, and mod settings can materially change every recommendation.",
+      "guides": [
+        {
+          "slug": "ark-survival-ascended-saddle-blueprint-plan",
+          "title": "ARK Survival Ascended saddle blueprint planning",
+          "description": "Choose a saddle blueprint farming plan around the target creature, boss goal, map, server settings, repeatability, and crafting cost.",
+          "question": "How should I search for a useful saddle blueprint without wasting runs?",
+          "answer": "Define the creature and encounter first, then compare eligible loot activities by repeatability, danger, and crafting burden. A higher-quality blueprint is not automatically better if its material cost prevents equipping the full team.",
+          "patchSensitive": true,
+          "usesDemandSignal": true,
+          "decisionRows": [
+            ["Boss goal is defined", "Confirm the required creature role and map", "Target activities that can actually serve that goal"],
+            ["Blueprint quality rises", "Estimate full-team crafting materials", "Prefer a repeatable affordable result"],
+            ["Loot settings differ", "Record server and difficulty modifiers", "Do not compare results across unlike servers"]
+          ],
+          "checklist": ["Name the creature, encounter, and number of saddles required", "Record map, difficulty, loot, and server settings", "Confirm the planned activity can produce the relevant category", "Track attempts and material cost rather than one lucky result", "Test the complete boss preparation plan before scaling"],
+          "stopConditions": ["Stop following a route that assumes different server settings", "Reject a blueprint whose full crafting cost breaks the team budget"],
+          "mistakes": ["Farming before defining the encounter requirement", "Equating blueprint quality with practical value", "Copying official-server expectations onto boosted settings"],
+          "related": ["ark-survival-ascended-boss-prep-budget", "ark-survival-ascended-server-settings-check"]
+        },
+        {
+          "slug": "ark-survival-ascended-taming-plan",
+          "title": "ARK Survival Ascended taming plan checklist",
+          "description": "Prepare a tame around server rates, food access, containment, travel, protection, and a recovery plan before the attempt begins.",
+          "question": "What should I calculate before attempting an important tame?",
+          "answer": "Confirm current server rates and creature behavior, then budget food, time, containment, protection, and the trip home. The attempt is ready only when a disruption does not force an improvised rescue with no supplies.",
+          "patchSensitive": true,
+          "usesDemandSignal": false,
+          "decisionRows": [
+            ["Server rates are known", "Record taming, food, and difficulty settings", "Calculate for this server rather than a generic one"],
+            ["Location is dangerous", "Plan containment and perimeter control", "Stage protection before starting"],
+            ["Tame succeeds", "Prepare transport and destination space", "Protect the result during the return"]
+          ],
+          "checklist": ["Confirm the creature and current map availability", "Record all server rates that affect the attempt", "Bring a margin for food, tools, and interruptions", "Prepare containment and a guarded staging area", "Plan transport and space at the destination"],
+          "stopConditions": ["Abort when the creature behavior or server rate differs from the plan", "Delay the attempt if there is no safe transport or destination"],
+          "mistakes": ["Using official-rate estimates on a custom server", "Starting before the perimeter is controlled", "Planning the tame but not the trip home"],
+          "related": ["ark-survival-ascended-base-resource-bottleneck", "ark-survival-ascended-server-settings-check"]
+        },
+        {
+          "slug": "ark-survival-ascended-breeding-goal-plan",
+          "title": "ARK Survival Ascended breeding goal planner",
+          "description": "Define the role, target traits, population, time budget, and stopping rule before expanding an ARK breeding project.",
+          "question": "How do I keep a breeding project tied to a useful result?",
+          "answer": "Start with the encounter or job the line must perform, then define the acceptable result and stop condition. Preserve clean records and avoid expanding every promising branch; a controlled line is easier to verify and replace.",
+          "patchSensitive": false,
+          "usesDemandSignal": false,
+          "decisionRows": [
+            ["Role is clear", "Name the encounter or production job", "Choose traits that support that job"],
+            ["Lineage is expanding", "Separate baseline, test, and final groups", "Retire branches that no longer improve the target"],
+            ["Time cost grows", "Estimate raising and replacement capacity", "Set a stopping result before scaling"]
+          ],
+          "checklist": ["Write the intended creature role and target encounter", "Record baseline parents and relevant server settings", "Separate clean breeding stock from experimental offspring", "Track one improvement objective per branch", "Define the acceptable result and stop condition"],
+          "stopConditions": ["Pause when records can no longer identify the baseline", "Stop expanding when raising capacity exceeds the intended use"],
+          "mistakes": ["Breeding for every possible stat at once", "Mixing final and experimental stock", "Continuing without a practical encounter target"],
+          "related": ["ark-survival-ascended-boss-prep-budget", "ark-survival-ascended-taming-plan"]
+        },
+        {
+          "slug": "ark-survival-ascended-boss-prep-budget",
+          "title": "ARK Survival Ascended boss preparation budget",
+          "description": "Turn an ARK boss goal into a roster, saddle, consumable, recovery, and replacement budget that matches the current server.",
+          "question": "When is a tribe actually ready to attempt a boss?",
+          "answer": "Readiness is more than creature statistics. Confirm current encounter requirements, roster roles, saddle affordability, player equipment, recovery supplies, and the cost of replacement. Run a lower-cost rehearsal before risking the complete line.",
+          "patchSensitive": true,
+          "usesDemandSignal": false,
+          "decisionRows": [
+            ["Roster looks strong", "Check role coverage and control plan", "Resolve missing jobs before adding more creatures"],
+            ["Saddles are available", "Calculate the full-team crafting cost", "Equip consistently rather than one exceptional unit"],
+            ["Failure is possible", "Price recovery and replacement time", "Attempt only when the loss is survivable"]
+          ],
+          "checklist": ["Verify current map and encounter requirements", "Assign creature and player roles", "Budget saddles and consumables for the full roster", "Prepare recovery gear and replacement breeding stock", "Run a controlled rehearsal of commands and movement"],
+          "stopConditions": ["Delay when one missing role can collapse the entire plan", "Do not risk irreplaceable breeding stock without a preserved fallback"],
+          "mistakes": ["Evaluating only raw creature statistics", "Budgeting one saddle instead of the roster", "Entering without a recovery and replacement plan"],
+          "related": ["ark-survival-ascended-saddle-blueprint-plan", "ark-survival-ascended-breeding-goal-plan"]
+        },
+        {
+          "slug": "ark-survival-ascended-base-resource-bottleneck",
+          "title": "ARK Survival Ascended base resource bottleneck check",
+          "description": "Identify whether gathering, transport, storage, crafting, power, or player attention is limiting an ARK base before expanding it.",
+          "question": "Why does my base feel busy but still fail to produce what I need?",
+          "answer": "Measure one production loop from gathering to finished item. The bottleneck may be hauling, storage placement, crafting capacity, power, or interruptions rather than raw resource supply. Improve the slowest verified stage first.",
+          "patchSensitive": false,
+          "usesDemandSignal": false,
+          "decisionRows": [
+            ["Raw materials are available", "Time the trip from source to storage", "Reduce transport before adding gathering"],
+            ["Storage stays full", "Check transfer and crafting throughput", "Move capacity closer to the consuming station"],
+            ["Players constantly intervene", "List manual steps and interruptions", "Simplify the loop with the highest attention cost"]
+          ],
+          "checklist": ["Choose one finished item the base must produce", "Record each stage from gathering through storage and crafting", "Measure where materials wait the longest", "Check transport, power, weight, and player attention", "Change one stage and compare the complete loop again"],
+          "stopConditions": ["Do not expand until the current slowest stage is identified", "Reverse a change that shifts the delay without improving total output"],
+          "mistakes": ["Adding more gathering when transport is full", "Expanding storage without improving access", "Changing several production stages before measuring one"],
+          "related": ["ark-survival-ascended-taming-plan", "ark-survival-ascended-server-settings-check"]
+        },
+        {
+          "slug": "ark-survival-ascended-server-settings-check",
+          "title": "ARK Survival Ascended server settings reality check",
+          "description": "Record the settings that change taming, breeding, loot, resources, difficulty, and progression before trusting an ARK recommendation.",
+          "question": "Which server settings must I know before using a guide or calculator?",
+          "answer": "Any recommendation involving time, quantities, loot, creature strength, or progression must name the relevant server assumptions. Record the live settings and active mods first; otherwise an exact-looking answer can be precisely wrong for your world.",
+          "patchSensitive": true,
+          "usesDemandSignal": false,
+          "decisionRows": [
+            ["Guide assumes official settings", "Compare rates and difficulty with the server", "Recalculate every affected quantity"],
+            ["Mods alter systems", "List active mods and load order", "Separate mod behavior from the base game"],
+            ["Server recently updated", "Check official notes and owner changes", "Retest before scaling an expensive plan"]
+          ],
+          "checklist": ["Record difficulty, taming, breeding, harvest, and loot settings", "List active mods and their versions", "Identify which settings affect the current decision", "Recalculate time and quantities using the live values", "Recheck after server or official game updates"],
+          "stopConditions": ["Stop when the server cannot confirm a setting that controls the result", "Do not transfer conclusions between servers with different rates or mods"],
+          "mistakes": ["Treating official settings as universal", "Ignoring a mod that changes the same system", "Using old values after a server configuration update"],
+          "related": ["ark-survival-ascended-taming-plan", "ark-survival-ascended-saddle-blueprint-plan"]
+        }
+      ]
+    },
+    {
+      "gameId": "warframe",
+      "scope": "Planning frameworks for the current Warframe patch. Quest, node, item, mod, reward, and access details must be rechecked against Digital Extremes sources and the player's account state.",
+      "guides": [
+        {
+          "slug": "warframe-returning-player-priority-plan",
+          "title": "Warframe returning-player priority plan",
+          "description": "Turn a crowded returning-player account into a short sequence of quests, system checks, build repairs, and one meaningful progression goal.",
+          "question": "What should I do first after returning to Warframe?",
+          "answer": "Do not try to catch up with every system at once. Confirm the completed quest state, repair one dependable loadout, identify the next unlock that opens several activities, and test it in content you can repeat safely.",
+          "patchSensitive": true,
+          "usesDemandSignal": true,
+          "decisionRows": [
+            ["Account state is unclear", "Review completed quests and unlocked systems", "Choose the nearest useful dependency"],
+            ["Old build feels weak", "Check current mods, survivability, and target content", "Repair one general loadout first"],
+            ["Too many activities compete", "Name one two-session progression result", "Delay unrelated farms until it is complete"]
+          ],
+          "checklist": ["Record the last major quest and systems already unlocked", "Choose one reliable Warframe and weapon loadout to repair", "Check current official patch notes for changed mechanics", "Select one unlock that opens several useful activities", "Test the plan in repeatable content before investing heavily"],
+          "stopConditions": ["Pause when the plan depends on an unlock the account does not have", "Do not spread rare resources across several untested builds"],
+          "mistakes": ["Following a complete catch-up list without priorities", "Rebuilding every old loadout at once", "Farming an item before confirming what problem it solves"],
+          "related": ["warframe-steel-path-readiness-check", "warframe-build-bottleneck-check"]
+        },
+        {
+          "slug": "warframe-steel-path-readiness-check",
+          "title": "Warframe Steel Path readiness check",
+          "description": "Review unlock state, survivability, damage delivery, mission objectives, and recovery options before treating Steel Path as a build-score test.",
+          "question": "Is my account and loadout ready to begin Steel Path?",
+          "answer": "Readiness means the mode is unlocked and one loadout can survive, complete objectives, and deliver damage consistently in the intended mission type. Test a controlled node, identify the first failure, and repair that layer before copying a different build.",
+          "patchSensitive": true,
+          "usesDemandSignal": false,
+          "decisionRows": [
+            ["Mode is not unlocked", "Confirm current prerequisites", "Finish the actual dependency before optimizing"],
+            ["Damage is adequate but runs fail", "Review survivability and objective handling", "Fix the layer causing mission failure"],
+            ["One mission type works", "Test a second objective pattern", "Avoid calling a narrow build universally ready"]
+          ],
+          "checklist": ["Confirm the current unlock requirements are complete", "Choose one loadout with understood survivability", "Test damage against the intended enemy and mission type", "Verify energy, ammunition, and recovery under pressure", "Record the first repeatable failure before changing the build"],
+          "stopConditions": ["Step back when the mode itself is not yet unlocked", "Stop adding damage if objective failure or survival is the real blocker"],
+          "mistakes": ["Treating one damage number as readiness", "Testing only a favorable mission type", "Replacing the complete build after one unidentified failure"],
+          "related": ["warframe-build-bottleneck-check", "warframe-mod-upgrade-spending-plan"]
+        },
+        {
+          "slug": "warframe-build-bottleneck-check",
+          "title": "Warframe build bottleneck diagnosis",
+          "description": "Separate survivability, damage application, energy, ammunition, objective, and execution failures before changing a Warframe build.",
+          "question": "Why does a build that looks strong still fail in the target mission?",
+          "answer": "Name the exact failure and the mission context before replacing mods. A build may have enough theoretical damage but fail to apply it, maintain resources, survive the objective, or recover after disruption. Change one diagnosed layer at a time.",
+          "patchSensitive": true,
+          "usesDemandSignal": false,
+          "decisionRows": [
+            ["Enemies take too long", "Separate raw damage from application and uptime", "Test one damage interaction at a time"],
+            ["Deaths interrupt the loop", "Identify the attack, status, or resource failure", "Add the smallest reliable defensive repair"],
+            ["Mission objective fails", "Check crowd control, mobility, and coverage", "Optimize for the objective rather than a dummy target"]
+          ],
+          "checklist": ["Record mission type, enemy context, and current patch", "Describe the first repeatable failure in one sentence", "Classify it as damage, survival, resource, objective, or execution", "Change one mod or interaction and repeat the same test", "Keep the previous configuration until the improvement repeats"],
+          "stopConditions": ["Stop when the test environment changes between comparisons", "Reject a repair that improves one number while worsening the mission result"],
+          "mistakes": ["Replacing the build before diagnosing the failure", "Testing only in a favorable simulation", "Stacking damage while resource uptime collapses"],
+          "related": ["warframe-steel-path-readiness-check", "warframe-mod-upgrade-spending-plan"]
+        },
+        {
+          "slug": "warframe-farming-priority-route",
+          "title": "Warframe farming priority route",
+          "description": "Choose the next Warframe farm by unlock value, expected repetitions, team dependence, fallback rewards, and the build it actually improves.",
+          "question": "Which farm should I run next instead of chasing everything?",
+          "answer": "Prioritize the farm that removes the current progression bottleneck and still provides useful fallback rewards. Confirm access and current reward placement, estimate a bounded test set, and reassess instead of turning one unlucky session into an endless commitment.",
+          "patchSensitive": true,
+          "usesDemandSignal": false,
+          "decisionRows": [
+            ["Reward solves a current blocker", "Name the build or unlock it improves", "Prioritize direct progression value"],
+            ["Farm has useful fallbacks", "List resources gained on unsuccessful runs", "Prefer routes that preserve session value"],
+            ["Attempts keep expanding", "Set a review count and alternative", "Switch when the opportunity cost becomes larger"]
+          ],
+          "checklist": ["Define the exact account bottleneck", "Confirm current mission access and reward source", "Choose a repeatable loadout for the activity", "Set a fixed number of test runs", "Record useful fallback rewards and reassess afterward"],
+          "stopConditions": ["Stop when official reward placement changed", "Switch farms when the target no longer solves the largest account bottleneck"],
+          "mistakes": ["Farming because an item is popular rather than needed", "Ignoring access and team dependence", "Continuing indefinitely without a review point"],
+          "related": ["warframe-returning-player-priority-plan", "warframe-build-bottleneck-check"]
+        },
+        {
+          "slug": "warframe-mod-upgrade-spending-plan",
+          "title": "Warframe mod upgrade spending plan",
+          "description": "Spend limited upgrade resources on mods that repair a verified build bottleneck and remain useful across more than one loadout.",
+          "question": "Which mod should receive scarce upgrade resources first?",
+          "answer": "Upgrade the mod that fixes a measured failure and has broad use across the loadouts you actually play. Compare the next rank's practical effect with its resource cost; maximum rank is not automatically the best first purchase.",
+          "patchSensitive": true,
+          "usesDemandSignal": false,
+          "decisionRows": [
+            ["Failure is diagnosed", "Map the mod to damage, survival, or uptime", "Fund the layer that changes the mission result"],
+            ["Resource cost rises sharply", "Compare the next rank with another upgrade", "Stop where marginal value falls"],
+            ["Mod fits several builds", "Count current loadouts that can use it", "Favor flexible progress when impact is similar"]
+          ],
+          "checklist": ["Identify the exact build failure being repaired", "Compare the next rank with another available upgrade", "Check capacity and polarity impact before spending", "Prefer upgrades useful across current loadouts", "Retest the same mission after the investment"],
+          "stopConditions": ["Do not spend when the mod does not address the observed failure", "Delay maximum rank when it blocks several larger improvements"],
+          "mistakes": ["Maxing a popular mod without testing the build", "Ignoring capacity and forma consequences", "Dividing resources across many unfinished repairs"],
+          "related": ["warframe-build-bottleneck-check", "warframe-patch-build-revalidation"]
+        },
+        {
+          "slug": "warframe-patch-build-revalidation",
+          "title": "Warframe build revalidation after a patch",
+          "description": "Check changed abilities, mods, weapons, interactions, mission context, and actual test results before keeping or retiring a Warframe build.",
+          "question": "How do I tell whether a patch actually broke my Warframe build?",
+          "answer": "Compare the official change with the build's real dependency, then repeat the same controlled mission test. Do not rebuild because a related name appeared in patch notes; verify whether the changed interaction alters survival, damage, uptime, or objective completion.",
+          "patchSensitive": true,
+          "usesDemandSignal": false,
+          "decisionRows": [
+            ["Patch names a component", "Trace its role in the build's loop", "Test only the affected dependency first"],
+            ["Performance changed", "Repeat the same mission and conditions", "Separate patch impact from a different test"],
+            ["One layer weakened", "Find the smallest viable replacement", "Preserve unaffected parts of the build"]
+          ],
+          "checklist": ["Read the current official patch notes", "List every changed component used by the build", "Describe the expected effect before testing", "Repeat a controlled pre-patch-style mission", "Change one affected layer and retain the rest"],
+          "stopConditions": ["Do not conclude anything from different mission conditions", "Retire the build only when its core dependency no longer performs its job"],
+          "mistakes": ["Rebuilding from the patch headline alone", "Changing several mods before measuring impact", "Using community reactions as factual confirmation"],
+          "related": ["warframe-build-bottleneck-check", "warframe-mod-upgrade-spending-plan"]
+        }
+      ]
+    },
+    {
+      "gameId": "once-human",
+      "scope": "Decision frameworks for the current Once Human version. Scenario, server, character, inheritance, build, and reward behavior must be verified against current official announcements.",
+      "guides": [
+        {
+          "slug": "once-human-character-scenario-carryover-check",
+          "title": "Once Human character and scenario carryover check",
+          "description": "Separate account, character, scenario, server, and seasonal progress before deciding whether to continue a character or create another one.",
+          "question": "What carries over, and should I reuse my character for the next scenario?",
+          "answer": "Do not decide from the word carryover alone. List each asset or unlock, identify whether it belongs to the account, character, server, or scenario, then confirm the current official rule for the transition you plan to make.",
+          "patchSensitive": true,
+          "usesDemandSignal": true,
+          "decisionRows": [
+            ["Asset matters", "Classify it as account, character, server, or scenario", "Verify the exact current transition rule"],
+            ["New scenario is attractive", "Compare access, friends, and retained progress", "Choose the character path after dependencies are clear"],
+            ["Rule is ambiguous", "Use the latest official announcement and in-game notice", "Delay irreversible choices until confirmed"]
+          ],
+          "checklist": ["Name the source and destination scenario or server", "List every item, unlock, and relationship that matters", "Classify each one by account, character, server, or scenario", "Check the latest official transition notice", "Preserve screenshots of important state before moving"],
+          "stopConditions": ["Stop when current official wording does not cover the intended transition", "Do not create or abandon a character to test an irreversible assumption"],
+          "mistakes": ["Treating all progress as one category", "Using an old season answer for a new scenario", "Making the character decision before checking social and server dependencies"],
+          "related": ["once-human-scenario-choice-checklist", "once-human-update-migration-checklist"]
+        },
+        {
+          "slug": "once-human-build-bottleneck-check",
+          "title": "Once Human build bottleneck diagnosis",
+          "description": "Separate weapon, calibration, mod, armor, resource, survivability, and execution problems before replacing an entire Once Human build.",
+          "question": "Which part of my Once Human build is actually holding it back?",
+          "answer": "Test the build in the activity it is meant to complete and record the first repeatable failure. Repair one layer at a time: damage delivery, survivability, resource uptime, encounter mechanics, or execution. Avoid changing every item after one bad result.",
+          "patchSensitive": true,
+          "usesDemandSignal": false,
+          "decisionRows": [
+            ["Damage is inconsistent", "Check conditions, uptime, and target context", "Repair the missing interaction before adding raw stats"],
+            ["Survival ends attempts", "Identify the attack or status causing failure", "Add a targeted defensive response"],
+            ["Build is unaffordable", "Price calibration, mods, and replacements", "Stage upgrades by measured impact"]
+          ],
+          "checklist": ["Define the target activity and current version", "Record the first repeatable failure", "Classify the failure as damage, survival, resource, mechanic, or execution", "Change one component and repeat the same test", "Keep the previous build until the improvement repeats"],
+          "stopConditions": ["Stop when the test target or conditions change between runs", "Reject upgrades whose resource cost exceeds their measured effect"],
+          "mistakes": ["Replacing the complete build without a diagnosis", "Testing only under perfect effect uptime", "Spending scarce resources on several uncertain upgrades"],
+          "related": ["once-human-resource-priority-plan", "once-human-update-migration-checklist"]
+        },
+        {
+          "slug": "once-human-base-production-bottleneck",
+          "title": "Once Human base production bottleneck check",
+          "description": "Trace gathering, transport, power, storage, processing, and player attention to find the slowest stage in a Once Human production loop.",
+          "question": "Why is my base producing less than the amount of activity suggests?",
+          "answer": "Measure one complete output from input gathering to finished storage. The constraint may be power, transfer, storage, processing time, placement, or player intervention. Improve the verified slowest stage before expanding the whole facility.",
+          "patchSensitive": true,
+          "usesDemandSignal": false,
+          "decisionRows": [
+            ["Inputs are abundant", "Check where materials wait", "Improve transport or processing rather than gathering"],
+            ["Power is unstable", "Map consumers and peak load", "Protect the production line that serves the next goal"],
+            ["Manual work dominates", "Count repeated player interventions", "Simplify the highest-attention step"]
+          ],
+          "checklist": ["Choose one finished resource to measure", "Map every stage from input to final storage", "Record power, storage, processing, and manual delays", "Change only the slowest verified stage", "Compare total output over the same period"],
+          "stopConditions": ["Do not expand while the current bottleneck is unknown", "Reverse changes that move congestion without increasing finished output"],
+          "mistakes": ["Adding more inputs to a blocked processor", "Expanding storage without improving transfer", "Changing power and layout together before measuring"],
+          "related": ["once-human-resource-priority-plan", "once-human-scenario-choice-checklist"]
+        },
+        {
+          "slug": "once-human-scenario-choice-checklist",
+          "title": "Once Human scenario choice checklist",
+          "description": "Compare scenario rules, schedule, population, friends, progression goals, carryover, and available time before choosing where to play next.",
+          "question": "Which Once Human scenario or server fits my actual goals?",
+          "answer": "Choose the scenario whose rules, timeline, group situation, and progression demands fit the hours and playstyle available. Confirm current entry and carryover rules first; popularity does not compensate for a schedule or objective you cannot support.",
+          "patchSensitive": true,
+          "usesDemandSignal": false,
+          "decisionRows": [
+            ["Playtime is limited", "Compare schedule and required maintenance", "Favor a scenario with finishable session goals"],
+            ["Friends are involved", "Confirm server and character compatibility", "Resolve group access before investing"],
+            ["Rewards drive the choice", "Check current official eligibility and carryover", "Value only rewards the account can actually retain"]
+          ],
+          "checklist": ["Write the preferred PvE, PvP, building, or progression goal", "Confirm current scenario rules and schedule", "Check friends, server, and character constraints", "Review carryover and reward eligibility", "Choose one first-week result that proves the fit"],
+          "stopConditions": ["Do not commit when the scenario schedule conflicts with available time", "Delay the move if character or group access remains uncertain"],
+          "mistakes": ["Choosing only by population or novelty", "Ignoring the scenario end and maintenance schedule", "Assuming every reward or asset transfers"],
+          "related": ["once-human-character-scenario-carryover-check", "once-human-update-migration-checklist"]
+        },
+        {
+          "slug": "once-human-resource-priority-plan",
+          "title": "Once Human resource priority plan",
+          "description": "Choose the next resource farm by the current build or base bottleneck, repeatable access, storage cost, risk, and near-term unlock value.",
+          "question": "Which resource should I farm next instead of collecting everything?",
+          "answer": "Start from the next verified upgrade or production target and work backward to the constrained input. Farm enough to complete that step plus a modest replacement margin, then reassess. A full storage box is not progress if it does not unlock a decision.",
+          "patchSensitive": true,
+          "usesDemandSignal": false,
+          "decisionRows": [
+            ["Upgrade is defined", "List required inputs and current stock", "Farm the smallest blocking quantity"],
+            ["Route is risky", "Compare time, loss exposure, and fallback gains", "Use the most repeatable acceptable route"],
+            ["Storage is pressured", "Identify speculative stock with no near use", "Convert space toward the active goal"]
+          ],
+          "checklist": ["Name the exact upgrade or output being pursued", "Calculate the missing inputs using current requirements", "Choose a repeatable route with useful fallback materials", "Set a target quantity and loss limit", "Stop and select the next bottleneck after completion"],
+          "stopConditions": ["Stop farming when the active requirement is complete", "Recheck when an update changes recipes, routes, or reward access"],
+          "mistakes": ["Collecting resources without a defined output", "Choosing peak yield while ignoring repeatability", "Hoarding speculative materials that block current production"],
+          "related": ["once-human-base-production-bottleneck", "once-human-build-bottleneck-check"]
+        },
+        {
+          "slug": "once-human-update-migration-checklist",
+          "title": "Once Human update migration checklist",
+          "description": "Recheck scenario rules, builds, base systems, items, rewards, and character assumptions after a Once Human version update.",
+          "question": "What should I verify before continuing after a major update?",
+          "answer": "Read the current official announcement, list every changed system your plan depends on, and test those dependencies before spending or moving important assets. Preserve the old plan until the new behavior is confirmed in the intended scenario.",
+          "patchSensitive": true,
+          "usesDemandSignal": false,
+          "decisionRows": [
+            ["Patch affects a dependency", "Map the change to build, base, or scenario", "Test the affected layer first"],
+            ["Migration changes access", "Confirm character and server eligibility", "Avoid irreversible moves based on old rules"],
+            ["Performance appears different", "Repeat the same controlled activity", "Separate patch impact from changed conditions"]
+          ],
+          "checklist": ["Read the latest official update and bug-fix notices", "List changed systems used by the current plan", "Record important character, inventory, and base state", "Test one affected dependency in a low-cost activity", "Update the plan only after the result repeats"],
+          "stopConditions": ["Stop when the official note does not cover an irreversible transition", "Roll back the planned investment when the core interaction is unverified"],
+          "mistakes": ["Changing the complete build from patch headlines", "Assuming old scenario rules still apply", "Using community speculation as confirmation of carryover"],
+          "related": ["once-human-character-scenario-carryover-check", "once-human-build-bottleneck-check"]
+        }
+      ]
+    },
+    {
+      "gameId": "counter-strike-2",
+      "scope": "Decision frameworks for current Counter-Strike 2 competitive play. Economy, map pool, equipment, mechanics, and matchmaking rules must be rechecked after Valve updates.",
+      "guides": [
+        {
+          "slug": "counter-strike-2-buy-force-save-decision",
+          "title": "CS2 buy, force, or save round decision",
+          "description": "Choose a Counter-Strike 2 team economy plan by round objective, loss bonus, equipment carryover, utility needs, and the following round.",
+          "question": "Should the team buy, force, or save this round?",
+          "answer": "Make one team decision from the current money, equipment already saved, utility required, likely opponent buy, and the next-round consequence. Five partial individual plans are usually weaker than one modest plan everyone can execute.",
+          "patchSensitive": true,
+          "usesDemandSignal": false,
+          "decisionRows": [
+            ["Full plan is affordable", "Check rifles, armor, utility, and role coverage", "Buy together with a defined round plan"],
+            ["Only partial equipment fits", "Compare force-win value with next-round damage", "Force only when the round has a credible conversion"],
+            ["Next round matters more", "Identify weapons worth carrying and exit goals", "Save deliberately rather than taking isolated fights"]
+          ],
+          "checklist": ["Call current money and saved equipment", "Estimate the opponent's likely buy", "Define required utility and entry roles", "Compare this round with the next-round economy", "Make one clear team call before purchases begin"],
+          "stopConditions": ["Cancel the force when the team cannot afford a coherent plan", "Do not chase exits during a save when it risks valuable carried equipment"],
+          "mistakes": ["Buying individually before the call", "Counting rifles but ignoring utility", "Forcing because the previous round felt unlucky"],
+          "related": ["counter-strike-2-map-role-prep", "counter-strike-2-round-review-checklist"]
+        },
+        {
+          "slug": "counter-strike-2-sensitivity-change-test",
+          "title": "CS2 sensitivity change test plan",
+          "description": "Evaluate a Counter-Strike 2 sensitivity change with one controlled baseline, repeatable drills, match evidence, and a rollback value.",
+          "question": "How do I know whether a new sensitivity is actually better?",
+          "answer": "Record the current effective setting, change one input variable, and compare the same drills plus several normal matches. Keep the new value only when control and consistency improve without creating a new movement or tracking problem.",
+          "patchSensitive": false,
+          "usesDemandSignal": false,
+          "decisionRows": [
+            ["Baseline is recorded", "Save sensitivity, DPI, and relevant input settings", "Keep a one-step rollback"],
+            ["Drill result improves", "Check flick, tracking, and micro-correction separately", "Avoid optimizing only one motion"],
+            ["Matches feel inconsistent", "Collect several comparable sessions", "Revert if adaptation cost produces no stable gain"]
+          ],
+          "checklist": ["Record current sensitivity, DPI, resolution, and input settings", "Change only one setting", "Repeat the same short aim and movement drills", "Play several normal matches without further adjustment", "Compare consistency and revert when evidence is mixed"],
+          "stopConditions": ["Stop changing values during the comparison window", "Return to baseline when discomfort persists without measurable improvement"],
+          "mistakes": ["Changing sensitivity after every missed shot", "Comparing different drills and match conditions", "Optimizing a dramatic flick while losing small corrections"],
+          "related": ["counter-strike-2-round-review-checklist", "counter-strike-2-patch-mechanics-recheck"]
+        },
+        {
+          "slug": "counter-strike-2-utility-learning-plan",
+          "title": "CS2 utility learning plan for one map",
+          "description": "Build a small Counter-Strike 2 utility set around repeatable round problems instead of memorizing dozens of disconnected lineups.",
+          "question": "Which grenades should I learn first on a CS2 map?",
+          "answer": "Choose utility that solves the rounds your role repeatedly encounters: one entry route, one defensive delay, one retake, and one recovery option. Practice the throw and the decision that triggers it, then add more only after it appears in matches.",
+          "patchSensitive": true,
+          "usesDemandSignal": false,
+          "decisionRows": [
+            ["Entry repeatedly stalls", "Identify the sight line or position causing it", "Learn one reliable piece that changes the duel"],
+            ["Defense lacks time", "Choose a delay or escape use", "Practice the timing with the fallback path"],
+            ["Lineup is rarely used", "Track whether the role reaches that situation", "Replace it with a higher-frequency problem"]
+          ],
+          "checklist": ["Choose one map and normal team role", "List the three round problems seen most often", "Learn one simple utility answer for each", "Practice position, aim point, timing, and fallback", "Track actual match use before adding another lineup"],
+          "stopConditions": ["Drop a lineup that depends on an outdated map position", "Do not add more utility while the current set cannot be recalled under pressure"],
+          "mistakes": ["Memorizing lineups without trigger conditions", "Practicing only perfect stationary throws", "Learning utility unrelated to the player's role"],
+          "related": ["counter-strike-2-map-role-prep", "counter-strike-2-patch-mechanics-recheck"]
+        },
+        {
+          "slug": "counter-strike-2-map-role-prep",
+          "title": "CS2 map role preparation checklist",
+          "description": "Define opening responsibility, utility, trade spacing, fallback position, and mid-round information for one Counter-Strike 2 map role.",
+          "question": "What should I prepare for a consistent role on one map?",
+          "answer": "Prepare the first thirty seconds and the first recovery decision. Know the opening information goal, required utility, teammate spacing, fallback, and what new information changes the plan. A role is a decision package, not a fixed hiding place.",
+          "patchSensitive": true,
+          "usesDemandSignal": false,
+          "decisionRows": [
+            ["Opening contact occurs", "Define information and trade responsibility", "Take the duel only with the planned support"],
+            ["No contact occurs", "Set the timing for rotation or information", "Avoid remaining irrelevant to the round"],
+            ["Plan is countered", "Name the fallback position and utility", "Preserve value for the mid-round"]
+          ],
+          "checklist": ["Name the map side and normal role", "Define the opening information goal", "Assign utility and trade spacing", "Choose a fallback position and rotation trigger", "Review one round where the role became irrelevant"],
+          "stopConditions": ["Change the role when a map update removes the position or timing", "Stop repeating an opening the opponent consistently counters"],
+          "mistakes": ["Treating the role as one location", "Taking opening contact without trade spacing", "Having no action when the expected contact never arrives"],
+          "related": ["counter-strike-2-utility-learning-plan", "counter-strike-2-buy-force-save-decision"]
+        },
+        {
+          "slug": "counter-strike-2-round-review-checklist",
+          "title": "CS2 round review without blaming aim",
+          "description": "Review information, economy, positioning, spacing, utility, timing, and decision sequence before labeling a Counter-Strike 2 loss an aim problem.",
+          "question": "What actually caused this CS2 round to become difficult?",
+          "answer": "Review the first decision that reduced the team's options, not only the final death. Check the buy, information, spacing, utility, and timing in sequence. Choose one repeatable decision to change in the next match.",
+          "patchSensitive": false,
+          "usesDemandSignal": false,
+          "decisionRows": [
+            ["Round plan was unclear", "Compare purchases and opening roles", "Make one call before contact"],
+            ["Team lost options early", "Find the first unsupported peek or unused utility", "Repair the earlier decision"],
+            ["Final duel was difficult", "Ask whether positioning created the duel", "Practice the decision before the shot"]
+          ],
+          "checklist": ["Record the round economy and intended plan", "Find the first new information received", "Check spacing and utility at the first contact", "Identify the first decision that removed a fallback", "Write one behavior to test in the next comparable round"],
+          "stopConditions": ["Stop reviewing when no replay or reliable sequence remains", "Do not generalize one unusual round into a complete role change"],
+          "mistakes": ["Reviewing only the final kill", "Calling every loss an aim failure", "Changing several habits from one round"],
+          "related": ["counter-strike-2-buy-force-save-decision", "counter-strike-2-sensitivity-change-test"]
+        },
+        {
+          "slug": "counter-strike-2-patch-mechanics-recheck",
+          "title": "CS2 patch mechanics recheck",
+          "description": "Translate a Counter-Strike 2 update into specific economy, map, utility, weapon, movement, or positioning tests before changing team habits.",
+          "question": "How do I know which part of my CS2 plan a patch actually changes?",
+          "answer": "Read the official update, map each changed item to an existing round decision, and test that decision under the same conditions. Avoid rebuilding settings or strategy because a broad community reaction makes the update sound larger than it is.",
+          "patchSensitive": true,
+          "usesDemandSignal": false,
+          "decisionRows": [
+            ["Map element changed", "Identify affected routes, sight lines, or utility", "Retest only the relevant role package"],
+            ["Weapon or economy changed", "Compare the same buy and engagement", "Update the decision threshold after evidence"],
+            ["No dependency changed", "Keep the established plan", "Monitor before introducing unnecessary variation"]
+          ],
+          "checklist": ["Read Valve's current official update notes", "List changed elements used by the team's plan", "Predict one measurable effect", "Repeat the same controlled scenario", "Update only the decision whose result changed"],
+          "stopConditions": ["Stop when the claimed change is absent from the official notes", "Do not change settings and strategy in the same patch test"],
+          "mistakes": ["Reacting to patch headlines without mapping dependencies", "Changing every map plan at once", "Using community speculation as the factual source"],
+          "related": ["counter-strike-2-utility-learning-plan", "counter-strike-2-round-review-checklist"]
+        }
+      ]
+    },
+    {
+      "gameId": "dota-2",
+      "scope": "Decision frameworks for the current Dota 2 patch. Hero, item, ability, map, objective, and matchmaking behavior must be rechecked against Valve patch notes and the exact match context.",
+      "guides": [
+        {
+          "slug": "dota-2-replay-first-mistake-review",
+          "title": "Dota 2 replay review: find the first costly mistake",
+          "description": "Review a Dota 2 loss by draft job, lane state, information, item timing, objective options, and the first decision that reduced recovery paths.",
+          "question": "What did I do wrong in this match, beyond the final team fight?",
+          "answer": "Start with the role the hero needed to perform, then find the earliest decision that made that job harder. Review lane resources, information, item timing, and objective options before judging the final fight or copying a different build.",
+          "patchSensitive": true,
+          "usesDemandSignal": true,
+          "decisionRows": [
+            ["Hero job was unclear", "Define the draft's damage, control, or objective need", "Judge choices against that job"],
+            ["Lane became unstable", "Find the first lost resource or unsafe wave", "Repair the earliest repeatable decision"],
+            ["Final fight looked decisive", "Review vision, items, and objective state beforehand", "Change the setup before the execution"]
+          ],
+          "checklist": ["Write the intended role in one sentence", "Review the first ten minutes for resources and avoidable risks", "Mark major item timings for both teams", "Identify the first lost objective option", "Choose one earlier decision to test next match"],
+          "stopConditions": ["Stop making claims when the replay or match context is unavailable", "Do not rebuild the hero from one unusual draft"],
+          "mistakes": ["Reviewing only deaths and kills", "Treating the recommended item build as context-free", "Changing several habits after one match"],
+          "related": ["dota-2-item-choice-by-game-state", "dota-2-lane-recovery-plan"]
+        },
+        {
+          "slug": "dota-2-item-choice-by-game-state",
+          "title": "Dota 2 item choice by current game state",
+          "description": "Choose the next Dota 2 item by hero job, enemy threat, timing window, team coverage, and whether its components help before completion.",
+          "question": "Which item solves this match instead of merely fitting a generic build?",
+          "answer": "Name the next fight or objective and the failure the item must prevent. Compare timing, component value, enemy response, and overlap with teammates. The correct item is the one that improves the next important decision window.",
+          "patchSensitive": true,
+          "usesDemandSignal": false,
+          "decisionRows": [
+            ["Specific threat ends fights", "Identify damage, disable, mobility, or sustain need", "Buy the smallest reliable answer"],
+            ["Timing window is short", "Estimate completion before the next objective", "Prefer useful components or a faster alternative"],
+            ["Team already covers the effect", "Check role and item overlap", "Spend on the missing team function"]
+          ],
+          "checklist": ["Define the hero's current job", "Name the threat or objective driving the purchase", "Check current patch item behavior", "Estimate completion timing and component utility", "Compare overlap with teammate items and abilities"],
+          "stopConditions": ["Change course when the purchase misses the relevant objective timing", "Do not finish an expensive item whose original problem has disappeared"],
+          "mistakes": ["Following the same order in every match", "Buying for maximum late-game value while losing the next window", "Ignoring teammate coverage and enemy responses"],
+          "related": ["dota-2-replay-first-mistake-review", "dota-2-objective-timing-checklist"]
+        },
+        {
+          "slug": "dota-2-lane-recovery-plan",
+          "title": "Dota 2 lane recovery decision plan",
+          "description": "Choose between staying, changing resources, rotating, defending, or trading objectives after a Dota 2 lane begins badly.",
+          "question": "What should I do when the lane is already going wrong?",
+          "answer": "Stop measuring recovery only by winning the lane back. Protect the hero's next useful timing, secure the safest available resources, and coordinate whether the team contests, trades, or abandons the next objective. Avoid feeding the same failed pattern.",
+          "patchSensitive": true,
+          "usesDemandSignal": false,
+          "decisionRows": [
+            ["Lane remains playable", "Check wave position, support resources, and kill threat", "Stabilize without forcing a comeback fight"],
+            ["Lane denies all progress", "Identify alternate safe resources and rotations", "Protect the next item or level timing"],
+            ["Enemy converts the advantage", "Map the next tower or objective", "Contest only with a credible team condition"]
+          ],
+          "checklist": ["Describe why the lane is losing", "Check wave, levels, resources, and enemy kill threat", "Identify the next useful hero timing", "Choose safe resources or a purposeful rotation", "Tell the team which objective can be defended or traded"],
+          "stopConditions": ["Stop returning to a lane that cannot produce safe progress", "Do not rotate without a resource or objective purpose"],
+          "mistakes": ["Trying to erase the deficit with one forced fight", "Leaving the lane without a next resource plan", "Ignoring the enemy's first conversion objective"],
+          "related": ["dota-2-draft-role-fit-check", "dota-2-objective-timing-checklist"]
+        },
+        {
+          "slug": "dota-2-draft-role-fit-check",
+          "title": "Dota 2 draft and hero role fit check",
+          "description": "Evaluate a Dota 2 pick by lane, damage, control, initiation, save, objective, and timing needs rather than one counter statistic.",
+          "question": "Does this hero actually complete what the draft needs?",
+          "answer": "List the jobs the current four picks already cover and the jobs still missing. Then test the candidate against lane viability, timing, execution difficulty, and enemy threats. A nominal counter is weak if it leaves the team unable to start or finish fights.",
+          "patchSensitive": true,
+          "usesDemandSignal": false,
+          "decisionRows": [
+            ["Draft lacks a job", "Identify initiation, save, damage, control, or objective need", "Prefer a hero that fills the missing function"],
+            ["Counter looks attractive", "Check lane and team execution", "Reject counters that damage the complete draft"],
+            ["Timings conflict", "Compare when each core needs resources", "Choose a plan the map can support"]
+          ],
+          "checklist": ["List allied damage, control, initiation, save, and objective tools", "Identify the largest missing function", "Check lane and current patch matchup assumptions", "Compare resource and timing demands", "Choose a hero the team can execute reliably"],
+          "stopConditions": ["Do not force a counter that creates an unplayable lane", "Reject a draft plan that requires several heroes to occupy the same resources"],
+          "mistakes": ["Picking from one counter percentage", "Ignoring the team's missing initiation or save", "Choosing theoretical synergy with no practical timing"],
+          "related": ["dota-2-lane-recovery-plan", "dota-2-patch-build-revalidation"]
+        },
+        {
+          "slug": "dota-2-objective-timing-checklist",
+          "title": "Dota 2 objective timing checklist",
+          "description": "Decide whether to fight, trade, delay, or farm around a Dota 2 objective by information, resources, key cooldowns, items, and map position.",
+          "question": "Should the team contest this objective right now?",
+          "answer": "Contest when the team has a clear win condition, enough information, relevant resources, and a useful result after the fight. If those conditions are missing, trade map value, delay, or preserve the next timing instead of arriving late and divided.",
+          "patchSensitive": true,
+          "usesDemandSignal": false,
+          "decisionRows": [
+            ["Team timing is active", "Check items, ultimates, health, and map position", "Group early with a defined fight plan"],
+            ["Information is poor", "Identify enemy locations and approach routes", "Delay or trade until the risk is bounded"],
+            ["Objective cannot be contested", "Name the opposite-side value", "Trade immediately rather than watching the loss"]
+          ],
+          "checklist": ["Confirm the objective timing and current map state", "Check key items, cooldowns, resources, and buybacks", "Identify enemy information and approach routes", "Define the fight win condition", "Choose the trade before the contest becomes impossible"],
+          "stopConditions": ["Do not contest when the team arrives in separate waves", "Leave when the original fight condition has already expired"],
+          "mistakes": ["Walking toward every objective by default", "Checking items but not map position", "Failing to take a trade when the contest is impossible"],
+          "related": ["dota-2-item-choice-by-game-state", "dota-2-lane-recovery-plan"]
+        },
+        {
+          "slug": "dota-2-patch-build-revalidation",
+          "title": "Dota 2 build revalidation after a patch",
+          "description": "Trace Dota 2 patch changes through abilities, items, lane assumptions, timings, and role responsibilities before copying or retiring a build.",
+          "question": "Is this hero build still valid on the current Dota 2 patch?",
+          "answer": "Verify the exact dependencies that made the build work: ability values, item behavior, lane, timing, and team job. Test the same role and objective window before replacing the whole plan. A changed component may alter only one branch.",
+          "patchSensitive": true,
+          "usesDemandSignal": false,
+          "decisionRows": [
+            ["Patch changes a dependency", "Map it to lane, timing, or team job", "Retest the affected decision first"],
+            ["Build source is old", "Compare version and current official notes", "Retire unsupported claims before copying"],
+            ["Core job still works", "Measure the same objective contribution", "Keep unaffected parts and repair the changed layer"]
+          ],
+          "checklist": ["Record the build's source patch", "Read the current official gameplay update", "List changed abilities and items the build uses", "Describe the expected timing or role impact", "Test one affected branch before rewriting the complete build"],
+          "stopConditions": ["Stop trusting a guide that does not identify its patch", "Retire the build when its core team job no longer has a credible timing"],
+          "mistakes": ["Copying an old build from the title alone", "Treating any nerf as complete invalidation", "Changing lane, items, and role in one comparison"],
+          "related": ["dota-2-draft-role-fit-check", "dota-2-item-choice-by-game-state"]
+        }
+      ]
+    },
+    {
+      "gameId": "pubg-battlegrounds",
+      "scope": "Decision frameworks for the current PUBG: BATTLEGROUNDS PC version. Weapon, attachment, map, zone, vehicle, and settings behavior must be checked after KRAFTON updates.",
+      "guides": [
+        {
+          "slug": "pubg-battlegrounds-weapon-attachment-choice",
+          "title": "PUBG weapon and attachment choice by engagement role",
+          "description": "Choose a PUBG weapon pair and attachments around expected range, ammunition burden, recoil control, team role, and replacement availability.",
+          "question": "Which weapon setup fits the fights I am actually taking?",
+          "answer": "Choose the pair that covers the team's expected ranges and that you can control with available ammunition and attachments. Compare complete roles rather than declaring one weapon universally best, and verify current patch behavior before using exact values.",
+          "patchSensitive": true,
+          "usesDemandSignal": true,
+          "decisionRows": [
+            ["Most fights are close", "Check handling, control, and ammunition burden", "Pair with a credible medium-range answer"],
+            ["Team lacks range", "Define who handles distant pressure", "Choose a secondary that supports the squad"],
+            ["Attachment set is incomplete", "Test the available configuration", "Avoid judging the weapon only at ideal setup"]
+          ],
+          "checklist": ["Define expected map, range, and squad role", "Confirm current weapon and attachment behavior", "Check ammunition and inventory burden", "Test recoil with the attachments normally available", "Keep one familiar fallback pair"],
+          "stopConditions": ["Reject exact comparisons that predate the current patch", "Switch when the pair leaves a frequent engagement range uncovered"],
+          "mistakes": ["Calling one weapon best across every range", "Testing only with perfect attachments", "Ignoring the squad's ammunition and role overlap"],
+          "related": ["pubg-battlegrounds-recoil-settings-test", "pubg-battlegrounds-position-death-review"]
+        },
+        {
+          "slug": "pubg-battlegrounds-drop-location-decision",
+          "title": "PUBG drop location risk and route decision",
+          "description": "Choose a PUBG drop by team objective, contest probability, loot path, vehicles, first rotation, and the acceptable cost of an early reset.",
+          "question": "Where should the squad drop for a repeatable start?",
+          "answer": "Choose a location with a clear first objective and at least one workable rotation, not merely the highest loot reputation. Decide how many teams you are willing to contest and what the squad does when that limit is exceeded.",
+          "patchSensitive": true,
+          "usesDemandSignal": false,
+          "decisionRows": [
+            ["Squad wants early fights", "Set the maximum contest and regroup point", "Land together with a fast fallback"],
+            ["Squad wants placement", "Check loot path, vehicle access, and first rotation", "Prefer repeatability over peak loot"],
+            ["Drop becomes overcrowded", "Identify a nearby secondary route", "Leave before separate improvisation starts"]
+          ],
+          "checklist": ["Define whether the session prioritizes fights, practice, or placement", "Set an acceptable number of contesting teams", "Mark a primary loot path and regroup point", "Confirm vehicle and first-rotation options", "Choose a secondary drop before the plane route appears"],
+          "stopConditions": ["Use the secondary plan when the contest exceeds the agreed limit", "Abandon a drop that repeatedly offers no credible first rotation"],
+          "mistakes": ["Choosing only by loot reputation", "Landing across several buildings without a regroup plan", "Waiting until the parachute phase to invent the fallback"],
+          "related": ["pubg-battlegrounds-rotation-timing-plan", "pubg-battlegrounds-position-death-review"]
+        },
+        {
+          "slug": "pubg-battlegrounds-rotation-timing-plan",
+          "title": "PUBG rotation timing and fallback plan",
+          "description": "Plan PUBG movement around zone information, terrain, vehicles, likely traffic, playable edges, and a fallback when the primary route is blocked.",
+          "question": "When should the squad rotate instead of continuing to loot?",
+          "answer": "Rotate when the remaining time still protects a route change. Compare distance, terrain, vehicles, likely choke points, and the squad's current resources. A later high-loot rotation is weak when one blocked road removes every fallback.",
+          "patchSensitive": true,
+          "usesDemandSignal": false,
+          "decisionRows": [
+            ["Long distance or weak vehicles", "Estimate travel plus a blocked-route margin", "Leave while an alternate remains possible"],
+            ["Strong position is available", "Compare entry risk with expected traffic", "Secure it before the common route converges"],
+            ["Primary path is occupied", "Use the preselected edge or terrain branch", "Preserve the squad instead of forcing the choke"]
+          ],
+          "checklist": ["Read zone distance, terrain, and available vehicles", "Mark primary and alternate routes", "Identify likely choke points and traffic timing", "Set a departure time with fallback margin", "Reassess after contact, vehicle loss, or new zone information"],
+          "stopConditions": ["Leave immediately when waiting removes the alternate route", "Do not force a choke when terrain still supports a lower-value branch"],
+          "mistakes": ["Using distance alone to choose timing", "Planning one road without a fallback", "Continuing to loot after the departure condition is met"],
+          "related": ["pubg-battlegrounds-drop-location-decision", "pubg-battlegrounds-position-death-review"]
+        },
+        {
+          "slug": "pubg-battlegrounds-recoil-settings-test",
+          "title": "PUBG recoil and sensitivity settings test",
+          "description": "Compare a PUBG settings change through repeatable recoil, tracking, movement, and match tests while preserving a known rollback value.",
+          "question": "How do I test whether a recoil or sensitivity setting is better?",
+          "answer": "Record the full baseline, change one setting, and repeat the same weapon, attachments, stance, distance, and drill. Keep the change only when control improves across recoil and tracking without damaging ordinary movement.",
+          "patchSensitive": false,
+          "usesDemandSignal": false,
+          "decisionRows": [
+            ["Baseline is complete", "Save every relevant input and scope value", "Maintain an immediate rollback"],
+            ["Recoil group tightens", "Check tracking and target transitions too", "Avoid optimizing a single static spray"],
+            ["Training improves but matches do not", "Collect several normal sessions", "Reject a setting that fails under real movement"]
+          ],
+          "checklist": ["Record all sensitivity, DPI, scope, and input values", "Choose one weapon and repeatable attachment set", "Change one value only", "Repeat recoil, tracking, and movement drills", "Play several matches before keeping the change"],
+          "stopConditions": ["Stop adjusting settings during the comparison period", "Return to baseline when one improvement creates a larger control problem"],
+          "mistakes": ["Changing several scope values together", "Comparing different weapons or attachments", "Judging only one attractive training result"],
+          "related": ["pubg-battlegrounds-weapon-attachment-choice", "pubg-battlegrounds-position-death-review"]
+        },
+        {
+          "slug": "pubg-battlegrounds-position-death-review",
+          "title": "PUBG position review before the final gunfight",
+          "description": "Review zone, terrain, information, cover, spacing, vehicles, and earlier route choices before treating a PUBG death as an aim failure.",
+          "question": "Which earlier decision made this position difficult to survive?",
+          "answer": "Work backward from the final position to the first moment the squad lost a safer option. Review timing, information, cover, spacing, and vehicle decisions before the final shot. Change one repeated route or positioning habit.",
+          "patchSensitive": false,
+          "usesDemandSignal": false,
+          "decisionRows": [
+            ["Final cover was weak", "Find when stronger terrain was still available", "Change the earlier rotation decision"],
+            ["Squad could not trade", "Review spacing and shared sight lines", "Move as a plan rather than four solos"],
+            ["Enemy arrived unseen", "Trace missing information and noise", "Add a specific observation responsibility"]
+          ],
+          "checklist": ["Record the zone and squad objective", "Find the first lost route or cover option", "Check information available at that moment", "Review spacing, vehicles, and terrain", "Choose one earlier decision to test next match"],
+          "stopConditions": ["Stop when no replay or reliable sequence is available", "Do not change the whole drop plan from one unusual fight"],
+          "mistakes": ["Reviewing only the final spray", "Ignoring the rotation that created the position", "Assigning blame without checking squad spacing"],
+          "related": ["pubg-battlegrounds-rotation-timing-plan", "pubg-battlegrounds-drop-location-decision"]
+        },
+        {
+          "slug": "pubg-battlegrounds-patch-weapon-map-recheck",
+          "title": "PUBG patch weapon and map recheck",
+          "description": "Translate a PUBG update into focused weapon, attachment, map, vehicle, loot, or zone tests before changing every established plan.",
+          "question": "Which parts of my PUBG strategy need retesting after a patch?",
+          "answer": "Map each official change to a specific dependency in the squad's weapon, drop, or rotation plan. Retest only those decisions under comparable conditions. Keep stable parts until evidence shows the result changed.",
+          "patchSensitive": true,
+          "usesDemandSignal": false,
+          "decisionRows": [
+            ["Weapon or attachment changed", "Repeat the same range and configuration test", "Update the role only if control or outcome changes"],
+            ["Map or vehicle changed", "Trace affected drop and rotation routes", "Replace only broken branches"],
+            ["No dependency changed", "Continue the current plan", "Monitor real matches before adding variation"]
+          ],
+          "checklist": ["Read the current official patch notes", "List changed elements used by the squad", "Predict one measurable decision impact", "Repeat a comparable test or route", "Update only the affected weapon or map branch"],
+          "stopConditions": ["Stop when the claim is absent from official notes", "Do not change settings, weapons, and routes in one test"],
+          "mistakes": ["Rebuilding the strategy from patch reactions", "Testing different maps or attachments", "Discarding stable plans without a changed dependency"],
+          "related": ["pubg-battlegrounds-weapon-attachment-choice", "pubg-battlegrounds-rotation-timing-plan"]
+        }
+      ]
+    },
+    {
+      "gameId": "rainbow-six-siege",
+      "scope": "Decision frameworks for the current Rainbow Six Siege season. Operator abilities, loadouts, map sites, ranked rules, and interactions must be checked against Ubisoft patch notes.",
+      "guides": [
+        {
+          "slug": "rainbow-six-siege-operator-unlock-choice",
+          "title": "Rainbow Six Siege operator unlock choice",
+          "description": "Choose the next Siege operator by recurring team need, site coverage, role comfort, current patch, and overlap with the existing roster.",
+          "question": "Which operator should I unlock next for the way I play?",
+          "answer": "Choose the operator who solves a recurring team or site problem and whose job you can execute consistently. Compare role coverage, map frequency, teammate overlap, and current ability behavior instead of buying from a universal tier list.",
+          "patchSensitive": true,
+          "usesDemandSignal": true,
+          "decisionRows": [
+            ["Team repeatedly lacks a job", "Name the information, denial, breach, support, or control need", "Shortlist operators that fill it"],
+            ["Several operators fit", "Compare map frequency and execution difficulty", "Choose the one likely to be played often"],
+            ["Tier list is persuasive", "Check its season and assumed squad", "Reject rankings without the same context"]
+          ],
+          "checklist": ["List the attack or defense jobs already covered", "Identify the recurring missing job", "Check current official operator behavior", "Compare map and site frequency", "Choose one operator and define a practice objective"],
+          "stopConditions": ["Delay the unlock when the reason is only a stale tier list", "Reject an operator whose role already has reliable team coverage"],
+          "mistakes": ["Buying only for weapon preference", "Ignoring the maps and sites actually played", "Treating a solo ranking as a coordinated-team answer"],
+          "related": ["rainbow-six-siege-defense-site-setup", "rainbow-six-siege-attack-role-composition"]
+        },
+        {
+          "slug": "rainbow-six-siege-defense-site-setup",
+          "title": "Rainbow Six Siege defense site setup checklist",
+          "description": "Build a Siege defense around win condition, information, denial, rotation, fallback, utility ownership, and the current site geometry.",
+          "question": "What should a practical defense setup accomplish before the round starts?",
+          "answer": "The setup should create information and delay while preserving playable fallback positions. Assign every reinforcement, rotation, and gadget to a round purpose. A copied setup is weak when nobody knows which attack it is meant to resist.",
+          "patchSensitive": true,
+          "usesDemandSignal": false,
+          "decisionRows": [
+            ["Attack entry is predictable", "Define information and first delay layer", "Assign utility and a safe fallback"],
+            ["Site needs movement", "Map rotations and protected retreat paths", "Avoid openings that help attackers more"],
+            ["Utility is duplicated", "Assign ownership and timing", "Move excess utility to an uncovered route"]
+          ],
+          "checklist": ["Name the site's defensive win condition", "Assign information and denial to likely entries", "Create rotations with protected fallback positions", "Confirm who owns each setup action", "Review how the defense responds after the first layer fails"],
+          "stopConditions": ["Remove a setup element that improves attacker movement more than defense", "Rebuild after map or operator updates change the interaction"],
+          "mistakes": ["Copying a setup without its purpose", "Opening rotations with no fallback plan", "Stacking utility on one route while leaving another unobserved"],
+          "related": ["rainbow-six-siege-operator-unlock-choice", "rainbow-six-siege-round-review-checklist"]
+        },
+        {
+          "slug": "rainbow-six-siege-attack-role-composition",
+          "title": "Rainbow Six Siege attack role composition",
+          "description": "Check information, entry, breach, denial removal, flank control, planting, and post-plant coverage before locking an attacking lineup.",
+          "question": "Does this attacking lineup cover the jobs the site requires?",
+          "answer": "Start from the site plan and list the jobs required to reach and hold the objective. Choose operators after information, breach, denial removal, entry, flank control, and plant responsibilities are assigned. Avoid five useful operators with no shared sequence.",
+          "patchSensitive": true,
+          "usesDemandSignal": false,
+          "decisionRows": [
+            ["Site route is selected", "List walls, denial, information, and flank risks", "Assign one operator or tool to each essential job"],
+            ["Lineup has strong fragging", "Check breach and objective execution", "Replace overlap with the missing route function"],
+            ["First plan is denied", "Define a time-based fallback route", "Switch before the remaining clock removes execution"]
+          ],
+          "checklist": ["Choose the intended site and entry route", "Assign information, entry, breach, and denial-removal jobs", "Define flank control and plant ownership", "Check current operator and gadget interactions", "Set a fallback route and switch time"],
+          "stopConditions": ["Change the lineup when an essential breach or denial job is uncovered", "Abandon the first route when the fallback time is reached"],
+          "mistakes": ["Choosing operators before choosing a site plan", "Overlapping frag roles while missing breach", "Waiting until the final seconds to change routes"],
+          "related": ["rainbow-six-siege-defense-site-setup", "rainbow-six-siege-loadout-decision"]
+        },
+        {
+          "slug": "rainbow-six-siege-loadout-decision",
+          "title": "Rainbow Six Siege loadout decision by operator job",
+          "description": "Choose a Siege weapon and secondary gadget around operator responsibility, engagement range, recoil control, team utility, and current patch behavior.",
+          "question": "Which loadout best supports what this operator must do?",
+          "answer": "Choose the loadout that preserves the operator's round job while remaining controllable in expected fights. Compare team utility and route needs before weapon preference; the strongest gun does not compensate for a missing essential gadget.",
+          "patchSensitive": true,
+          "usesDemandSignal": false,
+          "decisionRows": [
+            ["Operator has an essential job", "Define required utility and expected position", "Lock the job before comparing weapons"],
+            ["Two weapons are viable", "Test recoil and range under normal attachments", "Use the one that remains reliable in role"],
+            ["Team lacks a secondary tool", "Compare gadget overlap", "Carry the utility that completes the plan"]
+          ],
+          "checklist": ["Write the operator's round responsibility", "Identify expected engagement range and movement", "Check current weapon and gadget behavior", "Test recoil with the normal attachment setup", "Compare secondary utility with teammate coverage"],
+          "stopConditions": ["Reject a loadout that removes essential team utility", "Retest when a patch changes recoil, attachments, or gadgets"],
+          "mistakes": ["Choosing only by damage or rate of fire", "Testing at a range the role rarely uses", "Duplicating secondary gadgets while leaving a team need open"],
+          "related": ["rainbow-six-siege-operator-unlock-choice", "rainbow-six-siege-attack-role-composition"]
+        },
+        {
+          "slug": "rainbow-six-siege-round-review-checklist",
+          "title": "Rainbow Six Siege round review checklist",
+          "description": "Review setup, information, utility sequence, positioning, trades, timing, and the first lost fallback before blaming the final Siege gunfight.",
+          "question": "Which decision actually caused this Siege round to collapse?",
+          "answer": "Find the first point where the team lost information, utility, spacing, time, or a fallback route. Review the round in sequence and change one repeatable decision. The final duel often exposes an earlier planning failure rather than creating it.",
+          "patchSensitive": false,
+          "usesDemandSignal": false,
+          "decisionRows": [
+            ["Setup missed the attack", "Check site assumption and information coverage", "Move one setup element to the repeated route"],
+            ["Utility was available at death", "Trace when it should have been used", "Define a trigger instead of saving it indefinitely"],
+            ["Final push was rushed", "Find the earlier time loss", "Change the first delayed decision"]
+          ],
+          "checklist": ["Record site, lineup, and intended plan", "Find the first meaningful information event", "Review utility and spacing at that moment", "Identify the first lost fallback or timing", "Choose one decision trigger to change next round"],
+          "stopConditions": ["Stop when no replay or reliable sequence is available", "Do not replace the full setup after one unusual attacker plan"],
+          "mistakes": ["Reviewing only the final kill", "Counting unused utility without asking when it was needed", "Changing several roles from one round"],
+          "related": ["rainbow-six-siege-defense-site-setup", "rainbow-six-siege-attack-role-composition"]
+        },
+        {
+          "slug": "rainbow-six-siege-patch-operator-recheck",
+          "title": "Rainbow Six Siege patch and operator recheck",
+          "description": "Map Ubisoft patch changes to operator jobs, site setups, loadouts, counters, and ranked plans before rebuilding every Siege strategy.",
+          "question": "Which parts of our Siege plan need changing after this patch?",
+          "answer": "Read the official notes, identify which operator or map interaction the plan depends on, and retest that exact decision. Keep unaffected setup and role assignments until evidence shows they no longer perform their job.",
+          "patchSensitive": true,
+          "usesDemandSignal": false,
+          "decisionRows": [
+            ["Operator ability changed", "Trace the affected team job and counter", "Retest the interaction before replacing the operator"],
+            ["Map or site changed", "Review rotations, sight lines, and setup timing", "Update only the broken geometry-dependent branch"],
+            ["Ranked rule changed", "Map it to lineup and round planning", "Adjust the decision threshold, not unrelated mechanics"]
+          ],
+          "checklist": ["Read the current Ubisoft patch and designer notes", "List changed operators, gadgets, maps, and rules used by the plan", "Predict one measurable round impact", "Repeat the affected setup or attack sequence", "Update only the dependency whose outcome changed"],
+          "stopConditions": ["Stop when the claim is missing from current official notes", "Do not change lineup, setup, and loadouts in one comparison"],
+          "mistakes": ["Rebuilding from tier-list reactions", "Treating every balance change as universal", "Using community summaries as the factual source"],
+          "related": ["rainbow-six-siege-operator-unlock-choice", "rainbow-six-siege-defense-site-setup"]
+        }
+      ]
+    }
+  ]
+}

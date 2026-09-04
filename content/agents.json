@@ -1,0 +1,58 @@
+[
+  {
+    "id": "source-scout",
+    "name": "Source Scout Agent",
+    "purpose": "Collect public official and community signals without login, scraping bypasses, or copied guide content.",
+    "cadence": "official sources every 6 hours; community sources daily during MVP",
+    "modelRequired": false
+  },
+  {
+    "id": "demand-classifier",
+    "name": "Demand Classifier Agent",
+    "purpose": "Score whether a signal looks like a repeated player problem, a free SEO page, or a future paid audit use case.",
+    "cadence": "after each source run",
+    "modelRequired": "optional"
+  },
+  {
+    "id": "patch-sentinel",
+    "name": "Patch Sentinel Agent",
+    "purpose": "Flag pages and claims that should be reviewed after patches, hotfixes, balance notes, wipe changes, or economy movement.",
+    "cadence": "after official-source changes",
+    "modelRequired": "recommended"
+  },
+  {
+    "id": "guide-draft",
+    "name": "Guide Draft Agent",
+    "purpose": "Turn approved repeated problems into original checklists, scorecards, calculators, and source-aware page drafts.",
+    "cadence": "manual approval during MVP; weekly batch after validation",
+    "modelRequired": "recommended"
+  },
+  {
+    "id": "publish-qa",
+    "name": "Publish QA Agent",
+    "purpose": "Check hidden paid links, legal guardrails, source notes, sitemap inclusion, and whether patch-sensitive wording is honest.",
+    "cadence": "before every publish",
+    "modelRequired": false
+  },
+  {
+    "id": "shadow-answer-author",
+    "name": "Shadow Answer Author Agent",
+    "purpose": "Draft a no-charge candidate answer from one closed benchmark case and refuse unsupported scope instead of guessing.",
+    "cadence": "when a new unique paid-answer benchmark is queued",
+    "modelRequired": true
+  },
+  {
+    "id": "shadow-answer-independent-reviewer",
+    "name": "Independent Shadow Answer QA Agent",
+    "purpose": "Review every candidate claim and calculation against the closed evidence without seeing or trusting the author's reasoning.",
+    "cadence": "after every shadow answer candidate",
+    "modelRequired": true
+  },
+  {
+    "id": "shadow-answer-peer-reviewer",
+    "name": "Complex Match Peer QA Agent",
+    "purpose": "Blindly repeat the independent review for complex match products so reviewer agreement can be measured before activation.",
+    "cadence": "after every complex-match shadow answer candidate",
+    "modelRequired": true
+  }
+]

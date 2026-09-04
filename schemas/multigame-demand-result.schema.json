@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["status", "game_id", "source_kind", "target_title", "target_url", "published_at", "topic", "intent_zh", "decision_cost", "patch_sensitive"],
+  "properties": {
+    "status": { "enum": ["candidate", "none"] },
+    "game_id": { "type": "string" },
+    "source_kind": { "enum": ["reddit", "steam", "none"] },
+    "target_title": { "type": "string" },
+    "target_url": { "type": "string" },
+    "published_at": { "type": "string" },
+    "topic": { "type": "string" },
+    "intent_zh": { "type": "string" },
+    "decision_cost": { "enum": ["high", "medium", "low", "none"] },
+    "patch_sensitive": { "type": "boolean" }
+  },
+  "additionalProperties": false
+}

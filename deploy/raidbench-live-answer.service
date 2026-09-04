@@ -1,0 +1,25 @@
+[Unit]
+Description=Process one queued RaidBench Palworld answer through independent Agent QA
+Wants=network-online.target
+After=network-online.target docker.service raidbench-source-scout.service
+Requires=docker.service
+StartLimitIntervalSec=10min
+StartLimitBurst=20
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/raidbench-publisher
+ExecStartPre=/usr/bin/install -d -o 10001 -g 987 -m 0770 /opt/raidbench/jobs/inbox
+ExecStartPre=/usr/bin/install -d -o 999 -g 987 -m 0770 /opt/raidbench/jobs/outbox
+ExecStartPre=/usr/bin/install -d -o 10001 -g 987 -m 0770 /opt/raidbench/jobs/archive /opt/raidbench/jobs/rejected
+ExecStartPre=/usr/bin/install -d -o 999 -g 987 -m 0770 /opt/raidbench-agent/artifacts/answer-job-artifacts
+ExecStart=/usr/bin/docker compose -f /opt/raidbench-publisher/compose.yaml run --rm --no-deps content-agent python3 scripts/process_multigame_answer_jobs.py --queue-root /workspace/private-data/answer-jobs --artifact-root /workspace/private-data/answer-job-artifacts --source-database /data/raidbench.local.db --max-jobs 1 --timeout 600
+TimeoutStartSec=25min
+Restart=on-failure
+RestartSec=2min
+Nice=5
+IOSchedulingClass=best-effort
+IOSchedulingPriority=6
+
+[Install]
+WantedBy=multi-user.target

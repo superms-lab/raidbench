@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RaidBench independent shadow answer review",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["caseId", "stage", "reviewerAgentId", "decision", "criticalClaimsVerified", "calculationTestsPassed", "versionChecked", "limitationsConfirmed", "productPromiseSatisfied", "claimReviews", "blockers", "warnings", "reviewNotes"],
+  "properties": {
+    "caseId": { "type": "string" },
+    "stage": { "type": "string", "const": "shadow_answer_qa" },
+    "reviewerAgentId": { "type": "string", "const": "shadow-answer-independent-reviewer" },
+    "decision": { "type": "string", "enum": ["approve", "block", "no_charge"] },
+    "criticalClaimsVerified": { "type": "boolean" },
+    "calculationTestsPassed": { "type": "boolean" },
+    "versionChecked": { "type": "boolean" },
+    "limitationsConfirmed": { "type": "boolean" },
+    "productPromiseSatisfied": { "type": "boolean" },
+    "claimReviews": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["claimId", "status", "evidenceIds", "notes"],
+        "properties": {
+          "claimId": { "type": "string" },
+          "status": { "type": "string", "enum": ["supported", "needs_revision", "unsupported"] },
+          "evidenceIds": { "type": "array", "items": { "type": "string" } },
+          "notes": { "type": "string" }
+        }
+      }
+    },
+    "blockers": { "type": "array", "items": { "type": "string" } },
+    "warnings": { "type": "array", "items": { "type": "string" } },
+    "reviewNotes": { "type": "string" }
+  }
+}

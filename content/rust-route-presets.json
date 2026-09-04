@@ -1,0 +1,129 @@
+[
+  {
+    "slug": "starter-door-corridor",
+    "availableFrom": "2026-09-03",
+    "title": "Starter door corridor",
+    "description": "Two sheet-metal doors followed by one garage door, saved as a compact early raid-planning route.",
+    "priority": "Compare the entered route before crafting",
+    "targets": [
+      { "targetId": "sheet-door", "quantity": 2, "method": "satchels" },
+      { "targetId": "garage-door", "quantity": 1, "method": "rockets" }
+    ]
+  },
+  {
+    "slug": "door-path-vs-stone-wall",
+    "availableFrom": "2026-09-03",
+    "title": "Door path versus stone wall",
+    "description": "A mixed door path beside a stone-wall alternative for a quick route-cost comparison.",
+    "priority": "Compare sulfur before choosing the visible path",
+    "targets": [
+      { "targetId": "sheet-door", "quantity": 2, "method": "satchels" },
+      { "targetId": "stone-wall", "quantity": 1, "method": "rockets" }
+    ]
+  },
+  {
+    "slug": "three-garage-door-core",
+    "availableFrom": "2026-09-03",
+    "title": "Three-garage-door core",
+    "description": "A repeated garage-door route for checking total placement count and sulfur before staging.",
+    "priority": "Check whether the repeated door path still beats a wall route",
+    "targets": [
+      { "targetId": "garage-door", "quantity": 3, "method": "rockets" }
+    ]
+  },
+  {
+    "slug": "armored-core-door-route",
+    "availableFrom": "2026-09-07",
+    "title": "Armored core door route",
+    "description": "Two garage doors leading into one armored door for a deeper core-route estimate.",
+    "priority": "Preserve a stop condition before the armored layer",
+    "targets": [
+      { "targetId": "garage-door", "quantity": 2, "method": "rockets" },
+      { "targetId": "armored-door", "quantity": 1, "method": "c4" }
+    ]
+  },
+  {
+    "slug": "sheet-wall-contingency",
+    "availableFrom": "2026-09-07",
+    "title": "Sheet-wall contingency",
+    "description": "One sheet-metal wall recorded as a fallback when the scouted door path becomes uncertain.",
+    "priority": "Compare concentrated damage and sulfur",
+    "targets": [
+      { "targetId": "sheet-wall", "quantity": 1, "method": "c4" }
+    ]
+  },
+  {
+    "slug": "quiet-sheet-door-entry",
+    "availableFrom": "2026-09-07",
+    "title": "Quiet sheet-door entry",
+    "description": "A two-door explosive-ammo route for comparing noise, time, and inventory requirements.",
+    "priority": "Check inventory shortfalls before choosing the quieter method",
+    "targets": [
+      { "targetId": "sheet-door", "quantity": 2, "method": "explosiveAmmo" }
+    ]
+  },
+  {
+    "slug": "duo-mixed-breach-route",
+    "availableFrom": "2026-09-14",
+    "title": "Duo mixed breach route",
+    "description": "A sheet door, garage door, and stone wall combined into one route for duo staging practice.",
+    "priority": "Compare the whole route rather than isolated targets",
+    "targets": [
+      { "targetId": "sheet-door", "quantity": 1, "method": "satchels" },
+      { "targetId": "garage-door", "quantity": 1, "method": "rockets" },
+      { "targetId": "stone-wall", "quantity": 1, "method": "rockets" }
+    ]
+  },
+  {
+    "slug": "garage-door-splash-check",
+    "availableFrom": "2026-09-14",
+    "title": "Garage-door splash check",
+    "description": "Two garage doors saved together to compare useful splash assumptions with a direct route.",
+    "priority": "Treat splash as conditional until geometry is confirmed",
+    "targets": [
+      { "targetId": "garage-door", "quantity": 2, "method": "rockets" }
+    ]
+  },
+  {
+    "slug": "satchel-starter-raid",
+    "availableFrom": "2026-09-14",
+    "title": "Satchel starter raid",
+    "description": "A single sheet-metal door preset for an early wipe raid with explicit reliability risk.",
+    "priority": "Add a failure buffer before committing",
+    "targets": [
+      { "targetId": "sheet-door", "quantity": 1, "method": "satchels" }
+    ]
+  },
+  {
+    "slug": "armored-wall-last-resort",
+    "availableFrom": "2026-09-21",
+    "title": "Armored-wall last resort",
+    "description": "An armored-wall route kept as a costly fallback for comparison against a rescouted entry.",
+    "priority": "Rescout doors and roof access before crafting",
+    "targets": [
+      { "targetId": "armored-wall", "quantity": 1, "method": "c4" }
+    ]
+  },
+  {
+    "slug": "sheet-wall-and-armored-door",
+    "availableFrom": "2026-09-21",
+    "title": "Sheet wall and armored door",
+    "description": "A mixed high-cost route for checking whether the planned inventory survives a second layer.",
+    "priority": "Stage only after checking the full shortfall",
+    "targets": [
+      { "targetId": "sheet-wall", "quantity": 1, "method": "rockets" },
+      { "targetId": "armored-door", "quantity": 1, "method": "c4" }
+    ]
+  },
+  {
+    "slug": "two-stage-online-route",
+    "availableFrom": "2026-09-21",
+    "title": "Two-stage online route",
+    "description": "A staged garage-door and stone-wall route with a natural rescout point between layers.",
+    "priority": "Recheck the route after the first secure opening",
+    "targets": [
+      { "targetId": "garage-door", "quantity": 2, "method": "rockets" },
+      { "targetId": "stone-wall", "quantity": 1, "method": "c4" }
+    ]
+  }
+]

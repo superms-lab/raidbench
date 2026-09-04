@@ -5,3 +5,24 @@ operations/paid-pack/RaidBench-Rust-Raid-Prep-Pack-v1.csv
 
 # Wrangler local cache.
 .wrangler/
+node_modules/
+.DS_Store
+
+# Private Agent runs, source captures, credentials, and owner review artifacts.
+private-data/
+
+# Python runtime cache.
+__pycache__/
+*/__pycache__/
+
+# Local SQLite workspace. Schema is committed; runtime databases are not.
+local/*.db
+local/*.db-shm
+local/*.db-wal
+local/traffic-dashboard.json
+local/unit-economics-latest.json
+
+# VPS runtime state and backups.
+data/
+backups/
+.env

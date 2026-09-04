@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RaidBench demand analysis",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["case_id", "stage", "score_acknowledgement", "opportunities", "analysis_limitations"],
+  "properties": {
+    "case_id": {"type": "string"},
+    "stage": {"type": "string", "enum": ["demand_analysis"]},
+    "score_acknowledgement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["opportunity_score", "score_was_modified"],
+      "properties": {
+        "opportunity_score": {"type": "integer"},
+        "score_was_modified": {"type": "boolean"}
+      }
+    },
+    "opportunities": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "opportunity_id", "game", "topic", "player_problem", "intent_type", "priority",
+          "evidence_ids", "signal_ids", "recommended_surface", "free_content_angle",
+          "paid_angle", "confidence", "risk_flags"
+        ],
+        "properties": {
+          "opportunity_id": {"type": "string"},
+          "game": {"type": "string"},
+          "topic": {"type": "string"},
+          "player_problem": {"type": "string"},
+          "intent_type": {"type": "string", "enum": ["seo", "tool", "paid_audit", "refresh", "discard"]},
+          "priority": {"type": "string", "enum": ["high", "medium", "low"]},
+          "evidence_ids": {"type": "array", "items": {"type": "string"}},
+          "signal_ids": {"type": "array", "items": {"type": "string"}},
+          "recommended_surface": {"type": "string", "enum": ["guide_page", "calculator", "checklist", "scorecard", "paid_intake", "hold"]},
+          "free_content_angle": {"type": "string"},
+          "paid_angle": {"type": "string"},
+          "confidence": {"type": "integer", "minimum": 0, "maximum": 100},
+          "risk_flags": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "analysis_limitations": {"type": "array", "items": {"type": "string"}}
+  }
+}

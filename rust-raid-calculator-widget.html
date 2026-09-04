@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Free Rust Raid Cost Calculator Widget | RaidBench</title>
+    <meta name="description" content="Add a free, patch-aware Rust raid cost calculator to a community, server, guide, or resource site." />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://raidbench.com/rust-raid-calculator-widget" />
+    <meta property="og:title" content="Free Rust Raid Cost Calculator Widget" />
+    <meta property="og:description" content="A compact, patch-aware raid calculator for Rust communities and guide sites." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://raidbench.com/assets/raidbench-calculator-share.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css?v=20260820a" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="RaidBench home"><span class="brand-mark">RB</span><span>RaidBench</span></a>
+      <nav class="nav" aria-label="Primary"><a href="./games.html">Games</a><a href="./guides.html">Guides</a><a href="./tools.html">Tools</a><a href="./updates.html">Patch Watch</a><a href="./about.html">About</a></nav>
+      <a class="header-action" href="./#raid-calculator">Open Calculator</a>
+    </header>
+
+    <main class="article-main">
+      <a class="breadcrumb" href="./">RaidBench / Free Widget</a>
+      <section class="article-hero widget-hero">
+        <p class="eyebrow">A practical resource for Rust communities</p>
+        <h1>Put a current raid-cost answer where your players already are.</h1>
+        <p>Embed the compact RaidBench calculator on a server page, guide, wiki, or community resource. It uses the same reviewed vanilla Rust PC data as the full planner and remains free to use.</p>
+        <div class="fact-strip" aria-label="Widget details">
+          <div><span>Price</span><strong>Free</strong></div>
+          <div><span>Install</span><strong>One iframe</strong></div>
+          <div><span>Data</span><strong>Patch-aware</strong></div>
+        </div>
+      </section>
+
+      <section class="widget-partner-grid">
+        <article>
+          <div class="section-heading"><p class="eyebrow">Live preview</p><h2>Rust raid cost widget</h2></div>
+          <div class="embed-preview">
+            <iframe src="./embed/rust-raid-calculator.html" title="Rust raid cost calculator by RaidBench" width="100%" height="350" loading="lazy"></iframe>
+          </div>
+        </article>
+        <article class="widget-install">
+          <div class="section-heading"><p class="eyebrow">Publisher access</p><h2>Embed on your site</h2></div>
+          <p>The widget keeps its RaidBench attribution and sends players to the full route planner when they need multiple layers. It does not require an account, API key, or paid plan.</p>
+          <pre class="embed-code" aria-label="Widget embed code"><code>&lt;iframe src=&quot;https://raidbench.com/embed/rust-raid-calculator.html&quot;
+  title=&quot;Rust raid cost calculator by RaidBench&quot;
+  width=&quot;100%&quot; height=&quot;350&quot; loading=&quot;lazy&quot;
+  style=&quot;border:0;max-width:760px&quot;&gt;&lt;/iframe&gt;</code></pre>
+          <button class="primary-action" id="copy-widget-code" type="button">Copy embed code</button>
+          <p class="form-status" id="widget-copy-status" aria-live="polite">Questions or placement requests: <a href="mailto:support@raidbench.com">support@raidbench.com</a></p>
+        </article>
+      </section>
+
+      <section class="monetization-band diagnostic-band">
+        <div><h2>Prefer the raw reference data?</h2><p>Use the public JSON or CSV downloads for a spreadsheet, bot, wiki workflow, or independent analysis.</p></div>
+        <div class="lab-actions"><a class="secondary-action" href="./rust-raid-costs.json" data-track-event="raid_data_download" data-asset-format="json">JSON</a><a class="secondary-action" href="./rust-raid-costs.csv" download data-track-event="raid_data_download" data-asset-format="csv">CSV</a></div>
+      </section>
+    </main>
+
+    <footer class="footer"><p>RaidBench is independent and is not affiliated with or endorsed by Facepunch Studios.</p><p class="footer-links"><a href="./about.html">Editorial standards</a><a href="./privacy.html">Privacy</a><a href="./terms.html">Terms</a></p></footer>
+    <script src="./config.js?v=20260820a"></script>
+    <script src="./analytics.js?v=20260820a"></script>
+    <script src="./widget-page.js?v=20260820a"></script>
+  </body>
+</html>

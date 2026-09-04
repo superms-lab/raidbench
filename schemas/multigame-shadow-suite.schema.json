@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raidbench.com/schemas/multigame-shadow-suite.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "suiteId", "generatedAt", "policyVersion", "mode", "summary", "cases"],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "suiteId": { "type": "string" },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "policyVersion": { "type": "string" },
+    "mode": { "const": "shadow_no_charge" },
+    "summary": {
+      "type": "object",
+      "required": ["products", "cases", "supportedCases", "noChargeCases"],
+      "properties": {
+        "products": { "type": "integer", "minimum": 1 },
+        "cases": { "type": "integer", "minimum": 1 },
+        "supportedCases": { "type": "integer", "minimum": 1 },
+        "noChargeCases": { "type": "integer", "minimum": 1 }
+      },
+      "additionalProperties": false
+    },
+    "cases": {
+      "type": "array",
+      "minItems": 33,
+      "items": {
+        "type": "object",
+        "required": ["caseId", "benchmarkKey", "evidenceFingerprint", "evidenceOldestAt", "productId", "gameId", "game", "category", "expectedDisposition", "expectedReasonCode", "questionText", "inputs", "gameVersion", "patchSensitive", "answerFocus", "evidenceFresh", "evidence", "activationCriteria"],
+        "properties": {
+          "caseId": { "type": "string" },
+          "benchmarkKey": { "type": "string" },
+          "evidenceFingerprint": { "type": "string" },
+          "evidenceOldestAt": { "type": "string", "format": "date-time" },
+          "productId": { "type": "string" },
+          "gameId": { "type": "string" },
+          "game": { "type": "string" },
+          "category": { "type": "string", "enum": ["supported", "missing_context", "policy_blocked"] },
+          "expectedDisposition": { "type": "string", "enum": ["answer_candidate", "no_charge"] },
+          "expectedReasonCode": { "type": "string" },
+          "questionText": { "type": "string" },
+          "inputs": { "type": "object" },
+          "gameVersion": { "type": "string" },
+          "patchSensitive": { "const": true },
+          "answerFocus": { "type": "string" },
+          "evidenceFresh": { "type": "boolean" },
+          "evidence": { "type": "array", "items": { "type": "object" } },
+          "calculationFixture": { "type": "object" },
+          "activationCriteria": { "type": "object" }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

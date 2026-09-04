@@ -1,0 +1,8 @@
+[Unit]
+Description=Verify RaidBench paid Rust data against current sources
+After=docker.service network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/docker exec raidbench-app python scripts/verify_rust_paid_data.py --data /data/rust-raid-data.json --status-file /data/rust-paid-data-status.json --refresh-date

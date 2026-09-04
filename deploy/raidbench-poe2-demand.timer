@@ -1,0 +1,12 @@
+[Unit]
+Description=Create a daily POE2 content-demand signal
+
+[Timer]
+OnCalendar=*-*-* 03:35:00 UTC
+RandomizedDelaySec=10min
+Persistent=true
+AccuracySec=1min
+Unit=raidbench-poe2-demand.service
+
+[Install]
+WantedBy=timers.target

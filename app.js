@@ -1,9 +1,5 @@
-const sulfurPerItem = {
-  rockets: 1400,
-  c4: 2200,
-  satchels: 480,
-  explosiveAmmo: 25,
-};
+const { sulfurPerItem, gunpowderPerItem, targets } = window.RAIDBENCH_RAID_DATA;
+const routeCodec = window.RAIDBENCH_ROUTE_STATE;
 
 const methodLabels = {
   rockets: "Rockets",
@@ -11,57 +7,6 @@ const methodLabels = {
   satchels: "Satchels",
   explosiveAmmo: "Explosive ammo",
 };
-
-const targets = [
-  {
-    id: "sheet-door",
-    label: "Sheet Metal Door",
-    rockets: 2,
-    c4: 1,
-    satchels: 4,
-    explosiveAmmo: 63,
-  },
-  {
-    id: "garage-door",
-    label: "Garage Door",
-    rockets: 3,
-    c4: 2,
-    satchels: 9,
-    explosiveAmmo: 150,
-  },
-  {
-    id: "armored-door",
-    label: "Armored Door",
-    rockets: 4,
-    c4: 2,
-    satchels: 12,
-    explosiveAmmo: 200,
-  },
-  {
-    id: "stone-wall",
-    label: "Stone Wall",
-    rockets: 4,
-    c4: 2,
-    satchels: 10,
-    explosiveAmmo: 185,
-  },
-  {
-    id: "sheet-wall",
-    label: "Sheet Metal Wall",
-    rockets: 8,
-    c4: 4,
-    satchels: 23,
-    explosiveAmmo: 400,
-  },
-  {
-    id: "armored-wall",
-    label: "Armored Wall",
-    rockets: 15,
-    c4: 8,
-    satchels: 46,
-    explosiveAmmo: 800,
-  },
-];
 
 const raidState = [
   { targetId: "sheet-door", qty: 2, method: "satchels" },
@@ -76,6 +21,11 @@ const raidItems = document.querySelector("#raid-items");
 const sulfurTotal = document.querySelector("#sulfur-total");
 const gunpowderTotal = document.querySelector("#gunpowder-total");
 const targetTable = document.querySelector("#target-table");
+const copyRaidLink = document.querySelector("#copy-raid-link");
+const shareStatus = document.querySelector("#share-status");
+const verifyRaid = document.querySelector("#verify-raid");
+const verificationTitle = document.querySelector("#verification-title");
+const verificationCopy = document.querySelector("#verification-copy");
 
 const formatNumber = (value) => new Intl.NumberFormat("en-US").format(Math.round(value));
 
@@ -83,8 +33,78 @@ function trackEvent(name, params = {}) {
   window.RaidBenchAnalytics?.track(name, params);
 }
 
+async function revealLiveCommerce() {
+  const commerceNodes = document.querySelectorAll("[data-live-commerce]");
+  if (!commerceNodes.length) return;
+
+  try {
+    const response = await fetch("/api/config", {
+      credentials: "same-origin",
+      headers: { Accept: "application/json" },
+    });
+    if (!response.ok) return;
+
+    const apiConfig = await response.json();
+    if (!window.RAIDBENCH_CONFIG?.isLiveCommerceReady?.(apiConfig)) return;
+
+    commerceNodes.forEach((node) => {
+      node.hidden = false;
+    });
+  } catch {
+    // Commerce stays hidden whenever readiness cannot be verified.
+  }
+}
+
 function findTarget(targetId) {
   return targets.find((target) => target.id === targetId);
+}
+
+function loadSharedRoute() {
+  const entries = routeCodec?.decode(new URLSearchParams(window.location.search).get("route")) || [];
+  const validEntries = entries.filter((entry) => findTarget(entry.targetId));
+  if (!validEntries.length) return;
+  raidState.splice(0, raidState.length, ...validEntries.map((entry) => ({
+    targetId: entry.targetId,
+    qty: entry.quantity,
+    method: entry.method,
+  })));
+  trackEvent("raid_shared_route_open", { rows: raidState.length });
+}
+
+function encodedRoute() {
+  return routeCodec?.encode(raidState) || "";
+}
+
+function sharedRouteUrl() {
+  const url = new URL("/", window.location.origin);
+  url.searchParams.set("route", encodedRoute());
+  url.searchParams.set("utm_source", "share_link");
+  url.searchParams.set("utm_medium", "player_share");
+  url.searchParams.set("utm_campaign", "rust_raid_route");
+  url.hash = "raid-calculator";
+  return url.toString();
+}
+
+function updateConversionRoute() {
+  const rowCount = raidState.length;
+  copyRaidLink.disabled = rowCount === 0;
+  if (!rowCount) return;
+
+  const intent = rowCount === 1 ? "instant" : "plan";
+  const customerUrl = new URL("/customer", window.location.origin);
+  customerUrl.searchParams.set("intent", intent);
+  customerUrl.searchParams.set("route", encodedRoute());
+  customerUrl.searchParams.set("utm_source", "calculator");
+  customerUrl.searchParams.set("utm_medium", "internal");
+  customerUrl.searchParams.set("utm_campaign", intent === "instant" ? "rust_route_check" : "rust_raid_plan");
+  verifyRaid.href = `${customerUrl.pathname}${customerUrl.search}`;
+  verifyRaid.textContent = rowCount === 1 ? "Compare this target" : "Review this route";
+  verificationTitle.textContent = rowCount === 1
+    ? "Want all four methods compared against the boom already in base?"
+    : "Want this complete route reviewed before you craft?";
+  verificationCopy.textContent = rowCount === 1
+    ? "The $5 starter includes two route checks. Each applies your sulfur or placement priority, shows exact shortfalls, and is not charged when current evidence is unsupported."
+    : "A $19 plan compares the selected, lower-sulfur, and fewer-placement routes, then adds the buffer and execution checks.";
 }
 
 function populateTargets() {
@@ -142,16 +162,40 @@ function updateRaidTotals() {
       const itemCount = target[entry.method] * entry.qty;
       acc.items += itemCount;
       acc.sulfur += itemCount * sulfurPerItem[entry.method];
+      acc.gunpowder += itemCount * gunpowderPerItem[entry.method];
       return acc;
     },
-    { items: 0, sulfur: 0 },
+    { items: 0, sulfur: 0, gunpowder: 0 },
   );
 
   raidItems.textContent = formatNumber(totals.items);
   sulfurTotal.textContent = formatNumber(totals.sulfur);
-  gunpowderTotal.textContent = formatNumber(totals.sulfur / 2);
+  gunpowderTotal.textContent = formatNumber(totals.gunpowder);
+  updateConversionRoute();
 
   return totals;
+}
+
+async function copySharedRoute() {
+  const url = sharedRouteUrl();
+  try {
+    await navigator.clipboard.writeText(url);
+  } catch {
+    const input = document.createElement("textarea");
+    input.value = url;
+    input.setAttribute("readonly", "");
+    input.style.position = "fixed";
+    input.style.opacity = "0";
+    document.body.appendChild(input);
+    input.select();
+    document.execCommand("copy");
+    input.remove();
+  }
+  shareStatus.textContent = "Share link copied. Anyone opening it will see this route and its totals.";
+  trackEvent("raid_plan_share_copy", { rows: raidState.length });
+  window.setTimeout(() => {
+    shareStatus.textContent = "Share this exact route without re-entering the targets.";
+  }, 5000);
 }
 
 function addTarget() {
@@ -224,21 +268,17 @@ Object.values(upkeepInputs).forEach((input) => {
   });
 });
 
-document.querySelector(".email-form").addEventListener("submit", (event) => {
-  event.preventDefault();
-  const input = document.querySelector("#email");
-  if (!input.value) return;
-  const domain = input.value.includes("@") ? input.value.split("@").pop().toLowerCase() : "unknown";
-  input.value = "";
-  input.placeholder = "Saved locally for MVP demo";
-  trackEvent("email_interest_submit", {
-    email_domain: domain,
-  });
-});
-
+copyRaidLink.addEventListener("click", copySharedRoute);
+loadSharedRoute();
 populateTargets();
 renderRaidList();
 updateUpkeep();
 trackEvent("calculator_ready", {
   default_rows: raidState.length,
 });
+
+document.querySelectorAll("[data-commerce-cta]").forEach((link) => {
+  link.addEventListener("click", () => trackEvent("live_account_cta_click"));
+});
+
+revealLiveCommerce();

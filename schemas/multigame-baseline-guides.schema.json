@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raidbench.com/schemas/multigame-baseline-guides.schema.json",
+  "type": "object",
+  "required": ["schemaVersion", "reviewedAt", "packs"],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "reviewedAt": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
+    "packs": {
+      "type": "array",
+      "minItems": 9,
+      "maxItems": 9,
+      "items": {
+        "type": "object",
+        "required": ["gameId", "scope", "guides"],
+        "properties": {
+          "gameId": { "type": "string" },
+          "scope": { "type": "string", "minLength": 30 },
+          "guides": {
+            "type": "array",
+            "minItems": 6,
+            "maxItems": 6,
+            "items": {
+              "type": "object",
+              "required": ["slug", "title", "description", "question", "answer", "patchSensitive", "usesDemandSignal", "decisionRows", "checklist", "stopConditions", "mistakes", "related"],
+              "properties": {
+                "slug": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+                "title": { "type": "string", "minLength": 15 },
+                "description": { "type": "string", "minLength": 50, "maxLength": 180 },
+                "question": { "type": "string", "minLength": 12 },
+                "answer": { "type": "string", "minLength": 80 },
+                "patchSensitive": { "type": "boolean" },
+                "usesDemandSignal": { "type": "boolean" },
+                "decisionRows": {
+                  "type": "array",
+                  "minItems": 3,
+                  "maxItems": 4,
+                  "items": {
+                    "type": "array",
+                    "minItems": 3,
+                    "maxItems": 3,
+                    "items": { "type": "string", "minLength": 8 }
+                  }
+                },
+                "checklist": { "type": "array", "minItems": 4, "maxItems": 6, "items": { "type": "string", "minLength": 12 } },
+                "stopConditions": { "type": "array", "minItems": 2, "maxItems": 4, "items": { "type": "string", "minLength": 12 } },
+                "mistakes": { "type": "array", "minItems": 3, "maxItems": 4, "items": { "type": "string", "minLength": 12 } },
+                "related": { "type": "array", "minItems": 2, "maxItems": 3, "items": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" } }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

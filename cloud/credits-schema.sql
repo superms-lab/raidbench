@@ -13,6 +13,24 @@ CREATE TABLE IF NOT EXISTS credit_accounts (
   FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
+CREATE TABLE IF NOT EXISTS sku_packs (
+  sku TEXT PRIMARY KEY,
+  name TEXT NOT NULL,
+  credits INTEGER NOT NULL,
+  price_usd REAL NOT NULL,
+  price_eur REAL,
+  price_gbp REAL,
+  status TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS credit_actions (
+  id TEXT PRIMARY KEY,
+  label TEXT NOT NULL,
+  credits INTEGER NOT NULL,
+  output TEXT NOT NULL,
+  status TEXT NOT NULL DEFAULT 'draft'
+);
+
 CREATE TABLE IF NOT EXISTS orders (
   id TEXT PRIMARY KEY,
   user_id TEXT NOT NULL,
@@ -54,6 +72,20 @@ CREATE TABLE IF NOT EXISTS generated_plans (
   FOREIGN KEY (ledger_id) REFERENCES credit_ledger(id)
 );
 
+CREATE TABLE IF NOT EXISTS delivery_records (
+  id TEXT PRIMARY KEY,
+  user_id TEXT NOT NULL,
+  action_id TEXT NOT NULL,
+  ledger_id TEXT,
+  input_json TEXT NOT NULL,
+  output_json TEXT NOT NULL,
+  status TEXT NOT NULL,
+  created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES users(id),
+  FOREIGN KEY (action_id) REFERENCES credit_actions(id),
+  FOREIGN KEY (ledger_id) REFERENCES credit_ledger(id)
+);
+
 CREATE TABLE IF NOT EXISTS idempotency_keys (
   key TEXT PRIMARY KEY,
   scope TEXT NOT NULL,
@@ -69,3 +101,6 @@ CREATE INDEX IF NOT EXISTS idx_orders_user_created
 
 CREATE INDEX IF NOT EXISTS idx_generated_plans_user_created
   ON generated_plans(user_id, created_at);
+
+CREATE INDEX IF NOT EXISTS idx_delivery_records_user_created
+  ON delivery_records(user_id, created_at);

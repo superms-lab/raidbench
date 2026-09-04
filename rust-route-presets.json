@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-09-02T23:09:18.374Z",
+  "reviewedDataDate": "2026-08-23",
+  "scope": "Vanilla Rust PC planning examples. Recheck after relevant patches and custom-server changes.",
+  "count": 3,
+  "presets": [
+    {
+      "slug": "starter-door-corridor",
+      "availableFrom": "2026-09-03",
+      "title": "Starter door corridor",
+      "description": "Two sheet-metal doors followed by one garage door, saved as a compact early raid-planning route.",
+      "priority": "Compare the entered route before crafting",
+      "targets": [
+        {
+          "targetId": "sheet-door",
+          "quantity": 2,
+          "method": "satchels"
+        },
+        {
+          "targetId": "garage-door",
+          "quantity": 1,
+          "method": "rockets"
+        }
+      ],
+      "calculatorUrl": "https://raidbench.com/?route=sheet-door~2~satchels%2Cgarage-door~1~rockets&utm_source=preset_library&utm_medium=owned_tool&utm_campaign=starter-door-corridor#raid-calculator"
+    },
+    {
+      "slug": "door-path-vs-stone-wall",
+      "availableFrom": "2026-09-03",
+      "title": "Door path versus stone wall",
+      "description": "A mixed door path beside a stone-wall alternative for a quick route-cost comparison.",
+      "priority": "Compare sulfur before choosing the visible path",
+      "targets": [
+        {
+          "targetId": "sheet-door",
+          "quantity": 2,
+          "method": "satchels"
+        },
+        {
+          "targetId": "stone-wall",
+          "quantity": 1,
+          "method": "rockets"
+        }
+      ],
+      "calculatorUrl": "https://raidbench.com/?route=sheet-door~2~satchels%2Cstone-wall~1~rockets&utm_source=preset_library&utm_medium=owned_tool&utm_campaign=door-path-vs-stone-wall#raid-calculator"
+    },
+    {
+      "slug": "three-garage-door-core",
+      "availableFrom": "2026-09-03",
+      "title": "Three-garage-door core",
+      "description": "A repeated garage-door route for checking total placement count and sulfur before staging.",
+      "priority": "Check whether the repeated door path still beats a wall route",
+      "targets": [
+        {
+          "targetId": "garage-door",
+          "quantity": 3,
+          "method": "rockets"
+        }
+      ],
+      "calculatorUrl": "https://raidbench.com/?route=garage-door~3~rockets&utm_source=preset_library&utm_medium=owned_tool&utm_campaign=three-garage-door-core#raid-calculator"
+    }
+  ]
+}

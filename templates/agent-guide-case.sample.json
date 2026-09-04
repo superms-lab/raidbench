@@ -1,0 +1,117 @@
+{
+  "case_id": "raidbench-sample-poe2-001",
+  "case_type": "fictional_demo",
+  "site": {
+    "site_name": "RaidBench",
+    "domain": "raidbench.com",
+    "public_language": "en",
+    "owner_language": "zh-CN"
+  },
+  "run_context": {
+    "game_focus": ["POE2", "Rust", "Palworld"],
+    "objective": "Identify safe public guide opportunities and patch-sensitive refresh work.",
+    "payment_ready": false,
+    "publish_mode": "review_only"
+  },
+  "evidence": [
+    {
+      "evidence_id": "E-01",
+      "source_type": "official_news",
+      "source_url": "https://www.pathofexile.com/news",
+      "evidence_path": "operations/latest-agent-run.md",
+      "captured_at": "2026-07-16T00:08:30+08:00",
+      "scope_note": "Local sample evidence representing official news/source monitoring output."
+    },
+    {
+      "evidence_id": "E-02",
+      "source_type": "local_content_inventory",
+      "source_url": "https://raidbench.com/guides.html",
+      "evidence_path": "guides.html",
+      "captured_at": "2026-07-16T00:08:30+08:00",
+      "scope_note": "Generated public guide index used to check existing coverage."
+    }
+  ],
+  "signals": [
+    {
+      "signal_id": "S-01",
+      "evidence_id": "E-01",
+      "game": "POE2",
+      "topic": "build_help",
+      "signal_title": "Players need a safer way to judge whether build advice still fits the current patch.",
+      "pain_score": 5,
+      "commercial_score": 5,
+      "patch_sensitive": true
+    },
+    {
+      "signal_id": "S-02",
+      "evidence_id": "E-01",
+      "game": "Rust",
+      "topic": "patch",
+      "signal_title": "Rust patch and update monitoring can affect raid-cost and upkeep guidance.",
+      "pain_score": 4,
+      "commercial_score": 3,
+      "patch_sensitive": true
+    },
+    {
+      "signal_id": "S-03",
+      "evidence_id": "E-01",
+      "game": "Palworld",
+      "topic": "base_automation",
+      "signal_title": "Palworld base operations and version changes create recurring progression questions.",
+      "pain_score": 4,
+      "commercial_score": 4,
+      "patch_sensitive": true
+    }
+  ],
+  "guide_inventory": [
+    {
+      "slug": "poe2-outdated-build-guide-checklist",
+      "game": "POE2",
+      "title": "POE2 outdated build guide checklist",
+      "status": "published",
+      "patch_sensitive": true
+    },
+    {
+      "slug": "poe2-endgame-defense-checklist",
+      "game": "POE2",
+      "title": "POE2 endgame defense checklist",
+      "status": "published",
+      "patch_sensitive": true
+    },
+    {
+      "slug": "rust-raid-cost-calculator",
+      "game": "Rust",
+      "title": "Rust raid cost calculator",
+      "status": "published",
+      "patch_sensitive": true
+    },
+    {
+      "slug": "palworld-base-automation-scorecard",
+      "game": "Palworld",
+      "title": "Palworld base automation scorecard",
+      "status": "published",
+      "patch_sensitive": true
+    }
+  ],
+  "opportunity_scorecard": {
+    "method_version": "raidbench-opportunity-v1",
+    "opportunity_score": 78,
+    "components": [
+      {"component": "player_pain", "score": 82, "weight": 35},
+      {"component": "seo_fit", "score": 76, "weight": 25},
+      {"component": "paid_audit_fit", "score": 80, "weight": 25},
+      {"component": "compliance_safety", "score": 72, "weight": 15}
+    ],
+    "score_is_deterministic": true,
+    "agent_may_modify_score": false
+  },
+  "constraints": {
+    "public_sources_only": true,
+    "no_guaranteed_outcomes": true,
+    "no_cheats_or_exploits": true,
+    "no_real_money_trading": true,
+    "no_in_game_currency_or_items": true,
+    "paid_checkout_hidden_until_ready": true,
+    "owner_approval_required_for_external_posts": true
+  }
+}

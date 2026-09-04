@@ -1,0 +1,133 @@
+{
+  "policyVersion": "raidbench-paid-answer-v2",
+  "answerId": "ans_sample_rust_001",
+  "orderId": "ord_sample_001",
+  "game": "Rust",
+  "gameVersion": "Vanilla PC, source check 2026-07-19",
+  "generatedAt": "2026-07-19T02:00:00Z",
+  "patchSensitive": true,
+  "customerQuestion": "How much sulfur should I prepare for two sheet metal doors using satchel charges?",
+  "intake": {
+    "status": "complete",
+    "missingFields": [],
+    "customerFacts": {
+      "target": "Sheet Metal Door",
+      "quantity": 2,
+      "method": "Satchel Charge",
+      "serverType": "Vanilla PC"
+    }
+  },
+  "claims": [
+    {
+      "claimId": "claim_satchel_count",
+      "claimType": "numeric",
+      "critical": true,
+      "text": "Two sheet metal doors require eight satchel charges when each door takes four.",
+      "status": "verified",
+      "evidence": [
+        {
+          "evidenceId": "ev_rust_wiki_satchel",
+          "sourceType": "official_wiki",
+          "title": "Satchel Charge - Rust Wiki",
+          "url": "https://wiki.facepunch.com/rust/item/explosive.satchel",
+          "retrievedAt": "2026-07-19T01:20:00Z",
+          "supports": "The official wiki documents the current satchel recipe used by the sulfur calculation."
+        },
+        {
+          "evidenceId": "ev_sheet_door_reference",
+          "sourceType": "trusted_reference",
+          "title": "Sheet Metal Double Door Raid Cost",
+          "url": "https://rustly.com/raid/sheet-metal-double-door/",
+          "retrievedAt": "2026-07-19T01:25:00Z",
+          "supports": "The current destruction table lists four satchel charges for a sheet metal door."
+        },
+        {
+          "evidenceId": "ev_satchel_count_test",
+          "sourceType": "deterministic_test",
+          "title": "RaidBench satchel count calculation test",
+          "url": "https://raidbench.com/",
+          "retrievedAt": "2026-07-19T01:30:00Z",
+          "supports": "The deterministic test multiplies two doors by four satchels and reproduces eight."
+        }
+      ],
+      "calculationId": "calc_satchel_count",
+      "assumptions": ["The server uses vanilla PC structure health and explosive behavior."],
+      "conflictNotes": ""
+    },
+    {
+      "claimId": "claim_sulfur_total",
+      "claimType": "numeric",
+      "critical": true,
+      "text": "Eight satchel charges represent 3,840 raw sulfur in the documented recipe model.",
+      "status": "verified",
+      "evidence": [
+        {
+          "evidenceId": "ev_rust_wiki_satchel_recipe",
+          "sourceType": "official_wiki",
+          "title": "Satchel Charge - Rust Wiki",
+          "url": "https://wiki.facepunch.com/rust/item/explosive.satchel",
+          "retrievedAt": "2026-07-19T01:20:00Z",
+          "supports": "One satchel uses four beancan grenades."
+        },
+        {
+          "evidenceId": "ev_raid_cost_reference",
+          "sourceType": "trusted_reference",
+          "title": "Rust raid cost calculator reference",
+          "url": "https://32blog.com/en/gaming/rust-raid-cost-calculator",
+          "retrievedAt": "2026-07-19T01:30:00Z",
+          "supports": "The current reference independently lists 480 sulfur per satchel."
+        },
+        {
+          "evidenceId": "ev_sulfur_total_test",
+          "sourceType": "deterministic_test",
+          "title": "RaidBench sulfur total calculation test",
+          "url": "https://raidbench.com/",
+          "retrievedAt": "2026-07-19T01:35:00Z",
+          "supports": "The deterministic test multiplies eight satchels by 480 sulfur and reproduces 3,840."
+        }
+      ],
+      "calculationId": "calc_sulfur_total",
+      "assumptions": ["Sulfur is fully broken down through gunpowder and crafting ingredients."],
+      "conflictNotes": ""
+    }
+  ],
+  "calculations": [
+    {
+      "calculationId": "calc_satchel_count",
+      "formula": "door_quantity * satchels_per_door",
+      "inputs": { "doorQuantity": 2, "satchelsPerDoor": 4 },
+      "expected": 8,
+      "actual": 8,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "calculationId": "calc_sulfur_total",
+      "formula": "satchel_count * sulfur_per_satchel",
+      "inputs": { "satchelCount": 8, "sulfurPerSatchel": 480 },
+      "expected": 3840,
+      "actual": 3840,
+      "tolerance": 0,
+      "passed": true
+    }
+  ],
+  "answerText": "Prepare eight satchel charges, representing 3,840 raw sulfur in the current vanilla recipe model. Because satchels can add execution delay and the server may be modified, confirm the server rules and carry an operational buffer rather than treating the exact count as a complete raid plan.",
+  "limitations": [
+    "This calculation covers the two named doors only and excludes later layers, failed placement, counter-raiders, crafting prerequisites, and custom server settings."
+  ],
+  "qa": {
+    "authorAgentId": "paid-answer-writer",
+    "reviewerAgentId": "independent-evidence-reviewer",
+    "decision": "approve",
+    "criticalClaimsVerified": true,
+    "calculationTestsPassed": true,
+    "versionChecked": true,
+    "reviewedAt": "2026-07-19T01:45:00Z",
+    "reviewNotes": "Critical counts, recipe assumptions, arithmetic, server scope, and limitations checked independently."
+  },
+  "delivery": {
+    "status": "ready",
+    "correctionWindowDays": 14,
+    "updatePolicy": "Correct material factual errors during the correction window. Later game changes trigger a separate version review."
+  }
+}

@@ -1,0 +1,12 @@
+[Unit]
+Description=Rotate through all RaidBench game-demand lanes every six hours
+
+[Timer]
+OnCalendar=*-*-* 00,06,12,18:40:00 UTC
+RandomizedDelaySec=10min
+Persistent=true
+AccuracySec=1min
+Unit=raidbench-multigame-demand.service
+
+[Install]
+WantedBy=timers.target

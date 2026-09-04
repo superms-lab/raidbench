@@ -1,0 +1,100 @@
+[
+  {
+    "slug": "rust-base-upkeep-calculator",
+    "game": "Rust",
+    "title": "Rust base upkeep calculator",
+    "description": "Turn daily tool cupboard costs into weekly material targets and a practical decay buffer.",
+    "problem": "How much upkeep should I farm for the week?"
+  },
+  {
+    "slug": "rust-beginner-raid-path",
+    "game": "Rust",
+    "title": "Rust beginner raid path",
+    "description": "Choose an early raid route without spending more sulfur than the likely return can justify.",
+    "problem": "What should a new Rust player raid first?"
+  },
+  {
+    "slug": "rust-explosive-ammo-vs-rockets",
+    "game": "Rust",
+    "title": "Rust explosive ammo vs rockets",
+    "description": "Compare sulfur, speed, exposure, and splash value before selecting a raid method.",
+    "problem": "Should I use explosive ammo or rockets?"
+  },
+  {
+    "slug": "rust-garage-door-raid-cost",
+    "game": "Rust",
+    "title": "Rust garage door raid cost",
+    "description": "Compare common methods for a garage door and account for the full door path before committing.",
+    "problem": "How much does a Rust garage door cost to raid?"
+  },
+  {
+    "slug": "rust-raid-cost-calculator",
+    "game": "Rust",
+    "title": "Rust raid cost calculator",
+    "description": "Estimate rockets, C4, satchels, explosive ammo, sulfur, and gunpowder for a planned raid path.",
+    "problem": "How much boom does this raid path need?"
+  },
+  {
+    "slug": "rust-sheet-metal-door-raid-cost",
+    "game": "Rust",
+    "title": "Rust sheet metal door raid cost",
+    "description": "Compare direct raid methods for sheet metal doors and decide when the route is worth opening.",
+    "problem": "What is the cheapest way through a sheet metal door?"
+  },
+  {
+    "slug": "rust-solo-raid-guide",
+    "game": "Rust",
+    "title": "Rust solo raid guide",
+    "description": "Plan inventory, breach order, escape route, and counters when nobody is covering your back.",
+    "problem": "How do I reduce the risk of a solo raid?"
+  },
+  {
+    "slug": "rust-stone-wall-raid-cost",
+    "game": "Rust",
+    "title": "Rust stone wall raid cost",
+    "description": "Compare rockets, C4, satchels, and explosive ammo before choosing wall-side over the door path.",
+    "problem": "How much sulfur does a stone wall route cost?"
+  },
+  {
+    "slug": "rust-sulfur-farming-route",
+    "game": "Rust",
+    "title": "Rust sulfur farming route",
+    "description": "Score a sulfur route by density, travel time, recycling access, and the cost of losing the run.",
+    "problem": "How should I plan a safer sulfur run?"
+  },
+  {
+    "slug": "rust-tool-cupboard-upkeep-guide",
+    "game": "Rust",
+    "title": "Rust tool cupboard upkeep guide",
+    "description": "Read the tool cupboard timer, protect the weakest material, and maintain an emergency buffer.",
+    "problem": "How do I stop my Rust base from decaying?"
+  },
+  {
+    "slug": "poe2-boss-checklist",
+    "game": "POE2",
+    "title": "POE2 boss attempt checklist",
+    "description": "Prepare defenses, flasks, damage windows, and a useful death log before another boss attempt.",
+    "problem": "What should I check before retrying a POE2 boss?"
+  },
+  {
+    "slug": "poe2-build-planner-roadmap",
+    "game": "POE2",
+    "title": "POE2 build planner roadmap",
+    "description": "Evaluate patch fit, progression transitions, required items, defenses, and fallback options.",
+    "problem": "What should a practical POE2 build plan include?"
+  },
+  {
+    "slug": "poe2-loot-filter-basics",
+    "game": "POE2",
+    "title": "POE2 loot filter basics",
+    "description": "Set filter strictness around your current progression so useful upgrades remain visible.",
+    "problem": "How strict should my POE2 loot filter be?"
+  },
+  {
+    "slug": "poe2-starter-build-checklist",
+    "game": "POE2",
+    "title": "POE2 starter build checklist",
+    "description": "Check patch relevance, leveling transitions, item requirements, defense, and budget before committing.",
+    "problem": "Is this POE2 starter build credible and affordable?"
+  }
+]

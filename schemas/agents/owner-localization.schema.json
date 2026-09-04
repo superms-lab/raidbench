@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RaidBench owner localization",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["case_id", "stage", "owner_summary_zh", "items", "global_risk_flags_zh"],
+  "properties": {
+    "case_id": {"type": "string"},
+    "stage": {"type": "string", "enum": ["owner_localization"]},
+    "owner_summary_zh": {"type": "string"},
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "draft_id", "opportunity_ids", "refresh_ids", "publish_priority",
+          "cta_policy", "customer_english_summary", "owner_chinese_summary",
+          "risk_flags_zh", "recommended_owner_action_zh"
+        ],
+        "properties": {
+          "draft_id": {"type": "string"},
+          "opportunity_ids": {"type": "array", "items": {"type": "string"}},
+          "refresh_ids": {"type": "array", "items": {"type": "string"}},
+          "publish_priority": {"type": "string", "enum": ["high", "medium", "low"]},
+          "cta_policy": {"type": "string", "enum": ["free_only", "wait_for_payment", "owner_review_required"]},
+          "customer_english_summary": {"type": "string"},
+          "owner_chinese_summary": {"type": "string"},
+          "risk_flags_zh": {"type": "array", "items": {"type": "string"}},
+          "recommended_owner_action_zh": {"type": "string"}
+        }
+      }
+    },
+    "global_risk_flags_zh": {"type": "array", "items": {"type": "string"}}
+  }
+}

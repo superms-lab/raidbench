@@ -1,0 +1,47 @@
+{
+  "policyVersion": "raidbench-paid-answer-v2",
+  "effectiveDate": "2026-09-03",
+  "releaseMode": "fail_closed",
+  "outcomePromise": "RaidBench guarantees the documented review process and factual-correction handling, not a gameplay outcome, profit, loot result, boss kill, rank, or uninterrupted game mechanic.",
+  "criticalClaimRules": {
+    "minimumEvidenceItems": 2,
+    "requiredAuthoritativeEvidenceItems": 1,
+    "authoritativeSourceTypes": ["official", "official_wiki", "in_game_test", "deterministic_test"],
+    "allowedSourceTypes": ["official", "official_wiki", "in_game_test", "deterministic_test", "trusted_reference", "customer_input"],
+    "patchSensitiveEvidenceMaxAgeHoursAtDelivery": 72,
+    "numericClaimsRequireCalculationTest": true,
+    "numericClaimsRequireDeterministicEvidence": true,
+    "mechanicClaimsRequireGameEvidence": true,
+    "customerContextClaimsRequireCustomerInput": true
+  },
+  "releaseRules": {
+    "completeCustomerContextRequired": true,
+    "namedGameVersionRequired": true,
+    "independentReviewerRequired": true,
+    "reviewerMustDifferFromAuthor": true,
+    "allCriticalClaimsMustBeVerified": true,
+    "conflictingEvidenceBlocksDelivery": true,
+    "uncertainClaimsMustBePresentedAsLimitations": true,
+    "productPromiseMustBeSatisfied": true,
+    "paidDeliveryRequiresApproveDecision": true
+  },
+  "correctionPolicy": {
+    "factualErrorCorrectionWindowDays": 14,
+    "materialFactualError": "Correct the answer without additional credits or issue the applicable refund when a safe correction cannot be delivered.",
+    "laterGameUpdate": "Notify affected customers when the update relationship is known. A later patch is not treated as an original factual error unless it was already published before delivery and should have been detected."
+  },
+  "forbiddenOutcomePhrases": [
+    "guaranteed win",
+    "guaranteed profit",
+    "guaranteed loot",
+    "guaranteed boss kill",
+    "always works",
+    "100% success",
+    "best build in the game",
+    "unpatched exploit",
+    "dupe glitch",
+    "real money trading",
+    "account sale",
+    "boosting service"
+  ]
+}

@@ -1,0 +1,13 @@
+[Unit]
+Description=Check for independently reviewed RaidBench answers every minute
+
+[Timer]
+OnBootSec=90s
+OnUnitActiveSec=1min
+RandomizedDelaySec=5s
+Persistent=true
+AccuracySec=5s
+Unit=raidbench-answer-import.service
+
+[Install]
+WantedBy=timers.target

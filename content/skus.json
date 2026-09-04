@@ -1,0 +1,89 @@
+{
+  "launchMarkets": ["US", "CA"],
+  "currencyDisplay": ["USD"],
+  "billingCurrency": "USD",
+  "publicCheckoutEnabled": false,
+  "packs": [
+    {
+      "sku": "credits-starter-20",
+      "name": "Raid Route Check Starter",
+      "credits": 20,
+      "prices": { "USD": 5 },
+      "status": "ready_after_payment_setup"
+    },
+    {
+      "sku": "credits-palworld-80",
+      "name": "Palworld Review Credits",
+      "credits": 80,
+      "prices": { "USD": 13 },
+      "status": "ready_after_payment_setup"
+    },
+    {
+      "sku": "credits-scout-120",
+      "name": "Raid Plan Credits",
+      "credits": 120,
+      "prices": { "USD": 19 },
+      "status": "ready_after_payment_setup"
+    },
+    {
+      "sku": "credits-strategist-250",
+      "name": "Multi-Plan Credits",
+      "credits": 250,
+      "prices": { "USD": 39 },
+      "status": "ready_after_payment_setup"
+    },
+    {
+      "sku": "credits-command-450",
+      "name": "Command Credits",
+      "credits": 450,
+      "prices": { "USD": 69 },
+      "status": "ready_after_payment_setup"
+    }
+  ],
+  "actions": [
+    {
+      "id": "rust-instant-raid-answer",
+      "label": "Verified Rust Raid Route Check",
+      "credits": 10,
+      "output": "A personalized route comparison using the selected target, planning priority, explosive inventory, verified costs, evidence, and review date.",
+      "deliveryClass": "instant_verified",
+      "status": "ready_live"
+    },
+    {
+      "id": "poe2-item-value-decision",
+      "label": "POE2 Item Value Decision",
+      "credits": 3,
+      "output": "Keep, sell, vendor, craft-test, or personal-use recommendation.",
+      "status": "blocked_pending_evidence_qa"
+    },
+    {
+      "id": "poe2-boss-prep",
+      "label": "POE2 Boss Prep",
+      "credits": 6,
+      "output": "Attempt checklist with defensive, movement, and review notes.",
+      "status": "blocked_pending_evidence_qa"
+    },
+    {
+      "id": "poe2-farming-route-score",
+      "label": "POE2 Farming Route Score",
+      "credits": 8,
+      "output": "Route fit, risk, entry-cost, and tracking guidance.",
+      "status": "blocked_pending_evidence_qa"
+    },
+    {
+      "id": "poe2-build-audit",
+      "label": "POE2 Build Audit",
+      "credits": 10,
+      "output": "Patch sensitivity, defensive gaps, gear blockers, and next three fixes.",
+      "status": "blocked_pending_evidence_qa"
+    },
+    {
+      "id": "rust-raid-prep",
+      "label": "Rust Raid Prep",
+      "credits": 120,
+      "output": "A source-checked multi-layer raid plan with route alternatives, inventory fit, resource buffer, team assignments, assumptions, and stop conditions.",
+      "deliveryClass": "custom_verified",
+      "status": "ready_live"
+    }
+  ]
+}

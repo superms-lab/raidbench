@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Project Zomboid mod conflict isolation checklist | RaidBench</title>
+    <meta name="description" content="Find a broken Project Zomboid mod combination with a repeatable clean test instead of repeatedly damaging the main save." />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://raidbench.com/pages/project-zomboid-mod-conflict-isolation" />
+    <meta property="og:title" content="Project Zomboid mod conflict isolation checklist" />
+    <meta property="og:description" content="Find a broken Project Zomboid mod combination with a repeatable clean test instead of repeatedly damaging the main save." />
+    <meta property="og:type" content="article" />
+    <meta property="article:published_time" content="2026-09-03" />
+    <meta property="article:modified_time" content="2026-09-03" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#101312" />
+    <link rel="stylesheet" href="../styles.css?v=20260903c" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Project Zomboid mod conflict isolation checklist","description":"Find a broken Project Zomboid mod combination with a repeatable clean test instead of repeatedly damaging the main save.","datePublished":"2026-09-03","dateModified":"2026-09-03","author":{"@type":"Organization","name":"RaidBench Editorial","url":"https://raidbench.com/about"},"publisher":{"@type":"Organization","name":"RaidBench","url":"https://raidbench.com/"},"mainEntityOfPage":"https://raidbench.com/pages/project-zomboid-mod-conflict-isolation","about":{"@type":"VideoGame","name":"Project Zomboid"},"citation":["https://projectzomboid.com/blog/news/","https://store.steampowered.com/feeds/news/app/108600"]}</script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="../index.html" aria-label="RaidBench home"><span class="brand-mark">RB</span><span>RaidBench</span></a>
+      <nav class="nav" aria-label="Primary"><a href="../games.html">Games</a><a href="../guides.html" aria-current="page">Guides</a><a href="../tools.html">Tools</a><a href="../updates.html">Patch Watch</a><a href="../about.html">About</a></nav>
+      <a class="header-action" href="../games/project-zomboid/">Project Zomboid guides</a>
+    </header>
+    <main class="article-main">
+      <a class="breadcrumb" href="../games/project-zomboid/">RaidBench / Project Zomboid / Decision guide</a>
+      <section class="article-hero">
+        <h1>Project Zomboid mod conflict isolation checklist</h1>
+        <p>Find a broken Project Zomboid mod combination with a repeatable clean test instead of repeatedly damaging the main save.</p>
+        <div class="article-cta"><a class="primary-action" href="#checklist">Run the checklist</a><a class="secondary-action" href="../games/project-zomboid/">Open Project Zomboid hub</a></div>
+        <div class="editorial-meta"><span>Reviewed 2026-09-03</span><span>Patch-sensitive</span><span>No paid answer offered</span><a href="../about.html">Editorial standards</a></div>
+      </section>
+      <section class="article-grid">
+        <article class="article-card">
+          <h2>How do I identify which mod is breaking the game or save?</h2>
+          <div class="answer-callout"><strong>Direct answer</strong><p>Reproduce the problem in a disposable profile, confirm the unmodded baseline, and restore mods in small groups. Keep the load order and game build fixed during each comparison so a successful launch actually tells you something.</p></div>
+          <div class="table-scroll" tabindex="0" role="region" aria-label="Decision checks">
+            <table><thead><tr><th>Decision signal</th><th>What to verify</th><th>Next move</th></tr></thead>
+              <tbody><tr><td>Problem exists unmodded</td><td>Test a clean profile on the same build</td><td>Investigate the base game or local files first</td></tr><tr><td>Problem disappears clean</td><td>Enable half the suspect set</td><td>Continue narrowing the failing group</td></tr><tr><td>Load order matters</td><td>Repeat with the same mods in controlled order</td><td>Record the smallest failing combination</td></tr></tbody>
+            </table>
+          </div>
+        </article>
+        <article class="article-card" id="checklist"><h2>Decision checklist</h2><ul><li>Back up the affected save before changing the mod list</li><li>Record the game build and complete enabled-mod order</li><li>Confirm a clean disposable profile can reproduce or clear the issue</li><li>Restore mods in bounded groups rather than one random order</li><li>Keep logs and the smallest failing combination</li></ul></article>
+        <article class="article-card"><h2>Stop and recheck when</h2><ul><li>Stop using the main save when a test changes map or item data</li><li>Do not declare a fix until the same setup survives a restart</li></ul></article>
+        <article class="article-card"><h2>Common mistakes</h2><ul><li>Testing directly on the only valuable save</li><li>Changing build, mods, and load order together</li><li>Assuming one successful launch proves long-session stability</li></ul></article>
+        <article class="article-card"><h2>Related Project Zomboid guides</h2><div class="article-cta"><a class="secondary-action" href="./project-zomboid-build-update-save-checklist.html">Project Zomboid build update save-safety checklist</a><a class="secondary-action" href="./project-zomboid-change-sandbox-settings-mid-save.html">Can you change zombie settings mid-save in Project Zomboid?</a></div></article>
+        <article class="article-card source-list"><h2>Sources and evidence boundary</h2><ul><li><a href="https://projectzomboid.com/blog/news/" target="_blank" rel="noopener noreferrer">The Indie Stone news and build announcements.</a> - publisher-controlled source.</li><li><a href="https://store.steampowered.com/feeds/news/app/108600" target="_blank" rel="noopener noreferrer">Publisher announcements distributed through the Project Zomboid Steam feed.</a> - publisher announcement via Steam.</li></ul><p>Decision frameworks for the current stable Project Zomboid branch. Back up saves and recheck build-specific behavior before changing an established world.</p><p>Reviewed 2026-09-03. Publisher-controlled sources may support factual claims. The community thread supports topic selection only. Unsupported mechanics, exact values, and outcomes must not be inferred.</p></article>
+      </section>
+    </main>
+    <footer class="footer"><p>RaidBench is independent and is not affiliated with or endorsed by the game publisher.</p><p class="footer-links"><a href="../games.html">Games</a><a href="../updates.html">Patch Watch</a><a href="../about.html">Editorial standards</a><a href="../privacy.html">Privacy</a><a href="../terms.html">Terms</a></p></footer>
+    <script src="../config.js?v=20260903c"></script>
+    <script src="../analytics.js?v=20260903c"></script>
+  </body>
+</html>

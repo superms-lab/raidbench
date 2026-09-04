@@ -1,0 +1,12 @@
+[Unit]
+Description=Check for new or changed RaidBench shadow answer cases every six hours
+
+[Timer]
+OnCalendar=*-*-* 02,08,14,20:50:00 UTC
+RandomizedDelaySec=5min
+Persistent=true
+AccuracySec=1min
+Unit=raidbench-shadow-qa.service
+
+[Install]
+WantedBy=timers.target

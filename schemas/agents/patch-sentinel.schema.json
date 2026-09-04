@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RaidBench patch sentinel",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["case_id", "stage", "refresh_items", "global_patch_summary"],
+  "properties": {
+    "case_id": {"type": "string"},
+    "stage": {"type": "string", "enum": ["patch_sentinel"]},
+    "refresh_items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "refresh_id", "opportunity_ids", "affected_slugs", "evidence_ids",
+          "refresh_priority", "reason", "claim_sensitivity", "recommended_action"
+        ],
+        "properties": {
+          "refresh_id": {"type": "string"},
+          "opportunity_ids": {"type": "array", "items": {"type": "string"}},
+          "affected_slugs": {"type": "array", "items": {"type": "string"}},
+          "evidence_ids": {"type": "array", "items": {"type": "string"}},
+          "refresh_priority": {"type": "string", "enum": ["urgent", "normal", "watch"]},
+          "reason": {"type": "string"},
+          "claim_sensitivity": {"type": "string", "enum": ["high", "medium", "low"]},
+          "recommended_action": {"type": "string", "enum": ["rewrite", "review", "add_disclaimer", "monitor"]}
+        }
+      }
+    },
+    "global_patch_summary": {"type": "string"}
+  }
+}

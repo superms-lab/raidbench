@@ -9,23 +9,26 @@
       content="Use the RaidBench Rust raid cost calculator to estimate rockets, C4, satchels, explosive ammo, sulfur, and gunpowder before a raid."
     />
     <meta name="robots" content="index,follow" />
-    <link rel="canonical" href="https://raidbench.com/pages/rust-raid-cost-calculator.html" />
+    <link rel="canonical" href="https://raidbench.com/pages/rust-raid-cost-calculator" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="theme-color" content="#101312" />
-    <link rel="stylesheet" href="../styles.css?v=20260715d" />
+    <link rel="stylesheet" href="../styles.css?v=20260717a" />
+    <meta name="raidbench-editorial-upgrade" content="20260717" />
+    <meta property="og:title" content="Rust raid cost calculator" />
+    <meta property="og:description" content="Estimate rockets, C4, satchels, explosive ammo, sulfur, and gunpowder for a planned raid path." />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="https://raidbench.com/assets/raidbench-calculator-share.png" />
+    <meta property="og:image:alt" content="RaidBench Rust raid cost calculator with sulfur and gunpowder totals" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="article:published_time" content="2026-07-15" />
+    <meta property="article:modified_time" content="2026-07-17" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Rust raid cost calculator","description":"Estimate rockets, C4, satchels, explosive ammo, sulfur, and gunpowder for a planned raid path.","datePublished":"2026-07-15","dateModified":"2026-07-17","author":{"@type":"Organization","name":"RaidBench Editorial","url":"https://raidbench.com/about"},"publisher":{"@type":"Organization","name":"RaidBench","url":"https://raidbench.com/"},"mainEntityOfPage":"https://raidbench.com/pages/rust-raid-cost-calculator","about":{"@type":"VideoGame","name":"Rust"},"citation":["https://rust.facepunch.com/changes/"]}</script>
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="../index.html" aria-label="RaidBench home">
-        <span class="brand-mark">RB</span>
-        <span>RaidBench</span>
-      </a>
-      <nav class="nav" aria-label="Primary">
-        <a href="../index.html#tools">Tools</a>
-        <a href="../index.html#guides">Guides</a>
-        <a href="../index.html#database">Database</a>
-      </nav>
+      <a class="brand" href="../index.html" aria-label="RaidBench home"><span class="brand-mark">RB</span><span>RaidBench</span></a>
+      <nav class="nav" aria-label="Primary"><a href="../games.html">Games</a><a href="../guides.html" aria-current="page">Guides</a><a href="../tools.html">Tools</a><a href="../updates.html">Patch Watch</a><a href="../about.html">About</a></nav>
       <a class="header-action" href="../index.html#raid-calculator">Open Calculator</a>
     </header>
     <main class="article-main">
@@ -40,11 +43,12 @@
           <a class="primary-action" href="../index.html#raid-calculator">Use the live calculator</a>
           <a class="secondary-action" href="./rust-explosive-ammo-vs-rockets.html">Compare methods</a>
         </div>
+        <div class="editorial-meta"><span>Reviewed 2026-07-17</span><span>Patch-sensitive guidance</span><a href="../about.html">Editorial standards</a></div>
       </section>
       <section class="article-grid">
         <article class="article-card">
           <h2>Quick reference</h2>
-          <table>
+          <div class="table-scroll" tabindex="0" role="region" aria-label="Guide reference table"><table>
             <thead>
               <tr>
                 <th>Target</th>
@@ -57,12 +61,12 @@
             <tbody>
               <tr><td>Sheet Metal Door</td><td>2</td><td>1</td><td>4</td><td>63</td></tr>
               <tr><td>Garage Door</td><td>3</td><td>2</td><td>9</td><td>About 150</td></tr>
-              <tr><td>Armored Door</td><td>4</td><td>2</td><td>12</td><td>200</td></tr>
+              <tr><td>Armored Door</td><td>5</td><td>3</td><td>15</td><td>250</td></tr>
               <tr><td>Stone Wall</td><td>4</td><td>2</td><td>10</td><td>185</td></tr>
               <tr><td>Sheet Metal Wall</td><td>8</td><td>4</td><td>23</td><td>400</td></tr>
               <tr><td>Armored Wall</td><td>15</td><td>8</td><td>46</td><td>800</td></tr>
             </tbody>
-          </table>
+          </table></div>
         </article>
         <article class="article-card">
           <h2>How to use it</h2>
@@ -73,6 +77,13 @@
             <li>Check the sulfur estimate, then add a buffer for missed splash and counters.</li>
           </ol>
         </article>
+        <article class="article-card conversion-card" data-live-commerce hidden data-revenue-path="rust-v1">
+          <p class="eyebrow">Verified Rust answers from $5</p>
+          <h2>Need this checked for your exact target and method?</h2>
+          <p>The $5 starter pack covers two personalized route checks. Choose the full raid plan when you need multiple layers, a resource buffer, and a clear stop condition. Unsupported requests are not charged.</p>
+          <div class="article-cta"><a class="primary-action" href="../customer?intent=instant&amp;utm_source=manual_guide&amp;utm_medium=internal&amp;utm_campaign=rust-raid-cost-calculator" data-commerce-cta>Get a verified answer</a><a class="secondary-action" href="../rust-raid-plan">See prices and sample output</a></div>
+        </article>
+
         <article class="article-card source-list">
           <h2>Sources and notes</h2>
           <p>
@@ -83,13 +94,16 @@
             <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2881742212">community raid cost charts</a>.
           </p>
         </article>
+        <article class="article-card source-list">
+          <h2>Patch and editorial status</h2>
+          <p>Reviewed 2026-07-17. Check <a href="https://rust.facepunch.com/changes/" target="_blank" rel="noopener noreferrer">Official Rust changes</a> after balance, progression, item, building, or combat changes that affect this decision.</p>
+          <p><a href="../about.html">See how RaidBench selects sources and handles corrections.</a></p>
+        </article>
       </section>
     </main>
-    <footer class="footer">
-      <p>RaidBench is an unofficial fan-made planning tool and is not affiliated with or endorsed by Facepunch Studios.</p>
-      <p>All trademarks and game names belong to their respective owners.</p>
-    <p class="footer-links"><a href="../privacy.html">Privacy</a><a href="../terms.html">Terms</a><a href="../refund-policy.html">Refund Policy</a></p></footer>
-    <script src="../config.js"></script>
-    <script src="../analytics.js"></script>
+    <footer class="footer"><p>RaidBench is independent and is not affiliated with or endorsed by Facepunch Studios.</p><p class="footer-links"><a href="../updates.html">Patch Watch</a><a href="../about.html">Editorial standards</a><a href="../privacy.html">Privacy</a><a href="../terms.html">Terms</a><a href="../refund-policy.html">Refunds</a></p></footer>
+    <script src="../config.js?v=20260717a"></script>
+    <script src="../analytics.js?v=20260717a"></script>
+    <script src="../guide-tools.js?v=20260820a"></script>
   </body>
 </html>

@@ -1,0 +1,286 @@
+{
+  "schemaVersion": "1.0.0",
+  "asOf": "2026-09-04",
+  "policyVersion": "raidbench-paid-answer-v2",
+  "supportedCases": [
+    {
+      "caseId": "shadow_poe2_supported_002",
+      "productId": "poe2-build-decision-review",
+      "questionText": "My boss attempts fail after the first movement-heavy phase. Which observed build constraint should I test before replacing gear?",
+      "inputs": {
+        "currentPatch": "0.5.5 Forbidden Rites",
+        "buildDescription": "Player-supplied skill, passive, item, defense, flask, and ten-attempt observation summary; no inspectable export or live-price evidence attached",
+        "targetContent": "Player-named endgame boss encounter",
+        "observedProblem": "Eight of ten attempts end during the same movement-heavy phase; damage uptime resumes slowly after repositioning",
+        "budget": "50 Divine maximum; no current item price may be inferred"
+      },
+      "answerFocus": "Determine whether the supplied observations support a paid bottleneck diagnosis; refuse if the missing inspectable build or encounter evidence prevents prioritized repairs."
+    },
+    {
+      "caseId": "shadow_palworld_supported_002",
+      "productId": "palworld-base-progression-review",
+      "questionText": "Produced ore accumulates at the work area while nearby storage stays unchanged. Which handoff should I test first?",
+      "inputs": {
+        "gameVersion": "1.0",
+        "serverType": "Dedicated server with no production-changing mods reported",
+        "currentGoal": "Move produced ore into storage during one twenty-minute controlled observation",
+        "baseOrProgressionState": "Player records work-area ore rising from 40 to 120 while destination storage remains at 200; assignments and layout stay unchanged",
+        "observedProblem": "Production increases but the recorded destination storage does not"
+      },
+      "answerFocus": "Identify the observed production-to-storage handoff as the first measured bottleneck, without claiming an unverified pathing or simulation mechanic."
+    },
+    {
+      "caseId": "shadow_palworld_supported_003",
+      "productId": "palworld-base-progression-review",
+      "questionText": "My crafting queue remains at 100 units and the input stack does not change during a player-present test. What should I isolate next?",
+      "inputs": {
+        "gameVersion": "1.0",
+        "serverType": "Single-player world with no work-speed mods reported",
+        "currentGoal": "Start and measure one fixed crafting queue",
+        "baseOrProgressionState": "Queue begins and ends at 100 units over fifteen minutes; input stack and output storage also remain unchanged; player keeps layout and assignments fixed",
+        "observedProblem": "The recorded queue never begins consuming its supplied input"
+      },
+      "answerFocus": "Treat queue start as the observed bottleneck and propose one-variable assignment and station-state tests without inventing worker-suitability mechanics."
+    },
+    {
+      "caseId": "shadow_palworld_supported_004",
+      "productId": "palworld-base-progression-review",
+      "questionText": "Crops increase during my test but the next processing input stays at zero. Where should I focus the next observation?",
+      "inputs": {
+        "gameVersion": "1.0",
+        "serverType": "Private co-op host with no production-changing mods reported",
+        "currentGoal": "Move one measured crop batch into the next processing step",
+        "baseOrProgressionState": "Crop inventory rises by 80 during thirty minutes while the recorded downstream input remains zero; no layout or assignment change is made",
+        "observedProblem": "The measured upstream output never appears in the next recorded input"
+      },
+      "answerFocus": "Diagnose only the observed inter-stage transfer gap and give a controlled handoff test; do not assert a specific game mechanic as the cause."
+    },
+    {
+      "caseId": "shadow_palworld_supported_005",
+      "productId": "palworld-base-progression-review",
+      "questionText": "Items on the collection area rise while storage remains flat. How do I test whether collection is the first bottleneck?",
+      "inputs": {
+        "gameVersion": "1.0",
+        "serverType": "Dedicated server with the same settings across both observations",
+        "currentGoal": "Clear one measured collection batch into storage",
+        "baseOrProgressionState": "Ground or collection-area count rises from 10 to 55 while destination storage stays at 300 during a twenty-minute player-present observation",
+        "observedProblem": "Collected output accumulates before the recorded storage handoff"
+      },
+      "answerFocus": "Identify collection-to-storage as the first observed gap, then define a matched test that changes only the handoff assignment or route condition."
+    },
+    {
+      "caseId": "shadow_palworld_supported_006",
+      "productId": "palworld-base-progression-review",
+      "questionText": "Two bases use the same observation window, but only Base A produces output. What is the safest comparison plan?",
+      "inputs": {
+        "gameVersion": "1.0",
+        "serverType": "Dedicated server; both bases observed by the same player account",
+        "currentGoal": "Explain the measured difference without changing multiple variables",
+        "baseOrProgressionState": "Base A adds 60 units in thirty minutes; Base B adds zero; the player has not yet matched assignments, layout, storage, and travel conditions",
+        "observedProblem": "The two bases produce different recorded deltas under an incompletely matched comparison"
+      },
+      "answerFocus": "Name the unmatched comparison as the current bottleneck and prioritize a one-variable matched test rather than inventing why Base B stops."
+    },
+    {
+      "caseId": "shadow_palworld_supported_007",
+      "productId": "palworld-base-progression-review",
+      "questionText": "Output stops after storage reaches 95 of 100 recorded slots. How should I verify whether capacity is the first constraint?",
+      "inputs": {
+        "gameVersion": "1.0",
+        "serverType": "Single-player world with unchanged settings",
+        "currentGoal": "Maintain output through one additional controlled batch",
+        "baseOrProgressionState": "Recorded output increases until destination storage reaches 95 of 100 tracked slots, then remains unchanged for the next ten minutes",
+        "observedProblem": "The output stop correlates with the recorded destination nearing capacity"
+      },
+      "answerFocus": "Treat capacity only as a correlation, define a matched before-and-after storage-space test, and avoid asserting undocumented storage behavior."
+    },
+    {
+      "caseId": "shadow_palworld_supported_008",
+      "productId": "palworld-base-progression-review",
+      "questionText": "Most of my upgrade session is spent traveling for one missing material. What should I change before farming more?",
+      "inputs": {
+        "gameVersion": "1.0",
+        "serverType": "Single-player progression with no resource-rate mods reported",
+        "currentGoal": "Complete the player-named upgrade with less repeated travel",
+        "baseOrProgressionState": "Across three sixty-minute sessions, the player records 38, 41, and 43 minutes traveling for the same missing material while all other upgrade inputs are already staged",
+        "observedProblem": "Travel for one player-identified material consumes most of each measured session"
+      },
+      "answerFocus": "Identify the measured travel share as the progression bottleneck, prioritize a route or staging experiment, and avoid claiming a best farming location."
+    },
+    {
+      "caseId": "shadow_palworld_supported_009",
+      "productId": "palworld-base-progression-review",
+      "questionText": "Five boss attempts end during the same recovery window. What should I test before changing the whole team?",
+      "inputs": {
+        "gameVersion": "1.0",
+        "serverType": "Single-player world with unchanged difficulty settings across attempts",
+        "currentGoal": "Survive and measure the repeated recovery window",
+        "baseOrProgressionState": "The player supplies timestamps for five attempts; each ends during the same recovery window, but no mechanic or damage-source claim is supplied",
+        "observedProblem": "Failure repeats in one timestamped window while the rest of the attempt varies"
+      },
+      "answerFocus": "Identify the repeated recovery window as the observed progression bottleneck and propose one controlled preparation change without inventing boss mechanics."
+    },
+    {
+      "caseId": "shadow_palworld_supported_010",
+      "productId": "palworld-base-progression-review",
+      "questionText": "My breeding queue has the same waiting gap in four observations. Which part should I measure before expanding the base?",
+      "inputs": {
+        "gameVersion": "1.0",
+        "serverType": "Private co-op host with unchanged breeding settings",
+        "currentGoal": "Reduce the repeated waiting gap without expanding multiple systems at once",
+        "baseOrProgressionState": "Four timestamped cycles show the same idle interval between one completed player-recorded step and the next queue start; exact game cause is not supplied",
+        "observedProblem": "A repeatable idle interval appears at the same recorded handoff"
+      },
+      "answerFocus": "Treat the repeated handoff interval as the measured bottleneck, propose one-variable timing observations, and avoid asserting breeding mechanics not in evidence."
+    },
+    {
+      "caseId": "shadow_project_zomboid_supported_002",
+      "productId": "project-zomboid-save-plan-review",
+      "questionText": "A modded copy loads before a branch update but fails afterward. How should I isolate the compatibility break without touching the original save?",
+      "inputs": {
+        "currentBuild": "42.20.4 stable before the proposed branch comparison",
+        "requestedChange": "Test one build-branch change against an unchanged mod set",
+        "modList": "Eight named mods with current version notes attached by the player",
+        "saveImportance": "Long-running important world",
+        "backupStatus": "Two independent copies created; one was test-loaded before the change"
+      },
+      "answerFocus": "Provide a copied-save baseline, one-variable branch test, fresh no-mod control, rollback boundary, and explicit stop conditions without promising restoration."
+    },
+    {
+      "caseId": "shadow_project_zomboid_supported_003",
+      "productId": "project-zomboid-save-plan-review",
+      "questionText": "I want to change one loot sandbox value in an unmodded save. What is the minimum controlled rollback plan?",
+      "inputs": {
+        "currentBuild": "42.20.4 stable",
+        "requestedChange": "Change one named loot sandbox value only",
+        "modList": "No enabled mods",
+        "saveImportance": "Replaceable active test world",
+        "backupStatus": "Backup copied and successfully test-loaded"
+      },
+      "answerFocus": "Give a bounded one-setting test, before-and-after observations, rollback boundary, and stop conditions while making no claim that existing areas will change."
+    },
+    {
+      "caseId": "shadow_escape_from_tarkov_supported_002",
+      "productId": "escape-from-tarkov-loadout-route-review",
+      "questionText": "Which of two player-priced task kits leaves enough budget for four replacements and a reserve?",
+      "inputs": {
+        "currentPatch": "Publisher source check 2026-09-04; exact gameplay patch not asserted",
+        "mode": "PvP",
+        "accountAccess": "Player lists available traders and market access without claiming current public prices",
+        "mapOrTask": "Named task and extraction route with player-supplied checkpoints",
+        "budget": 3000000,
+        "availableEquipment": "Two complete player-priced kits, four-copy target, and twenty percent reserve supplied in the case attachment"
+      },
+      "answerFocus": "Determine whether the non-numeric closed evidence can support the full loadout and route comparison; refuse rather than invent prices, task requirements, or route mechanics."
+    },
+    {
+      "caseId": "shadow_ark_survival_ascended_supported_002",
+      "productId": "ark-survival-ascended-roster-plan-review",
+      "questionText": "How should I stage a breeding and saddle test when server rates and blueprint values are supplied but encounter requirements are not?",
+      "inputs": {
+        "gameVersion": "Publisher source check 2026-09-04",
+        "map": "Player-specified current map",
+        "serverRates": "Exact player-entered breeding and harvesting rates",
+        "activeMods": "Two named mods with player-supplied configuration notes",
+        "targetCreatureOrEncounter": "Player-named creature roster; encounter requirements intentionally not asserted",
+        "currentResources": "Current roster, blueprint values, and stored materials supplied by the player"
+      },
+      "answerFocus": "Provide only a server-scoped preparation and measurement plan supported by entered values; refuse any boss-readiness conclusion lacking encounter evidence."
+    },
+    {
+      "caseId": "shadow_warframe_supported_002",
+      "productId": "warframe-build-progression-review",
+      "questionText": "My target activity repeatedly fails after energy recovery drops. Which account and loadout evidence must drive the first upgrade?",
+      "inputs": {
+        "currentPatch": "Update 43.5 Amir's Shockwave",
+        "accountProgress": "Player lists completed quests, unlocked systems, and target activity access",
+        "loadout": "Complete player-entered frame, weapon, mod ranks, capacity, and five-run observation log",
+        "targetActivity": "Player-named repeatable activity",
+        "observedProblem": "Five runs show the same energy-recovery interruption before failure",
+        "availableResources": "One upgrade budget and two player-proposed options"
+      },
+      "answerFocus": "Require support for a concrete first bottleneck and upgrade order; refuse if official ability or mod dependencies needed for the recommendation are absent."
+    },
+    {
+      "caseId": "shadow_once_human_supported_002",
+      "productId": "once-human-scenario-build-review",
+      "questionText": "Which scenario path fits my four-hour weekly schedule if the exact carryover wording is still unconfirmed?",
+      "inputs": {
+        "currentVersion": "3.0.5",
+        "currentScenario": "Player-named current scenario",
+        "candidateScenarioOrBuild": "Two player-named candidate paths",
+        "accountOrCharacterState": "Player lists account and character state but marks carryover fields unconfirmed",
+        "goal": "Choose by four-hour weekly schedule, friend-group availability, progression goal, and maintenance burden"
+      },
+      "answerFocus": "Provide a reversible personal-fit decision while blocking irreversible carryover advice until exact current official wording is supplied."
+    },
+    {
+      "caseId": "shadow_once_human_supported_003",
+      "productId": "once-human-scenario-build-review",
+      "questionText": "One production stage accumulates input while the next output remains zero. What should I test before rebuilding the base?",
+      "inputs": {
+        "currentVersion": "3.0.5",
+        "currentScenario": "Player-named current scenario",
+        "candidateScenarioOrBuild": "Keep current build or move one production stage",
+        "accountOrCharacterState": "Player supplies a thirty-minute before-and-after inventory log",
+        "goal": "Identify the first observed production handoff before making an irreversible rebuild"
+      },
+      "answerFocus": "Diagnose only the measured handoff, compare reversible alternatives, and require a controlled retest without inventing scenario or building mechanics."
+    },
+    {
+      "caseId": "shadow_counter_strike_2_supported_002",
+      "productId": "counter-strike-2-round-plan-review",
+      "questionText": "In this timestamped round, which first team decision removed our fallback before the site hit?",
+      "inputs": {
+        "currentPatch": "Publisher source check 2026-09-04",
+        "matchMode": "Five-player competitive",
+        "map": "Player-named map and side",
+        "roundOrDemoEvidence": "Timestamped sequence includes individual money, purchases, carried equipment, role assignments, utility use, spacing, contacts, and the first lost fallback",
+        "playerRole": "Player-named entry-support role",
+        "reviewQuestion": "Identify the first observable economy, role, utility, spacing, or timing decision that removed the fallback"
+      },
+      "answerFocus": "Approve only if the supplied timestamped sequence supports every promised review dimension and the first decision; otherwise return no charge."
+    },
+    {
+      "caseId": "shadow_dota_2_supported_002",
+      "productId": "dota-2-match-decision-review",
+      "questionText": "Which first timestamped decision reduced my recovery options after the lost lane?",
+      "inputs": {
+        "currentPatch": "Publisher patch archive checked 2026-09-04",
+        "matchIdOrReplay": "Complete synthetic benchmark sequence with draft, lane, items, deaths, objectives, and timestamps",
+        "heroAndRole": "Player-supplied hero, role, lane partner, and team draft",
+        "reviewQuestion": "Find the first observable decision that reduced recovery options",
+        "targetDecisionWindow": "Minutes 8 through 18 with item and objective timings supplied"
+      },
+      "answerFocus": "Approve only when the closed sequence supports role, lane, item timing, objective context, and the first lost recovery option without inventing mechanics."
+    },
+    {
+      "caseId": "shadow_pubg_battlegrounds_supported_002",
+      "productId": "pubg-battlegrounds-rotation-review",
+      "questionText": "Which first rotation decision removed our safe fallback in this timestamped map sequence?",
+      "inputs": {
+        "currentPatch": "Update 42.3",
+        "map": "Player-named map with route waypoints",
+        "matchEvidence": "Timestamped replay description includes zone, terrain, vehicle state, contacts, spacing, route choices, and fallback positions",
+        "squadContext": "Four-player squad with individual positions and one vehicle",
+        "zoneAndTiming": "Every route decision and zone transition in the target window is timestamped",
+        "reviewQuestion": "Identify the first observable decision that removed the last viable fallback"
+      },
+      "answerFocus": "Approve only if the closed sequence supports timing, terrain, information, vehicle, spacing, alternatives, and the first lost fallback."
+    },
+    {
+      "caseId": "shadow_rainbow_six_siege_supported_002",
+      "productId": "rainbow-six-siege-operator-site-review",
+      "questionText": "Which of two named operators better completes this exact defense plan for the supplied site and team jobs?",
+      "inputs": {
+        "currentSeason": "Y11S3",
+        "mapAndSite": "Exact player-named map and bomb site",
+        "side": "Defense",
+        "availableOperators": "Two named operators with player-supplied current loadout screenshots",
+        "teamContext": "Five team jobs, utility order, setup locations, and expected attacker pressures supplied",
+        "reviewQuestion": "Compare job coverage, utility sequence, setup, counters, alternatives, and execution checks"
+      },
+      "answerFocus": "Refuse unless current official or in-game evidence supports the named operator abilities, loadouts, interactions, and counter claims required by the complete site plan."
+    }
+  ]
+}

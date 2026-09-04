@@ -1,5 +1,9 @@
 /owner-review-zh.html / 302
 /owner-review-zh.css / 302
 /premium.html / 302
-/pages/poe2-build-audit-product.html /poe2.html 302
-/pages/palworld-paid-product-menu.html /palworld.html 302
+/pages/poe2-build-audit-product.html /games/poe2/ 302
+/pages/palworld-paid-product-menu.html /games/palworld/ 302
+/poe2 /games/poe2/ 301
+/poe2.html /games/poe2/ 301
+/palworld /games/palworld/ 301
+/palworld.html /games/palworld/ 301

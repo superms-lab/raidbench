@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="description" content="RaidBench 站长专用中文流量概览，展示匿名汇总的页面浏览趋势、热门内容和访问来源。" />
+    <title>RaidBench 流量概览</title>
+    <link rel="canonical" href="https://raidbench.com/" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #18212b;
+        --muted: #63707d;
+        --line: #dce2e7;
+        --surface: #ffffff;
+        --canvas: #f4f6f7;
+        --green: #16794b;
+        --green-soft: #e6f3ec;
+        --gold: #a56a06;
+        --gold-soft: #fff3d8;
+        --blue: #23659a;
+        --blue-soft: #e7f1f8;
+        --red: #a33d36;
+      }
+
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-width: 320px;
+        background: var(--canvas);
+        color: var(--ink);
+        font-family: Inter, "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+        letter-spacing: 0;
+      }
+      button { font: inherit; }
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 64px;
+        padding: 0 28px;
+        border-bottom: 1px solid var(--line);
+        background: var(--surface);
+      }
+      .brand { font-size: 17px; font-weight: 750; }
+      .brand span { margin-left: 10px; color: var(--muted); font-size: 13px; font-weight: 500; }
+      .read-button {
+        min-height: 36px;
+        padding: 0 14px;
+        border: 1px solid #bcc7cf;
+        border-radius: 6px;
+        background: var(--surface);
+        color: var(--ink);
+        cursor: pointer;
+      }
+      .page { width: min(1180px, calc(100% - 40px)); margin: 0 auto; padding: 30px 0 54px; }
+      .heading { display: flex; justify-content: space-between; gap: 24px; align-items: end; }
+      h1 { margin: 0; font-size: 28px; line-height: 1.2; }
+      .subtitle, .sync { color: var(--muted); font-size: 13px; }
+      .subtitle { margin: 8px 0 0; }
+      .sync { text-align: right; }
+      .metrics {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 24px;
+      }
+      .metric {
+        min-height: 116px;
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-radius: 7px;
+        background: var(--surface);
+      }
+      .metric-label { color: var(--muted); font-size: 13px; }
+      .metric-value { margin-top: 13px; font-size: 31px; font-weight: 760; line-height: 1; }
+      .metric:nth-child(1) .metric-value { color: var(--green); }
+      .metric:nth-child(2) .metric-value { color: var(--blue); }
+      .metric:nth-child(3) .metric-value { color: var(--gold); }
+      .section { margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--line); }
+      .section-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+      h2 { margin: 0; font-size: 18px; }
+      .chart {
+        display: grid;
+        grid-template-columns: repeat(30, minmax(7px, 1fr));
+        align-items: end;
+        gap: 5px;
+        height: 220px;
+        margin-top: 18px;
+        padding: 18px 14px 12px;
+        border: 1px solid var(--line);
+        border-radius: 7px;
+        background: var(--surface);
+      }
+      .bar-wrap { display: flex; height: 100%; flex-direction: column; justify-content: end; gap: 7px; min-width: 0; }
+      .bar { min-height: 2px; border-radius: 3px 3px 0 0; background: var(--green); }
+      .bar-label { overflow: hidden; color: var(--muted); font-size: 10px; text-align: center; white-space: nowrap; }
+      .tables { display: grid; grid-template-columns: 1.45fr 1fr 1fr; gap: 24px; margin-top: 18px; }
+      .funnel { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 18px; }
+      .funnel .metric { min-height: 96px; }
+      .conversion-tables { grid-template-columns: 1fr 1fr 1.35fr; }
+      .table-block { min-width: 0; }
+      .table-block h3 { margin: 0 0 10px; font-size: 14px; }
+      table { width: 100%; border-collapse: collapse; background: var(--surface); border: 1px solid var(--line); }
+      th, td { padding: 10px 11px; border-bottom: 1px solid #edf0f2; font-size: 12px; text-align: left; }
+      th { color: var(--muted); font-weight: 650; background: #f9fafb; }
+      td:last-child, th:last-child { width: 72px; text-align: right; font-variant-numeric: tabular-nums; }
+      tbody tr:last-child td { border-bottom: 0; }
+      .path { overflow-wrap: anywhere; }
+      .empty { padding: 24px; border: 1px solid var(--line); border-radius: 7px; background: var(--surface); color: var(--muted); }
+      .status-error { color: var(--red); }
+      @media (max-width: 860px) {
+        .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .funnel { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .tables { grid-template-columns: 1fr; }
+        .chart { gap: 3px; }
+      }
+      @media (max-width: 560px) {
+        .topbar { padding: 0 16px; }
+        .brand span { display: none; }
+        .page { width: min(100% - 24px, 1180px); padding-top: 22px; }
+        .heading { display: block; }
+        .sync { margin-top: 12px; text-align: left; }
+        .metrics { grid-template-columns: 1fr 1fr; gap: 8px; }
+        .metric { min-height: 100px; padding: 14px; }
+        .metric-value { font-size: 26px; }
+        .bar-label { display: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">RaidBench <span>经营后台</span></div>
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap"><a href="./owner-acquisition-zh.html" style="color:var(--muted);font-size:13px;text-decoration:none">获客</a><a href="./owner-demand-zh.html" style="color:var(--muted);font-size:13px;text-decoration:none">需求</a><a href="./owner-products-zh.html" style="color:var(--muted);font-size:13px;text-decoration:none">产品准入</a><a href="./owner-costs-zh.html" style="color:var(--muted);font-size:13px;text-decoration:none">成本与利润</a><button class="read-button" id="reload-data" type="button">同步数据</button></div>
+    </header>
+
+    <main class="page">
+      <div class="heading">
+        <div>
+          <h1>流量概览</h1>
+          <p class="subtitle">以匿名汇总数据观察内容需求，不公开展示经营数字。</p>
+        </div>
+        <div class="sync" id="sync-status">正在同步云端数据</div>
+      </div>
+
+      <section class="metrics" aria-label="核心指标">
+        <article class="metric"><div class="metric-label">今日浏览量</div><div class="metric-value" id="metric-today">--</div></article>
+        <article class="metric"><div class="metric-label">近 7 天浏览量</div><div class="metric-value" id="metric-week">--</div></article>
+        <article class="metric"><div class="metric-label">近 30 天浏览量</div><div class="metric-value" id="metric-month">--</div></article>
+        <article class="metric"><div class="metric-label">产生访问的页面</div><div class="metric-value" id="metric-pages">--</div></article>
+      </section>
+
+      <section class="section">
+        <div class="section-head"><h2>30 天浏览趋势</h2><span class="subtitle">UTC 自然日</span></div>
+        <div class="chart" id="daily-chart" aria-label="每日浏览量柱状图"></div>
+      </section>
+
+      <section class="section">
+        <div class="section-head"><h2>内容与来源</h2><span class="subtitle">按近 30 天浏览量排序</span></div>
+        <div class="tables">
+          <div class="table-block"><h3>热门页面</h3><div id="pages-table"></div></div>
+          <div class="table-block"><h3>来源域名</h3><div id="referrers-table"></div></div>
+          <div class="table-block"><h3>访问国家</h3><div id="countries-table"></div></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head"><h2>获客与转化路径</h2><span class="subtitle">近 30 天匿名汇总事件，不代表独立人数</span></div>
+        <div class="funnel">
+          <article class="metric"><div class="metric-label">下载公开数据</div><div class="metric-value" id="funnel-data">--</div></article>
+          <article class="metric"><div class="metric-label">复制嵌入组件</div><div class="metric-value" id="funnel-widget-copy">--</div></article>
+          <article class="metric"><div class="metric-label">组件回流本站</div><div class="metric-value" id="funnel-widget-open">--</div></article>
+          <article class="metric"><div class="metric-label">复制分享路线</div><div class="metric-value" id="funnel-share">--</div></article>
+          <article class="metric"><div class="metric-label">打开分享路线</div><div class="metric-value" id="funnel-shared-open">--</div></article>
+          <article class="metric"><div class="metric-label">进入付费账户</div><div class="metric-value" id="funnel-account">--</div></article>
+          <article class="metric"><div class="metric-label">开始结账</div><div class="metric-value" id="funnel-checkout">--</div></article>
+          <article class="metric"><div class="metric-label">支付确认</div><div class="metric-value" id="funnel-payment">--</div></article>
+          <article class="metric"><div class="metric-label">答案交付</div><div class="metric-value" id="funnel-answer">--</div></article>
+        </div>
+        <div class="tables conversion-tables">
+          <div class="table-block"><h3>页面访问渠道</h3><div id="traffic-sources-table"></div></div>
+          <div class="table-block"><h3>转化事件</h3><div id="events-table"></div></div>
+          <div class="table-block"><h3>渠道产生的动作</h3><div id="campaigns-table"></div></div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const number = new Intl.NumberFormat("zh-CN");
+      const regionNames = new Intl.DisplayNames(["zh-CN"], { type: "region" });
+
+      function table(rows, labelKey, labeler) {
+        if (!rows.length) return '<div class="empty">当前周期尚无数据。</div>';
+        const body = rows.map((row) => `<tr><td class="path">${labeler(row[labelKey])}</td><td>${number.format(row.views)}</td></tr>`).join("");
+        return `<table><thead><tr><th>项目</th><th>浏览量</th></tr></thead><tbody>${body}</tbody></table>`;
+      }
+
+      function eventTable(rows) {
+        if (!rows.length) return '<div class="empty">新漏斗刚启用，当前尚无事件。</div>';
+        const labels = {
+          live_account_cta_click: "进入付费账户",
+          checkout_start: "开始结账",
+          checkout_redirect: "跳转 PayPal",
+          raid_data_download: "下载公开数据",
+          widget_embed_code_copy: "复制嵌入组件",
+          embed_full_route_click: "组件回流本站",
+          raid_plan_share_copy: "复制分享路线",
+          raid_shared_route_open: "打开分享路线",
+          payment_capture_success: "支付确认",
+          answer_submit: "提交问题",
+          answer_ready: "答案交付",
+          answer_held: "问题暂缓且未扣点",
+          account_auth_success: "登录或注册成功",
+        };
+        const body = rows.map((row) => `<tr><td>${escapeHtml(labels[row.name] || row.name)}</td><td>${number.format(row.events)}</td></tr>`).join("");
+        return `<table><thead><tr><th>事件</th><th>次数</th></tr></thead><tbody>${body}</tbody></table>`;
+      }
+
+      function campaignTable(rows) {
+        if (!rows.length) return '<div class="empty">带 UTM 的渠道访问产生动作后会显示在这里。</div>';
+        const body = rows.map((row) => `<tr><td class="path">${escapeHtml(`${row.source} / ${row.medium} / ${row.campaign}`)}</td><td>${number.format(row.events)}</td></tr>`).join("");
+        return `<table><thead><tr><th>来源 / 媒介 / 活动</th><th>事件</th></tr></thead><tbody>${body}</tbody></table>`;
+      }
+
+      function sourceTable(rows) {
+        if (!rows.length) return '<div class="empty">新的访问渠道统计刚启用，后续带 UTM 的访问会显示在这里。</div>';
+        const body = rows.map((row) => `<tr><td class="path">${escapeHtml(`${row.source} / ${row.medium} / ${row.campaign}`)}</td><td>${number.format(row.views)}</td></tr>`).join("");
+        return `<table><thead><tr><th>来源 / 媒介 / 活动</th><th>浏览量</th></tr></thead><tbody>${body}</tbody></table>`;
+      }
+
+      function escapeHtml(value) {
+        return String(value).replace(/[&<>'"]/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" })[character]);
+      }
+
+      function render(data) {
+        document.getElementById("metric-today").textContent = number.format(data.metrics.today);
+        document.getElementById("metric-week").textContent = number.format(data.metrics.last7Days);
+        document.getElementById("metric-month").textContent = number.format(data.metrics.last30Days);
+        document.getElementById("metric-pages").textContent = number.format(data.metrics.measuredPages);
+
+        const byDay = new Map(data.daily.map((item) => [item.day, item.views]));
+        const days = [];
+        const end = new Date();
+        for (let offset = 29; offset >= 0; offset -= 1) {
+          const date = new Date(Date.UTC(end.getUTCFullYear(), end.getUTCMonth(), end.getUTCDate() - offset));
+          const day = date.toISOString().slice(0, 10);
+          days.push({ day, views: byDay.get(day) || 0 });
+        }
+        const maximum = Math.max(1, ...days.map((item) => item.views));
+        document.getElementById("daily-chart").innerHTML = days.map((item) => {
+          const height = item.views ? Math.max(4, Math.round((item.views / maximum) * 168)) : 2;
+          return `<div class="bar-wrap" title="${item.day}: ${item.views}"><div class="bar" style="height:${height}px"></div><div class="bar-label">${item.day.slice(8)}</div></div>`;
+        }).join("");
+
+        document.getElementById("pages-table").innerHTML = table(data.topPages, "path", escapeHtml);
+        document.getElementById("referrers-table").innerHTML = table(data.referrers, "host", (value) => escapeHtml(value === "direct" ? "直接访问" : value === "internal" ? "站内跳转" : value));
+        document.getElementById("countries-table").innerHTML = table(data.countries, "country", (value) => escapeHtml(value === "XX" ? "未知" : regionNames.of(value) || value));
+        const funnel = data.funnel || {};
+        document.getElementById("funnel-data").textContent = number.format(funnel.dataDownloads || 0);
+        document.getElementById("funnel-widget-copy").textContent = number.format(funnel.widgetCodeCopies || 0);
+        document.getElementById("funnel-widget-open").textContent = number.format(funnel.embedRouteClicks || 0);
+        document.getElementById("funnel-share").textContent = number.format(funnel.shareCopies || 0);
+        document.getElementById("funnel-shared-open").textContent = number.format(funnel.sharedRouteOpens || 0);
+        document.getElementById("funnel-account").textContent = number.format(funnel.accountEntries || 0);
+        document.getElementById("funnel-checkout").textContent = number.format(funnel.checkoutStarts || 0);
+        document.getElementById("funnel-payment").textContent = number.format(funnel.paymentSuccesses || 0);
+        document.getElementById("funnel-answer").textContent = number.format(funnel.answersReady || 0);
+        document.getElementById("traffic-sources-table").innerHTML = sourceTable(data.acquisitionSources || []);
+        document.getElementById("events-table").innerHTML = eventTable(data.topEvents || []);
+        document.getElementById("campaigns-table").innerHTML = campaignTable(data.campaigns || []);
+
+        const generated = new Date(data.generatedAt);
+        document.getElementById("sync-status").textContent = `最近同步：${generated.toLocaleString("zh-CN", { hour12: false })}`;
+      }
+
+      async function load() {
+        const status = document.getElementById("sync-status");
+        status.classList.remove("status-error");
+        status.textContent = "正在同步云端数据";
+        try {
+          let response = await fetch(`/api/owner/traffic?refresh=1&t=${Date.now()}`, { cache: "no-store" });
+          if (response.status === 404) {
+            response = await fetch(`./local/traffic-dashboard.json?t=${Date.now()}`, { cache: "no-store" });
+          }
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          render(await response.json());
+        } catch {
+          status.textContent = "云端同步失败，请确认 Wrangler 登录状态";
+          status.classList.add("status-error");
+        }
+      }
+
+      document.getElementById("reload-data").addEventListener("click", load);
+      load();
+    </script>
+  </body>
+</html>

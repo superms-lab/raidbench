@@ -1,0 +1,19 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "raidbench-email-reply-monitor",
+  "main": "src/index.js",
+  "compatibility_date": "2026-08-28",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": false,
+  "d1_databases": [
+    {
+      "binding": "ANALYTICS",
+      "database_name": "raidbench-analytics",
+      "database_id": "86c9150d-8eff-488d-bb22-9d475fdeb00b"
+    }
+  ],
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  }
+}

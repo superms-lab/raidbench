@@ -1,0 +1,7 @@
+target_id,target,rockets,c4,satchels,explosive_ammo,rockets_sulfur,c4_sulfur,satchels_sulfur,explosive_ammo_sulfur
+sheet-door,Sheet Metal Door,2,1,4,63,2800,2200,1920,1575
+garage-door,Garage Door,3,2,9,150,4200,4400,4320,3750
+armored-door,Armored Door,5,3,15,250,7000,6600,7200,6250
+stone-wall,Stone Wall,4,2,10,185,5600,4400,4800,4625
+sheet-wall,Sheet Metal Wall,8,4,23,400,11200,8800,11040,10000
+armored-wall,Armored Wall,15,8,46,799,21000,17600,22080,19975

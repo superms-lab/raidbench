@@ -1,0 +1,393 @@
+{
+  "generatedAt": "2026-09-04T01:09:37.723Z",
+  "catalogAsOf": "2026-09-04",
+  "modelAsOf": "2026-09-03",
+  "provider": {
+    "id": "paypal-cn-cross-border",
+    "name": "PayPal China cross-border",
+    "percentageFee": 4.4,
+    "fixedFee": 0.3,
+    "sourceUrl": "https://www.paypal.com/c2/business/paypal-business-fees?locale.x=en_C2",
+    "sourceCheckedAt": "2026-09-03"
+  },
+  "scenario": {
+    "id": "north-america-organic",
+    "name": "US and Canada organic launch",
+    "fxAndWithdrawalPercent": 2.5,
+    "taxReservePercent": 8,
+    "refundReservePercent": 5
+  },
+  "monthlyFixedTotal": 78.5,
+  "policy": {
+    "publicStatuses": [
+      "ready_live"
+    ],
+    "defaultStatus": "hidden_pending_qa",
+    "chargeTiming": "after_supported_scope_and_qa_pass",
+    "unknownOrUnsupportedAnswer": "no_charge",
+    "failedQa": "no_charge",
+    "duplicateSubmission": "single_idempotent_charge_only",
+    "externalCommunityText": "demand_context_only",
+    "factualClaims": "publisher_or_primary_evidence_required"
+  },
+  "summary": {
+    "products": 11,
+    "checkoutVisible": 1,
+    "viablePendingQa": 10,
+    "pricingHolds": 0
+  },
+  "products": [
+    {
+      "id": "poe2-build-decision-review",
+      "gameId": "poe2",
+      "game": "POE2",
+      "label": "POE2 Build Decision Review",
+      "credits": 120,
+      "deliveryClass": "standard_source_review",
+      "catalogStatus": "hidden_pending_qa",
+      "checkoutVisible": false,
+      "minimumSinglePack": {
+        "sku": "credits-scout-120",
+        "credits": 120,
+        "priceUsd": 19
+      },
+      "conservativeImpliedGross": 19,
+      "modeledVariableCost": 9.861,
+      "contribution": 9.139,
+      "contributionMarginPercent": 48.1,
+      "targetMarginPercent": 40,
+      "economicStatus": "viable_pending_qa",
+      "activationGates": [
+        "Twenty shadow-mode cases",
+        "At least 90% supported-case QA pass rate",
+        "No critical factual drift in the latest ten cases"
+      ],
+      "noChargeReasons": [
+        "Build cannot be inspected",
+        "Patch or target content is unknown",
+        "Required interaction lacks primary evidence",
+        "Independent QA blocks delivery"
+      ]
+    },
+    {
+      "id": "palworld-base-progression-review",
+      "gameId": "palworld",
+      "game": "Palworld",
+      "label": "Palworld Base and Progression Review",
+      "credits": 80,
+      "deliveryClass": "bounded_decision_review",
+      "catalogStatus": "ready_live",
+      "checkoutVisible": true,
+      "minimumSinglePack": {
+        "sku": "credits-palworld-80",
+        "credits": 80,
+        "priceUsd": 13
+      },
+      "conservativeImpliedGross": 12.666666666666666,
+      "modeledVariableCost": 6.914,
+      "contribution": 5.752666666666666,
+      "contributionMarginPercent": 45.41578947368421,
+      "targetMarginPercent": 35,
+      "economicStatus": "viable_live",
+      "activationGates": [
+        "Fifteen shadow-mode cases",
+        "At least 90% supported-case QA pass rate",
+        "No critical factual drift in the latest ten cases"
+      ],
+      "noChargeReasons": [
+        "Version or server scope is missing",
+        "The problem cannot be reproduced from supplied context",
+        "Advice depends on an unverified exploit",
+        "Independent QA blocks delivery"
+      ]
+    },
+    {
+      "id": "project-zomboid-save-plan-review",
+      "gameId": "project-zomboid",
+      "game": "Project Zomboid",
+      "label": "Project Zomboid Save and Sandbox Change Review",
+      "credits": 80,
+      "deliveryClass": "bounded_decision_review",
+      "catalogStatus": "hidden_pending_qa",
+      "checkoutVisible": false,
+      "minimumSinglePack": {
+        "sku": "credits-palworld-80",
+        "credits": 80,
+        "priceUsd": 13
+      },
+      "conservativeImpliedGross": 12.666666666666666,
+      "modeledVariableCost": 6.914,
+      "contribution": 5.752666666666666,
+      "contributionMarginPercent": 45.41578947368421,
+      "targetMarginPercent": 35,
+      "economicStatus": "viable_pending_qa",
+      "activationGates": [
+        "Fifteen shadow-mode cases",
+        "At least 90% supported-case QA pass rate",
+        "Zero destructive-save recommendations"
+      ],
+      "noChargeReasons": [
+        "Current build is unknown",
+        "Requested change is not specific",
+        "The save has no inspectable rollback context",
+        "Independent QA blocks delivery"
+      ]
+    },
+    {
+      "id": "escape-from-tarkov-loadout-route-review",
+      "gameId": "escape-from-tarkov",
+      "game": "Tarkov",
+      "label": "Tarkov Loadout and Route Decision Review",
+      "credits": 120,
+      "deliveryClass": "standard_source_review",
+      "catalogStatus": "hidden_pending_qa",
+      "checkoutVisible": false,
+      "minimumSinglePack": {
+        "sku": "credits-scout-120",
+        "credits": 120,
+        "priceUsd": 19
+      },
+      "conservativeImpliedGross": 19,
+      "modeledVariableCost": 9.861,
+      "contribution": 9.139,
+      "contributionMarginPercent": 48.1,
+      "targetMarginPercent": 40,
+      "economicStatus": "viable_pending_qa",
+      "activationGates": [
+        "Twenty shadow-mode cases",
+        "At least 90% supported-case QA pass rate",
+        "Current-patch source freshness under 72 hours"
+      ],
+      "noChargeReasons": [
+        "Account access or game mode is missing",
+        "Current price or task requirement cannot be verified",
+        "Request depends on cheating or an exploit",
+        "Independent QA blocks delivery"
+      ]
+    },
+    {
+      "id": "ark-survival-ascended-roster-plan-review",
+      "gameId": "ark-survival-ascended",
+      "game": "ARK",
+      "label": "ARK Roster and Server Plan Review",
+      "credits": 120,
+      "deliveryClass": "standard_source_review",
+      "catalogStatus": "hidden_pending_qa",
+      "checkoutVisible": false,
+      "minimumSinglePack": {
+        "sku": "credits-scout-120",
+        "credits": 120,
+        "priceUsd": 19
+      },
+      "conservativeImpliedGross": 19,
+      "modeledVariableCost": 9.861,
+      "contribution": 9.139,
+      "contributionMarginPercent": 48.1,
+      "targetMarginPercent": 40,
+      "economicStatus": "viable_pending_qa",
+      "activationGates": [
+        "Twenty shadow-mode cases",
+        "All material calculations reproduced independently",
+        "At least 90% supported-case QA pass rate"
+      ],
+      "noChargeReasons": [
+        "Server rates or active mods are unknown",
+        "Blueprint values are not supplied",
+        "Current encounter requirements cannot be verified",
+        "Independent QA blocks delivery"
+      ]
+    },
+    {
+      "id": "warframe-build-progression-review",
+      "gameId": "warframe",
+      "game": "Warframe",
+      "label": "Warframe Build and Progression Review",
+      "credits": 120,
+      "deliveryClass": "standard_source_review",
+      "catalogStatus": "hidden_pending_qa",
+      "checkoutVisible": false,
+      "minimumSinglePack": {
+        "sku": "credits-scout-120",
+        "credits": 120,
+        "priceUsd": 19
+      },
+      "conservativeImpliedGross": 19,
+      "modeledVariableCost": 9.861,
+      "contribution": 9.139,
+      "contributionMarginPercent": 48.1,
+      "targetMarginPercent": 40,
+      "economicStatus": "viable_pending_qa",
+      "activationGates": [
+        "Twenty shadow-mode cases",
+        "At least 90% supported-case QA pass rate",
+        "No critical dependency omissions in the latest ten cases"
+      ],
+      "noChargeReasons": [
+        "Loadout or target activity cannot be inspected",
+        "Account unlock state is missing",
+        "Current interaction cannot be supported by primary evidence",
+        "Independent QA blocks delivery"
+      ]
+    },
+    {
+      "id": "once-human-scenario-build-review",
+      "gameId": "once-human",
+      "game": "Once Human",
+      "label": "Once Human Scenario and Build Review",
+      "credits": 80,
+      "deliveryClass": "bounded_decision_review",
+      "catalogStatus": "hidden_pending_qa",
+      "checkoutVisible": false,
+      "minimumSinglePack": {
+        "sku": "credits-palworld-80",
+        "credits": 80,
+        "priceUsd": 13
+      },
+      "conservativeImpliedGross": 12.666666666666666,
+      "modeledVariableCost": 6.914,
+      "contribution": 5.752666666666666,
+      "contributionMarginPercent": 45.41578947368421,
+      "targetMarginPercent": 35,
+      "economicStatus": "viable_pending_qa",
+      "activationGates": [
+        "Fifteen shadow-mode cases",
+        "At least 90% supported-case QA pass rate",
+        "Zero unsupported carryover claims"
+      ],
+      "noChargeReasons": [
+        "Scenario or version is unknown",
+        "Carryover wording does not cover the requested transition",
+        "Account state is incomplete",
+        "Independent QA blocks delivery"
+      ]
+    },
+    {
+      "id": "counter-strike-2-round-plan-review",
+      "gameId": "counter-strike-2",
+      "game": "CS2",
+      "label": "CS2 Round and Team Plan Review",
+      "credits": 180,
+      "deliveryClass": "complex_match_review",
+      "catalogStatus": "hidden_pending_qa",
+      "checkoutVisible": false,
+      "minimumSinglePack": {
+        "sku": "credits-strategist-250",
+        "credits": 250,
+        "priceUsd": 39
+      },
+      "conservativeImpliedGross": 28.5,
+      "modeledVariableCost": 15.171499999999998,
+      "contribution": 13.328500000000002,
+      "contributionMarginPercent": 46.76666666666667,
+      "targetMarginPercent": 40,
+      "economicStatus": "viable_pending_qa",
+      "activationGates": [
+        "Twenty-five shadow-mode cases",
+        "At least 90% supported-case QA pass rate",
+        "Inter-reviewer agreement on the first decision in at least 80% of benchmark cases"
+      ],
+      "noChargeReasons": [
+        "Replay or round evidence is not inspectable",
+        "Patch, map, or economy context is missing",
+        "Request asks for cheating or exploit assistance",
+        "Independent QA blocks delivery"
+      ]
+    },
+    {
+      "id": "dota-2-match-decision-review",
+      "gameId": "dota-2",
+      "game": "Dota 2",
+      "label": "Dota 2 Match Decision Review",
+      "credits": 180,
+      "deliveryClass": "complex_match_review",
+      "catalogStatus": "hidden_pending_qa",
+      "checkoutVisible": false,
+      "minimumSinglePack": {
+        "sku": "credits-strategist-250",
+        "credits": 250,
+        "priceUsd": 39
+      },
+      "conservativeImpliedGross": 28.5,
+      "modeledVariableCost": 15.171499999999998,
+      "contribution": 13.328500000000002,
+      "contributionMarginPercent": 46.76666666666667,
+      "targetMarginPercent": 40,
+      "economicStatus": "viable_pending_qa",
+      "activationGates": [
+        "Twenty-five shadow-mode cases",
+        "At least 90% supported-case QA pass rate",
+        "Inter-reviewer agreement on the first decision in at least 80% of benchmark cases"
+      ],
+      "noChargeReasons": [
+        "Match evidence is unavailable",
+        "Patch or role context is missing",
+        "The requested claim cannot be observed or supported",
+        "Independent QA blocks delivery"
+      ]
+    },
+    {
+      "id": "pubg-battlegrounds-rotation-review",
+      "gameId": "pubg-battlegrounds",
+      "game": "PUBG",
+      "label": "PUBG Rotation and Position Review",
+      "credits": 150,
+      "deliveryClass": "complex_match_review",
+      "catalogStatus": "hidden_pending_qa",
+      "checkoutVisible": false,
+      "minimumSinglePack": {
+        "sku": "credits-strategist-250",
+        "credits": 250,
+        "priceUsd": 39
+      },
+      "conservativeImpliedGross": 23.75,
+      "modeledVariableCost": 14.02625,
+      "contribution": 9.72375,
+      "contributionMarginPercent": 40.9421052631579,
+      "targetMarginPercent": 40,
+      "economicStatus": "viable_pending_qa",
+      "activationGates": [
+        "Twenty shadow-mode cases",
+        "At least 90% supported-case QA pass rate",
+        "Inter-reviewer agreement in at least 80% of benchmark cases"
+      ],
+      "noChargeReasons": [
+        "Replay or positional evidence is not inspectable",
+        "Map or timing context is missing",
+        "The requested conclusion cannot be supported",
+        "Independent QA blocks delivery"
+      ]
+    },
+    {
+      "id": "rainbow-six-siege-operator-site-review",
+      "gameId": "rainbow-six-siege",
+      "game": "Rainbow Six Siege",
+      "label": "Rainbow Six Siege Operator and Site Review",
+      "credits": 120,
+      "deliveryClass": "standard_source_review",
+      "catalogStatus": "hidden_pending_qa",
+      "checkoutVisible": false,
+      "minimumSinglePack": {
+        "sku": "credits-scout-120",
+        "credits": 120,
+        "priceUsd": 19
+      },
+      "conservativeImpliedGross": 19,
+      "modeledVariableCost": 9.861,
+      "contribution": 9.139,
+      "contributionMarginPercent": 48.1,
+      "targetMarginPercent": 40,
+      "economicStatus": "viable_pending_qa",
+      "activationGates": [
+        "Twenty shadow-mode cases",
+        "At least 90% supported-case QA pass rate",
+        "No critical operator interaction drift in the latest ten cases"
+      ],
+      "noChargeReasons": [
+        "Current season or site is unknown",
+        "Operator pool or team context is missing",
+        "Required interaction lacks current official support",
+        "Independent QA blocks delivery"
+      ]
+    }
+  ]
+}

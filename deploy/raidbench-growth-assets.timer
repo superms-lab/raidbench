@@ -1,0 +1,12 @@
+[Unit]
+Description=Release three new RaidBench growth assets each week
+
+[Timer]
+OnCalendar=Mon *-*-* 00:45:00 UTC
+RandomizedDelaySec=10min
+Persistent=true
+AccuracySec=1min
+Unit=raidbench-growth-assets.service
+
+[Install]
+WantedBy=timers.target

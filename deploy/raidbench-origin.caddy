@@ -1,0 +1,13 @@
+# Add this handle inside the existing srv1864967.hstgr.cloud site block,
+# before its final fallback response. The secret is supplied by caddy.env.
+@raidbench_edge {
+	header X-RaidBench-Origin-Key {$RAIDBENCH_EDGE_ORIGIN_KEY}
+	path /__raidbench/app/api/*
+}
+
+handle @raidbench_edge {
+	uri strip_prefix /__raidbench/app
+	reverse_proxy 127.0.0.1:8080 {
+		header_up Host raidbench.com
+	}
+}

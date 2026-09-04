@@ -1,0 +1,365 @@
+{
+  "schemaVersion": "1.0.0",
+  "siteName": "RaidBench",
+  "games": [
+    {
+      "id": "rust",
+      "name": "Rust",
+      "shortName": "Rust",
+      "code": "RU",
+      "genre": "Survival",
+      "genreKey": "survival",
+      "hubPath": "/games/rust/",
+      "legacyPaths": [
+        "/"
+      ],
+      "status": "live",
+      "indexable": true,
+      "paidAnswers": "enabled",
+      "summary": "Raid routes, upkeep, wipe planning, and resource decisions for vanilla Rust PC.",
+      "decisionAreas": [
+        "Raid routes",
+        "Explosive costs",
+        "Base upkeep",
+        "Wipe planning"
+      ],
+      "seedQuestions": [
+        "How much does this complete raid route cost?",
+        "Should I use doors, walls, rockets, or C4?",
+        "How much upkeep should I bank before logging off?"
+      ],
+      "featuredLinks": [
+        {
+          "label": "Open raid calculator",
+          "href": "/#raid-calculator"
+        },
+        {
+          "label": "Compare route presets",
+          "href": "/rust-route-presets"
+        },
+        {
+          "label": "Plan Rust with limited time",
+          "href": "/pages/rust-limited-playtime-session-plan"
+        }
+      ]
+    },
+    {
+      "id": "poe2",
+      "name": "Path of Exile 2",
+      "shortName": "POE2",
+      "code": "P2",
+      "genre": "Action RPG",
+      "genreKey": "rpg",
+      "hubPath": "/games/poe2/",
+      "legacyPaths": [
+        "/poe2",
+        "/poe2.html"
+      ],
+      "status": "live",
+      "indexable": true,
+      "paidAnswers": "content-only",
+      "summary": "Patch-aware build, defense, item, boss, and progression decisions for Path of Exile 2.",
+      "decisionAreas": [
+        "Build freshness",
+        "Defense checks",
+        "Boss preparation",
+        "Item decisions"
+      ],
+      "seedQuestions": [
+        "Is this build still valid for the current patch?",
+        "Why does my build fail in endgame encounters?",
+        "Is this item worth keeping, using, or replacing?"
+      ],
+      "featuredLinks": [
+        {
+          "label": "Check an outdated build",
+          "href": "/pages/poe2-outdated-build-guide-checklist"
+        },
+        {
+          "label": "Review endgame defenses",
+          "href": "/pages/poe2-endgame-defense-checklist"
+        },
+        {
+          "label": "Plan the next upgrade",
+          "href": "/pages/poe2-gear-upgrade-priority"
+        }
+      ]
+    },
+    {
+      "id": "palworld",
+      "name": "Palworld",
+      "shortName": "Palworld",
+      "code": "PW",
+      "genre": "Survival",
+      "genreKey": "survival",
+      "hubPath": "/games/palworld/",
+      "legacyPaths": [
+        "/palworld",
+        "/palworld.html"
+      ],
+      "status": "live",
+      "indexable": true,
+      "paidAnswers": "enabled",
+      "summary": "Base operations, progression, breeding goals, resource routes, and boss preparation.",
+      "decisionAreas": [
+        "Base operations",
+        "Breeding goals",
+        "Resource routes",
+        "Boss preparation"
+      ],
+      "seedQuestions": [
+        "Why is my base production slower than expected?",
+        "What breeding result am I actually optimizing for?",
+        "Which progression bottleneck should I solve next?"
+      ],
+      "featuredLinks": [
+        {
+          "label": "Audit base automation",
+          "href": "/pages/palworld-base-automation-scorecard"
+        },
+        {
+          "label": "Plan a breeding goal",
+          "href": "/pages/palworld-breeding-goal-checklist"
+        },
+        {
+          "label": "Recheck version 1.0 progression",
+          "href": "/pages/palworld-v1-0-3-progression-reprioritization"
+        }
+      ]
+    },
+    {
+      "id": "project-zomboid",
+      "name": "Project Zomboid",
+      "shortName": "Project Zomboid",
+      "code": "PZ",
+      "genre": "Survival",
+      "genreKey": "survival",
+      "hubPath": "/games/project-zomboid/",
+      "legacyPaths": [],
+      "status": "live",
+      "indexable": true,
+      "paidAnswers": "planned",
+      "summary": "Build-aware survival planning, character choices, sandbox settings, and recovery workflows.",
+      "decisionAreas": [
+        "Character builds",
+        "Sandbox settings",
+        "Survival planning",
+        "Mod compatibility"
+      ],
+      "seedQuestions": [
+        "Which traits fit the way I actually play?",
+        "How should I configure a fair sandbox preset?",
+        "What changed between the current and previous build?"
+      ],
+      "featuredLinks": []
+    },
+    {
+      "id": "escape-from-tarkov",
+      "name": "Escape from Tarkov",
+      "shortName": "Tarkov",
+      "code": "EFT",
+      "genre": "Extraction",
+      "genreKey": "extraction",
+      "hubPath": "/games/escape-from-tarkov/",
+      "legacyPaths": [],
+      "status": "live",
+      "indexable": true,
+      "paidAnswers": "planned",
+      "summary": "Quest routes, extraction decisions, equipment budgets, and patch-sensitive progression checks.",
+      "decisionAreas": [
+        "Quest routes",
+        "Extraction plans",
+        "Equipment budgets",
+        "Trader progression"
+      ],
+      "seedQuestions": [
+        "What is the safest order for this quest route?",
+        "Which ammunition and armor assumptions still hold?",
+        "What should a new player keep, sell, or bring?"
+      ],
+      "featuredLinks": []
+    },
+    {
+      "id": "ark-survival-ascended",
+      "name": "ARK: Survival Ascended",
+      "shortName": "ARK",
+      "code": "ARK",
+      "genre": "Survival",
+      "genreKey": "survival",
+      "hubPath": "/games/ark-survival-ascended/",
+      "legacyPaths": [],
+      "status": "live",
+      "indexable": true,
+      "paidAnswers": "planned",
+      "summary": "Taming, breeding, resource, progression, and server-setting decisions with explicit assumptions.",
+      "decisionAreas": [
+        "Taming plans",
+        "Breeding goals",
+        "Resource budgets",
+        "Server settings"
+      ],
+      "seedQuestions": [
+        "How long will this tame take under my server settings?",
+        "Which breeding objective should I prioritize?",
+        "What resources are required before the next progression step?"
+      ],
+      "featuredLinks": []
+    },
+    {
+      "id": "warframe",
+      "name": "Warframe",
+      "shortName": "Warframe",
+      "code": "WF",
+      "genre": "Action RPG",
+      "genreKey": "rpg",
+      "hubPath": "/games/warframe/",
+      "legacyPaths": [],
+      "status": "live",
+      "indexable": true,
+      "paidAnswers": "planned",
+      "summary": "Returning-player priorities, build checks, farming routes, and progression planning.",
+      "decisionAreas": [
+        "Build checks",
+        "Farming priorities",
+        "Returning players",
+        "Progression routes"
+      ],
+      "seedQuestions": [
+        "What should a returning player do first?",
+        "Why does this build underperform in its target activity?",
+        "Which farm produces the next meaningful upgrade?"
+      ],
+      "featuredLinks": []
+    },
+    {
+      "id": "once-human",
+      "name": "Once Human",
+      "shortName": "Once Human",
+      "code": "OH",
+      "genre": "Survival",
+      "genreKey": "survival",
+      "hubPath": "/games/once-human/",
+      "legacyPaths": [],
+      "status": "live",
+      "indexable": true,
+      "paidAnswers": "planned",
+      "summary": "Season-aware builds, base production, resource priorities, and migration decisions.",
+      "decisionAreas": [
+        "Season changes",
+        "Build planning",
+        "Base production",
+        "Resource priorities"
+      ],
+      "seedQuestions": [
+        "What carries over when the current scenario changes?",
+        "Which part of this build is causing the bottleneck?",
+        "How should I organize base production for the next goal?"
+      ],
+      "featuredLinks": []
+    },
+    {
+      "id": "counter-strike-2",
+      "name": "Counter-Strike 2",
+      "shortName": "CS2",
+      "code": "CS2",
+      "genre": "Competitive",
+      "genreKey": "competitive",
+      "hubPath": "/games/counter-strike-2/",
+      "legacyPaths": [],
+      "status": "live",
+      "indexable": true,
+      "paidAnswers": "planned",
+      "summary": "Economy, utility, settings, map decisions, and repeatable improvement checklists.",
+      "decisionAreas": [
+        "Buy decisions",
+        "Utility plans",
+        "Settings",
+        "Map preparation"
+      ],
+      "seedQuestions": [
+        "Should the team buy, force, or save this round?",
+        "Which utility plan solves this specific site problem?",
+        "Which settings change is measurable rather than fashionable?"
+      ],
+      "featuredLinks": []
+    },
+    {
+      "id": "dota-2",
+      "name": "Dota 2",
+      "shortName": "Dota 2",
+      "code": "D2",
+      "genre": "Competitive",
+      "genreKey": "competitive",
+      "hubPath": "/games/dota-2/",
+      "legacyPaths": [],
+      "status": "live",
+      "indexable": true,
+      "paidAnswers": "planned",
+      "summary": "Patch-specific hero, lane, item, objective, and replay-decision guidance.",
+      "decisionAreas": [
+        "Hero matchups",
+        "Lane plans",
+        "Item choices",
+        "Objective timing"
+      ],
+      "seedQuestions": [
+        "Which pick addresses the enemy draft without breaking ours?",
+        "What should change after this lane matchup starts badly?",
+        "Which item solves the current game instead of a generic build?"
+      ],
+      "featuredLinks": []
+    },
+    {
+      "id": "pubg-battlegrounds",
+      "name": "PUBG: BATTLEGROUNDS",
+      "shortName": "PUBG",
+      "code": "PUBG",
+      "genre": "Competitive",
+      "genreKey": "competitive",
+      "hubPath": "/games/pubg-battlegrounds/",
+      "legacyPaths": [],
+      "status": "live",
+      "indexable": true,
+      "paidAnswers": "planned",
+      "summary": "Weapon, attachment, drop, rotation, and survival decisions for current maps and patches.",
+      "decisionAreas": [
+        "Weapon choices",
+        "Attachments",
+        "Drop plans",
+        "Rotations"
+      ],
+      "seedQuestions": [
+        "Which weapon and attachment combination fits this range?",
+        "How should I rotate from this drop without gambling the run?",
+        "What caused this position to become unwinnable?"
+      ],
+      "featuredLinks": []
+    },
+    {
+      "id": "rainbow-six-siege",
+      "name": "Tom Clancy's Rainbow Six Siege",
+      "shortName": "Rainbow Six Siege",
+      "code": "R6",
+      "genre": "Competitive",
+      "genreKey": "competitive",
+      "hubPath": "/games/rainbow-six-siege/",
+      "legacyPaths": [],
+      "status": "live",
+      "indexable": true,
+      "paidAnswers": "planned",
+      "summary": "Operator choices, site setups, counters, loadouts, and patch-aware round plans.",
+      "decisionAreas": [
+        "Operator counters",
+        "Site setups",
+        "Loadouts",
+        "Round plans"
+      ],
+      "seedQuestions": [
+        "Which operator completes this attack or defense plan?",
+        "How should this site setup respond to the common counter?",
+        "Which part of the round plan failed before the gunfight?"
+      ],
+      "featuredLinks": []
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+priority,channel,asset_or_campaign,audience,success_event,status,next_action
+1,owned_share,Shareable exact raid routes,Rust teams and Discord groups,raid_shared_route_open,ready,Measure copies and opens after production deployment
+2,search,High-intent Rust target guides,US and Canada search users,account_entry,ready,Submit changed pages through IndexNow
+3,geo,llms.txt plus Dataset and FAQ schema,AI answer engines and search assistants,qualified_pageview,ready,Monitor AI referrers and cited landing pages
+4,data_referral,Public Rust raid-cost JSON and CSV,Wiki editors tool builders and analysts,raid_data_download,ready,Prepare five publisher-specific outreach messages
+5,embed_referral,Free Rust raid-cost widget,Server communities and guide publishers,embed_full_route_click,ready,Recruit first three legitimate embed partners
+6,reddit,Fresh answer-first replies without links,Rust players asking a current question,community_reply_response,platform_gated,Keep commercial automation disabled until permission is confirmed
+7,creator_partner,Widget or data collaboration,Rust newsletter guide and server creators,partner_referral_visit,prepared,No-face email or text outreach after target review
+8,paid_search,Exact-match Rust raid help keywords,High-intent US and Canada users,payment_success,blocked_by_validation,Start only after one organic sale or 100 qualified visits with account intent

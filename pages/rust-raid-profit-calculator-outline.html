@@ -3,78 +3,111 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Rust Raid Value Review - RaidBench</title>
-    <meta name="description" content="A structured way to evaluate Rust raid value across sulfur, equipment, time, recovered loot, and operational risk." />
+    <title>Rust raid break-even calculator: was the raid worth it? - RaidBench</title>
+    <meta name="description" content="Estimate raid break-even from boom used, recovered loot, lost kits, time, counters, and strategic value without pretending every item has one fixed price." />
     <meta name="robots" content="index,follow" />
-    <link rel="canonical" href="https://raidbench.com/pages/rust-raid-profit-calculator-outline.html" />
+    <link rel="canonical" href="https://raidbench.com/pages/rust-raid-profit-calculator-outline" />
+    <meta property="og:title" content="Rust raid break-even calculator: was the raid worth it?" />
+    <meta property="og:description" content="Estimate raid break-even from boom used, recovered loot, lost kits, time, counters, and strategic value without pretending every item has one fixed price." />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="https://raidbench.com/assets/raidbench-calculator-share.png" />
+    <meta property="og:image:alt" content="RaidBench Rust raid cost calculator with sulfur and gunpowder totals" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="article:published_time" content="2026-08-09" />
+    <meta property="article:modified_time" content="2026-08-09" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="theme-color" content="#101312" />
-    <link rel="stylesheet" href="../styles.css?v=20260715d" />
+    <link rel="stylesheet" href="../styles.css?v=20260717a" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Rust raid break-even calculator: was the raid worth it?","description":"Estimate raid break-even from boom used, recovered loot, lost kits, time, counters, and strategic value without pretending every item has one fixed price.","datePublished":"2026-08-09","dateModified":"2026-08-09","author":{"@type":"Organization","name":"RaidBench Editorial","url":"https://raidbench.com/about"},"publisher":{"@type":"Organization","name":"RaidBench","url":"https://raidbench.com/"},"mainEntityOfPage":"https://raidbench.com/pages/rust-raid-profit-calculator-outline","about":{"@type":"VideoGame","name":"Rust"},"citation":[]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"RaidBench","item":"https://raidbench.com/"},{"@type":"ListItem","position":2,"name":"Rust Guides","item":"https://raidbench.com/guides"},{"@type":"ListItem","position":3,"name":"Rust raid break-even calculator: was the raid worth it?","item":"https://raidbench.com/pages/rust-raid-profit-calculator-outline"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What counts as profit in a Rust raid?","acceptedAnswer":{"@type":"Answer","text":"For resource profit, subtract boom and lost-kit value from recovered loot value using your own stated conversion assumptions. Review time, counters, and strategic value separately."}},{"@type":"Question","name":"How should I value guns and components?","acceptedAnswer":{"@type":"Answer","text":"Use the replacement or progression value on your server and at your stage of the wipe. Do not present one exchange rate as universal across servers, wipes, and group sizes."}},{"@type":"Question","name":"Can a resource-negative raid still be worth it?","acceptedAnswer":{"@type":"Answer","text":"Yes. Removing a direct threat, protecting a farm route, or securing territory can create strategic value, but label that result separately from resource profit."}}]}]}</script>
   </head>
   <body>
     <header class="site-header">
       <a class="brand" href="../index.html" aria-label="RaidBench home"><span class="brand-mark">RB</span><span>RaidBench</span></a>
-      <nav class="nav" aria-label="Primary"><a href="../index.html#tools">Tools</a><a href="../index.html#guides">Guides</a><a href="../palworld.html">Palworld Lab</a><a href="../poe2.html">POE2 Lab</a></nav>
+      <nav class="nav" aria-label="Primary"><a href="../games.html">Games</a><a href="../guides.html" aria-current="page">Guides</a><a href="../tools.html">Tools</a><a href="../updates.html">Patch Watch</a><a href="../about.html">About</a></nav>
       <a class="header-action" href="../index.html#raid-calculator">Open Calculator</a>
     </header>
     <main class="article-main">
-      <a class="breadcrumb" href="../index.html">RaidBench / Rust Guides</a>
+      <a class="breadcrumb" href="../guides.html">RaidBench / Rust Guides</a>
       <section class="article-hero">
-        <h1>Rust raid value review</h1>
-        <p>Evaluate raid value across sulfur, equipment, time, recovered loot, and operational risk.</p>
+        <h1>Rust raid break-even calculator: was the raid worth it?</h1>
+        <p>Estimate raid break-even from boom used, recovered loot, lost kits, time, counters, and strategic value without pretending every item has one fixed price.</p>
         <div class="article-cta">
           <a class="primary-action" href="../index.html#raid-calculator">Use calculator</a>
-          <a class="secondary-action" href="../index.html#guides">Open guide index</a>
+          <a class="secondary-action" href="../guides.html">Search all guides</a>
         </div>
+        <div class="editorial-meta"><span>Reviewed 2026-08-09</span><span>Player-entered estimates; no universal loot exchange rate</span><a href="../about.html">Editorial standards</a></div>
       </section>
       <section class="article-grid">
         <article class="article-card">
-          <h2>Short answer</h2>
-          <p>A raid creates positive material value only when recovered resources exceed sulfur, equipment, time, and risk. Track actual inputs and outputs separately, since item values and server conditions are never perfectly stable.</p>
-          
-          <table>
-            <thead>
-              <tr><th>Line item</th><th>Write down</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>Sulfur spent</td><td>Total sulfur equivalent from boom used.</td></tr>
-              <tr><td>Gear lost</td><td>Kits, weapons, meds, ammo.</td></tr>
-              <tr><td>Loot recovered</td><td>Sulfur, metal, HQM, comps, weapons.</td></tr>
-              <tr><td>Time cost</td><td>Farm time plus raid time.</td></tr>
-              <tr><td>Risk result</td><td>Counters, deaths, base exposure.</td></tr>
-            </tbody>
-          </table>
+          <h2>Was the raid worth it?</h2>
+          <div class="answer-callout"><strong>Short answer</strong><p>Start with resource break-even: recovered sulfur-equivalent value minus boom and lost kits. Then judge time, counter risk, and strategic value separately. A raid can be resource-positive but strategically poor, or resource-negative but worthwhile because it removed an immediate threat.</p></div>
+
+          <div class="table-scroll" tabindex="0" role="region" aria-label="Raid planning comparison">
+            <table>
+              <thead><tr><th>Line item</th><th>Write down</th></tr></thead>
+              <tbody><tr><td>Sulfur spent</td><td>Total sulfur equivalent from boom used.</td></tr><tr><td>Gear lost</td><td>Kits, weapons, meds, ammo.</td></tr><tr><td>Loot recovered</td><td>Sulfur, metal, HQM, comps, weapons.</td></tr><tr><td>Time cost</td><td>Farm time plus raid time.</td></tr><tr><td>Risk result</td><td>Counters, deaths, base exposure.</td></tr><tr><td>Strategic value</td><td>Threat removed, territory gained, or progression unlocked.</td></tr></tbody>
+            </table>
+          </div>
         </article>
-        <article class="article-card">
+        <article class="article-card" id="checklist">
           <h2>Checklist</h2>
-          <ul><li>Record estimated sulfur before the raid.</li><li>Record actual sulfur after the raid.</li><li>Separate emotional win from material profit.</li><li>Use the result to choose future targets.</li></ul>
+          <ul><li>Record estimated sulfur before the raid.</li><li>Record actual sulfur after the raid.</li><li>Estimate lost kits and consumables in the same unit you use for recovered loot.</li><li>Keep time and strategic value visible instead of hiding them in a made-up exchange rate.</li><li>Use the result to improve the next target-selection decision.</li></ul>
         </article>
         <article class="article-card">
           <h2>Example</h2>
-          <p>A raid that returns guns but burns all sulfur may feel good but still slow down the next objective.</p>
+          <p>If a raid uses 5,600 sulfur, returns loot you value at 7,000 sulfur equivalent, and loses a 1,000-equivalent kit, the resource result is +400. That is above resource break-even, but a long exposed raid can still be a poor use of wipe time.</p>
+        </article>
+
+        <article class="article-card decision-calculator" data-break-even-calculator>
+          <h2>Raid break-even calculator</h2>
+          <p>Use your own sulfur-equivalent estimates for recovered loot and lost kits. The result is a decision aid, not a universal price list.</p>
+          <div class="calculator-inputs">
+            <label>Boom used, sulfur equivalent<input type="number" min="0" step="25" value="4400" data-break-even-cost /></label>
+            <label>Loot recovered, sulfur equivalent<input type="number" min="0" step="25" value="0" data-break-even-loot /></label>
+            <label>Lost kits and supplies, sulfur equivalent<input type="number" min="0" step="25" value="0" data-break-even-loss /></label>
+          </div>
+          <div class="calculator-result" aria-live="polite"><span>Resource result</span><strong data-break-even-result>-4,400 sulfur equivalent</strong><p data-break-even-verdict>Below break-even before time and counter risk.</p></div>
+        </article>
+
+        <article class="article-card">
+          <h2>Use two verdicts, not one</h2>
+          <p>Record a resource verdict first, then a strategic verdict. Keeping them separate prevents a satisfying fight from disguising a material loss and prevents a defensive raid from looking pointless simply because the boxes were light.</p>
+          <ul><li>Resource verdict: recovered value minus boom and losses.</li><li>Strategic verdict: threat removed, location secured, or future farming protected.</li></ul>
         </article>
         <article class="article-card">
           <h2>Common mistakes</h2>
-          <ul><li>Counting only loot and ignoring boom cost.</li><li>Ignoring failed attempts.</li><li>Calling a raid profitable without tracking actual spend.</li></ul>
+          <ul><li>Counting only loot and ignoring boom cost.</li><li>Ignoring failed attempts.</li><li>Assigning precise values to every item without stating the assumptions.</li><li>Calling a raid profitable without tracking actual spend.</li></ul>
         </article>
-        
+
+        <article class="article-card faq-card">
+          <h2>Frequently asked questions</h2>
+          <details><summary>What counts as profit in a Rust raid?</summary><p>For resource profit, subtract boom and lost-kit value from recovered loot value using your own stated conversion assumptions. Review time, counters, and strategic value separately.</p></details><details><summary>How should I value guns and components?</summary><p>Use the replacement or progression value on your server and at your stage of the wipe. Do not present one exchange rate as universal across servers, wipes, and group sizes.</p></details><details><summary>Can a resource-negative raid still be worth it?</summary><p>Yes. Removing a direct threat, protecting a farm route, or securing territory can create strategic value, but label that result separately from resource profit.</p></details>
+        </article>
+
         <article class="article-card">
-          <h2>Related tools and guides</h2>
+          <h2>Related Rust tools and guides</h2>
           <div class="article-cta">
             <a class="primary-action" href="../index.html#raid-calculator">Use raid calculator</a>
-            <a class="secondary-action" href="./rust-raid-cost-calculator.html">rust raid cost calculator</a><a class="secondary-action" href="./rust-sulfur-farming-route.html">rust sulfur farming route</a><a class="secondary-action" href="./rust-cheapest-raid-method.html">rust cheapest raid method</a>
+            <a class="secondary-action" href="./rust-cheapest-raid-method.html">Rust cheapest raid method by target</a>
           </div>
         </article>
+        <article class="article-card conversion-card" data-live-commerce hidden>
+          <p class="eyebrow">Verified Rust answers from $5</p>
+          <h2>Check one target now, or build the complete raid route.</h2>
+          <p>The $5 starter pack covers two personalized route checks. A $19 pack covers a complete multi-layer raid plan with resource buffer, evidence, and calculation checks. Unsupported requests are not charged.</p>
+          <div class="article-cta"><a class="primary-action" href="../customer?intent=instant&amp;utm_source=guide&amp;utm_medium=internal&amp;utm_campaign=rust-raid-profit-calculator-outline" data-commerce-cta>Get a verified answer</a><a class="secondary-action" href="../rust-raid-plan">Compare both options</a></div>
+        </article>
         <article class="article-card source-list">
-          <h2>Source notes</h2>
-          <ul><li>RaidBench calculator estimates</li><li>Community raid review patterns</li><li>In-game verification recommended</li></ul>
-          <p>Last checked: 2026-07-05. Verify after major Rust patches.</p>
+          <h2>Sources and review notes</h2>
+          <ul><li><a href="../index.html#raid-calculator">RaidBench verified raid calculator</a> - Provides the boom-side sulfur estimate.</li><li><a href="https://www.reddit.com/r/playrust/comments/1ruodeb/profitable_raids/" target="_blank" rel="noopener noreferrer">Community question pattern (topic selection only)</a> - Used to select the break-even question, not as a price source.</li></ul>
+          <p>Reviewed 2026-08-09. Recheck after Rust building, explosive, upkeep, or Softcore rule changes, and verify custom server settings.</p>
         </article>
       </section>
     </main>
-    <footer class="footer"><p>RaidBench is an unofficial fan-made Rust planning guide.</p><p>Verify numbers after major patches.</p><p class="footer-links"><a href="../privacy.html">Privacy</a><a href="../terms.html">Terms</a><a href="../refund-policy.html">Refund Policy</a></p></footer>
-    <script src="../config.js"></script>
-    <script src="../analytics.js"></script>
+    <footer class="footer"><p>RaidBench is independent and is not affiliated with or endorsed by Facepunch Studios.</p><p class="footer-links"><a href="../updates.html">Patch Watch</a><a href="../about.html">Editorial standards</a><a href="../privacy.html">Privacy</a><a href="../terms.html">Terms</a><a href="../refund-policy.html">Refunds</a></p></footer>
+    <script src="../config.js?v=20260717a"></script>
+    <script src="../analytics.js?v=20260717a"></script>
+    <script src="../guide-tools.js?v=20260809a"></script>
   </body>
 </html>

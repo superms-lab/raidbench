@@ -1,0 +1,12 @@
+[Unit]
+Description=Prepare up to three new RaidBench Reddit reply drafts before the daily digest
+
+[Timer]
+OnCalendar=*-*-* 00,05,10:25:00 UTC
+RandomizedDelaySec=5min
+Persistent=true
+AccuracySec=1min
+Unit=raidbench-community-scout.service
+
+[Install]
+WantedBy=timers.target

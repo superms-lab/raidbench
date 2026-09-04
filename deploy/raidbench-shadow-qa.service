@@ -1,0 +1,26 @@
+[Unit]
+Description=Run RaidBench no-charge multi-game shadow answer QA
+Wants=network-online.target
+After=network-online.target docker.service raidbench-source-scout.service
+Requires=docker.service
+StartLimitIntervalSec=2h
+StartLimitBurst=4
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/raidbench-publisher
+ExecStartPre=/usr/bin/install -d -o raidbench-agent -g raidbench-agent -m 0750 /opt/raidbench-agent/artifacts/shadow-benchmarks/runs
+ExecStartPre=/usr/bin/chown -R raidbench-agent:raidbench-agent /opt/raidbench-agent/artifacts/shadow-benchmarks /opt/raidbench-agent/data /opt/raidbench-publisher/workspace
+ExecStart=/usr/bin/docker compose -f /opt/raidbench-publisher/compose.yaml run --rm --no-deps content-agent python3 scripts/prepare_shadow_benchmarks.py --database /data/raidbench.local.db --output /workspace/private-data/shadow-benchmarks/latest-suite.json
+ExecStart=/usr/bin/docker compose -f /opt/raidbench-publisher/compose.yaml run --rm --no-deps content-agent python3 scripts/run_shadow_answer_benchmarks.py --suite /workspace/private-data/shadow-benchmarks/latest-suite.json --database /data/raidbench.shadow.db --artifact-root /workspace/private-data/shadow-benchmarks/runs --report /workspace/private-data/shadow-benchmarks/latest-readiness.json --execute --pending-only --max-supported 2 --timeout 900
+ExecStart=/usr/bin/docker compose -f /opt/raidbench-publisher/compose.yaml run --rm --no-deps content-agent python3 scripts/verify_multigame_delivery_gates.py --shadow-database /data/raidbench.shadow.db --output /workspace/private-data/shadow-benchmarks/latest-delivery-gates.json --readiness-report /workspace/private-data/shadow-benchmarks/latest-readiness.json
+ExecStart=/usr/bin/docker compose -f /opt/raidbench-publisher/compose.yaml run --rm --no-deps content-agent python3 scripts/build_multigame_activation_manifest.py --readiness /workspace/private-data/shadow-benchmarks/latest-readiness.json --catalog content/multigame-products.json --output /workspace/private-data/shadow-benchmarks/latest-activation-candidates.json
+TimeoutStartSec=1h
+Restart=on-failure
+RestartSec=30min
+Nice=10
+IOSchedulingClass=best-effort
+IOSchedulingPriority=7
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "escape-from-tarkov-loadout-budget",
+  "gameId": "escape-from-tarkov",
+  "reviewedAt": "2026-09-03",
+  "instructions": "Replace the default inputs with current player-entered values, then retain the assumptions with any shared result.",
+  "inputs": {
+    "weaponCost": 120000,
+    "magazines": 4,
+    "magazineCost": 8000,
+    "rounds": 160,
+    "roundCost": 600,
+    "armorCost": 150000,
+    "supportCost": 90000,
+    "copies": 3,
+    "reservePercent": 15,
+    "availableBudget": 2000000
+  },
+  "assumptions": [
+    "Enter current values from the game and the market or traders available to this account.",
+    "The tool does not supply live prices or claim a particular ammunition choice is correct.",
+    "Insurance returns and recovered equipment are excluded unless the player reduces the entered costs."
+  ]
+}

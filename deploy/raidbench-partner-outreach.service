@@ -1,0 +1,22 @@
+[Unit]
+Description=Discover and contact up to six verified Rust partners each week
+Wants=network-online.target docker.service
+After=network-online.target docker.service
+Requires=docker.service
+StartLimitIntervalSec=6h
+StartLimitBurst=2
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/raidbench-publisher
+EnvironmentFile=/opt/raidbench-agent/secrets/content-agent.env
+EnvironmentFile=/opt/raidbench/secrets/runtime.env
+ExecStartPre=/usr/bin/install -d -o raidbench-agent -g raidbench-agent -m 0750 /opt/raidbench-agent/artifacts/acquisition-outreach
+ExecStart=/usr/bin/docker compose -f /opt/raidbench-publisher/compose.yaml run --rm --no-deps -e RAIDBENCH_EMAIL_PROVIDER -e SMTP2GO_API_KEY -e RAIDBENCH_EMAIL_FROM -e RAIDBENCH_SUPPORT_EMAIL content-agent python3 scripts/discover_weekly_partner_outreach.py --output /workspace/private-data/acquisition-outreach/weekly-current.json --state /workspace/private-data/acquisition-outreach/weekly-partner-state.json --sent-state-dir /workspace/private-data/acquisition-outreach --weekly-limit 6 --send
+TimeoutStartSec=30min
+Restart=on-failure
+RestartSec=30min
+Nice=10
+
+[Install]
+WantedBy=multi-user.target

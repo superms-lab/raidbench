@@ -1,0 +1,19 @@
+[Unit]
+Description=Discover one daily POE2 player problem for owned-site content
+Wants=network-online.target docker.service
+After=network-online.target docker.service
+Requires=docker.service
+StartLimitIntervalSec=2h
+StartLimitBurst=4
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/raidbench-publisher
+ExecStart=/usr/bin/docker compose -f /opt/raidbench-publisher/compose.yaml run --rm --no-deps content-agent python3 scripts/discover_poe2_content_demand.py --database /data/raidbench.local.db --state /workspace/private-data/content-automation/poe2-demand-state.json
+TimeoutStartSec=20min
+Restart=on-failure
+RestartSec=20min
+Nice=10
+
+[Install]
+WantedBy=multi-user.target

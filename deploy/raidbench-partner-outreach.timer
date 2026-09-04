@@ -1,0 +1,12 @@
+[Unit]
+Description=Run bounded RaidBench partner outreach each Tuesday
+
+[Timer]
+OnCalendar=Tue *-*-* 03:00:00 UTC
+RandomizedDelaySec=20min
+Persistent=true
+AccuracySec=1min
+Unit=raidbench-partner-outreach.service
+
+[Install]
+WantedBy=timers.target

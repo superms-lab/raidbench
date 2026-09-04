@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RaidBench reviewed paid answer",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "policyVersion", "answerId", "orderId", "game", "gameVersion", "generatedAt",
+    "patchSensitive", "customerQuestion", "intake", "claims", "calculations",
+    "answerText", "limitations", "qa", "delivery"
+  ],
+  "properties": {
+    "policyVersion": { "type": "string" },
+    "answerId": { "type": "string" },
+    "orderId": { "type": "string" },
+    "game": { "type": "string", "enum": ["Rust", "Path of Exile 2", "POE2", "Palworld", "Project Zomboid", "Escape from Tarkov", "ARK: Survival Ascended", "Warframe", "Once Human", "Counter-Strike 2", "Dota 2", "PUBG: BATTLEGROUNDS", "Tom Clancy's Rainbow Six Siege"] },
+    "gameVersion": { "type": "string", "minLength": 1 },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "patchSensitive": { "type": "boolean" },
+    "customerQuestion": { "type": "string", "minLength": 1 },
+    "intake": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "missingFields", "customerFacts"],
+      "properties": {
+        "status": { "type": "string", "enum": ["complete", "incomplete"] },
+        "missingFields": { "type": "array", "items": { "type": "string" } },
+        "customerFacts": { "type": "object" }
+      }
+    },
+    "claims": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["claimId", "claimType", "critical", "text", "status", "evidence", "calculationId", "assumptions", "conflictNotes"],
+        "properties": {
+          "claimId": { "type": "string" },
+          "claimType": { "type": "string", "enum": ["mechanic", "numeric", "recommendation", "customer_context"] },
+          "critical": { "type": "boolean" },
+          "text": { "type": "string" },
+          "status": { "type": "string", "enum": ["verified", "uncertain", "conflict", "unsupported"] },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["evidenceId", "sourceType", "title", "url", "retrievedAt", "supports"],
+              "properties": {
+                "evidenceId": { "type": "string" },
+                "sourceType": { "type": "string", "enum": ["official", "official_wiki", "in_game_test", "deterministic_test", "trusted_reference", "customer_input"] },
+                "title": { "type": "string" },
+                "url": { "type": "string" },
+                "retrievedAt": { "type": "string", "format": "date-time" },
+                "supports": { "type": "string" }
+              }
+            }
+          },
+          "calculationId": { "type": "string" },
+          "assumptions": { "type": "array", "items": { "type": "string" } },
+          "conflictNotes": { "type": "string" }
+        }
+      }
+    },
+    "calculations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["calculationId", "formula", "inputs", "expected", "actual", "tolerance", "passed"],
+        "properties": {
+          "calculationId": { "type": "string" },
+          "formula": { "type": "string" },
+          "inputs": { "type": "object" },
+          "expected": { "type": "number" },
+          "actual": { "type": "number" },
+          "tolerance": { "type": "number", "minimum": 0 },
+          "passed": { "type": "boolean" }
+        }
+      }
+    },
+    "answerText": { "type": "string", "minLength": 1 },
+    "limitations": { "type": "array", "items": { "type": "string" } },
+    "qa": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["authorAgentId", "reviewerAgentId", "decision", "criticalClaimsVerified", "calculationTestsPassed", "versionChecked", "reviewedAt", "reviewNotes"],
+      "properties": {
+        "authorAgentId": { "type": "string" },
+        "reviewerAgentId": { "type": "string" },
+        "decision": { "type": "string", "enum": ["approve", "block"] },
+        "criticalClaimsVerified": { "type": "boolean" },
+        "calculationTestsPassed": { "type": "boolean" },
+        "versionChecked": { "type": "boolean" },
+        "reviewedAt": { "type": "string", "format": "date-time" },
+        "reviewNotes": { "type": "string" }
+      }
+    },
+    "delivery": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "correctionWindowDays", "updatePolicy"],
+      "properties": {
+        "status": { "type": "string", "enum": ["ready", "blocked"] },
+        "correctionWindowDays": { "type": "integer", "minimum": 0 },
+        "updatePolicy": { "type": "string" }
+      }
+    }
+  }
+}

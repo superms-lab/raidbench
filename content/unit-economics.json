@@ -1,0 +1,175 @@
+{
+  "asOf": "2026-09-03",
+  "currency": "USD",
+  "defaultProviderId": "paypal-cn-cross-border",
+  "defaultScenarioId": "north-america-organic",
+  "providers": [
+    {
+      "id": "paypal-cn-cross-border",
+      "name": "PayPal China cross-border",
+      "percentageFee": 4.4,
+      "fixedFee": 0.3,
+      "sourceUrl": "https://www.paypal.com/c2/business/paypal-business-fees?locale.x=en_C2",
+      "sourceCheckedAt": "2026-09-03",
+      "sourceNote": "Published Mainland China international commercial transaction rate: 4.40% plus the currency fixed fee. Currency conversion and withdrawal costs are separate."
+    },
+    {
+      "id": "payoneer-card-request",
+      "name": "Payoneer card payment request",
+      "percentageFee": 3.99,
+      "fixedFee": 0.49,
+      "sourceUrl": "https://www.payoneer.com/about/pricing/",
+      "sourceNote": "Published maximum card collection rate. Account-specific pricing and product availability control. This is not assumed to be a drop-in consumer checkout."
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "north-america-organic",
+      "name": "US and Canada organic launch",
+      "fxAndWithdrawalPercent": 2.5,
+      "taxReservePercent": 8,
+      "refundReservePercent": 5,
+      "chargebackReservePerOrder": 0.5,
+      "advertisingCac": 0,
+      "reviewerHourlyCost": 20,
+      "monthlyOrders": 30
+    },
+    {
+      "id": "north-america-paid-test",
+      "name": "US and Canada paid acquisition test",
+      "fxAndWithdrawalPercent": 2.5,
+      "taxReservePercent": 8,
+      "refundReservePercent": 5,
+      "chargebackReservePerOrder": 0.75,
+      "advertisingCac": 8,
+      "reviewerHourlyCost": 20,
+      "monthlyOrders": 60
+    },
+    {
+      "id": "europe-deferred",
+      "name": "Europe deferred planning reserve",
+      "fxAndWithdrawalPercent": 2.5,
+      "taxReservePercent": 20,
+      "refundReservePercent": 5,
+      "chargebackReservePerOrder": 0.5,
+      "advertisingCac": 0,
+      "reviewerHourlyCost": 20,
+      "monthlyOrders": 30
+    }
+  ],
+  "monthlyFixedCosts": [
+    { "id": "domain", "label": "Domain allocation", "amount": 1.5 },
+    { "id": "cloudflare", "label": "Cloudflare Pages, Workers and D1 MVP", "amount": 0 },
+    { "id": "agent-host", "label": "Future Agent host or VPS planning reserve", "amount": 12 },
+    { "id": "paypal-wire-withdrawal", "label": "One monthly PayPal Mainland China or US bank wire withdrawal reserve", "amount": 35 },
+    { "id": "email-monitoring", "label": "Email and monitoring reserve", "amount": 0 },
+    { "id": "accounting-compliance", "label": "Accounting and compliance reserve", "amount": 30 }
+  ],
+  "creditDeliveryProfiles": [
+    {
+      "id": "instant_verified",
+      "name": "Deterministic verified answer",
+      "aiCost": 0,
+      "reviewMinutes": 0,
+      "supportMinutes": 0.25,
+      "deliveryCost": 0.03,
+      "targetContributionMarginPercent": 60
+    },
+    {
+      "id": "custom_verified",
+      "name": "Custom source-checked answer",
+      "aiCost": 1.25,
+      "reviewMinutes": 6,
+      "supportMinutes": 4,
+      "deliveryCost": 0.05,
+      "targetContributionMarginPercent": 40
+    },
+    {
+      "id": "bounded_decision_review",
+      "name": "Bounded source-checked decision review",
+      "aiCost": 0.8,
+      "reviewMinutes": 6,
+      "supportMinutes": 3,
+      "deliveryCost": 0.06,
+      "targetContributionMarginPercent": 35
+    },
+    {
+      "id": "standard_source_review",
+      "name": "Standard source-checked game review",
+      "aiCost": 1.2,
+      "reviewMinutes": 8,
+      "supportMinutes": 4,
+      "deliveryCost": 0.08,
+      "targetContributionMarginPercent": 40
+    },
+    {
+      "id": "complex_match_review",
+      "name": "Replay or match evidence review",
+      "aiCost": 2.2,
+      "reviewMinutes": 12,
+      "supportMinutes": 6,
+      "deliveryCost": 0.1,
+      "targetContributionMarginPercent": 40
+    }
+  ],
+  "products": [
+    {
+      "sku": "credits-starter-20",
+      "name": "Verified Rust Answer Starter",
+      "price": 5,
+      "creditCost": 20,
+      "aiResearchAndDraftCost": 0,
+      "aiIndependentReviewCost": 0,
+      "reviewMinutes": 0,
+      "supportMinutes": 0.25,
+      "deliveryCost": 0.03,
+      "targetContributionMarginPercent": 5
+    },
+    {
+      "sku": "rust-raid-plan-standard",
+      "name": "Rust Raid Plan Standard",
+      "price": 19,
+      "creditCost": 120,
+      "aiResearchAndDraftCost": 0.65,
+      "aiIndependentReviewCost": 0.6,
+      "reviewMinutes": 6,
+      "supportMinutes": 4,
+      "deliveryCost": 0.05,
+      "targetContributionMarginPercent": 35
+    },
+    {
+      "sku": "poe2-build-audit-standard",
+      "name": "POE2 Build Audit Standard",
+      "price": 39,
+      "creditCost": 250,
+      "aiResearchAndDraftCost": 1.75,
+      "aiIndependentReviewCost": 1.75,
+      "reviewMinutes": 10,
+      "supportMinutes": 8,
+      "deliveryCost": 0.1,
+      "targetContributionMarginPercent": 45
+    },
+    {
+      "sku": "priority-complex-review",
+      "name": "Priority Complex Review",
+      "price": 69,
+      "creditCost": 450,
+      "aiResearchAndDraftCost": 3,
+      "aiIndependentReviewCost": 3,
+      "reviewMinutes": 20,
+      "supportMinutes": 12,
+      "deliveryCost": 0.15,
+      "targetContributionMarginPercent": 45
+    }
+  ],
+  "planningNotes": [
+    "The launch model covers customers in the United States and Canada, with checkout denominated in USD. Europe is deferred and is not part of the launch-critical workflow.",
+    "Tax reserve is a planning buffer, not a tax determination. Replace it after the seller model, buyer location rules, sales-tax or GST/HST obligations, and accountant advice are confirmed.",
+    "AI costs are working budgets, not vendor quotes. Replace them with measured token and tool costs from real deliveries.",
+    "Cloudflare is modeled at zero only while actual usage stays inside the applicable free-plan limits.",
+    "The fixed-cost model reserves one 35 USD PayPal wire withdrawal per month. Replace this with the actual withdrawal path and frequency; eligible no-conversion Hong Kong bank withdrawals can differ.",
+    "The 2.5% FX and withdrawal percentage is a planning reserve. Actual currency conversion can vary by transaction type and account path.",
+    "No paid acquisition should be scaled until measured customer acquisition cost is below contribution before advertising.",
+    "The 5 USD starter is intentionally modeled as a low-margin acquisition product. It should not become the dominant paid mix at low order volume."
+  ]
+}

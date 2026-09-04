@@ -1,0 +1,11 @@
+[Unit]
+Description=Run RaidBench paid-data verification every hour
+
+[Timer]
+OnCalendar=*-*-* *:50:00
+Persistent=true
+RandomizedDelaySec=5min
+AccuracySec=1min
+
+[Install]
+WantedBy=timers.target

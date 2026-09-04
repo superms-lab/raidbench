@@ -1,0 +1,21 @@
+priority,game,target_query,answer_asset,intent,source_status,refresh_trigger,launch_status
+1,Rust,rust common ground raid windows,/pages/rust-common-ground-raid-windows-guide.html,patch decision,official source linked,Softcore raid-window rule change,ready_after_deploy
+2,POE2,poe2 0.4.0i build impact,/pages/poe2-0-4-0i-build-impact-check.html,patch impact,official source linked,new 0.4.0 hotfix,ready_after_deploy
+3,Palworld,palworld 1.0.1 save data fix,/pages/palworld-v1-0-1-save-data-fix-checklist.html,troubleshooting,official source linked,new save-data hotfix,ready_after_deploy
+4,Rust,rust apartment complex renter checklist,/pages/rust-apartment-complex-renter-checklist.html,new feature,official source linked,Apartment Complex rule change,ready_after_deploy
+5,Palworld,palworld 1.0 sunreach progression reset,/pages/palworld-1-0-sunreach-progression-reset.html,progression decision,official source linked,major Palworld progression patch,ready_after_deploy
+6,POE2,poe2 wolf pack spirit hotfix,/pages/poe2-wolf-pack-spirit-hotfix-status.html,hotfix status,official source linked,new Wolf Pack fix,ready_after_deploy
+7,POE2,is this poe2 build guide outdated,/pages/poe2-outdated-build-guide-checklist.html,build verification,official patch hub linked,major balance patch,ready_after_deploy
+8,Rust,rust armored wall raid cost,/pages/rust-armored-wall-raid-cost.html,cost calculation,official update hub linked,building or explosive balance change,ready_after_deploy
+9,Rust,cheapest rust raid method,/pages/rust-cheapest-raid-method.html,cost comparison,official update hub linked,explosive damage or crafting change,ready_after_deploy
+10,Rust,why did my rust base decay,/pages/rust-why-did-my-base-decay.html,troubleshooting,official update hub linked,upkeep or TC change,ready_after_deploy
+11,POE2,poe2 endgame defense checklist,/pages/poe2-endgame-defense-checklist.html,build diagnosis,official patch hub linked,defense balance patch,ready_after_deploy
+12,POE2,poe2 boss preparation checklist,/pages/poe2-boss-prep-checklist.html,boss preparation,official patch hub linked,boss or ailment change,ready_after_deploy
+13,POE2,poe2 item value triage,/pages/poe2-item-value-triage.html,economy decision,official game page linked,economy reset or item-system change,ready_after_deploy
+14,Palworld,best palworld base location checklist,/pages/palworld-base-location-checklist.html,location decision,official announcement linked,map or base-system change,ready_after_deploy
+15,Palworld,palworld base automation scorecard,/pages/palworld-base-automation-scorecard.html,operations decision,official announcement linked,work-suitability or production change,ready_after_deploy
+16,Rust,rust wipe day upgrade order,/pages/rust-wipe-day-upgrade-order.html,progression planning,official update hub linked,building economy change,ready_after_deploy
+17,Rust,rust solo raid checklist,/pages/rust-solo-raid-checklist.html,execution checklist,official update hub linked,raid mechanic change,ready_after_deploy
+18,POE2,poe2 loot filter setup checklist,/pages/poe2-loot-filter-setup-checklist.html,configuration,official game page linked,item or filter format change,ready_after_deploy
+19,Palworld,palworld boss prep checklist,/pages/palworld-boss-prep-checklist.html,boss preparation,official announcement linked,boss balance change,ready_after_deploy
+20,Palworld,palworld resource route planner,/pages/palworld-resource-route-planner.html,resource planning,official announcement linked,map or resource-node change,ready_after_deploy

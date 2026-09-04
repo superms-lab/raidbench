@@ -10,5 +10,47 @@
 /sitemap.xml
   Cache-Control: public, max-age=0, must-revalidate
 
+/feed.xml
+  Cache-Control: public, max-age=300, must-revalidate
+
+/feed.json
+  Cache-Control: public, max-age=300, must-revalidate
+
+/llms.txt
+  Cache-Control: public, max-age=300, must-revalidate
+
+/rust-raid-costs.json
+  Cache-Control: public, max-age=300, must-revalidate
+  Access-Control-Allow-Origin: *
+
+/rust-raid-costs.csv
+  Cache-Control: public, max-age=300, must-revalidate
+  Access-Control-Allow-Origin: *
+
+/embed/*
+  Cache-Control: public, max-age=300, must-revalidate
+  Content-Security-Policy: frame-ancestors *
+
 /robots.txt
+  Cache-Control: public, max-age=0, must-revalidate
+
+/analytics.js
+  Cache-Control: public, max-age=0, must-revalidate
+
+/guide-tools.js
+  Cache-Control: public, max-age=0, must-revalidate
+
+/config.js
+  Cache-Control: public, max-age=0, must-revalidate
+
+/customer.html
+  Cache-Control: private, no-store
+
+/customer
+  Cache-Control: private, no-store
+
+/customer.js
+  Cache-Control: public, max-age=0, must-revalidate
+
+/customer.css
   Cache-Control: public, max-age=0, must-revalidate

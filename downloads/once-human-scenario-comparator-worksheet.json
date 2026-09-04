@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "once-human-scenario-comparator",
+  "gameId": "once-human",
+  "reviewedAt": "2026-09-03",
+  "instructions": "Replace the default inputs with current player-entered values, then retain the assumptions with any shared result.",
+  "inputs": {
+    "optionA": "Scenario A",
+    "optionB": "Scenario B",
+    "scheduleFitA": 3,
+    "scheduleFitB": 4,
+    "groupFitA": 4,
+    "groupFitB": 3,
+    "goalFitA": 4,
+    "goalFitB": 4,
+    "carryoverConfidenceA": 2,
+    "carryoverConfidenceB": 4,
+    "maintenanceFitA": 3,
+    "maintenanceFitB": 4
+  },
+  "assumptions": [
+    "Confirm current scenario and carryover rules in official notices before an irreversible move.",
+    "Scores measure personal fit from 1 to 5.",
+    "The tool does not predict rewards or guarantee server availability."
+  ]
+}

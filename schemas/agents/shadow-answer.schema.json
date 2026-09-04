@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RaidBench shadow answer candidate",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["caseId", "stage", "authorAgentId", "versionScope", "disposition", "noChargeReason", "answerText", "claims", "calculations", "limitations", "confidence"],
+  "properties": {
+    "caseId": { "type": "string" },
+    "stage": { "type": "string", "const": "shadow_answer" },
+    "authorAgentId": { "type": "string", "const": "shadow-answer-author" },
+    "versionScope": { "type": "string", "minLength": 1 },
+    "disposition": { "type": "string", "enum": ["answer_candidate", "no_charge"] },
+    "noChargeReason": { "type": "string" },
+    "answerText": { "type": "string", "minLength": 1 },
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["claimId", "claimType", "critical", "text", "status", "evidenceIds", "calculationId", "assumptions", "conflictNotes"],
+        "properties": {
+          "claimId": { "type": "string" },
+          "claimType": { "type": "string", "enum": ["mechanic", "numeric", "recommendation", "customer_context"] },
+          "critical": { "type": "boolean" },
+          "text": { "type": "string" },
+          "status": { "type": "string", "enum": ["verified", "uncertain", "conflict", "unsupported"] },
+          "evidenceIds": { "type": "array", "items": { "type": "string" } },
+          "calculationId": { "type": "string" },
+          "assumptions": { "type": "array", "items": { "type": "string" } },
+          "conflictNotes": { "type": "string" }
+        }
+      }
+    },
+    "calculations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["calculationId", "formula", "expected", "actual", "tolerance", "passed"],
+        "properties": {
+          "calculationId": { "type": "string" },
+          "formula": { "type": "string" },
+          "expected": { "type": "number" },
+          "actual": { "type": "number" },
+          "tolerance": { "type": "number", "minimum": 0 },
+          "passed": { "type": "boolean" }
+        }
+      }
+    },
+    "limitations": { "type": "array", "items": { "type": "string" } },
+    "confidence": { "type": "string", "enum": ["high", "medium", "low"] }
+  }
+}

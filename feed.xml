@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>RaidBench Patch Watch</title>
+    <link>https://raidbench.com/updates</link>
+    <description>Official-source game update summaries and practical player checklists.</description>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 04 Sep 2026 12:00:00 GMT</lastBuildDate>
+    <atom:link href="https://raidbench.com/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rust Breach and Clear: raid cost, upkeep, and route check</title>
+      <link>https://raidbench.com/pages/rust-breach-and-clear-raid-upkeep-check</link>
+      <guid isPermaLink="true">https://raidbench.com/pages/rust-breach-and-clear-raid-upkeep-check</guid>
+      <pubDate>Fri, 04 Sep 2026 12:00:00 GMT</pubDate>
+      <category>Rust</category>
+      <description>What Breach and Clear changes around a raid: group-scaled TC upkeep, monument blockers, grenade stacks, and the standard explosive math that was separately rechecked.</description>
+    </item>
+    <item>
+      <title>Rust Power Trip raid meta: what changed for compounds and farming</title>
+      <link>https://raidbench.com/pages/rust-power-trip-raid-meta-guide</link>
+      <guid isPermaLink="true">https://raidbench.com/pages/rust-power-trip-raid-meta-guide</guid>
+      <pubDate>Sun, 09 Aug 2026 12:00:00 GMT</pubDate>
+      <category>Rust</category>
+      <description>The Power Trip changes that affect raid preparation: static high-wall upkeep, tighter water-well stock, safe-zone resource spawns, and powered monument recyclers.</description>
+    </item>
+    <item>
+      <title>Rust Common Ground raid windows: the Softcore rules that matter</title>
+      <link>https://raidbench.com/pages/rust-common-ground-raid-windows-guide</link>
+      <guid isPermaLink="true">https://raidbench.com/pages/rust-common-ground-raid-windows-guide</guid>
+      <pubDate>Fri, 17 Jul 2026 12:00:00 GMT</pubDate>
+      <category>Rust</category>
+      <description>A player-focused explanation of Softcore raid windows, Tool Cupboard protection, young-TC exceptions, and what remains attackable.</description>
+    </item>
+    <item>
+      <title>Rust Apartment Complex renter checklist</title>
+      <link>https://raidbench.com/pages/rust-apartment-complex-renter-checklist</link>
+      <guid isPermaLink="true">https://raidbench.com/pages/rust-apartment-complex-renter-checklist</guid>
+      <pubDate>Fri, 17 Jul 2026 12:00:00 GMT</pubDate>
+      <category>Rust</category>
+      <description>What to verify before renting an Apartment Complex room, from included utilities to scrap payments and eviction risk.</description>
+    </item>
+    <item>
+      <title>Palworld v1.0.1 save-data fix: what players should do next</title>
+      <link>https://raidbench.com/pages/palworld-v1-0-1-save-data-fix-checklist</link>
+      <guid isPermaLink="true">https://raidbench.com/pages/palworld-v1-0-1-save-data-fix-checklist</guid>
+      <pubDate>Fri, 17 Jul 2026 12:00:00 GMT</pubDate>
+      <category>Palworld</category>
+      <description>A cautious post-update checklist after the official fix for unintended save-data discards and the persistent burning-status issue.</description>
+    </item>
+    <item>
+      <title>Palworld 1.0 progression reset: Sunreach, Awakening, and Mutation priorities</title>
+      <link>https://raidbench.com/pages/palworld-1-0-sunreach-progression-reset</link>
+      <guid isPermaLink="true">https://raidbench.com/pages/palworld-1-0-sunreach-progression-reset</guid>
+      <pubDate>Fri, 17 Jul 2026 12:00:00 GMT</pubDate>
+      <category>Palworld</category>
+      <description>A clean planning order for returning players facing Sunreach, 72 new Pals, Awakening, Mutation, and broad balance changes.</description>
+    </item>
+    <item>
+      <title>POE2 0.4.0i build impact check</title>
+      <link>https://raidbench.com/pages/poe2-0-4-0i-build-impact-check</link>
+      <guid isPermaLink="true">https://raidbench.com/pages/poe2-0-4-0i-build-impact-check</guid>
+      <pubDate>Fri, 17 Jul 2026 12:00:00 GMT</pubDate>
+      <category>POE2</category>
+      <description>Which builds and boss situations are directly affected by the official 0.4.0i fixes, and which guides do not need a broad rewrite.</description>
+    </item>
+    <item>
+      <title>POE2 Wolf Pack Spirit bug: official hotfix status and cleanup steps</title>
+      <link>https://raidbench.com/pages/poe2-wolf-pack-spirit-hotfix-status</link>
+      <guid isPermaLink="true">https://raidbench.com/pages/poe2-wolf-pack-spirit-hotfix-status</guid>
+      <pubDate>Fri, 17 Jul 2026 12:00:00 GMT</pubDate>
+      <category>POE2</category>
+      <description>The official status of the Wolf Pack Spirit reservation bug and a short checklist for removing old workaround advice.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,12 @@
+[Unit]
+Description=Import reviewed RaidBench answers into customer accounts
+After=docker.service raidbench-live-answer.service
+Requires=docker.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/docker exec raidbench-app python scripts/import_multigame_answer_jobs.py --database /data/raidbench.db --queue-root /jobs --timeout-minutes 30
+TimeoutStartSec=2min
+
+[Install]
+WantedBy=multi-user.target

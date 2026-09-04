@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raidbench.com/schemas/multigame-shadow-supported-expansion.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "asOf", "policyVersion", "supportedCases"],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "asOf": { "type": "string" },
+    "policyVersion": { "type": "string" },
+    "supportedCases": {
+      "type": "array",
+      "minItems": 21,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["caseId", "productId", "questionText", "inputs", "answerFocus"],
+        "properties": {
+          "caseId": { "type": "string", "pattern": "^shadow_[a-z0-9_]+_supported_[0-9]{3}$" },
+          "productId": { "type": "string" },
+          "questionText": { "type": "string", "minLength": 20 },
+          "inputs": { "type": "object" },
+          "answerFocus": { "type": "string", "minLength": 40 }
+        }
+      }
+    }
+  }
+}

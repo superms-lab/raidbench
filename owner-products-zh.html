@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>RaidBench 产品准入</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <style>
+      :root { color-scheme:light; --ink:#17212a; --muted:#65717c; --line:#dce2e6; --paper:#fff; --canvas:#f4f6f7; --green:#16794b; --red:#a43f38; --amber:#9a660b; --blue:#246797; }
+      * { box-sizing:border-box; }
+      body { margin:0; min-width:320px; background:var(--canvas); color:var(--ink); font-family:Inter,"PingFang SC","Microsoft YaHei",system-ui,sans-serif; letter-spacing:0; }
+      .topbar { min-height:64px; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:0 28px; border-bottom:1px solid var(--line); background:var(--paper); }
+      .brand { font-size:17px; font-weight:750; }
+      .nav { display:flex; flex-wrap:wrap; gap:6px; }
+      .nav a { color:var(--muted); text-decoration:none; padding:8px 9px; border-radius:5px; font-size:13px; }
+      .nav a[aria-current="page"] { color:var(--ink); background:#edf1f3; }
+      .page { width:min(1240px,calc(100% - 40px)); margin:0 auto; padding:30px 0 54px; }
+      h1 { margin:0; font-size:28px; line-height:1.2; }
+      h2 { margin:0; font-size:18px; }
+      h3 { margin:0; font-size:14px; }
+      .subtitle,.note,.source { color:var(--muted); font-size:13px; line-height:1.6; }
+      .subtitle { margin:8px 0 0; max-width:820px; }
+      .section { margin-top:28px; padding-top:24px; border-top:1px solid var(--line); }
+      .section-head { display:flex; align-items:baseline; justify-content:space-between; gap:18px; margin-bottom:16px; }
+      .metrics { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; }
+      .metric { min-height:106px; padding:17px; border:1px solid var(--line); border-radius:7px; background:var(--paper); }
+      .metric span { color:var(--muted); font-size:12px; }
+      .metric strong { display:block; margin-top:11px; font-size:27px; font-variant-numeric:tabular-nums; }
+      .metric:nth-child(1) strong { color:var(--blue); }
+      .metric:nth-child(2) strong { color:var(--amber); }
+      .metric:nth-child(3) strong { color:var(--green); }
+      .metric:nth-child(4) strong { color:var(--red); }
+      .decision { margin-top:14px; padding:14px 16px; border-left:4px solid var(--amber); background:var(--paper); font-size:13px; line-height:1.65; }
+      .table-wrap { overflow-x:auto; border:1px solid var(--line); border-radius:7px; background:var(--paper); }
+      table { width:100%; border-collapse:collapse; min-width:1240px; }
+      th,td { padding:11px 12px; border-bottom:1px solid #edf0f2; font-size:12px; text-align:right; vertical-align:top; white-space:nowrap; }
+      th { color:var(--muted); background:#f9fafb; font-weight:650; }
+      th:first-child,td:first-child,th:nth-child(2),td:nth-child(2),th:last-child,td:last-child { text-align:left; }
+      td:nth-child(2),td:last-child { white-space:normal; }
+      tbody tr:last-child td { border-bottom:0; }
+      .qa-hold { color:var(--amber); font-weight:700; }
+      .price-hold { color:var(--red); font-weight:700; }
+      .good { color:var(--green); font-weight:700; }
+      .neutral { color:var(--blue); font-weight:700; }
+      .rules { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
+      .rule { padding:16px 0; border-top:1px solid var(--line); }
+      .rule p { margin:8px 0 0; }
+      .error { color:var(--red); }
+      @media (max-width:900px) { .metrics { grid-template-columns:repeat(2,minmax(0,1fr)); } .rules { grid-template-columns:1fr; gap:0; } }
+      @media (max-width:620px) { .topbar { align-items:flex-start; flex-direction:column; padding:14px 16px; } .page { width:calc(100% - 24px); padding-top:22px; } .section-head { align-items:flex-start; flex-direction:column; gap:6px; } .metrics { grid-template-columns:1fr 1fr; gap:8px; } .metric { min-height:94px; padding:14px; } .metric strong { font-size:23px; } }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">RaidBench 经营后台</div>
+      <nav class="nav" aria-label="经营后台"><a href="./owner-traffic-zh.html">流量</a><a href="./owner-acquisition-zh.html">获客</a><a href="./owner-demand-zh.html">需求</a><a href="./owner-products-zh.html" aria-current="page">产品准入</a><a href="./owner-costs-zh.html">成本与利润</a></nav>
+    </header>
+    <main class="page">
+      <h1>多游戏产品准入</h1>
+      <p class="subtitle">这里管理收费答案的价格、自动交付和开放条件。成本测算通过，只说明服务有机会赚钱；只有影子案例、独立复核、幂等扣点和站内交付全部通过，才允许公开销售。</p>
+
+      <section class="section">
+        <div class="section-head"><h2>当前决策</h2><span class="source" id="source-date">正在读取产品模型</span></div>
+        <div class="metrics">
+          <div class="metric"><span>拟收费产品</span><strong id="product-count">--</strong></div>
+          <div class="metric"><span>已开放结账</span><strong id="live-count">--</strong></div>
+          <div class="metric"><span>成本模型通过</span><strong id="viable-count">--</strong></div>
+          <div class="metric"><span>价格需返工</span><strong id="price-hold-count">--</strong></div>
+        </div>
+        <div class="decision" id="decision">正在核对定价和答案 QA 状态。</div>
+      </section>
+
+      <section class="section">
+        <div class="section-head"><h2>影子答案 QA</h2><span class="source" id="qa-source">正在读取 VPS 质检报告</span></div>
+        <div class="metrics">
+          <div class="metric"><span>不同测试案例</span><strong id="qa-cases">--</strong></div>
+          <div class="metric"><span>完整答案通过</span><strong id="qa-approved">--</strong></div>
+          <div class="metric"><span>证据不足不收费</span><strong id="qa-safe-holds">--</strong></div>
+          <div class="metric"><span>实际扣除点数</span><strong id="qa-credits">--</strong></div>
+        </div>
+        <div class="decision" id="qa-decision">影子模式不会连接玩家付款或扣点。</div>
+      </section>
+
+      <section class="section">
+        <div class="section-head"><h2>Palworld 生产闭环</h2><span class="source" id="live-source">正在读取生产队列</span></div>
+        <div class="metrics">
+          <div class="metric"><span>独立 QA 排队</span><strong id="live-queued">--</strong></div>
+          <div class="metric"><span>已交付答案</span><strong id="live-delivered">--</strong></div>
+          <div class="metric"><span>未收费关闭</span><strong id="live-held">--</strong></div>
+          <div class="metric"><span>实际扣除点数</span><strong id="live-credits">--</strong></div>
+        </div>
+        <div class="decision" id="live-decision">生产统计不展示玩家邮箱、问题正文、支付编号或答案内容。</div>
+      </section>
+
+      <section class="section">
+        <div class="section-head"><h2>产品清单</h2><span class="note">收入按点数包保守折算；结账状态来自准入目录</span></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>游戏</th><th>拟收费服务</th><th>点数</th><th>折算收入</th><th>交付成本</th><th>贡献率</th><th>影子案例</th><th>完整案例结果</th><th>成本结论</th><th>收费状态</th></tr></thead>
+            <tbody id="product-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section rules">
+        <div class="rule"><h3>何时允许收费</h3><p class="note">达到每款产品规定的影子案例数量、支持范围内 QA 通过率、事实漂移门槛，并验证幂等扣点和站内交付后，才能把状态改为可销售。</p></div>
+        <div class="rule"><h3>哪些情况不扣点</h3><p class="note">版本、服务器、账号进度、录像或构筑资料不足；关键事实无法由官方或一手资料支持；独立复核不通过；请求涉及作弊、外挂或违规交易。</p></div>
+        <div class="rule"><h3>当前系统行为</h3><p class="note">Palworld 80 点复核已进入受控销售：提交时只预留额度，独立 Agent QA 通过后扣点并在账户内显示；失败或 30 分钟超时均扣 0 点。其余 10 项仍隐藏。</p></div>
+      </section>
+    </main>
+    <script>
+      const el = (id) => document.getElementById(id);
+      const usd = new Intl.NumberFormat("en-US", { style:"currency", currency:"USD" });
+      const deliveryNames = {
+        bounded_decision_review:"边界明确的决策复核",
+        standard_source_review:"资料与构筑复核",
+        complex_match_review:"录像与对局复核",
+      };
+
+      async function init() {
+        const [catalog, economics, shadow, live] = await Promise.all([
+          fetch("./content/multigame-products.json", { cache:"no-store" }).then((response) => response.json()),
+          fetch("./local/multigame-product-economics.json", { cache:"no-store" }).then((response) => response.json()),
+          fetch("./api/owner/shadow-readiness", { cache:"no-store" }).then((response) => {
+            if (!response.ok) throw new Error(`影子 QA 接口返回 ${response.status}`);
+            return response.json();
+          }),
+          fetch("./api/owner/multigame-live", { cache:"no-store" }).then((response) => {
+            if (!response.ok) throw new Error(`生产闭环接口返回 ${response.status}`);
+            return response.json();
+          }),
+        ]);
+        const productById = new Map(catalog.products.map((product) => [product.id, product]));
+        const shadowById = new Map(shadow.products.map((product) => [product.productId, product]));
+        el("source-date").textContent = `产品口径：${catalog.asOf} · 成本口径：${economics.modelAsOf}`;
+        el("product-count").textContent = economics.summary.products;
+        el("live-count").textContent = economics.summary.checkoutVisible;
+        el("viable-count").textContent = economics.summary.viablePendingQa;
+        el("price-hold-count").textContent = economics.summary.pricingHolds;
+        el("decision").textContent = economics.summary.checkoutVisible === 0 && shadow.summary.eligibleProducts > 0
+          ? `${shadow.summary.eligibleProducts} 项服务已通过机器准入，但仍保持隐藏，等待第 8 阶段完成公开商品、真实账户交付和首单监控。其余服务继续补案例。`
+          : economics.summary.checkoutVisible === 0
+            ? `11 项拟收费服务的定价均通过当前成本门槛，但没有一项达到完整答案准入条件，因此继续隐藏结账。成本说明能否赚钱，质检决定是否值得收钱。`
+            : `已有 ${economics.summary.checkoutVisible} 项服务开放收费，请继续监控退款、QA 与毛利。`;
+        el("qa-source").textContent = `VPS 报告：${new Date(shadow.generatedAt).toLocaleString("zh-CN", { hour12:false })}`;
+        el("qa-cases").textContent = shadow.summary.distinctCases;
+        el("qa-approved").textContent = shadow.summary.qaApprovedAnswers;
+        el("qa-safe-holds").textContent = shadow.summary.supportedSafeHolds;
+        el("qa-credits").textContent = shadow.summary.creditsCharged;
+        el("qa-decision").textContent = `完整案例中 ${shadow.summary.qaApprovedAnswers} 个通过，${shadow.summary.supportedSafeHolds} 个由作者主动不收费，${shadow.summary.supportedQaBlocked} 个被审查暂缓；另外 ${shadow.summary.correctNoChargeCases} 个缺资料或违规案例全部正确拒绝，合同失败 ${shadow.summary.failedCases} 个。机器准入产品 ${shadow.summary.eligibleProducts} 个。`;
+        el("live-source").textContent = `生产数据：${new Date(live.generatedAt).toLocaleString("zh-CN", { hour12:false })}`;
+        el("live-queued").textContent = live.metrics.queued;
+        el("live-delivered").textContent = live.metrics.delivered;
+        el("live-held").textContent = live.metrics.heldWithoutCharge;
+        el("live-credits").textContent = live.metrics.creditsCharged;
+        el("live-decision").textContent = live.status === "healthy"
+          ? `闭环一致：${live.metrics.debitRows} 条扣点流水对应 ${live.metrics.deliveryRows} 条站内交付；待处理文件 ${live.metrics.inboxFiles} 个，待导入结果 ${live.metrics.outboxFiles} 个，异常记录 ${live.metrics.unsafeRows} 个。`
+          : `生产闭环需要处理：扣点流水 ${live.metrics.debitRows} 条、站内交付 ${live.metrics.deliveryRows} 条、异常记录 ${live.metrics.unsafeRows} 个。`;
+        el("product-body").innerHTML = economics.products.map((item) => {
+          const product = productById.get(item.id);
+          const qa = shadowById.get(item.id);
+          const costClass = deliveryNames[item.deliveryClass] || item.deliveryClass;
+          const economicallyViable = item.economicStatus === "viable_pending_qa" || item.economicStatus === "viable_live";
+          const costStatus = economicallyViable ? "成本通过" : "价格暂缓";
+          const costClassName = economicallyViable ? "good" : "price-hold";
+          const checkout = product.status === "ready_live" ? "已开放：QA 后扣点" : qa.decision === "ready_live" ? "机器准入通过，仍隐藏" : "独立 QA 待完成";
+          const checkoutClass = product.status === "ready_live" || qa.decision === "ready_live" ? "good" : "qa-hold";
+          const shadowGate = qa.gateResults.find((gate) => gate.id === "shadow_cases");
+          const heldCount = qa.supportedSafeHolds + qa.supportedQaBlocked;
+          const answerStatus = qa.supportedQaPassed > 0
+            ? `<span class="good">${qa.supportedQaPassed} 个通过</span>${heldCount ? `<br><span class="note">${heldCount} 个暂缓</span>` : ""}`
+            : heldCount > 0
+              ? `<span class="qa-hold">${heldCount} 个暂缓或不收费</span>`
+              : `<span class="neutral">待执行</span>`;
+          return `<tr><td>${item.game}</td><td><strong>${item.label}</strong><br><span class="note">${costClass}</span></td><td>${item.credits}</td><td>${usd.format(item.conservativeImpliedGross)}</td><td>${usd.format(item.modeledVariableCost)}</td><td>${item.contributionMarginPercent.toFixed(1)}%</td><td><strong>${qa.shadowCases} / ${shadowGate.required}</strong><br><span class="note">拒答 ${qa.noChargeCorrect} / ${qa.noChargeCases}</span></td><td>${answerStatus}</td><td class="${costClassName}">${costStatus}</td><td class="${checkoutClass}">${checkout}</td></tr>`;
+        }).join("");
+      }
+
+      init().catch((error) => {
+        el("source-date").textContent = "产品模型读取失败";
+        el("decision").classList.add("error");
+        el("decision").textContent = `无法读取产品准入数据：${error.message}`;
+      });
+    </script>
+  </body>
+</html>

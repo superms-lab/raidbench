@@ -1,0 +1,144 @@
+{
+  "name": "RaidBench Vanilla Rust PC Raid Cost Reference",
+  "url": "https://raidbench.com/rust-raid-costs.json",
+  "verifiedAt": "2026-09-03",
+  "scope": "Vanilla Rust PC data; custom and modded servers can differ.",
+  "methodologyUrl": "https://raidbench.com/about",
+  "calculatorUrl": "https://raidbench.com/",
+  "fieldNotes": {
+    "counts": "Items required to destroy one full-health target.",
+    "sulfur": "Rolled-up sulfur required to craft the listed items using current vanilla recipes."
+  },
+  "sulfurPerItem": {
+    "rockets": 1400,
+    "c4": 2200,
+    "satchels": 480,
+    "explosiveAmmo": 25
+  },
+  "targets": [
+    {
+      "target_id": "sheet-door",
+      "target": "Sheet Metal Door",
+      "rockets": 2,
+      "c4": 1,
+      "satchels": 4,
+      "explosive_ammo": 63,
+      "rockets_sulfur": 2800,
+      "c4_sulfur": 2200,
+      "satchels_sulfur": 1920,
+      "explosive_ammo_sulfur": 1575
+    },
+    {
+      "target_id": "garage-door",
+      "target": "Garage Door",
+      "rockets": 3,
+      "c4": 2,
+      "satchels": 9,
+      "explosive_ammo": 150,
+      "rockets_sulfur": 4200,
+      "c4_sulfur": 4400,
+      "satchels_sulfur": 4320,
+      "explosive_ammo_sulfur": 3750
+    },
+    {
+      "target_id": "armored-door",
+      "target": "Armored Door",
+      "rockets": 5,
+      "c4": 3,
+      "satchels": 15,
+      "explosive_ammo": 250,
+      "rockets_sulfur": 7000,
+      "c4_sulfur": 6600,
+      "satchels_sulfur": 7200,
+      "explosive_ammo_sulfur": 6250
+    },
+    {
+      "target_id": "stone-wall",
+      "target": "Stone Wall",
+      "rockets": 4,
+      "c4": 2,
+      "satchels": 10,
+      "explosive_ammo": 185,
+      "rockets_sulfur": 5600,
+      "c4_sulfur": 4400,
+      "satchels_sulfur": 4800,
+      "explosive_ammo_sulfur": 4625
+    },
+    {
+      "target_id": "sheet-wall",
+      "target": "Sheet Metal Wall",
+      "rockets": 8,
+      "c4": 4,
+      "satchels": 23,
+      "explosive_ammo": 400,
+      "rockets_sulfur": 11200,
+      "c4_sulfur": 8800,
+      "satchels_sulfur": 11040,
+      "explosive_ammo_sulfur": 10000
+    },
+    {
+      "target_id": "armored-wall",
+      "target": "Armored Wall",
+      "rockets": 15,
+      "c4": 8,
+      "satchels": 46,
+      "explosive_ammo": 799,
+      "rockets_sulfur": 21000,
+      "c4_sulfur": 17600,
+      "satchels_sulfur": 22080,
+      "explosive_ammo_sulfur": 19975
+    }
+  ],
+  "sources": [
+    {
+      "id": "facepunch-armored-door-hp",
+      "type": "official",
+      "label": "Facepunch Rust update - Armored Door HP",
+      "url": "https://rust.facepunch.com/news/the-big-qol-update",
+      "supports": "Facepunch increased Armored Door HP by 25 percent; the current door has 1,000 HP."
+    },
+    {
+      "id": "facepunch-explosives-recipe",
+      "type": "official",
+      "label": "Facepunch Rust Wiki - Explosives",
+      "url": "https://wiki.facepunch.com/rust/item/explosives",
+      "supports": "Explosives recipe used by rockets and timed explosive charges."
+    },
+    {
+      "id": "facepunch-gunpowder-workbench-recipe",
+      "type": "official",
+      "label": "Facepunch Rust Wiki - Gun Powder",
+      "url": "https://wiki.facepunch.com/rust/item/gunpowder",
+      "supports": "The standard workbench recipe uses 20 sulfur and 30 charcoal to produce 10 gunpowder."
+    },
+    {
+      "id": "facepunch-c4-recipe",
+      "type": "official",
+      "label": "Facepunch Rust Wiki - Timed Explosive Charge",
+      "url": "https://wiki.facepunch.com/rust/item/explosive.timed",
+      "supports": "Current C4 recipe."
+    },
+    {
+      "id": "facepunch-satchel-recipe",
+      "type": "official",
+      "label": "Facepunch Rust Wiki - Satchel Charge",
+      "url": "https://wiki.facepunch.com/rust/item/explosive.satchel",
+      "supports": "Current satchel recipe."
+    },
+    {
+      "id": "facepunch-explosive-ammo-recipe",
+      "type": "official",
+      "label": "Facepunch Rust Wiki - Explosive 5.56 Rifle Ammo",
+      "url": "https://wiki.facepunch.com/rust/item/ammo.rifle.explosive",
+      "supports": "Explosive ammo recipe and craft yield."
+    },
+    {
+      "id": "frozen-rust-current-counts",
+      "type": "independent",
+      "label": "Independent current raid-cost cross-check - Frozen Rust",
+      "url": "https://frozen-rust.com/rust-raid-calculator.html",
+      "supports": "Current target counts and rolled-up sulfur costs for the monitored breach methods."
+    }
+  ],
+  "disclaimer": "Custom servers, damaged targets, splash damage, and future patches can change the practical result."
+}

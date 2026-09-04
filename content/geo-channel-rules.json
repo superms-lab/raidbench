@@ -1,0 +1,63 @@
+[
+  {
+    "channel": "owned_site",
+    "defaultRisk": "green",
+    "primaryUse": "Publish canonical guide, calculator, checklist, and scorecard pages.",
+    "linkPolicy": "Allowed.",
+    "approval": "Automated tests plus publish QA."
+  },
+  {
+    "channel": "google_bing",
+    "defaultRisk": "green",
+    "primaryUse": "Organic search discovery through indexed owned pages.",
+    "linkPolicy": "Submit sitemap and improve pages from query data.",
+    "approval": "Owner account setup required for Search Console/Bing Webmaster Tools."
+  },
+  {
+    "channel": "ai_search",
+    "defaultRisk": "green",
+    "primaryUse": "Make pages easy for answer engines to cite.",
+    "linkPolicy": "Owned pages only; no fake AI-only doorway pages.",
+    "approval": "Publish QA."
+  },
+  {
+    "channel": "reddit",
+    "defaultRisk": "yellow",
+    "primaryUse": "Demand discovery and occasional helpful replies.",
+    "linkPolicy": "Answer first. Link rarely. Disclose affiliation.",
+    "approval": "Owner review required before every manual post.",
+    "cadence": {
+      "first7Days": "Maximum 1 reply per day with at least 24 hours between replies.",
+      "days8To30": "Maximum 2 replies per day with at least 8-12 hours between replies, only after zero removals or warnings.",
+      "links": "Keep the first 10 helpful replies link-free. Later links remain exceptional and require disclosure."
+    }
+  },
+  {
+    "channel": "steam",
+    "defaultRisk": "yellow",
+    "primaryUse": "Demand discovery and text-only help.",
+    "linkPolicy": "Avoid direct promotion links unless clearly permitted.",
+    "approval": "Owner review required."
+  },
+  {
+    "channel": "discord",
+    "defaultRisk": "yellow",
+    "primaryUse": "Listening and permitted resource-channel participation.",
+    "linkPolicy": "No unsolicited DMs, self-bots, or repeated links.",
+    "approval": "Owner review and server-specific rule check required."
+  },
+  {
+    "channel": "quora_forums",
+    "defaultRisk": "yellow",
+    "primaryUse": "Answer high-intent questions with optional further reading.",
+    "linkPolicy": "Link in a minority of answers. Avoid repeated templates.",
+    "approval": "Owner review required for linked answers."
+  },
+  {
+    "channel": "paid_ads",
+    "defaultRisk": "yellow",
+    "primaryUse": "Later conversion testing after payment works.",
+    "linkPolicy": "Use only compliant landing pages and clear pricing.",
+    "approval": "Owner approval required."
+  }
+]

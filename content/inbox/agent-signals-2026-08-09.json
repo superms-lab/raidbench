@@ -1,0 +1,649 @@
+{
+  "runId": "run_20260809100344",
+  "summary": {
+    "sources": 11,
+    "snapshots": 11,
+    "signals": 34,
+    "highValueSignals": 8,
+    "failedSources": 4
+  },
+  "snapshots": [
+    {
+      "id": "snap_e3193789844f24c5ca",
+      "runId": "run_20260809100344",
+      "sourceId": "rust-official-news",
+      "fetchedAt": "2026-08-09T10:03:44.344Z",
+      "ok": true,
+      "statusCode": 200,
+      "title": "News — Rust",
+      "bodySample": "News — Rust menu news companion mobile Merch Store Redeem Careers Buy Rust Your browser does not support the video tag. schedule Thursday, August 6, 2026 This month&#x27;s update brings you Player Maintained Monuments in the form of a new Satellite Crash, Dome Pumping, restorable Power Plant, plus more. As well as plenty of balances, bug fixes, optimisations, upgrades, and more improvements! Read more Recent Devblog Community General Your browser does not support the video tag. Thursday, August 6, 2026 DEVBLOG Power Trip This month&#x27;s update brings you Player Maintained Monuments in the form of a new Satellite Crash, Dome Pumping, restorable Power Plant, plus more. As well as plenty of balances, bug fixes, optimisations, upgrades, and more improvements! Your browser does not support the video tag. Thursday, July 2, 2026 DEVBLOG Common Ground This month&#x27;s update features a New Monument:&#xA0;The Apartment Complex, Rentable Shops, a New Clan System &amp; Table,&#xA0;plus QoL changes and much more! Your browser does not support the video tag. Thursday, June 4, 2026 DEVBLOG Built Different This month&#x27;s update brings Rust&#x27;s biggest player overhaul in years, featuring new player models and animations, a new armour set, and the M16A2 rifle. It also includes QoL improvements, bug fixes, performance enhancements, and much more! Your browser does not support the video tag. Thursday, May 7, 2026 DEVBLOG Upgrade hard, raid harder This month&#x27;s update brings you Workbench upgrades, the new Mortar, improved Tin Can Alarm, as well as model refreshes and remakes, plus many QoL improvements, bug fixes, and more! Your browser does not support the video tag. Thursday, April 2, 2026 DEVBLOG Spring Clean This month&#x27;s update brings you TWO new items - the Armoured Ladder Hatch and Water Wheel, additionally loads of QOL improvements, bug fixes, better performance and much more! Your browser does not support the video tag. Thursday, March 5, 2026 DEVBLOG Shipshape This month&#x27;s update brings massive improvements to how you live, build, and fight on water and in The Deep Sea. As well as extended daytime, balances, fixes, and quality of life improvements. Your browser does not support the video tag. Tuesday, February 17, 2026 lunar new year 2026 2026&#x27;s Lunar New Year celebrations have begun! Celebrate the occasion by honouring the Year of the Horse with the Ornate Horse Mask, Horse Armour, and more.&#xA0; Your browser does not support the video tag. Thursday, February 5, 2026 DEVBLOG Naval Update Ahoy matey! This month, we bring you buildable boats, deep sea, tropical islands, ghost ships, new and improved AI and much, much more! It&#x27;s a big one. Thursday, January 22, 2026 COMMUNITY Community Update 268 Naval Staging bits, Twitch Drops, a Father Son Duo, Rustmas recaps, sneaky C4, and more! arrow_left arrow_right 1 2 3 4 5 ... 75 Stay up to date To make sure you don't miss an update please add us to feedly You can also access the r",
+      "contentHash": "b423cb245acf0b5df71d0a2a6c9117805aaaf58e"
+    },
+    {
+      "id": "snap_15dc4bbc71d02218f0",
+      "runId": "run_20260809100344",
+      "sourceId": "rust-commit-stream",
+      "fetchedAt": "2026-08-09T10:03:45.316Z",
+      "ok": true,
+      "statusCode": 200,
+      "title": "Facepunch Commits",
+      "bodySample": "Facepunch Commits &nbsp;facepunch commits repo rust_reboot cancel 138,450 Commits over 4,505 Days - 1.28cph ! arrow_left arrow_right 1 2 3 4 5 ... 2,769 Flavien Today rust_reboot /main/hackweek_iorewrite #160652 merge from main thumb_up 1 thumb_down 0 Damian Lazarski Today rust_reboot /main/underground_train_network_update #160651 Large crashed train station progress thumb_up 3 thumb_down 0 lamalove Yesterday rust_reboot /main #160649 Merge from nexus_fixes thumb_up 1 thumb_down 0 lamalove Yesterday rust_reboot /main/nexus_fixes #160648 Updated Facepunch.Nexus, all player IDs are now ulong instead of strings thumb_up 1 thumb_down 0 Lain Yesterday rust_reboot /main/scrap_king_buildingskin_dlc #160644 wip scrap king textures thumb_up 4 thumb_down 3 ElliotH Yesterday rust_reboot /main/fix_gasstation_bettercarloot #160640 apply prefab to scene, S2P Gas Station thumb_up 2 thumb_down 2 ElliotH Yesterday rust_reboot /main/fix_gasstation_bettercarloot #160639 fix gas station better loot spawns not respawning after server restart thumb_up 5 thumb_down 2 ElliotH Yesterday rust_reboot /main/wtp_maintainables_rework #160638 Water Treatment Plant Maintainables Rework (from helk feedback)&#xD;&#xA;- each wheel turned fully adds 180 pressure, which is now equivalent to 3 hours of water flow&#xD;&#xA;- max pressure of the tank increased to 360, decay changed to 1/minute&#xD;&#xA;- water output per minute scales linearly with pressure in the tank, from 0 to a ConVar configurable amount (default 1020/minute at full pressure)&#xD;&#xA;- when pressure falls to 0, water flow stops and the water in the pipes begins to evaporate at a rate of 200/minute&#xD;&#xA;- (WIP) number roughly balance out to a fully pressurized water pipe being 2x as good as a freshwater pump, including IO push/autofilling numbers thumb_up 6 thumb_down 1 Alex Webster Yesterday rust_reboot /main/Weapon_Refresh_Flare #160637 Added pop cap sounds and hooked up, adjusted 3p throw events thumb_up 0 thumb_down 1 Lain Yesterday rust_reboot /main/scrap_king_buildingskin_dlc #160636 wip scrap king building skin - initial setup, materials, textures, test blocks thumb_up 3 thumb_down 1 Alex Webster Yesterday rust_reboot /main/Weapon_Refresh_Flare #160635 Added cap world model (in case we decide to add it to the left hand) thumb_up 1 thumb_down 1 Alex Webster Yesterday rust_reboot /main/Weapon_Refresh_Flare #160634 Renamed the flare folder from &#x27;FlareOld&#x27; to &#x27;Flare&#x27;&#xD;&#xA;(groundbreaking stuff and will probably break the internet) thumb_up 1 thumb_down 1 Alex Webster Yesterday rust_reboot /main/Weapon_Refresh_Flare #160633 removed animator from .weapon prefab thumb_up 0 thumb_down 1 Alex Webster Yesterday rust_reboot /main/Weapon_Refresh_Flare #160632 Deleted old materials/model/rig/anim files&#xD;&#xA;- Moved materials/model/rig/anim files to the original folder&#xD;&#xA;- Deleted &#x27;New&#x27; folder thumb_up 0 thumb_down 1 julek Yesterday rust_reboot /main/glass_ar #160631 latest",
+      "contentHash": "7b2531e99d9147547e3792db04695d609bf5b7ed"
+    },
+    {
+      "id": "snap_1928fbde0809ea824d",
+      "runId": "run_20260809100344",
+      "sourceId": "rust-steam-news",
+      "fetchedAt": "2026-08-09T10:03:46.121Z",
+      "ok": true,
+      "statusCode": 200,
+      "title": "Rust Steam news feed",
+      "bodySample": "252490 RSS Feed en-us Steam News RSS POWER TRIP &lt;p class=&quot;bb_paragraph&quot;&gt;&lt;/p&gt;&lt;div onclick=&quot;javascript:ReplaceWithYouTubeEmbed( this );&quot; data-youtube=&quot;&amp;quot;ynUzYLpvmXs&quot; class=&quot;sharedFilePreviewYouTubeVideo&quot;&gt;&lt;img class=&quot;sharedFilePreviewYouTubeVideo&quot; src=&quot;https://steamcommunity.com/public/shared/images/responsive/youtube_16x9_placeholder.gif&quot;/&gt;&lt;iframe src=&quot;https://www.youtube-nocookie.com/embed/&amp;quot;ynUzYLpvmXs?fs=1&amp;modestbranding=1&amp;rel=0&quot; allowFullScreen=&quot;1&quot; frameBorder=&quot;0&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;&lt;/p&gt;&lt;div class=&quot;bb_h2&quot;&gt;PLAYER MAINTAINED MONUMENTS&lt;/div&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;&lt;/p&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;This month we're releasing a set of features we call Player Maintained Monuments - tying together our existing monuments in new and interesting ways while pushing players to interact with each other in the process.&lt;/p&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;&lt;/p&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;&lt;/p&gt;&lt;div class=&quot;bb_h2&quot;&gt;POWERING UP THE POWER PLANT&lt;/div&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;&lt;/p&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;Using new Heavy Fuses, the power plant can be fired back up to unlock several new gameplay features for everyone around the island.&lt;/p&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;&lt;img src=&quot;https://files.facepunch.com/martynchapman/2026/August/rust_powerfuses_4_1080_jpg.jpg style=box-sizing: inherit; cursor: pointer; box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 15px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.2); transition: 0.2s; transform: scale(1); max-width: 100%; display: block; margin: 16px auto;&quot; crossorigin=&quot;anonymous&quot; /&gt;&lt;/p&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;Heavy Fuses can be found as loot and must be inserted into the new special fuse boxes located at the power plant. Not everything will be unlocked all at once - some things connected to the power plant require more fuses than others to become functional.&lt;/p&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;&lt;img src=&quot;https://files.facepunch.com/martynchapman/2026/August/rust_powerfuses_3_1080_jpg.jpg style=box-sizing: inherit; cursor: pointer; box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 15px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.2); transition: 0.2s; transform: scale(1); max-width: 100%; display: block; margin: 16px auto;&quot; crossorigin=&quot;anonymous&quot; /&gt;&lt;/p&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;Once the power plant has started providing power, the powerline poles with transformers (the white cylinder-looking things) which appear alongside roads can now provide power for electrical circuits. These powerlines can also now be climbed - no need for a ladder, just approach the power",
+      "contentHash": "e6386e5e06e7d7dd543cb5ef6e43385feeab00bf"
+    },
+    {
+      "id": "snap_2c1574f4f75972f5d9",
+      "runId": "run_20260809100344",
+      "sourceId": "rust-reddit-playrust",
+      "fetchedAt": "2026-08-09T10:03:46.361Z",
+      "ok": false,
+      "statusCode": 0,
+      "title": "",
+      "bodySample": "",
+      "error": "fetch failed",
+      "contentHash": ""
+    },
+    {
+      "id": "snap_dfa3f1c78611619b19",
+      "runId": "run_20260809100344",
+      "sourceId": "poe2-official-news",
+      "fetchedAt": "2026-08-09T10:03:46.388Z",
+      "ok": true,
+      "statusCode": 200,
+      "title": "News - Path of Exile - A Free Online Action RPG",
+      "bodySample": "News - Path of Exile - A Free Online Action RPG Log In Create Account Contact Support Path of Exile Sign Up PC Mac Xbox One PS4 Home News Create Account Log In Patch Notes Game Videos Overview Passive Tree Atlas Tree Ascendancy Classes Items Item Filters Community Wiki Forum Index Code of Conduct Search Events League Ladders Season &amp; Events My Private Leagues Trade Search Items Bulk Item Exchange About Shop Buy Packs Kirac&#039;s Vault Pass Microtransactions Specials Mystery Box Private League News Path of Exile: Curse of the Allflame Interview with Zizaran Aug 6, 2026, 4:38:39 AM Yesterday, Path of Exile 1 Game Designers Andrew and Octavian sat down with community streamer Zizaran to discuss Path of Exile: Curse of the Allflame. In case you missed it, check out the VOD here ! Read More. Path of Exile 1: Curse of the Allflame Improvements Aug 5, 2026, 11:37:35 AM Tomorrow we’re aiming to release 3.29.2 which will contain improvements to Curse of the Allflame. Find out more in this news post. Read More. Path of Exile 1: Curse of the Allflame Developer Interview Aug 3, 2026, 11:59:26 AM Later this week, Game Designers Octavian and Andrew will join Zizaran to discuss Path of Exile: Curse of the Allflame. Read More. Browse News Archive Subscribe to feed Deal of the Day 29 % Off Nightfall Armour Pack Buy Nightfall Armour Pack discounted to 295 Points Ends in 1 day Deal of the Day 29 % Off Angelic Wings Buy Angelic Wings discounted to 225 Points Ends in 1 day Deal of the Day 30 % Off Celestial Shield Buy Celestial Shield discounted to 145 Points Ends in 1 day Home News Create Account Log In Patch Notes Game Videos Overview Passive Tree Atlas Tree Ascendancy Classes Items Item Filters Community Wiki Forum Index Code of Conduct Search Events League Ladders Season &amp; Events My Private Leagues Trade Search Items Bulk Item Exchange About Shop Buy Packs Kirac&#039;s Vault Pass Microtransactions Specials Mystery Box Private League Official Channels &#169; 2010 - 2026 Grinding Gear Games Terms of Use, Privacy Notice and Cookies Notice - Contact Support - Developer API f8723a6f404a716096b79d892bc67482",
+      "contentHash": "b24100e0cdb186a00ee5e8a8e238cc3ffe919e6d"
+    },
+    {
+      "id": "snap_cd8fbb739ebc08f862",
+      "runId": "run_20260809100344",
+      "sourceId": "poe2-official-site",
+      "fetchedAt": "2026-08-09T10:03:47.411Z",
+      "ok": true,
+      "statusCode": 200,
+      "title": "Path of Exile 2",
+      "bodySample": "Path of Exile 2 The Path of Exile website requires JavaScript. Please enable JavaScript or use a different browser",
+      "contentHash": "45c648f2d4bf29be17d79fc44eb6e5ab7b1e2df0"
+    },
+    {
+      "id": "snap_072c992079270d3ce9",
+      "runId": "run_20260809100344",
+      "sourceId": "poe2-steam-news",
+      "fetchedAt": "2026-08-09T10:03:48.736Z",
+      "ok": true,
+      "statusCode": 200,
+      "title": "POE2 Steam news feed",
+      "bodySample": "2694490 RSS Feed en-us Steam News RSS Path of Exile 2 ExileCon Qualifiers Begin Next Week It's finally happening! The ExileCon Path of Exile 2 Qualifiers kick off next week, culminating in a live final where the top racers from all four qualifier events will compete for the championship title in New Zealand.&lt;br&gt;&lt;br&gt;The competition will take place on the following dates, with ZiggyD and Raiz serving as your hosts throughout the event:&lt;br&gt;&lt;br&gt;&lt;b&gt;Path of Exile 2 Qualifier Event Times and Dates&lt;/b&gt;&lt;br&gt;&lt;ul class=&quot;bb_ul&quot;&gt;&lt;li&gt; Qualifier One - August 6 2PM PDT&lt;br&gt;&lt;/li&gt;&lt;li&gt; Qualifier Two - August 13 2PM PDT&lt;br&gt;&lt;/li&gt;&lt;li&gt; Qualifier Three - August 20 2PM PDT&lt;br&gt;&lt;/li&gt;&lt;li&gt; Qualifier Four - August 27 2PM PDT&lt;/li&gt;&lt;/ul&gt;If you're participating in the event, please make sure that your Path of Exile account is linked to your Twitch account. You can do this by logging into your account on the website, then clicking &lt;a class=&quot;bb_link&quot; href=&quot;https://steamcommunity.com/linkfilter/?u=https%3A%2F%2Fwww.pathofexile.com%2Fmy-account%2Fconnections&quot; target=&quot;_blank&quot; rel=&quot; noopener&quot; &gt;here&lt;/a&gt;.&lt;br&gt;&lt;br&gt;To join a qualifier event, click the &quot;Join&quot; button for the race on the Character Select screen. You'll then be prompted to create a character. Once you've entered the game, your character will remain stationary until the race officially begins.&lt;br&gt;&lt;br&gt;In each Path of Exile 2 qualifier event, players will race to become the first to defeat Tavakai in Act Four within a Solo Self-Found Runes of Aldur event featuring a fixed layout. While this is not a Hardcore event, dying carries a significant penalty: after each death, you won't be able to move your character for two and a half minutes before continuing the race.&lt;br&gt;&lt;br&gt;The qualifier events are open to both PC and console players. However, the live finale at ExileCon will be played on PC. Competitors will be able to bring their .build files along with their preferred gaming peripherals with them to ExileCon for use during the finale.&lt;br&gt;&lt;br&gt;You can find the full ruleset &lt;a class=&quot;bb_link&quot; href=&quot;https://steamcommunity.com/linkfilter/?u=https%3A%2F%2Fwww.pathofexile.com%2Fforum%2Fview-thread%2F3976136&quot; target=&quot;_blank&quot; rel=&quot; noopener&quot; &gt;here&lt;/a&gt;.&lt;br&gt;&lt;br&gt;&lt;b&gt;Prizes&lt;/b&gt;&lt;br&gt;The first player to kill Tavakai in each event will receive the following:&lt;br&gt;&lt;ul class=&quot;bb_ul&quot;&gt;&lt;li&gt; Flights to Auckland, New Zealand for the weekend of ExileCon&lt;br&gt;&lt;/li&gt;&lt;li&gt; Accommodation in Auckland for the weekend of ExileCon&lt;br&gt;&lt;/li&gt;&lt;li&gt; Entrance into the ExileCon Path of Exile 2 Race Finale&lt;br&gt;&lt;/li&gt;&lt;li&gt; An Ultra VIP ExileCon ticket&lt;br&gt;&lt;/li&gt;&lt;li&gt; A Demig",
+      "contentHash": "ca20b416be705413c23188b0de4541eb14ab928e"
+    },
+    {
+      "id": "snap_3427e399200bd3d435",
+      "runId": "run_20260809100344",
+      "sourceId": "poe2-reddit",
+      "fetchedAt": "2026-08-09T10:03:48.789Z",
+      "ok": false,
+      "statusCode": 0,
+      "title": "",
+      "bodySample": "",
+      "error": "fetch failed",
+      "contentHash": ""
+    },
+    {
+      "id": "snap_2e6bb0078b3c3cfb72",
+      "runId": "run_20260809100344",
+      "sourceId": "palworld-official-news",
+      "fetchedAt": "2026-08-09T10:03:48.813Z",
+      "ok": false,
+      "statusCode": 0,
+      "title": "",
+      "bodySample": "",
+      "error": "fetch failed",
+      "contentHash": ""
+    },
+    {
+      "id": "snap_d9ed8eccce4db116d9",
+      "runId": "run_20260809100344",
+      "sourceId": "palworld-steam-news",
+      "fetchedAt": "2026-08-09T10:03:48.819Z",
+      "ok": true,
+      "statusCode": 200,
+      "title": "Palworld Steam news feed",
+      "bodySample": "1623730 RSS Feed en-us Steam News RSS v1.0.2.101103:Bug fixes &lt;p class=&quot;bb_paragraph&quot;&gt;・Fixed an issue where an infinite loading screen would occur after defeating the World Tree boss in some cases.&lt;/p&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;*Crossplay with other platforms will not be affected.&lt;/p&gt; Thu, 30 Jul 2026 12:16:34 +0000 https://store.steampowered.com/news/app/1623730/view/683009119697764932 Mod Support Improvement &lt;p class=&quot;bb_paragraph&quot;&gt;\\[Patch Notice]&lt;/p&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;Palworld version v1.0.2.100993 has been released! &lt;/p&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;＝＝＝ &lt;/p&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;・Made adjustments related to processing in order to improve stability when playing with MODs.&lt;/p&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;Note: This patch is applied to the PC version only, but will not negatively affect crossplay with other versions of the game.&lt;/p&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;＝＝＝&lt;/p&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;Thank you for your continued support of Palworld.&lt;/p&gt; Thu, 30 Jul 2026 03:05:21 +0000 https://store.steampowered.com/news/app/1623730/view/683009119697764920 v1.0.2: Bug fixes &lt;p class=&quot;bb_paragraph&quot;&gt;\\[Patch Notice]&lt;/p&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;Palworld version v1.0.2 has been released! &lt;/p&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;This update includes improvements to gameplay stability and fixes for various issues.&lt;/p&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;&lt;/p&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;＝＝＝ &lt;/p&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;&lt;/p&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;▼Crashes and Disconnections&lt;/p&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;・Fixed an issue where all players could be disconnected during the Panthalus battle on dedicated servers.&lt;/p&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;・Fixed an issue where players could crash during the Panthalus battle on dedicated servers.&lt;/p&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;・Fixed an issue where the game could crash when attempting Japanese text input in fullscreen mode.&lt;/p&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;&lt;/p&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;▼Multiplayer&lt;/p&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;・Fixed an issue where, if a player was already in The World Tree area when the host transitioned to The World Tree area, the terrain could fail to display correctly from the host’s perspective.&lt;/p&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;・Fixed an issue where the Tower Boss “Victor &amp; Shadowbeak” could disappear after using a teleportation attack during battle.&lt;/p&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;・Fixed an issue in the final boss battle where, if the host defeated the final boss while a guest was waiting to respawn, the guest’s light could fail to display correctly after respawning.&lt",
+      "contentHash": "6490d879e3377e74911a64c47f143027e2d38890"
+    },
+    {
+      "id": "snap_be6922c119438e3134",
+      "runId": "run_20260809100344",
+      "sourceId": "palworld-reddit",
+      "fetchedAt": "2026-08-09T10:03:48.877Z",
+      "ok": false,
+      "statusCode": 0,
+      "title": "",
+      "bodySample": "",
+      "error": "fetch failed",
+      "contentHash": ""
+    }
+  ],
+  "signals": [
+    {
+      "id": "sig_f36a06713895f1ba88",
+      "runId": "run_20260809100344",
+      "sourceId": "rust-official-news",
+      "game": "Rust",
+      "title": "News — Rust",
+      "url": "https://rust.facepunch.com/news",
+      "evidence": {
+        "sourceType": "official"
+      },
+      "topic": "general_research",
+      "painScore": 2,
+      "commercialScore": 1,
+      "patchSensitive": false
+    },
+    {
+      "id": "sig_d6f0c66464f3e5ec63",
+      "runId": "run_20260809100344",
+      "sourceId": "rust-commit-stream",
+      "game": "Rust",
+      "title": "Facepunch Commits",
+      "url": "https://commits.facepunch.com/r/rust_reboot",
+      "evidence": {
+        "sourceType": "official"
+      },
+      "topic": "general_research",
+      "painScore": 2,
+      "commercialScore": 1,
+      "patchSensitive": false
+    },
+    {
+      "id": "sig_76ebc5cf92f6ff68ad",
+      "runId": "run_20260809100344",
+      "sourceId": "rust-steam-news",
+      "game": "Rust",
+      "title": "POWER TRIP",
+      "url": "https://store.steampowered.com/news/app/252490/view/676254354515165455",
+      "evidence": {
+        "sourceType": "steam-rss"
+      },
+      "topic": "general_research",
+      "painScore": 2,
+      "commercialScore": 1,
+      "patchSensitive": false
+    },
+    {
+      "id": "sig_c4623fc4e8069d84bb",
+      "runId": "run_20260809100344",
+      "sourceId": "rust-steam-news",
+      "game": "Rust",
+      "title": "COMMON GROUND",
+      "url": "https://store.steampowered.com/news/app/252490/view/679628250084806242",
+      "evidence": {
+        "sourceType": "steam-rss"
+      },
+      "topic": "general_research",
+      "painScore": 2,
+      "commercialScore": 1,
+      "patchSensitive": false
+    },
+    {
+      "id": "sig_b0d9d8951fe0ca2888",
+      "runId": "run_20260809100344",
+      "sourceId": "rust-steam-news",
+      "game": "Rust",
+      "title": "BUILT DIFFERENT",
+      "url": "https://store.steampowered.com/news/app/252490/view/704396144568959331",
+      "evidence": {
+        "sourceType": "steam-rss"
+      },
+      "topic": "general_research",
+      "painScore": 2,
+      "commercialScore": 1,
+      "patchSensitive": false
+    },
+    {
+      "id": "sig_99ae4dbfc703044008",
+      "runId": "run_20260809100344",
+      "sourceId": "rust-steam-news",
+      "game": "Rust",
+      "title": "UPGRADE HARD, RAID HARDER",
+      "url": "https://store.steampowered.com/news/app/252490/view/653728111564686110",
+      "evidence": {
+        "sourceType": "steam-rss"
+      },
+      "topic": "raid_cost",
+      "painScore": 5,
+      "commercialScore": 5,
+      "patchSensitive": true
+    },
+    {
+      "id": "sig_2289ada089f7c30507",
+      "runId": "run_20260809100344",
+      "sourceId": "rust-steam-news",
+      "game": "Rust",
+      "title": "SPRING CLEAN",
+      "url": "https://store.steampowered.com/news/app/252490/view/533253650845270783",
+      "evidence": {
+        "sourceType": "steam-rss"
+      },
+      "topic": "general_research",
+      "painScore": 2,
+      "commercialScore": 1,
+      "patchSensitive": false
+    },
+    {
+      "id": "sig_8dc9f0bce30d5e1b9f",
+      "runId": "run_20260809100344",
+      "sourceId": "rust-steam-news",
+      "game": "Rust",
+      "title": "SHIPSHAPE",
+      "url": "https://store.steampowered.com/news/app/252490/view/526495718648578396",
+      "evidence": {
+        "sourceType": "steam-rss"
+      },
+      "topic": "general_research",
+      "painScore": 2,
+      "commercialScore": 1,
+      "patchSensitive": false
+    },
+    {
+      "id": "sig_270731d653bb6705c7",
+      "runId": "run_20260809100344",
+      "sourceId": "rust-steam-news",
+      "game": "Rust",
+      "title": "NAVAL UPDATE",
+      "url": "https://store.steampowered.com/news/app/252490/view/529870881777778806",
+      "evidence": {
+        "sourceType": "steam-rss"
+      },
+      "topic": "patch",
+      "painScore": 4,
+      "commercialScore": 3,
+      "patchSensitive": true
+    },
+    {
+      "id": "sig_a1be153c11a7205e1c",
+      "runId": "run_20260809100344",
+      "sourceId": "rust-steam-news",
+      "game": "Rust",
+      "title": "COMMUNITY UPDATE 268",
+      "url": "https://store.steampowered.com/news/app/252490/view/496092615849018888",
+      "evidence": {
+        "sourceType": "steam-rss"
+      },
+      "topic": "patch",
+      "painScore": 4,
+      "commercialScore": 3,
+      "patchSensitive": true
+    },
+    {
+      "id": "sig_1ceb3d913389beebfa",
+      "runId": "run_20260809100344",
+      "sourceId": "rust-steam-news",
+      "game": "Rust",
+      "title": "SURVIVING 12 YEARS",
+      "url": "https://store.steampowered.com/news/app/252490/view/507348444540570069",
+      "evidence": {
+        "sourceType": "steam-rss"
+      },
+      "topic": "general_research",
+      "painScore": 2,
+      "commercialScore": 1,
+      "patchSensitive": false
+    },
+    {
+      "id": "sig_7108fa16b6832fb9cd",
+      "runId": "run_20260809100344",
+      "sourceId": "rust-steam-news",
+      "game": "Rust",
+      "title": "Final Round of Voting - Rust in the Steam Awards",
+      "url": "https://store.steampowered.com/news/app/252490/view/507348444540569163",
+      "evidence": {
+        "sourceType": "steam-rss"
+      },
+      "topic": "general_research",
+      "painScore": 2,
+      "commercialScore": 1,
+      "patchSensitive": false
+    },
+    {
+      "id": "sig_b8e509b3ae642ac06d",
+      "runId": "run_20260809100344",
+      "sourceId": "poe2-official-news",
+      "game": "POE2",
+      "title": "News - Path of Exile - A Free Online Action RPG",
+      "url": "https://www.pathofexile.com/news",
+      "evidence": {
+        "sourceType": "official"
+      },
+      "topic": "general_research",
+      "painScore": 2,
+      "commercialScore": 1,
+      "patchSensitive": false
+    },
+    {
+      "id": "sig_90770a9b0efef08bf0",
+      "runId": "run_20260809100344",
+      "sourceId": "poe2-official-site",
+      "game": "POE2",
+      "title": "Path of Exile 2",
+      "url": "https://pathofexile2.com/",
+      "evidence": {
+        "sourceType": "official"
+      },
+      "topic": "general_research",
+      "painScore": 2,
+      "commercialScore": 1,
+      "patchSensitive": false
+    },
+    {
+      "id": "sig_1f96b2d2f5dd521195",
+      "runId": "run_20260809100344",
+      "sourceId": "poe2-steam-news",
+      "game": "POE2",
+      "title": "Path of Exile 2 ExileCon Qualifiers Begin Next Week",
+      "url": "https://store.steampowered.com/news/app/2694490/view/675127820346721418",
+      "evidence": {
+        "sourceType": "steam-rss"
+      },
+      "topic": "general_research",
+      "painScore": 2,
+      "commercialScore": 1,
+      "patchSensitive": false
+    },
+    {
+      "id": "sig_f7cab720f7f1c73c2b",
+      "runId": "run_20260809100344",
+      "sourceId": "poe2-steam-news",
+      "game": "POE2",
+      "title": "Path of Exile 2 Build Showcase: Slowmaxing Chronomancer by TuskDeluxe",
+      "url": "https://store.steampowered.com/news/app/2694490/view/690887249156380937",
+      "evidence": {
+        "sourceType": "steam-rss"
+      },
+      "topic": "official_marketing",
+      "painScore": 1,
+      "commercialScore": 1,
+      "patchSensitive": false
+    },
+    {
+      "id": "sig_0bce8898ac209bddfa",
+      "runId": "run_20260809100344",
+      "sourceId": "poe2-steam-news",
+      "game": "POE2",
+      "title": "Path of Exile 2 at gamescom 2026",
+      "url": "https://store.steampowered.com/news/app/2694490/view/690887249156378483",
+      "evidence": {
+        "sourceType": "steam-rss"
+      },
+      "topic": "general_research",
+      "painScore": 2,
+      "commercialScore": 1,
+      "patchSensitive": false
+    },
+    {
+      "id": "sig_18d542e1a58a3bf77e",
+      "runId": "run_20260809100344",
+      "sourceId": "poe2-steam-news",
+      "game": "POE2",
+      "title": "0.5.4b Patch Notes",
+      "url": "https://store.steampowered.com/news/app/2694490/view/690887249156378410",
+      "evidence": {
+        "sourceType": "steam-rss"
+      },
+      "topic": "patch",
+      "painScore": 4,
+      "commercialScore": 3,
+      "patchSensitive": true
+    },
+    {
+      "id": "sig_74009958f1719355b0",
+      "runId": "run_20260809100344",
+      "sourceId": "poe2-steam-news",
+      "game": "POE2",
+      "title": "Path of Exile 2 Build Showcase: Frogmancer by Yuzo TV",
+      "url": "https://store.steampowered.com/news/app/2694490/view/690887249156378097",
+      "evidence": {
+        "sourceType": "steam-rss"
+      },
+      "topic": "official_marketing",
+      "painScore": 1,
+      "commercialScore": 1,
+      "patchSensitive": false
+    },
+    {
+      "id": "sig_d374df18f925b4d77b",
+      "runId": "run_20260809100344",
+      "sourceId": "poe2-steam-news",
+      "game": "POE2",
+      "title": "Microtransaction Roundup: Wendigo Spear Skill Effect & Verisium Effect Bundle",
+      "url": "https://store.steampowered.com/news/app/2694490/view/690887249156376422",
+      "evidence": {
+        "sourceType": "steam-rss"
+      },
+      "topic": "official_marketing",
+      "painScore": 1,
+      "commercialScore": 1,
+      "patchSensitive": false
+    },
+    {
+      "id": "sig_6591551ec08ada31f8",
+      "runId": "run_20260809100344",
+      "sourceId": "poe2-steam-news",
+      "game": "POE2",
+      "title": "ExileCon 2026 Path of Exile 2 Race Qualifier Events",
+      "url": "https://store.steampowered.com/news/app/2694490/view/690887249156375325",
+      "evidence": {
+        "sourceType": "steam-rss"
+      },
+      "topic": "general_research",
+      "painScore": 2,
+      "commercialScore": 1,
+      "patchSensitive": false
+    },
+    {
+      "id": "sig_72d320ac35fd6de547",
+      "runId": "run_20260809100344",
+      "sourceId": "poe2-steam-news",
+      "game": "POE2",
+      "title": "0.5.4 Patch Notes",
+      "url": "https://store.steampowered.com/news/app/2694490/view/690887249156374916",
+      "evidence": {
+        "sourceType": "steam-rss"
+      },
+      "topic": "patch",
+      "painScore": 4,
+      "commercialScore": 3,
+      "patchSensitive": true
+    },
+    {
+      "id": "sig_5c05434ae9c964c882",
+      "runId": "run_20260809100344",
+      "sourceId": "poe2-steam-news",
+      "game": "POE2",
+      "title": "Path of Exile 2 0.5.4 Patch Preview",
+      "url": "https://store.steampowered.com/news/app/2694490/view/690887249156374923",
+      "evidence": {
+        "sourceType": "steam-rss"
+      },
+      "topic": "patch",
+      "painScore": 4,
+      "commercialScore": 3,
+      "patchSensitive": true
+    },
+    {
+      "id": "sig_8da911e2518c765ce9",
+      "runId": "run_20260809100344",
+      "sourceId": "poe2-steam-news",
+      "game": "POE2",
+      "title": "Path of Exile 2 Build Showcase: Chaos Tornados by FlickerSlide",
+      "url": "https://store.steampowered.com/news/app/2694490/view/690887249156374529",
+      "evidence": {
+        "sourceType": "steam-rss"
+      },
+      "topic": "official_marketing",
+      "painScore": 1,
+      "commercialScore": 1,
+      "patchSensitive": false
+    },
+    {
+      "id": "sig_46d2c44aa938bd4841",
+      "runId": "run_20260809100344",
+      "sourceId": "palworld-steam-news",
+      "game": "Palworld",
+      "title": "v1.0.2.101103:Bug fixes",
+      "url": "https://store.steampowered.com/news/app/1623730/view/683009119697764932",
+      "evidence": {
+        "sourceType": "steam-rss"
+      },
+      "topic": "general_research",
+      "painScore": 2,
+      "commercialScore": 1,
+      "patchSensitive": false
+    },
+    {
+      "id": "sig_b3e899013aa669bfc1",
+      "runId": "run_20260809100344",
+      "sourceId": "palworld-steam-news",
+      "game": "Palworld",
+      "title": "Mod Support Improvement",
+      "url": "https://store.steampowered.com/news/app/1623730/view/683009119697764920",
+      "evidence": {
+        "sourceType": "steam-rss"
+      },
+      "topic": "general_research",
+      "painScore": 2,
+      "commercialScore": 1,
+      "patchSensitive": false
+    },
+    {
+      "id": "sig_18ede8aabcca56d242",
+      "runId": "run_20260809100344",
+      "sourceId": "palworld-steam-news",
+      "game": "Palworld",
+      "title": "v1.0.2: Bug fixes",
+      "url": "https://store.steampowered.com/news/app/1623730/view/707778282962029621",
+      "evidence": {
+        "sourceType": "steam-rss"
+      },
+      "topic": "general_research",
+      "painScore": 2,
+      "commercialScore": 1,
+      "patchSensitive": false
+    },
+    {
+      "id": "sig_81002347f09d100e70",
+      "runId": "run_20260809100344",
+      "sourceId": "palworld-steam-news",
+      "game": "Palworld",
+      "title": "v1.0.1: Bug fixes",
+      "url": "https://store.steampowered.com/news/app/1623730/view/710029448730116120",
+      "evidence": {
+        "sourceType": "steam-rss"
+      },
+      "topic": "general_research",
+      "painScore": 2,
+      "commercialScore": 1,
+      "patchSensitive": false
+    },
+    {
+      "id": "sig_d896e9d8af95bfaf69",
+      "runId": "run_20260809100344",
+      "sourceId": "palworld-steam-news",
+      "game": "Palworld",
+      "title": "Palworld v1.0 - Official Release Changelog",
+      "url": "https://store.steampowered.com/news/app/1623730/view/686383649529010623",
+      "evidence": {
+        "sourceType": "steam-rss"
+      },
+      "topic": "base_automation",
+      "painScore": 4,
+      "commercialScore": 4,
+      "patchSensitive": true
+    },
+    {
+      "id": "sig_35a32f0de7242eca87",
+      "runId": "run_20260809100344",
+      "sourceId": "palworld-steam-news",
+      "game": "Palworld",
+      "title": "Palworld 1.0 Official Launch Trailer is OUT!",
+      "url": "https://store.steampowered.com/news/app/1623730/view/686383649529010823",
+      "evidence": {
+        "sourceType": "steam-rss"
+      },
+      "topic": "official_marketing",
+      "painScore": 1,
+      "commercialScore": 1,
+      "patchSensitive": false
+    },
+    {
+      "id": "sig_26914433e60065ac70",
+      "runId": "run_20260809100344",
+      "sourceId": "palworld-steam-news",
+      "game": "Palworld",
+      "title": "Important: About MODs and 1.0!",
+      "url": "https://store.steampowered.com/news/app/1623730/view/686383649529010209",
+      "evidence": {
+        "sourceType": "steam-rss"
+      },
+      "topic": "general_research",
+      "painScore": 2,
+      "commercialScore": 1,
+      "patchSensitive": false
+    },
+    {
+      "id": "sig_6b474629aedcad3d71",
+      "runId": "run_20260809100344",
+      "sourceId": "palworld-steam-news",
+      "game": "Palworld",
+      "title": "Palworld Surpasses 40 Million Players!",
+      "url": "https://store.steampowered.com/news/app/1623730/view/686383649529010194",
+      "evidence": {
+        "sourceType": "steam-rss"
+      },
+      "topic": "base_automation",
+      "painScore": 4,
+      "commercialScore": 4,
+      "patchSensitive": true
+    },
+    {
+      "id": "sig_0bef5a18ad1248e7b8",
+      "runId": "run_20260809100344",
+      "sourceId": "palworld-steam-news",
+      "game": "Palworld",
+      "title": "Steam Summer Sale is HERE!",
+      "url": "https://store.steampowered.com/news/app/1623730/view/686383649529004646",
+      "evidence": {
+        "sourceType": "steam-rss"
+      },
+      "topic": "official_marketing",
+      "painScore": 1,
+      "commercialScore": 1,
+      "patchSensitive": false
+    },
+    {
+      "id": "sig_cc7164d7235193d568",
+      "runId": "run_20260809100344",
+      "sourceId": "palworld-steam-news",
+      "game": "Palworld",
+      "title": "Super Survival Summer Bundle!",
+      "url": "https://store.steampowered.com/news/app/1623730/view/686383649529004531",
+      "evidence": {
+        "sourceType": "steam-rss"
+      },
+      "topic": "official_marketing",
+      "painScore": 1,
+      "commercialScore": 1,
+      "patchSensitive": false
+    }
+  ]
+}

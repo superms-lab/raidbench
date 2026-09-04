@@ -1,0 +1,278 @@
+{
+  "schemaVersion": "1.0.0",
+  "preparedAt": "2026-09-03T08:17:21+00:00",
+  "backlogGeneratedAt": "2026-09-03T06:50:51+00:00",
+  "packets": [
+    {
+      "gameId": "project-zomboid",
+      "game": "Project Zomboid",
+      "preparedAt": "2026-09-03T08:17:21+00:00",
+      "factSources": [
+        {
+          "id": "project-zomboid-official-news",
+          "url": "https://projectzomboid.com/blog/news/",
+          "authority": "publisher",
+          "freshnessHours": 336,
+          "notes": "The Indie Stone news and build announcements."
+        },
+        {
+          "id": "project-zomboid-steam-news",
+          "url": "https://store.steampowered.com/feeds/news/app/108600",
+          "authority": "publisher-via-steam",
+          "freshnessHours": 336,
+          "notes": "Publisher announcements distributed through the Project Zomboid Steam feed."
+        }
+      ],
+      "demandSignal": {
+        "title": "Is it possible to change zombie settings mid game?",
+        "url": "https://www.reddit.com/r/projectzomboid/comments/1w5gnmv/is_it_possible_to_change_zombie_settings_mid_game/",
+        "topic": "sandbox_settings",
+        "intentZh": "玩家希望在现有单人存档中将蹒跚者改为拥有超人力量的奔跑者，并确认是否能安全地中途修改僵尸沙盒设置。",
+        "score": 83,
+        "status": "new",
+        "demandOnly": true
+      },
+      "evidenceBoundary": "Publisher-controlled sources may support factual claims. The community thread supports topic selection only. Unsupported mechanics, exact values, and outcomes must not be inferred."
+    },
+    {
+      "gameId": "escape-from-tarkov",
+      "game": "Escape from Tarkov",
+      "preparedAt": "2026-09-03T08:17:21+00:00",
+      "factSources": [
+        {
+          "id": "escape-from-tarkov-official-forum",
+          "url": "https://forum.escapefromtarkov.com/forum/4-project-news/",
+          "authority": "publisher",
+          "freshnessHours": 168,
+          "notes": "Battlestate Games-controlled project news forum; used because the main news listing blocks automated fetches."
+        },
+        {
+          "id": "escape-from-tarkov-steam-news",
+          "url": "https://store.steampowered.com/feeds/news/app/3932890",
+          "authority": "publisher-via-steam",
+          "freshnessHours": 168,
+          "notes": "Publisher announcements distributed through the Escape from Tarkov Steam feed."
+        }
+      ],
+      "demandSignal": {
+        "title": "What's your go-to gun? [Discussion]",
+        "url": "https://www.reddit.com/r/EscapefromTarkov/comments/1w4bqep/whats_your_goto_gun_discussion/",
+        "topic": "equipment_budget",
+        "intentZh": "20级玩家希望根据当前可用资源，选择适合任务与PVP的高性价比武器配置。",
+        "score": 90,
+        "status": "new",
+        "demandOnly": true
+      },
+      "evidenceBoundary": "Publisher-controlled sources may support factual claims. The community thread supports topic selection only. Unsupported mechanics, exact values, and outcomes must not be inferred."
+    },
+    {
+      "gameId": "ark-survival-ascended",
+      "game": "ARK: Survival Ascended",
+      "preparedAt": "2026-09-03T08:17:21+00:00",
+      "factSources": [
+        {
+          "id": "ark-survival-ascended-official-news",
+          "url": "https://survivetheark.com/index.php?/articles.html/",
+          "authority": "publisher",
+          "freshnessHours": 168,
+          "notes": "Studio Wildcard-controlled ARK announcements."
+        },
+        {
+          "id": "ark-survival-ascended-steam-news",
+          "url": "https://store.steampowered.com/feeds/news/app/2399830",
+          "authority": "publisher-via-steam",
+          "freshnessHours": 168,
+          "notes": "Publisher announcements distributed through the ARK: Survival Ascended Steam feed."
+        }
+      ],
+      "demandSignal": {
+        "title": "Ark the island saddle blueprint",
+        "url": "https://www.reddit.com/r/ARK/comments/1w09iwd/ark_the_island_saddle_blueprint/",
+        "topic": "progression",
+        "intentZh": "玩家需要选择高效的鞍具蓝图刷取路线，并调整战利品品质设置，以获得成本可承受且适合挑战孤岛 Alpha Boss 的蓝图。",
+        "score": 78,
+        "status": "new",
+        "demandOnly": true
+      },
+      "evidenceBoundary": "Publisher-controlled sources may support factual claims. The community thread supports topic selection only. Unsupported mechanics, exact values, and outcomes must not be inferred."
+    },
+    {
+      "gameId": "warframe",
+      "game": "Warframe",
+      "preparedAt": "2026-09-03T08:17:21+00:00",
+      "factSources": [
+        {
+          "id": "warframe-official-patch-notes",
+          "url": "https://www.warframe.com/en/patch-notes",
+          "authority": "publisher",
+          "freshnessHours": 168,
+          "notes": "Digital Extremes-controlled Warframe patch notes."
+        },
+        {
+          "id": "warframe-steam-news",
+          "url": "https://store.steampowered.com/feeds/news/app/230410",
+          "authority": "publisher-via-steam",
+          "freshnessHours": 168,
+          "notes": "Publisher announcements distributed through the Warframe Steam feed."
+        }
+      ],
+      "demandSignal": {
+        "title": "Returning player a bit lost.",
+        "url": "https://www.reddit.com/r/Warframe/comments/1w084ho/returning_player_a_bit_lost/",
+        "topic": "returning_player",
+        "intentZh": "回归玩家已完成全部任务，但不确定下一步应优先推进哪些内容，以及现有战甲、武器和模组是否足以开始钢铁之路。",
+        "score": 87,
+        "status": "new",
+        "demandOnly": true
+      },
+      "evidenceBoundary": "Publisher-controlled sources may support factual claims. The community thread supports topic selection only. Unsupported mechanics, exact values, and outcomes must not be inferred."
+    },
+    {
+      "gameId": "once-human",
+      "game": "Once Human",
+      "preparedAt": "2026-09-03T08:17:21+00:00",
+      "factSources": [
+        {
+          "id": "once-human-official-updates",
+          "url": "https://www.oncehuman.game/news/update/",
+          "authority": "publisher",
+          "freshnessHours": 168,
+          "notes": "NetEase and Starry Studio-controlled Once Human update announcements."
+        },
+        {
+          "id": "once-human-steam-news",
+          "url": "https://store.steampowered.com/feeds/news/app/2139460",
+          "authority": "publisher-via-steam",
+          "freshnessHours": 168,
+          "notes": "Publisher announcements distributed through the Once Human Steam feed."
+        }
+      ],
+      "demandSignal": {
+        "title": "I’m having trouble understanding what carries over between characters.",
+        "url": "https://www.reddit.com/r/OnceHumanOfficial/comments/1w4alb8/im_having_trouble_understanding_what_carries_over/",
+        "topic": "season_change",
+        "intentZh": "玩家需要判断应沿用同一角色进入新剧本，还是为每个剧本创建新角色，并厘清账号、角色及赛季间分别继承哪些内容。",
+        "score": 97,
+        "status": "new",
+        "demandOnly": true
+      },
+      "evidenceBoundary": "Publisher-controlled sources may support factual claims. The community thread supports topic selection only. Unsupported mechanics, exact values, and outcomes must not be inferred."
+    },
+    {
+      "gameId": "counter-strike-2",
+      "game": "Counter-Strike 2",
+      "preparedAt": "2026-09-03T08:17:21+00:00",
+      "factSources": [
+        {
+          "id": "counter-strike-2-official-updates",
+          "url": "https://www.counter-strike.net/news/updates",
+          "authority": "publisher",
+          "freshnessHours": 168,
+          "notes": "Valve-controlled Counter-Strike release notes."
+        },
+        {
+          "id": "counter-strike-2-steam-news",
+          "url": "https://store.steampowered.com/feeds/news/app/730",
+          "authority": "publisher-via-steam",
+          "freshnessHours": 168,
+          "notes": "Publisher announcements distributed through the Counter-Strike 2 Steam feed."
+        }
+      ],
+      "demandSignal": null,
+      "evidenceBoundary": "Publisher-controlled sources may support factual claims. The community thread supports topic selection only. Unsupported mechanics, exact values, and outcomes must not be inferred."
+    },
+    {
+      "gameId": "dota-2",
+      "game": "Dota 2",
+      "preparedAt": "2026-09-03T08:17:21+00:00",
+      "factSources": [
+        {
+          "id": "dota-2-official-patches",
+          "url": "https://www.dota2.com/patches",
+          "authority": "publisher",
+          "freshnessHours": 168,
+          "notes": "Valve-controlled Dota 2 gameplay patch archive."
+        },
+        {
+          "id": "dota-2-steam-news",
+          "url": "https://store.steampowered.com/feeds/news/app/570",
+          "authority": "publisher-via-steam",
+          "freshnessHours": 168,
+          "notes": "Publisher announcements distributed through the Dota 2 Steam feed."
+        }
+      ],
+      "demandSignal": {
+        "title": "what did i do wrong",
+        "url": "https://www.reddit.com/r/DotA2/comments/1w13tjq/what_did_i_do_wrong/",
+        "topic": "replay_review",
+        "intentZh": "玩家希望复盘一场莱肯对局，诊断失利原因，并确定当时更合理的出装与决策。",
+        "score": 94,
+        "status": "new",
+        "demandOnly": true
+      },
+      "evidenceBoundary": "Publisher-controlled sources may support factual claims. The community thread supports topic selection only. Unsupported mechanics, exact values, and outcomes must not be inferred."
+    },
+    {
+      "gameId": "pubg-battlegrounds",
+      "game": "PUBG: BATTLEGROUNDS",
+      "preparedAt": "2026-09-03T08:17:21+00:00",
+      "factSources": [
+        {
+          "id": "pubg-battlegrounds-official-news",
+          "url": "https://pubg.com/en/news?category=patch_notes",
+          "authority": "publisher",
+          "freshnessHours": 168,
+          "notes": "KRAFTON-controlled PUBG: BATTLEGROUNDS patch-note listing."
+        },
+        {
+          "id": "pubg-battlegrounds-steam-news",
+          "url": "https://store.steampowered.com/feeds/news/app/578080",
+          "authority": "publisher-via-steam",
+          "freshnessHours": 168,
+          "notes": "Publisher announcements distributed through the PUBG: BATTLEGROUNDS Steam feed."
+        }
+      ],
+      "demandSignal": {
+        "title": "New weapon wishlist",
+        "url": "https://www.reddit.com/r/PUBATTLEGROUNDS/comments/1vzil9l/new_weapon_wishlist/",
+        "topic": "weapon_choice",
+        "intentZh": "玩家希望比较并选择最值得加入游戏的新武器类型及其理由。",
+        "score": 57,
+        "status": "observed",
+        "demandOnly": true
+      },
+      "evidenceBoundary": "Publisher-controlled sources may support factual claims. The community thread supports topic selection only. Unsupported mechanics, exact values, and outcomes must not be inferred."
+    },
+    {
+      "gameId": "rainbow-six-siege",
+      "game": "Tom Clancy's Rainbow Six Siege",
+      "preparedAt": "2026-09-03T08:17:21+00:00",
+      "factSources": [
+        {
+          "id": "rainbow-six-siege-official-patch-notes",
+          "url": "https://www.ubisoft.com/en-us/game/rainbow-six/siege/news-updates?category=patch-notes",
+          "authority": "publisher",
+          "freshnessHours": 168,
+          "notes": "Ubisoft-controlled Rainbow Six Siege patch notes."
+        },
+        {
+          "id": "rainbow-six-siege-steam-news",
+          "url": "https://store.steampowered.com/feeds/news/app/359550",
+          "authority": "publisher-via-steam",
+          "freshnessHours": 168,
+          "notes": "Publisher announcements distributed through the Rainbow Six Siege Steam feed."
+        }
+      ],
+      "demandSignal": {
+        "title": "What operator should I get?",
+        "url": "https://www.reddit.com/r/Rainbow6/comments/1w2rfpb/what_operator_should_i_get/",
+        "topic": "operator_counter",
+        "intentZh": "玩家希望比较可选防守方干员，决定下一位应解锁谁。",
+        "score": 87,
+        "status": "new",
+        "demandOnly": true
+      },
+      "evidenceBoundary": "Publisher-controlled sources may support factual claims. The community thread supports topic selection only. Unsupported mechanics, exact values, and outcomes must not be inferred."
+    }
+  ]
+}

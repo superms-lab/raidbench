@@ -1,0 +1,7 @@
+[Unit]
+Description=Back up the RaidBench SQLite database
+After=docker.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/docker exec raidbench-app python scripts/backup_sqlite.py --db /data/raidbench.db --out /data/backups --keep 14

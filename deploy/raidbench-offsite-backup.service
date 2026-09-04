@@ -1,0 +1,20 @@
+[Unit]
+Description=Upload an encrypted RaidBench backup to Cloudflare R2
+After=network-online.target raidbench-backup.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+EnvironmentFile=/opt/raidbench/secrets/offsite-backup.env
+Environment=RESTIC_CACHE_DIR=/var/cache/raidbench-restic
+ExecStart=/opt/raidbench/bin/backup_offsite.sh
+Nice=10
+IOSchedulingClass=best-effort
+IOSchedulingPriority=7
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+CacheDirectory=raidbench-restic
+CacheDirectoryMode=0700
+ReadWritePaths=/run/lock

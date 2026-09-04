@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raidbench.com/schemas/game-source-registry.schema.json",
+  "title": "RaidBench source registry",
+  "type": "object",
+  "required": ["schemaVersion", "policy", "sources"],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "policy": {
+      "type": "object",
+      "required": ["communityIsDemandOnly", "redditDataApiAllowed", "bulkCommunityScrapingAllowed", "automaticExternalPostingAllowed", "primaryEvidenceRequiredForFacts"],
+      "properties": {
+        "communityIsDemandOnly": { "const": true },
+        "redditDataApiAllowed": { "const": false },
+        "bulkCommunityScrapingAllowed": { "const": false },
+        "automaticExternalPostingAllowed": { "const": false },
+        "primaryEvidenceRequiredForFacts": { "const": true }
+      },
+      "additionalProperties": false
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 36,
+      "items": {
+        "type": "object",
+        "required": ["id", "gameId", "sourceType", "role", "authority", "url", "cadence", "freshnessHours", "fetchMode", "generationEligible", "notes"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+          "gameId": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+          "sourceType": { "enum": ["official", "steam-rss", "community-web-search"] },
+          "role": { "enum": ["fact", "demand"] },
+          "authority": { "enum": ["publisher", "publisher-via-steam", "community"] },
+          "url": { "type": "string", "pattern": "^https://" },
+          "cadence": { "type": "string", "pattern": "^[0-9]+h$" },
+          "freshnessHours": { "type": "integer", "minimum": 24, "maximum": 720 },
+          "fetchMode": { "enum": ["direct", "search-only"] },
+          "generationEligible": { "type": "boolean" },
+          "steamAppId": { "type": "string", "pattern": "^[0-9]+$" },
+          "redditCommunities": { "type": "array", "items": { "type": "string", "minLength": 2 } },
+          "topics": { "type": "array", "items": { "type": "string", "pattern": "^[a-z0-9_]+$" } },
+          "queryTerms": { "type": "array", "items": { "type": "string", "minLength": 3 } },
+          "notes": { "type": "string", "minLength": 10 }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rust door path vs wall path for a small base - RaidBench</title>
+    <meta name="description" content="Compare the door, wall, and roof paths into a Rust 1x2 or 2x2 by confirmed layers, sulfur, splash, exposure, TC probability, and exit options." />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://raidbench.com/pages/rust-small-base-raid-path" />
+    <meta property="og:title" content="Rust door path vs wall path for a small base" />
+    <meta property="og:description" content="Compare the door, wall, and roof paths into a Rust 1x2 or 2x2 by confirmed layers, sulfur, splash, exposure, TC probability, and exit options." />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="https://raidbench.com/assets/raidbench-calculator-share.png" />
+    <meta property="og:image:alt" content="RaidBench Rust raid cost calculator with sulfur and gunpowder totals" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="article:published_time" content="2026-08-09" />
+    <meta property="article:modified_time" content="2026-08-09" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#101312" />
+    <link rel="stylesheet" href="../styles.css?v=20260717a" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Rust door path vs wall path for a small base","description":"Compare the door, wall, and roof paths into a Rust 1x2 or 2x2 by confirmed layers, sulfur, splash, exposure, TC probability, and exit options.","datePublished":"2026-08-09","dateModified":"2026-08-09","author":{"@type":"Organization","name":"RaidBench Editorial","url":"https://raidbench.com/about"},"publisher":{"@type":"Organization","name":"RaidBench","url":"https://raidbench.com/"},"mainEntityOfPage":"https://raidbench.com/pages/rust-small-base-raid-path","about":{"@type":"VideoGame","name":"Rust"},"citation":["https://wiki.facepunch.com/rust/item/ammo.rocket.basic"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"RaidBench","item":"https://raidbench.com/"},{"@type":"ListItem","position":2,"name":"Rust Guides","item":"https://raidbench.com/guides"},{"@type":"ListItem","position":3,"name":"Rust door path vs wall path for a small base","item":"https://raidbench.com/pages/rust-small-base-raid-path"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is the door path usually cheaper than the wall path?","acceptedAnswer":{"@type":"Answer","text":"Sometimes, but visible doors may hide additional layers. Compare low and high route estimates and include the probability that each route reaches the TC or main loot."}},{"@type":"Question","name":"Should I raid the most upgraded wall?","acceptedAnswer":{"@type":"Answer","text":"Not automatically. An upgraded wall can protect the core, disguise a side room, or reflect later repairs. Use the full footprint and other scouting evidence before committing."}},{"@type":"Question","name":"When should I abandon the planned path?","acceptedAnswer":{"@type":"Answer","text":"Stop and recalculate when the breach reveals a layout that invalidates the estimated layer count, TC position, loot probability, or safe exit."}}]}]}</script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="../index.html" aria-label="RaidBench home"><span class="brand-mark">RB</span><span>RaidBench</span></a>
+      <nav class="nav" aria-label="Primary"><a href="../games.html">Games</a><a href="../guides.html" aria-current="page">Guides</a><a href="../tools.html">Tools</a><a href="../updates.html">Patch Watch</a><a href="../about.html">About</a></nav>
+      <a class="header-action" href="../index.html#raid-calculator">Open Calculator</a>
+    </header>
+    <main class="article-main">
+      <a class="breadcrumb" href="../guides.html">RaidBench / Rust Guides</a>
+      <section class="article-hero">
+        <h1>Rust door path vs wall path for a small base</h1>
+        <p>Compare the door, wall, and roof paths into a Rust 1x2 or 2x2 by confirmed layers, sulfur, splash, exposure, TC probability, and exit options.</p>
+        <div class="article-cta">
+          <a class="primary-action" href="../index.html#raid-calculator">Use calculator</a>
+          <a class="secondary-action" href="../guides.html">Search all guides</a>
+        </div>
+        <div class="editorial-meta"><span>Reviewed 2026-08-09</span><span>Layout framework; scouting quality determines the answer</span><a href="../about.html">Editorial standards</a></div>
+      </section>
+      <section class="article-grid">
+        <article class="article-card">
+          <h2>Should I raid the doors or the wall of a small Rust base?</h2>
+          <div class="answer-callout"><strong>Short answer</strong><p>Choose the route with the lowest risk-adjusted cost, not the fewest visible layers. Count confirmed doors, price the cheapest plausible wall or roof route, estimate where the TC and loot are likely to sit, and include exposure plus the next unknown layer before crafting.</p></div>
+
+          <div class="table-scroll" tabindex="0" role="region" aria-label="Raid planning comparison">
+            <table>
+              <thead><tr><th>Route</th><th>Choose it when</th><th>Warning sign</th></tr></thead>
+              <tbody><tr><td>Door path</td><td>Door count is visible and the path likely reaches the core</td><td>Airlocks, garage doors, or turns hide additional layers</td></tr><tr><td>Wall path</td><td>The target room and wall grade are well identified</td><td>Honeycomb or a false core makes the breach a side room</td></tr><tr><td>Roof path</td><td>Roof access is controlled and vertical layout is readable</td><td>Ladder hatches, traps, or poor exits create a second raid</td></tr><tr><td>Do not raid</td><td>None of the routes has a credible payoff or exit</td><td>The plan depends on several unverified assumptions</td></tr></tbody>
+            </table>
+          </div>
+        </article>
+        <article class="article-card" id="checklist">
+          <h2>Checklist</h2>
+          <ul><li>Sketch the footprint, entrances, airlock turns, roof access, and visible upgrades.</li><li>Calculate a low and high estimate for each credible route.</li><li>Mark the likely TC, main loot room, and where a false room could sit.</li><li>Add exposure, splash opportunity, sealing, and escape to the comparison.</li><li>Choose the route only after writing what evidence would make you stop.</li></ul>
+        </article>
+        <article class="article-card">
+          <h2>Example</h2>
+          <p>A two-door path can look cheaper than a stone wall, but the calculation changes if the second door probably opens into another airlock while the wall is confidently identified as the core. Compare a range, not a single optimistic count.</p>
+        </article>
+
+
+        <article class="article-card">
+          <h2>Common mistakes</h2>
+          <ul><li>Counting visible doors as the complete route.</li><li>Assuming the most upgraded wall always protects the main loot.</li><li>Ignoring roof access and vertical control.</li><li>Continuing after the breach disproves the original layout.</li></ul>
+        </article>
+
+        <article class="article-card faq-card">
+          <h2>Frequently asked questions</h2>
+          <details><summary>Is the door path usually cheaper than the wall path?</summary><p>Sometimes, but visible doors may hide additional layers. Compare low and high route estimates and include the probability that each route reaches the TC or main loot.</p></details><details><summary>Should I raid the most upgraded wall?</summary><p>Not automatically. An upgraded wall can protect the core, disguise a side room, or reflect later repairs. Use the full footprint and other scouting evidence before committing.</p></details><details><summary>When should I abandon the planned path?</summary><p>Stop and recalculate when the breach reveals a layout that invalidates the estimated layer count, TC position, loot probability, or safe exit.</p></details>
+        </article>
+
+        <article class="article-card">
+          <h2>Related Rust tools and guides</h2>
+          <div class="article-cta">
+            <a class="primary-action" href="../index.html#raid-calculator">Use raid calculator</a>
+            <a class="secondary-action" href="./rust-cheapest-raid-method.html">Rust cheapest raid method by target</a>
+          </div>
+        </article>
+        <article class="article-card conversion-card" data-live-commerce hidden>
+          <p class="eyebrow">Verified Rust answers from $5</p>
+          <h2>Check one target now, or build the complete raid route.</h2>
+          <p>The $5 starter pack covers two personalized route checks. A $19 pack covers a complete multi-layer raid plan with resource buffer, evidence, and calculation checks. Unsupported requests are not charged.</p>
+          <div class="article-cta"><a class="primary-action" href="../customer?intent=instant&amp;utm_source=guide&amp;utm_medium=internal&amp;utm_campaign=rust-small-base-raid-path" data-commerce-cta>Get a verified answer</a><a class="secondary-action" href="../rust-raid-plan">Compare both options</a></div>
+        </article>
+        <article class="article-card source-list">
+          <h2>Sources and review notes</h2>
+          <ul><li><a href="../index.html#raid-calculator">RaidBench verified raid calculator</a> - Current vanilla PC target and sulfur estimates.</li><li><a href="https://wiki.facepunch.com/rust/item/ammo.rocket.basic" target="_blank" rel="noopener noreferrer">Facepunch Rust Wiki - Rocket</a> - Official splash and building-grade reference.</li></ul>
+          <p>Reviewed 2026-08-09. Recheck after Rust building, explosive, upkeep, or Softcore rule changes, and verify custom server settings.</p>
+        </article>
+      </section>
+    </main>
+    <footer class="footer"><p>RaidBench is independent and is not affiliated with or endorsed by Facepunch Studios.</p><p class="footer-links"><a href="../updates.html">Patch Watch</a><a href="../about.html">Editorial standards</a><a href="../privacy.html">Privacy</a><a href="../terms.html">Terms</a><a href="../refund-policy.html">Refunds</a></p></footer>
+    <script src="../config.js?v=20260717a"></script>
+    <script src="../analytics.js?v=20260717a"></script>
+    <script src="../guide-tools.js?v=20260809a"></script>
+  </body>
+</html>

@@ -1,0 +1,499 @@
+{
+  "runId": "run_20260715160830",
+  "summary": {
+    "sources": 11,
+    "snapshots": 11,
+    "signals": 24,
+    "highValueSignals": 5,
+    "failedSources": 5
+  },
+  "snapshots": [
+    {
+      "id": "snap_de7610d1d2f09ae14d",
+      "runId": "run_20260715160830",
+      "sourceId": "rust-official-news",
+      "fetchedAt": "2026-07-15T16:08:30.855Z",
+      "ok": true,
+      "statusCode": 200,
+      "title": "News — Rust",
+      "bodySample": "News — Rust menu news companion mobile Merch Store Redeem Careers Buy Rust Your browser does not support the video tag. schedule Thursday, July 2, 2026 This month&#x27;s update features a New Monument:&#xA0;The Apartment Complex, Rentable Shops, a New Clan System &amp; Table,&#xA0;plus QoL changes and much more! Read more Recent Devblog Community General Your browser does not support the video tag. Thursday, July 2, 2026 DEVBLOG Common Ground This month&#x27;s update features a New Monument:&#xA0;The Apartment Complex, Rentable Shops, a New Clan System &amp; Table,&#xA0;plus QoL changes and much more! Your browser does not support the video tag. Thursday, June 4, 2026 DEVBLOG Built Different This month&#x27;s update brings Rust&#x27;s biggest player overhaul in years, featuring new player models and animations, a new armour set, and the M16A2 rifle. It also includes QoL improvements, bug fixes, performance enhancements, and much more! Your browser does not support the video tag. Thursday, May 7, 2026 DEVBLOG Upgrade hard, raid harder This month&#x27;s update brings you Workbench upgrades, the new Mortar, improved Tin Can Alarm, as well as model refreshes and remakes, plus many QoL improvements, bug fixes, and more! Your browser does not support the video tag. Thursday, April 2, 2026 DEVBLOG Spring Clean This month&#x27;s update brings you TWO new items - the Armoured Ladder Hatch and Water Wheel, additionally loads of QOL improvements, bug fixes, better performance and much more! Your browser does not support the video tag. Thursday, March 5, 2026 DEVBLOG Shipshape This month&#x27;s update brings massive improvements to how you live, build, and fight on water and in The Deep Sea. As well as extended daytime, balances, fixes, and quality of life improvements. Your browser does not support the video tag. Tuesday, February 17, 2026 lunar new year 2026 2026&#x27;s Lunar New Year celebrations have begun! Celebrate the occasion by honouring the Year of the Horse with the Ornate Horse Mask, Horse Armour, and more.&#xA0; Your browser does not support the video tag. Thursday, February 5, 2026 DEVBLOG Naval Update Ahoy matey! This month, we bring you buildable boats, deep sea, tropical islands, ghost ships, new and improved AI and much, much more! It&#x27;s a big one. Thursday, January 22, 2026 COMMUNITY Community Update 268 Naval Staging bits, Twitch Drops, a Father Son Duo, Rustmas recaps, sneaky C4, and more! Your browser does not support the video tag. Thursday, January 1, 2026 DEVBLOG Surviving 12 Years Servers are now wiped, Santa is packing up and clearing out the bodies, we hope you enjoyed the Holiday Season. In this blog, we recap 2025 and reveal some upcoming changes for 2026. arrow_left arrow_right 1 2 3 4 5 ... 75 Stay up to date To make sure you don't miss an update please add us to feedly You can also access the rss feed for our news posts here Newsletter Receive monthly updates straight to your inbox News Buy Rust Companion Mobile Twitch Dr",
+      "contentHash": "7eed68056520f24fd37d82eb0e63b60f0a2d1ffd"
+    },
+    {
+      "id": "snap_9769763aa7e06224f0",
+      "runId": "run_20260715160830",
+      "sourceId": "rust-commit-stream",
+      "fetchedAt": "2026-07-15T16:08:31.610Z",
+      "ok": true,
+      "statusCode": 200,
+      "title": "Facepunch Commits",
+      "bodySample": "Facepunch Commits &nbsp;facepunch commits repo rust_reboot cancel 136,783 Commits over 4,474 Days - 1.27cph ! arrow_left arrow_right 1 2 3 4 5 ... 2,736 aidan.m 12 Minutes Ago rust_reboot /main #158007 Converted multi-compiles to shader-features where applicable in the cloth shaders thumb_up 0 thumb_down 0 Flavien 29 Minutes Ago rust_reboot /main #158006 merge from mainmenu_toggle_optims thumb_up 0 thumb_down 0 Pilgrim 32 Minutes Ago rust_reboot /main/PlayerMaintainedMonuments/masterkey #158005 master key for apartments &#xD;&#xA;viewmodel and textures thumb_up 0 thumb_down 0 mauro.a 35 Minutes Ago rust_reboot /main/game_room_dlc #158004 Bar Stool Wood - Updated model with backface on cloth, updated textures thumb_up 0 thumb_down 0 Brian 53 Minutes Ago rust_reboot /main/render_pipeline_testing #158001 fix string alloc in VolumetricFogShadowPreProcessPass thumb_up 0 thumb_down 0 Flavien 1 Hour Ago rust_reboot /main/mainmenu_toggle_optims #158000 Applied the same system to the F1 menu&#xD;&#xA;- ~12ms -&gt; ~4.20ms&#xD;&#xA;- GC ~115KB -&gt; ~10KB thumb_up 1 thumb_down 0 Daniel P 1 Hour Ago rust_reboot /main/mt_snapshot_saving #157999 Update: avoid Time calls in BasePlayer.GetUnderwearSkin&#xD;&#xA;- UnderweatManifest now initialized in ServerMgr.StartServer&#xD;&#xA;Tests: switched to jobs 4 and toggled underwear thumb_up 0 thumb_down 0 Felix 1 Hour Ago rust_reboot /main/render_pipeline_testing #157998 Add an assertion to catch rare error spam from WaterCamera thumb_up 0 thumb_down 0 ElliotH 1 Hour Ago rust_reboot /main #157996 merge from game_room_dlc -&gt; main thumb_up 0 thumb_down 0 ElliotH 1 Hour Ago rust_reboot /main/game_room_dlc #157995 merge from dart_game thumb_up 0 thumb_down 0 ElliotH 1 Hour Ago rust_reboot /main/game_room_dlc/darts_game #157994 switch left side of darts scoring to just show points earned in each round (doesnt accumulate on the left anymore) thumb_up 0 thumb_down 0 Adam W 1 Hour Ago rust_reboot /main/satellite_crash #157993 Satellite list serialization fixes thumb_up 0 thumb_down 0 Daniel P 1 Hour Ago rust_reboot /main/mt_snapshot_saving #157992 Update: in UseParallelSaves mode, Ragdol component samples transform handles&#xD;&#xA;Tests: on playground enabled Jobs 4 and ragdolled a bunch of times thumb_up 0 thumb_down 0 Grigler 1 Hour Ago rust_reboot /main/sculptures #157991 improved sculpting ux massively, keeps collider as-is during carve (only updating visuals) so that carving depth doesn&#x27;t feed into itself or need messy plane logic thumb_up 0 thumb_down 0 Adam W 2 Hours Ago rust_reboot /main/satellite_crash #157990 Merge from playermaintainedmonuments thumb_up 0 thumb_down 0 Daniel P 2 Hours Ago rust_reboot /main/mt_snapshot_saving #157989 Update: use handles to get pitch and yaw rotations for AttackHelicopterTurret in UseParallelSaves mode&#xD;&#xA;- amended test to cover turret saving path&#xD;&#xA;Tests: TestMTSave pass thumb_up 0 thumb_down 0 Maverick 2 Hours Ago rust_reboot /main #157988 Fix scientists not",
+      "contentHash": "3de9afbbe8defbbf73dc21519484323a50e47e6b"
+    },
+    {
+      "id": "snap_bb234400612285debf",
+      "runId": "run_20260715160830",
+      "sourceId": "rust-steam-news",
+      "fetchedAt": "2026-07-15T16:08:33.714Z",
+      "ok": true,
+      "statusCode": 200,
+      "title": "Rust Steam news feed",
+      "bodySample": "252490 RSS Feed en-us Steam News RSS COMMON GROUND &lt;p class=&quot;bb_paragraph&quot;&gt;&lt;/p&gt;&lt;div class=&quot;bb_h2&quot;&gt;APARTMENT COMPLEX&lt;/div&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;&lt;/p&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;The apartment complex is a new monument that allows players getting started with a wipe to find a place to call home. Simply talk to the receptionist in the lobby to get started and rent a room.&lt;/p&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;&lt;img src=&quot;https://files.facepunch.com/kaantasan/1b0111b1/rust_apartment_complex_1080-7.jpg style=box-sizing: inherit; cursor: pointer; box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 15px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.2); transition: 0.2s; transform: scale(1); max-width: 100%; display: block; margin: 16px auto;&quot; crossorigin=&quot;anonymous&quot; /&gt;&lt;/p&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;&lt;img src=&quot;https://files.facepunch.com/Alistair/102/07/2026/7f63/rust_apartment_complex_1080-14.jpg style=box-sizing: inherit; max-height: 250px; max-width: 100%; object-fit: cover; object-position: center center; flex-grow: 1; margin: 16px auto; cursor: pointer; box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 15px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.2); transition: 0.2s; transform: scale(1); width: 367px; height: 150px; display: block;&quot; crossorigin=&quot;anonymous&quot; /&gt;&lt;img src=&quot;https://files.facepunch.com/Alistair/102/07/2026/4k84/rust_apartment_complex_1080-15.jpg style=box-sizing: inherit; max-height: 250px; max-width: 100%; object-fit: cover; object-position: center center; flex-grow: 1; margin: 16px auto; cursor: pointer; box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 15px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.2); transition: 0.2s; transform: scale(1); width: 367px; height: 150px; display: block;&quot; crossorigin=&quot;anonymous&quot; /&gt;&lt;/p&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;There are options for every budget, from the basement to the penthouse. Different room types come with different perks, like more storage, furnaces and more.&lt;/p&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;&lt;img src=&quot;https://files.facepunch.com/kaantasan/1b3011b1/july2026_apartment_hallways_03.jpg style=box-sizing: inherit; cursor: pointer; box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 15px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.2); transition: 0.2s; transform: scale(1); max-width: 100%; display: block; margin: 16px auto;&quot; crossorigin=&quot;anonymous&quot; /&gt;&lt;/p&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;Once you've rented a room you'll need to insert scrap into the slot next to your door, otherwise you'll be evicted and all of your possessions will be seized.&lt;/p&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;&lt;img src=&quot;https://files.facepunch.com/kaantasan/1b3011b1/july2026_apartmentmedium_01%20%281%29.jpg style=box-sizing: inherit; cursor:",
+      "contentHash": "f48edfcfa77c24469c1af8e846ff30dd42afb67d"
+    },
+    {
+      "id": "snap_b6a49264ae565f4447",
+      "runId": "run_20260715160830",
+      "sourceId": "rust-reddit-playrust",
+      "fetchedAt": "2026-07-15T16:08:34.267Z",
+      "ok": false,
+      "statusCode": 0,
+      "title": "",
+      "bodySample": "",
+      "error": "fetch failed",
+      "contentHash": ""
+    },
+    {
+      "id": "snap_3cb72da26e3678b213",
+      "runId": "run_20260715160830",
+      "sourceId": "poe2-official-news",
+      "fetchedAt": "2026-07-15T16:08:44.760Z",
+      "ok": true,
+      "statusCode": 200,
+      "title": "News - Path of Exile - A Free Online Action RPG",
+      "bodySample": "News - Path of Exile - A Free Online Action RPG Log In Create Account Contact Support Path of Exile Sign Up PC Mac Xbox One PS4 Home News Create Account Log In Patch Notes Game Videos Overview Passive Tree Atlas Tree Ascendancy Classes Items Item Filters Community Wiki Forum Index Code of Conduct Search Events League Ladders Season &amp; Events My Private Leagues Trade Search Items Bulk Item Exchange About Shop Buy Packs Kirac&#039;s Vault Pass Microtransactions Specials Mystery Box Private League News 3.29 Reliquarian Ascendancy Changes Jul 15, 2026, 11:10:02 AM In Path of Exile: Mirage we released the Reliquarian, the second Ascendancy for the Scion. The unique part of this ascendancy was the fact that she would change every league. So let’s take a look at the Curse of the Allflame’s Reliquarian in today’s news post. Read More. Mirage Supporter Packs and Vault Pass End Soon Jul 15, 2026, 7:12:30 AM Mirage Supporter Packs and Vault Pass End Soon When the Curse of the Allflame expansion launches for Path of Exile 1 on July 24th PDT, the Mirage Supporter Packs will be leaving both the Path of Exile 1 & 2 stores forever. This is your last chance to get the Iron Incarcerator and Curator of Wisdom Series items before they’re gone. Check them out here . Read More. What Happens When The Mirage League Ends Jul 14, 2026, 7:57:19 AM The Mirage Challenge League will end soon and you may be wondering what will happen when it does, find out more in today’s news post. Read More. Browse News Archive Subscribe to feed Deal of the Day 25 % Off Winter Dragon Armour Pack Buy Winter Dragon Armour Pack discounted to 315 Points (TODAY ONLY) Ends in 7 hours Deal of the Day 25 % Off Frost Viking Portal Effect Buy Frost Viking Portal Effect discounted to 115 Points (TODAY ONLY) Ends in 7 hours Deal of the Day 26 % Off Arctic Fox Pet Buy Arctic Fox Pet discounted to 185 Points (TODAY ONLY) Ends in 7 hours Home News Create Account Log In Patch Notes Game Videos Overview Passive Tree Atlas Tree Ascendancy Classes Items Item Filters Community Wiki Forum Index Code of Conduct Search Events League Ladders Season &amp; Events My Private Leagues Trade Search Items Bulk Item Exchange About Shop Buy Packs Kirac&#039;s Vault Pass Microtransactions Specials Mystery Box Private League Official Channels &#169; 2010 - 2026 Grinding Gear Games Terms of Use, Privacy Notice and Cookies Notice - Contact Support - Developer API 9d179875fe73719cab135fa2fa48dc31",
+      "contentHash": "859cfa1e2d8696ae6602625181194d2a13ea303c"
+    },
+    {
+      "id": "snap_70e9d756769d823251",
+      "runId": "run_20260715160830",
+      "sourceId": "poe2-official-site",
+      "fetchedAt": "2026-07-15T16:08:48.075Z",
+      "ok": true,
+      "statusCode": 200,
+      "title": "Path of Exile 2",
+      "bodySample": "Path of Exile 2 The Path of Exile website requires JavaScript. Please enable JavaScript or use a different browser",
+      "contentHash": "15a8ae66c8ecc61bbe0787318374b5d80f390827"
+    },
+    {
+      "id": "snap_af368f46def5209ce3",
+      "runId": "run_20260715160830",
+      "sourceId": "poe2-steam-news",
+      "fetchedAt": "2026-07-15T16:08:49.645Z",
+      "ok": false,
+      "statusCode": 404,
+      "title": "POE2 Steam news feed",
+      "bodySample": "Site Error Sign in Store Home Discovery Queue Wishlist Points Shop News Charts Community Home Discussions Workshop Market Broadcasts About Support Change language Get the Steam Mobile App View desktop website © Valve Corporation. All rights reserved. All trademarks are property of their respective owners in the US and other countries. Privacy Policy &nbsp;| &nbsp; Legal &nbsp;| &nbsp; Accessibility &nbsp;| &nbsp; Steam Subscriber Agreement &nbsp;| &nbsp; Refunds &nbsp;| &nbsp; Cookies STORE Home Discovery Queue Wishlist Points Shop News Charts COMMUNITY Home Discussions Workshop Market Broadcasts About SUPPORT Install Steam sign in &nbsp;|&nbsp; language 简体中文 (Simplified Chinese) 繁體中文 (Traditional Chinese) 日本語 (Japanese) 한국어 (Korean) ไทย (Thai) Bahasa Indonesia (Indonesian) Bahasa Melayu (Malay) BETA Български (Bulgarian) Čeština (Czech) Dansk (Danish) Deutsch (German) Español - España (Spanish - Spain) Español - Latinoamérica (Spanish - Latin America) Ελληνικά (Greek) Français (French) Italiano (Italian) Magyar (Hungarian) Nederlands (Dutch) Norsk (Norwegian) Polski (Polish) Português (Portuguese - Portugal) Português - Brasil (Portuguese - Brazil) Română (Romanian) Русский (Russian) Suomi (Finnish) Svenska (Swedish) Türkçe (Turkish) Tiếng Việt (Vietnamese) Українська (Ukrainian) Report a translation problem Home &gt; Oops Oops, sorry! An error was encountered while processing your request: This item is currently unavailable in your region",
+      "contentHash": "d4dcf3c3e44c823827f557ad062a33b62c59ebbe"
+    },
+    {
+      "id": "snap_6704b95b751de77f2a",
+      "runId": "run_20260715160830",
+      "sourceId": "poe2-reddit",
+      "fetchedAt": "2026-07-15T16:08:50.110Z",
+      "ok": false,
+      "statusCode": 0,
+      "title": "",
+      "bodySample": "",
+      "error": "fetch failed",
+      "contentHash": ""
+    },
+    {
+      "id": "snap_8c8bf59d115b4954e8",
+      "runId": "run_20260715160830",
+      "sourceId": "palworld-official-news",
+      "fetchedAt": "2026-07-15T16:09:00.144Z",
+      "ok": false,
+      "statusCode": 0,
+      "title": "",
+      "bodySample": "",
+      "error": "fetch failed",
+      "contentHash": ""
+    },
+    {
+      "id": "snap_6d84eb7c3da5ab2c6b",
+      "runId": "run_20260715160830",
+      "sourceId": "palworld-steam-news",
+      "fetchedAt": "2026-07-15T16:09:00.147Z",
+      "ok": true,
+      "statusCode": 200,
+      "title": "Palworld Steam news feed",
+      "bodySample": "1623730 RSS Feed en-us Steam News RSS v1.0.1: Bug fixes &lt;p class=&quot;bb_paragraph&quot;&gt;Palworld version v1.0.1 has been released!&lt;/p&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;＝＝＝&lt;/p&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;・Fixed an issue where save data could be unintentionally discarded after certain operations.&lt;/p&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;・Fixed an issue where the burning status could continue after touching a campfire.&lt;/p&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;＝＝＝&lt;/p&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;Thank you for your continued support of Palworld.&lt;/p&gt; Wed, 15 Jul 2026 05:17:43 +0000 https://store.steampowered.com/news/app/1623730/view/710029448730116120 Palworld v1.0 - Official Release Changelog &lt;div class=&quot;bb_h1&quot;&gt;&lt;b&gt;Palworld 1.0 - Changelog&lt;/b&gt;&lt;/div&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;&lt;img src=&quot;https://clan.st.dl.eccdnx.com/images/40671762/0d13d928bdf7c67c58331f47d5176d44a35373b5.png&quot; /&gt;&lt;/p&gt;&lt;div onclick=&quot;javascript:ReplaceWithYouTubeEmbed( this );&quot; data-youtube=&quot;&amp;quot;1fpGg9wNM9A&quot; class=&quot;sharedFilePreviewYouTubeVideo&quot;&gt;&lt;img class=&quot;sharedFilePreviewYouTubeVideo&quot; src=&quot;https://steamcommunity.com/public/shared/images/responsive/youtube_16x9_placeholder.gif&quot;/&gt;&lt;iframe src=&quot;https://www.youtube-nocookie.com/embed/&amp;quot;1fpGg9wNM9A?fs=1&amp;modestbranding=1&amp;rel=0&quot; allowFullScreen=&quot;1&quot; frameBorder=&quot;0&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;Pal Tamers, the time has come.&lt;/p&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;Today, Palworld exits early access. Palworld 1.0 is here!&lt;/p&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;&lt;/p&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;Sunreach, a mysterious new island floating in the sky…The World Tree, the heart of the Palworld story…Palpagos has grown, and a new adventure awaits.&lt;/p&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;Palworld 1.0 adds 72 new Pals to the world, bringing the total number of Pals up to an incredible 287! &lt;/p&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;&lt;/p&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;Palworld 1.0 also adds new ways to strengthen your Pals through &lt;b&gt;Awakening&lt;/b&gt; and &lt;b&gt;Mutation&lt;/b&gt;, rebalanced stats and abilities for all Pals, and large-scale overhauls across many aspects of the game, including base building, multiplayer, and graphics.&lt;/p&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;&lt;/p&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;The journey that began in Early Access reaches its climax, and from here, a new Palworld begins.&lt;/p&gt;&lt;p class=&quot;bb_paragraph&quot;&gt;&lt;/p&gt;&lt;div class=&quot;bb_h2&quot;&gt;&lt;b&gt;▼ New Areas &amp; World Improvements&lt;/b&gt;&lt;/div&gt;&lt;div class=&quot;bb_h3&quot;&gt;&lt;b&gt;● Sunreach&lt;/b&gt;&lt;/div&gt;&lt;p class=&quot;bb_paragr",
+      "contentHash": "419d4b686f41a874e3a8e319e113c40fd86f0673"
+    },
+    {
+      "id": "snap_a5a717ea52948d9052",
+      "runId": "run_20260715160830",
+      "sourceId": "palworld-reddit",
+      "fetchedAt": "2026-07-15T16:09:00.607Z",
+      "ok": false,
+      "statusCode": 0,
+      "title": "",
+      "bodySample": "",
+      "error": "fetch failed",
+      "contentHash": ""
+    }
+  ],
+  "signals": [
+    {
+      "id": "sig_f36a06713895f1ba88",
+      "runId": "run_20260715160830",
+      "sourceId": "rust-official-news",
+      "game": "Rust",
+      "title": "News — Rust",
+      "url": "https://rust.facepunch.com/news",
+      "evidence": {
+        "sourceType": "official"
+      },
+      "topic": "general_research",
+      "painScore": 2,
+      "commercialScore": 1,
+      "patchSensitive": false
+    },
+    {
+      "id": "sig_d6f0c66464f3e5ec63",
+      "runId": "run_20260715160830",
+      "sourceId": "rust-commit-stream",
+      "game": "Rust",
+      "title": "Facepunch Commits",
+      "url": "https://commits.facepunch.com/r/rust_reboot",
+      "evidence": {
+        "sourceType": "official"
+      },
+      "topic": "general_research",
+      "painScore": 2,
+      "commercialScore": 1,
+      "patchSensitive": false
+    },
+    {
+      "id": "sig_07cbd4799a55acea0a",
+      "runId": "run_20260715160830",
+      "sourceId": "rust-steam-news",
+      "game": "Rust",
+      "title": "COMMON GROUND",
+      "url": "<![CDATA[https://store.steampowered.com/news/app/252490/view/679628250084806242]]>",
+      "evidence": {
+        "sourceType": "steam-rss"
+      },
+      "topic": "general_research",
+      "painScore": 2,
+      "commercialScore": 1,
+      "patchSensitive": false
+    },
+    {
+      "id": "sig_8d393cc2a0ee6b95f2",
+      "runId": "run_20260715160830",
+      "sourceId": "rust-steam-news",
+      "game": "Rust",
+      "title": "BUILT DIFFERENT",
+      "url": "<![CDATA[https://store.steampowered.com/news/app/252490/view/704396144568959331]]>",
+      "evidence": {
+        "sourceType": "steam-rss"
+      },
+      "topic": "general_research",
+      "painScore": 2,
+      "commercialScore": 1,
+      "patchSensitive": false
+    },
+    {
+      "id": "sig_de828c5317ca48cacc",
+      "runId": "run_20260715160830",
+      "sourceId": "rust-steam-news",
+      "game": "Rust",
+      "title": "UPGRADE HARD, RAID HARDER",
+      "url": "<![CDATA[https://store.steampowered.com/news/app/252490/view/653728111564686110]]>",
+      "evidence": {
+        "sourceType": "steam-rss"
+      },
+      "topic": "raid_cost",
+      "painScore": 5,
+      "commercialScore": 5,
+      "patchSensitive": true
+    },
+    {
+      "id": "sig_1f475dea911f69acbf",
+      "runId": "run_20260715160830",
+      "sourceId": "rust-steam-news",
+      "game": "Rust",
+      "title": "SPRING CLEAN",
+      "url": "<![CDATA[https://store.steampowered.com/news/app/252490/view/533253650845270783]]>",
+      "evidence": {
+        "sourceType": "steam-rss"
+      },
+      "topic": "general_research",
+      "painScore": 2,
+      "commercialScore": 1,
+      "patchSensitive": false
+    },
+    {
+      "id": "sig_f33f818d2d9e76f0be",
+      "runId": "run_20260715160830",
+      "sourceId": "rust-steam-news",
+      "game": "Rust",
+      "title": "SHIPSHAPE",
+      "url": "<![CDATA[https://store.steampowered.com/news/app/252490/view/526495718648578396]]>",
+      "evidence": {
+        "sourceType": "steam-rss"
+      },
+      "topic": "general_research",
+      "painScore": 2,
+      "commercialScore": 1,
+      "patchSensitive": false
+    },
+    {
+      "id": "sig_d4ebab1de256066686",
+      "runId": "run_20260715160830",
+      "sourceId": "rust-steam-news",
+      "game": "Rust",
+      "title": "NAVAL UPDATE",
+      "url": "<![CDATA[https://store.steampowered.com/news/app/252490/view/529870881777778806]]>",
+      "evidence": {
+        "sourceType": "steam-rss"
+      },
+      "topic": "patch",
+      "painScore": 4,
+      "commercialScore": 3,
+      "patchSensitive": true
+    },
+    {
+      "id": "sig_e98cd5252574d4e223",
+      "runId": "run_20260715160830",
+      "sourceId": "rust-steam-news",
+      "game": "Rust",
+      "title": "COMMUNITY UPDATE 268",
+      "url": "<![CDATA[https://store.steampowered.com/news/app/252490/view/496092615849018888]]>",
+      "evidence": {
+        "sourceType": "steam-rss"
+      },
+      "topic": "patch",
+      "painScore": 4,
+      "commercialScore": 3,
+      "patchSensitive": true
+    },
+    {
+      "id": "sig_fae9c592d577523b8b",
+      "runId": "run_20260715160830",
+      "sourceId": "rust-steam-news",
+      "game": "Rust",
+      "title": "SURVIVING 12 YEARS",
+      "url": "<![CDATA[https://store.steampowered.com/news/app/252490/view/507348444540570069]]>",
+      "evidence": {
+        "sourceType": "steam-rss"
+      },
+      "topic": "general_research",
+      "painScore": 2,
+      "commercialScore": 1,
+      "patchSensitive": false
+    },
+    {
+      "id": "sig_d407924d904a4cf3fd",
+      "runId": "run_20260715160830",
+      "sourceId": "rust-steam-news",
+      "game": "Rust",
+      "title": "Final Round of Voting - Rust in the Steam Awards",
+      "url": "<![CDATA[https://store.steampowered.com/news/app/252490/view/507348444540569163]]>",
+      "evidence": {
+        "sourceType": "steam-rss"
+      },
+      "topic": "general_research",
+      "painScore": 2,
+      "commercialScore": 1,
+      "patchSensitive": false
+    },
+    {
+      "id": "sig_3aa623fbd1179f08cc",
+      "runId": "run_20260715160830",
+      "sourceId": "rust-steam-news",
+      "game": "Rust",
+      "title": "SEASONS BEATINGS",
+      "url": "<![CDATA[https://store.steampowered.com/news/app/252490/view/507348444540568100]]>",
+      "evidence": {
+        "sourceType": "steam-rss"
+      },
+      "topic": "general_research",
+      "painScore": 2,
+      "commercialScore": 1,
+      "patchSensitive": false
+    },
+    {
+      "id": "sig_b8e509b3ae642ac06d",
+      "runId": "run_20260715160830",
+      "sourceId": "poe2-official-news",
+      "game": "POE2",
+      "title": "News - Path of Exile - A Free Online Action RPG",
+      "url": "https://www.pathofexile.com/news",
+      "evidence": {
+        "sourceType": "official"
+      },
+      "topic": "general_research",
+      "painScore": 2,
+      "commercialScore": 1,
+      "patchSensitive": false
+    },
+    {
+      "id": "sig_90770a9b0efef08bf0",
+      "runId": "run_20260715160830",
+      "sourceId": "poe2-official-site",
+      "game": "POE2",
+      "title": "Path of Exile 2",
+      "url": "https://pathofexile2.com/",
+      "evidence": {
+        "sourceType": "official"
+      },
+      "topic": "general_research",
+      "painScore": 2,
+      "commercialScore": 1,
+      "patchSensitive": false
+    },
+    {
+      "id": "sig_fbd00d86e3f199924c",
+      "runId": "run_20260715160830",
+      "sourceId": "palworld-steam-news",
+      "game": "Palworld",
+      "title": "v1.0.1: Bug fixes",
+      "url": "<![CDATA[https://store.steampowered.com/news/app/1623730/view/710029448730116120]]>",
+      "evidence": {
+        "sourceType": "steam-rss"
+      },
+      "topic": "general_research",
+      "painScore": 2,
+      "commercialScore": 1,
+      "patchSensitive": false
+    },
+    {
+      "id": "sig_2f956084ab01b58a75",
+      "runId": "run_20260715160830",
+      "sourceId": "palworld-steam-news",
+      "game": "Palworld",
+      "title": "Palworld v1.0 - Official Release Changelog",
+      "url": "<![CDATA[https://store.steampowered.com/news/app/1623730/view/686383649529010623]]>",
+      "evidence": {
+        "sourceType": "steam-rss"
+      },
+      "topic": "base_automation",
+      "painScore": 4,
+      "commercialScore": 4,
+      "patchSensitive": true
+    },
+    {
+      "id": "sig_6dd35d04e9d7bce3d1",
+      "runId": "run_20260715160830",
+      "sourceId": "palworld-steam-news",
+      "game": "Palworld",
+      "title": "Palworld 1.0 Official Launch Trailer is OUT!",
+      "url": "<![CDATA[https://store.steampowered.com/news/app/1623730/view/686383649529010823]]>",
+      "evidence": {
+        "sourceType": "steam-rss"
+      },
+      "topic": "official_marketing",
+      "painScore": 1,
+      "commercialScore": 1,
+      "patchSensitive": false
+    },
+    {
+      "id": "sig_21e66d3994859650ad",
+      "runId": "run_20260715160830",
+      "sourceId": "palworld-steam-news",
+      "game": "Palworld",
+      "title": "Important: About MODs and 1.0!",
+      "url": "<![CDATA[https://store.steampowered.com/news/app/1623730/view/686383649529010209]]>",
+      "evidence": {
+        "sourceType": "steam-rss"
+      },
+      "topic": "general_research",
+      "painScore": 2,
+      "commercialScore": 1,
+      "patchSensitive": false
+    },
+    {
+      "id": "sig_8750429a2dc8635a6a",
+      "runId": "run_20260715160830",
+      "sourceId": "palworld-steam-news",
+      "game": "Palworld",
+      "title": "Palworld Surpasses 40 Million Players!",
+      "url": "<![CDATA[https://store.steampowered.com/news/app/1623730/view/686383649529010194]]>",
+      "evidence": {
+        "sourceType": "steam-rss"
+      },
+      "topic": "base_automation",
+      "painScore": 4,
+      "commercialScore": 4,
+      "patchSensitive": true
+    },
+    {
+      "id": "sig_41cf2285b97767fa70",
+      "runId": "run_20260715160830",
+      "sourceId": "palworld-steam-news",
+      "game": "Palworld",
+      "title": "Steam Summer Sale is HERE!",
+      "url": "<![CDATA[https://store.steampowered.com/news/app/1623730/view/686383649529004646]]>",
+      "evidence": {
+        "sourceType": "steam-rss"
+      },
+      "topic": "official_marketing",
+      "painScore": 1,
+      "commercialScore": 1,
+      "patchSensitive": false
+    },
+    {
+      "id": "sig_ed0eace038d0830681",
+      "runId": "run_20260715160830",
+      "sourceId": "palworld-steam-news",
+      "game": "Palworld",
+      "title": "Super Survival Summer Bundle!",
+      "url": "<![CDATA[https://store.steampowered.com/news/app/1623730/view/686383649529004531]]>",
+      "evidence": {
+        "sourceType": "steam-rss"
+      },
+      "topic": "official_marketing",
+      "painScore": 1,
+      "commercialScore": 1,
+      "patchSensitive": false
+    },
+    {
+      "id": "sig_f4bd65d7f83e988194",
+      "runId": "run_20260715160830",
+      "sourceId": "palworld-steam-news",
+      "game": "Palworld",
+      "title": "Palworld × Windrose Steam Bundle is Out Now!",
+      "url": "<![CDATA[https://store.steampowered.com/news/app/1623730/view/686383649529004135]]>",
+      "evidence": {
+        "sourceType": "steam-rss"
+      },
+      "topic": "official_marketing",
+      "painScore": 1,
+      "commercialScore": 1,
+      "patchSensitive": false
+    },
+    {
+      "id": "sig_6149801fb0251902a2",
+      "runId": "run_20260715160830",
+      "sourceId": "palworld-steam-news",
+      "game": "Palworld",
+      "title": "Palworld × LumenTale Steam Bundle Available Now !",
+      "url": "<![CDATA[https://store.steampowered.com/news/app/1623730/view/713404612325936060]]>",
+      "evidence": {
+        "sourceType": "steam-rss"
+      },
+      "topic": "official_marketing",
+      "painScore": 1,
+      "commercialScore": 1,
+      "patchSensitive": false
+    },
+    {
+      "id": "sig_d6a0135cf8f2442394",
+      "runId": "run_20260715160830",
+      "sourceId": "palworld-steam-news",
+      "game": "Palworld",
+      "title": "Palworld 1.0 - July 10! Cinematic Trailer Reveal!",
+      "url": "<![CDATA[https://store.steampowered.com/news/app/1623730/view/683004046342094978]]>",
+      "evidence": {
+        "sourceType": "steam-rss"
+      },
+      "topic": "official_marketing",
+      "painScore": 1,
+      "commercialScore": 1,
+      "patchSensitive": false
+    }
+  ]
+}

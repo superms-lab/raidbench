@@ -1,0 +1,13 @@
+[Unit]
+Description=Check for a queued RaidBench Palworld answer every minute
+
+[Timer]
+OnBootSec=1min
+OnUnitInactiveSec=1min
+RandomizedDelaySec=5s
+Persistent=true
+AccuracySec=5s
+Unit=raidbench-live-answer.service
+
+[Install]
+WantedBy=timers.target

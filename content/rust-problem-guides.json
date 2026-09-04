@@ -1,17 +1,103 @@
 [
   {
+    "slug": "rust-armored-door-raid-cost",
+    "title": "Rust armored door raid cost",
+    "description": "How much boom you need for an armored door, and when the door path is still worth following.",
+    "problem": "How much does it cost to raid an armored door?",
+    "shortAnswer": "Armored doors are expensive enough that the door path deserves a second scout. Compare rockets, C4, satchels, and explosive ammo, then add a buffer for the next layer.",
+    "table": {
+      "headers": [
+        "Decision area",
+        "Check",
+        "Why it matters"
+      ],
+      "rows": [
+        [
+          "Context",
+          "Confirm patch, wipe, league, or progression stage.",
+          "Advice without context ages quickly."
+        ],
+        [
+          "Cost",
+          "Estimate resource, currency, time, or opportunity cost.",
+          "A plan can be correct and still not worth doing now."
+        ],
+        [
+          "Risk",
+          "Identify the failure mode before committing.",
+          "Most losses come from ignored risk, not missing information."
+        ],
+        [
+          "Next step",
+          "Choose one action to test first.",
+          "Small tests reduce expensive mistakes."
+        ]
+      ]
+    },
+    "checklist": [
+      "Write down the current patch or progression context.",
+      "Identify the one decision this guide should help you make.",
+      "Check whether the cost is acceptable before committing.",
+      "Look for one safe test before spending major resources.",
+      "Review the result and update the plan after new information."
+    ],
+    "example": "If a raid path looks cheap but exposes you for a long time, add counter risk to the decision instead of judging sulfur alone.",
+    "mistakes": [
+      "Following advice without checking the current patch context.",
+      "Optimizing one number while ignoring risk and execution.",
+      "Spending resources before confirming the next practical step.",
+      "Treating a highlight result as a repeatable plan."
+    ],
+    "related": [
+      "rust-raid-cost-calculator.html",
+      "rust-cheapest-raid-method.html",
+      "rust-solo-raid-checklist.html"
+    ],
+    "sources": [
+      "RaidBench estimates",
+      "Facepunch/Rust official updates",
+      "Community question patterns"
+    ],
+    "monetization": "This topic can feed a future Rust Raid Prep credit action after payment is enabled."
+  },
+  {
     "slug": "rust-armored-wall-raid-cost",
     "title": "Rust armored wall raid cost",
     "description": "How much boom you need for an armored wall, with sulfur estimates and when to avoid wall-side raids.",
     "problem": "How much does it cost to raid an armored wall?",
     "shortAnswer": "An armored wall is one of the most expensive common raid targets. Treat it as a serious commitment: 15 rockets, 8 C4, 46 satchels, or about 800 explosive ammo in the current RaidBench estimate table.",
     "table": {
-      "headers": ["Method", "Amount", "Estimated sulfur", "Best use"],
+      "headers": [
+        "Method",
+        "Amount",
+        "Estimated sulfur",
+        "Best use"
+      ],
       "rows": [
-        ["Rockets", "15", "21,000", "Fast splash pressure when multiple pieces can be damaged."],
-        ["C4", "8", "17,600", "Direct wall break when splash does not matter."],
-        ["Satchels", "46", "22,080", "Usually too slow unless there is no better option."],
-        ["Explosive ammo", "800", "20,000", "Only when you can shoot safely for a long time."]
+        [
+          "Rockets",
+          "15",
+          "21,000",
+          "Fast splash pressure when multiple pieces can be damaged."
+        ],
+        [
+          "C4",
+          "8",
+          "17,600",
+          "Direct wall break when splash does not matter."
+        ],
+        [
+          "Satchels",
+          "46",
+          "22,080",
+          "Usually too slow unless there is no better option."
+        ],
+        [
+          "Explosive ammo",
+          "800",
+          "20,000",
+          "Only when you can shoot safely for a long time."
+        ]
       ]
     },
     "checklist": [
@@ -26,9 +112,174 @@
       "Bringing exact sulfur with no buffer.",
       "Using explosive ammo in a spot that exposes the shooter for too long."
     ],
-    "related": ["rust-garage-door-raid-cost.html", "rust-cheapest-raid-method.html", "rust-solo-raid-checklist.html"],
-    "sources": ["RaidBench calculator estimates", "Facepunch/Rust official updates", "In-game verification recommended after major patches"],
+    "related": [
+      "rust-garage-door-raid-cost.html",
+      "rust-cheapest-raid-method.html",
+      "rust-solo-raid-checklist.html"
+    ],
+    "sources": [
+      "RaidBench calculator estimates",
+      "Facepunch/Rust official updates",
+      "In-game verification recommended after major patches"
+    ],
     "monetization": "Use the Rust Raid Prep Pack to score whether this raid is worth the sulfur before crafting boom."
+  },
+  {
+    "slug": "rust-boom-crafting-order",
+    "title": "Rust boom crafting order",
+    "description": "How to craft rockets, C4, satchels, and ammo without locking yourself into the wrong raid plan.",
+    "problem": "What boom should I craft first?",
+    "shortAnswer": "Craft flexible boom after scouting. Crafting everything too early can turn a better path into a sunk-cost mistake.",
+    "table": {
+      "headers": [
+        "Decision area",
+        "Check",
+        "Why it matters"
+      ],
+      "rows": [
+        [
+          "Context",
+          "Confirm patch, wipe, league, or progression stage.",
+          "Advice without context ages quickly."
+        ],
+        [
+          "Cost",
+          "Estimate resource, currency, time, or opportunity cost.",
+          "A plan can be correct and still not worth doing now."
+        ],
+        [
+          "Risk",
+          "Identify the failure mode before committing.",
+          "Most losses come from ignored risk, not missing information."
+        ],
+        [
+          "Next step",
+          "Choose one action to test first.",
+          "Small tests reduce expensive mistakes."
+        ]
+      ]
+    },
+    "checklist": [
+      "Write down the current patch or progression context.",
+      "Identify the one decision this guide should help you make.",
+      "Check whether the cost is acceptable before committing.",
+      "Look for one safe test before spending major resources.",
+      "Review the result and update the plan after new information."
+    ],
+    "example": "If a raid path looks cheap but exposes you for a long time, add counter risk to the decision instead of judging sulfur alone.",
+    "mistakes": [
+      "Following advice without checking the current patch context.",
+      "Optimizing one number while ignoring risk and execution.",
+      "Spending resources before confirming the next practical step.",
+      "Treating a highlight result as a repeatable plan."
+    ],
+    "related": [
+      "rust-raid-cost-calculator.html",
+      "rust-cheapest-raid-method.html",
+      "rust-solo-raid-checklist.html"
+    ],
+    "sources": [
+      "RaidBench estimates",
+      "Facepunch/Rust official updates",
+      "Community question patterns"
+    ],
+    "monetization": "This topic can feed a future Rust Raid Prep credit action after payment is enabled."
+  },
+  {
+    "slug": "rust-c4-vs-rockets",
+    "title": "Rust C4 vs rockets: speed, sulfur, and splash compared",
+    "description": "Choose C4 or rockets by direct cost, splash opportunity, exposure time, inventory pressure, and the route beyond the first layer.",
+    "problem": "Should I use C4 or rockets?",
+    "shortAnswer": "Use C4 when the target is isolated and you want simple, concentrated direct damage. Use rockets when a well-aimed splash can damage multiple building pieces or when switching targets matters. Compare the complete breach path: one cheap layer does not make the entire route cheap.",
+    "publishedAt": "2026-08-09",
+    "reviewedAt": "2026-08-09",
+    "status": "Current vanilla Rust PC planning guide",
+    "table": {
+      "headers": [
+        "Factor",
+        "C4",
+        "Rockets"
+      ],
+      "rows": [
+        [
+          "Sulfur per item",
+          "2,200 sulfur",
+          "1,400 sulfur"
+        ],
+        [
+          "Damage pattern",
+          "Concentrated on the placed target",
+          "Splash can add value across nearby pieces"
+        ],
+        [
+          "Best fit",
+          "Isolated layers and a confirmed direct route",
+          "Grouped pieces, flexible pressure, or useful splash"
+        ],
+        [
+          "Main trap",
+          "Paying for direct damage when splash was available",
+          "Paying for splash that hits nothing useful"
+        ]
+      ]
+    },
+    "checklist": [
+      "Count every confirmed layer, not only the first door or wall.",
+      "Mark intersections where rocket splash can hit another useful piece.",
+      "Compare total sulfur for the route with the free RaidBench calculator.",
+      "Carry the weapon, ammunition, seal materials, and one explicit stop condition.",
+      "Recalculate immediately if the breach reveals a different path."
+    ],
+    "example": "A vanilla stone wall is four rockets or two C4 in the current RaidBench table: 5,600 versus 4,400 sulfur. C4 is cheaper for that isolated wall, but rockets can reverse the decision if their splash meaningfully damages a second piece.",
+    "mistakes": [
+      "Comparing one rocket with one C4 instead of the target's required count.",
+      "Assuming rockets are automatically better for every large raid.",
+      "Counting theoretical splash without checking the actual angle.",
+      "Crafting the full load before the route is scouted."
+    ],
+    "related": [
+      "rust-raid-cost-calculator.html",
+      "rust-cheapest-raid-method.html",
+      "rust-rocket-splash-basics.html",
+      "rust-fast-vs-efficient-raiding.html"
+    ],
+    "sources": [
+      {
+        "label": "Facepunch Rust Wiki - Rocket",
+        "url": "https://wiki.facepunch.com/rust/item/ammo.rocket.basic",
+        "note": "Splash behavior and current building-grade rocket counts."
+      },
+      {
+        "label": "Facepunch Rust Wiki - Timed Explosive Charge",
+        "url": "https://wiki.facepunch.com/rust/item/explosive.timed",
+        "note": "Official item and recipe reference."
+      },
+      {
+        "label": "RaidBench verified raid data",
+        "url": "../about.html",
+        "note": "Vanilla PC sulfur roll-ups reviewed against current source data."
+      },
+      {
+        "label": "Community question pattern",
+        "url": "https://www.reddit.com/r/playrust/comments/1uxmyts/y_rockets_over_c4/",
+        "note": "Used to select the player question, not to establish mechanics."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Are C4 charges always cheaper than rockets in Rust?",
+        "answer": "No. Compare the number of items required for the complete route. C4 can be cheaper on an isolated target, while useful rocket splash can reduce the effective cost across multiple pieces."
+      },
+      {
+        "question": "Why do large groups often use rockets?",
+        "answer": "Rockets can apply splash damage, support target switching, and maintain pressure across grouped building pieces. Those advantages matter only when the route and firing angle can use them."
+      },
+      {
+        "question": "Should I craft C4 or rockets before scouting?",
+        "answer": "Scout first whenever possible. Crafting a fixed load too early can lock you into a poor route after the base reveals a cheaper door, wall, roof, or splash option."
+      }
+    ],
+    "monetization": "A reviewed Rust Raid Plan compares the complete route, buffer, roles, and stop condition."
   },
   {
     "slug": "rust-cheapest-raid-method",
@@ -37,13 +288,37 @@
     "problem": "Which raid method is cheapest for each target?",
     "shortAnswer": "The cheapest sulfur method is often explosive ammo or satchels, but the best method depends on speed, safety, splash value, and counters. Use cheapest as the starting point, not the final decision.",
     "table": {
-      "headers": ["Target", "Lowest estimate", "Tradeoff"],
+      "headers": [
+        "Target",
+        "Lowest estimate",
+        "Tradeoff"
+      ],
       "rows": [
-        ["Sheet Metal Door", "Explosive ammo: 1,575 sulfur", "Slow and exposes shooter."],
-        ["Garage Door", "Explosive ammo: about 3,750 sulfur", "Lower sulfur but high time risk."],
-        ["Stone Wall", "C4: 4,400 sulfur", "Fast but no splash."],
-        ["Sheet Metal Wall", "C4: 8,800 sulfur", "Good direct damage but expensive inventory."],
-        ["Armored Wall", "C4: 17,600 sulfur", "Only worth it if the wall path is truly best."]
+        [
+          "Sheet Metal Door",
+          "Explosive ammo: 1,575 sulfur",
+          "Slow and exposes shooter."
+        ],
+        [
+          "Garage Door",
+          "Explosive ammo: about 3,750 sulfur",
+          "Lower sulfur but high time risk."
+        ],
+        [
+          "Stone Wall",
+          "C4: 4,400 sulfur",
+          "Fast but no splash."
+        ],
+        [
+          "Sheet Metal Wall",
+          "C4: 8,800 sulfur",
+          "Good direct damage but expensive inventory."
+        ],
+        [
+          "Armored Wall",
+          "C4: 17,600 sulfur",
+          "Only worth it if the wall path is truly best."
+        ]
       ]
     },
     "checklist": [
@@ -58,9 +333,1067 @@
       "Ignoring failed satchel timing and counter risk.",
       "Forgetting to value rocket splash."
     ],
-    "related": ["rust-explosive-ammo-vs-rockets.html", "rust-armored-wall-raid-cost.html", "rust-rocket-splash-basics.html"],
-    "sources": ["RaidBench calculator estimates", "Facepunch/Rust official updates", "In-game verification recommended after major patches"],
+    "related": [
+      "rust-explosive-ammo-vs-rockets.html",
+      "rust-armored-wall-raid-cost.html",
+      "rust-rocket-splash-basics.html"
+    ],
+    "sources": [
+      "RaidBench calculator estimates",
+      "Facepunch/Rust official updates",
+      "In-game verification recommended after major patches"
+    ],
     "monetization": "The Rust Raid Prep Pack includes a target scoring worksheet for deciding when cheap is too risky."
+  },
+  {
+    "slug": "rust-compound-bow-raid-plan",
+    "title": "Rust compound bow raid plan",
+    "description": "A low-tech early raid plan for weak doors, soft-side opportunities, and realistic stop points.",
+    "problem": "Can I raid early without full boom?",
+    "shortAnswer": "Early low-tech raids should target obvious weakness, not force expensive paths with bad tools.",
+    "table": {
+      "headers": [
+        "Decision area",
+        "Check",
+        "Why it matters"
+      ],
+      "rows": [
+        [
+          "Context",
+          "Confirm patch, wipe, league, or progression stage.",
+          "Advice without context ages quickly."
+        ],
+        [
+          "Cost",
+          "Estimate resource, currency, time, or opportunity cost.",
+          "A plan can be correct and still not worth doing now."
+        ],
+        [
+          "Risk",
+          "Identify the failure mode before committing.",
+          "Most losses come from ignored risk, not missing information."
+        ],
+        [
+          "Next step",
+          "Choose one action to test first.",
+          "Small tests reduce expensive mistakes."
+        ]
+      ]
+    },
+    "checklist": [
+      "Write down the current patch or progression context.",
+      "Identify the one decision this guide should help you make.",
+      "Check whether the cost is acceptable before committing.",
+      "Look for one safe test before spending major resources.",
+      "Review the result and update the plan after new information."
+    ],
+    "example": "If a raid path looks cheap but exposes you for a long time, add counter risk to the decision instead of judging sulfur alone.",
+    "mistakes": [
+      "Following advice without checking the current patch context.",
+      "Optimizing one number while ignoring risk and execution.",
+      "Spending resources before confirming the next practical step.",
+      "Treating a highlight result as a repeatable plan."
+    ],
+    "related": [
+      "rust-raid-cost-calculator.html",
+      "rust-cheapest-raid-method.html",
+      "rust-solo-raid-checklist.html"
+    ],
+    "sources": [
+      "RaidBench estimates",
+      "Facepunch/Rust official updates",
+      "Community question patterns"
+    ],
+    "monetization": "This topic can feed a future Rust Raid Prep credit action after payment is enabled."
+  },
+  {
+    "slug": "rust-counter-raid-escape-plan",
+    "title": "Rust counter raid escape plan",
+    "description": "How to plan exits, banking, and stop conditions before counters arrive.",
+    "problem": "How do I avoid losing a raid to counters?",
+    "shortAnswer": "Counter-risk is not solved after the alarm starts. Decide banking routes, seal timing, and stop rules before placing boom.",
+    "table": {
+      "headers": [
+        "Decision area",
+        "Check",
+        "Why it matters"
+      ],
+      "rows": [
+        [
+          "Context",
+          "Confirm patch, wipe, league, or progression stage.",
+          "Advice without context ages quickly."
+        ],
+        [
+          "Cost",
+          "Estimate resource, currency, time, or opportunity cost.",
+          "A plan can be correct and still not worth doing now."
+        ],
+        [
+          "Risk",
+          "Identify the failure mode before committing.",
+          "Most losses come from ignored risk, not missing information."
+        ],
+        [
+          "Next step",
+          "Choose one action to test first.",
+          "Small tests reduce expensive mistakes."
+        ]
+      ]
+    },
+    "checklist": [
+      "Write down the current patch or progression context.",
+      "Identify the one decision this guide should help you make.",
+      "Check whether the cost is acceptable before committing.",
+      "Look for one safe test before spending major resources.",
+      "Review the result and update the plan after new information."
+    ],
+    "example": "If a raid path looks cheap but exposes you for a long time, add counter risk to the decision instead of judging sulfur alone.",
+    "mistakes": [
+      "Following advice without checking the current patch context.",
+      "Optimizing one number while ignoring risk and execution.",
+      "Spending resources before confirming the next practical step.",
+      "Treating a highlight result as a repeatable plan."
+    ],
+    "related": [
+      "rust-raid-cost-calculator.html",
+      "rust-cheapest-raid-method.html",
+      "rust-solo-raid-checklist.html"
+    ],
+    "sources": [
+      "RaidBench estimates",
+      "Facepunch/Rust official updates",
+      "Community question patterns"
+    ],
+    "monetization": "This topic can feed a future Rust Raid Prep credit action after payment is enabled."
+  },
+  {
+    "slug": "rust-duo-raid-comms-checklist",
+    "title": "Rust duo raid comms checklist",
+    "description": "A communication checklist for duo raid roles, timing, and counter calls.",
+    "problem": "What should a duo call out during a raid?",
+    "shortAnswer": "Good comms shorten decision time. Call target, boom count, counter direction, seal status, loot priority, and stop condition.",
+    "table": {
+      "headers": [
+        "Decision area",
+        "Check",
+        "Why it matters"
+      ],
+      "rows": [
+        [
+          "Context",
+          "Confirm patch, wipe, league, or progression stage.",
+          "Advice without context ages quickly."
+        ],
+        [
+          "Cost",
+          "Estimate resource, currency, time, or opportunity cost.",
+          "A plan can be correct and still not worth doing now."
+        ],
+        [
+          "Risk",
+          "Identify the failure mode before committing.",
+          "Most losses come from ignored risk, not missing information."
+        ],
+        [
+          "Next step",
+          "Choose one action to test first.",
+          "Small tests reduce expensive mistakes."
+        ]
+      ]
+    },
+    "checklist": [
+      "Write down the current patch or progression context.",
+      "Identify the one decision this guide should help you make.",
+      "Check whether the cost is acceptable before committing.",
+      "Look for one safe test before spending major resources.",
+      "Review the result and update the plan after new information."
+    ],
+    "example": "If a raid path looks cheap but exposes you for a long time, add counter risk to the decision instead of judging sulfur alone.",
+    "mistakes": [
+      "Following advice without checking the current patch context.",
+      "Optimizing one number while ignoring risk and execution.",
+      "Spending resources before confirming the next practical step.",
+      "Treating a highlight result as a repeatable plan."
+    ],
+    "related": [
+      "rust-raid-cost-calculator.html",
+      "rust-cheapest-raid-method.html",
+      "rust-solo-raid-checklist.html"
+    ],
+    "sources": [
+      "RaidBench estimates",
+      "Facepunch/Rust official updates",
+      "Community question patterns"
+    ],
+    "monetization": "This topic can feed a future Rust Raid Prep credit action after payment is enabled."
+  },
+  {
+    "slug": "rust-duo-raid-roles",
+    "title": "Rust duo raid roles checklist",
+    "description": "A simple duo raid role split for boom placement, counter-watch, sealing, and loot movement.",
+    "problem": "How should two players split roles during a raid?",
+    "shortAnswer": "A duo raid works best when one player owns the raid path and one player owns safety. Without role clarity, duos waste time, miss counters, and lose loot during the breach.",
+    "table": {
+      "headers": [
+        "Role",
+        "Primary job",
+        "Backup job"
+      ],
+      "rows": [
+        [
+          "Boom lead",
+          "Place boom and call next target.",
+          "Track remaining sulfur."
+        ],
+        [
+          "Security",
+          "Watch counters and flank angles.",
+          "Carry seal materials."
+        ],
+        [
+          "Loot runner",
+          "Move high-value loot early.",
+          "Call stop condition."
+        ],
+        [
+          "Both",
+          "Know exit and bank route.",
+          "Avoid tunnel vision."
+        ]
+      ]
+    },
+    "checklist": [
+      "Agree who places boom before leaving base.",
+      "Keep one player watching during every breach.",
+      "Move loot in waves, not only at the end.",
+      "Have a shared stop condition."
+    ],
+    "example": "If the boom lead is breaking a garage door, the second player should not stare at the door. They should hold the flank and prepare seal materials.",
+    "mistakes": [
+      "Both players looting at the same time.",
+      "No one carrying seal materials.",
+      "Switching boom types mid-raid without recalculating cost."
+    ],
+    "related": [
+      "rust-solo-raid-checklist.html",
+      "rust-garage-door-raid-cost.html",
+      "rust-raid-cost-calculator.html"
+    ],
+    "sources": [
+      "RaidBench calculator estimates",
+      "Community question patterns",
+      "In-game verification recommended"
+    ],
+    "monetization": "The Rust Raid Prep Pack includes a duo role sheet."
+  },
+  {
+    "slug": "rust-explosive-ammo-door-path",
+    "title": "Rust explosive ammo door path",
+    "description": "When explosive ammo makes sense for a door path and when rockets or C4 are safer.",
+    "problem": "Should I use explosive ammo through a door path?",
+    "shortAnswer": "Explosive ammo is attractive when the path is short, the shooting angle is safe, and sulfur efficiency matters. It becomes risky when the raid is loud, exposed, or likely to attract counters before you finish.",
+    "table": {
+      "headers": [
+        "Door",
+        "Explosive ammo estimate",
+        "Risk note"
+      ],
+      "rows": [
+        [
+          "Sheet Metal Door",
+          "63",
+          "Efficient if you can shoot safely."
+        ],
+        [
+          "Garage Door",
+          "About 150",
+          "Longer exposure; watch counters."
+        ],
+        [
+          "Armored Door",
+          "250",
+          "Often too slow under pressure."
+        ]
+      ]
+    },
+    "checklist": [
+      "Confirm the angle is safe before starting.",
+      "Bring enough ammo for one extra door.",
+      "Decide when to swap to faster boom.",
+      "Do not tunnel vision while shooting."
+    ],
+    "example": "Explosive ammo can be fine for one sheet door. For several garage doors, the time risk can make rockets or C4 more practical.",
+    "mistakes": [
+      "Using explosive ammo in a high-traffic area.",
+      "Standing exposed while shooting.",
+      "Forgetting ammo/gun durability and counters."
+    ],
+    "related": [
+      "rust-explosive-ammo-vs-rockets.html",
+      "rust-garage-door-raid-cost.html",
+      "rust-solo-raid-checklist.html"
+    ],
+    "sources": [
+      "RaidBench calculator estimates",
+      "In-game verification recommended after major patches"
+    ],
+    "monetization": "The paid checklist helps choose a stop condition before a long door path."
+  },
+  {
+    "slug": "rust-high-external-wall-raid-cost",
+    "title": "Rust high external wall raid cost",
+    "description": "How to think about external walls, compound entry, and sulfur risk.",
+    "problem": "Should I raid through a high external wall?",
+    "shortAnswer": "External walls are often about access, not final loot. Count the follow-up path before spending boom on the compound.",
+    "table": {
+      "headers": [
+        "Decision area",
+        "Check",
+        "Why it matters"
+      ],
+      "rows": [
+        [
+          "Context",
+          "Confirm patch, wipe, league, or progression stage.",
+          "Advice without context ages quickly."
+        ],
+        [
+          "Cost",
+          "Estimate resource, currency, time, or opportunity cost.",
+          "A plan can be correct and still not worth doing now."
+        ],
+        [
+          "Risk",
+          "Identify the failure mode before committing.",
+          "Most losses come from ignored risk, not missing information."
+        ],
+        [
+          "Next step",
+          "Choose one action to test first.",
+          "Small tests reduce expensive mistakes."
+        ]
+      ]
+    },
+    "checklist": [
+      "Write down the current patch or progression context.",
+      "Identify the one decision this guide should help you make.",
+      "Check whether the cost is acceptable before committing.",
+      "Look for one safe test before spending major resources.",
+      "Review the result and update the plan after new information."
+    ],
+    "example": "If a raid path looks cheap but exposes you for a long time, add counter risk to the decision instead of judging sulfur alone.",
+    "mistakes": [
+      "Following advice without checking the current patch context.",
+      "Optimizing one number while ignoring risk and execution.",
+      "Spending resources before confirming the next practical step.",
+      "Treating a highlight result as a repeatable plan."
+    ],
+    "related": [
+      "rust-raid-cost-calculator.html",
+      "rust-cheapest-raid-method.html",
+      "rust-solo-raid-checklist.html"
+    ],
+    "sources": [
+      "RaidBench estimates",
+      "Facepunch/Rust official updates",
+      "Community question patterns"
+    ],
+    "monetization": "This topic can feed a future Rust Raid Prep credit action after payment is enabled."
+  },
+  {
+    "slug": "rust-honeycomb-raid-decision",
+    "title": "Rust honeycomb raid decision",
+    "description": "When honeycomb makes wall-side entry too expensive and when it reveals a better plan.",
+    "problem": "Should I raid through honeycomb?",
+    "shortAnswer": "Honeycomb raises cost and uncertainty. Treat it as a warning to rescout the door path and roof options.",
+    "table": {
+      "headers": [
+        "Decision area",
+        "Check",
+        "Why it matters"
+      ],
+      "rows": [
+        [
+          "Context",
+          "Confirm patch, wipe, league, or progression stage.",
+          "Advice without context ages quickly."
+        ],
+        [
+          "Cost",
+          "Estimate resource, currency, time, or opportunity cost.",
+          "A plan can be correct and still not worth doing now."
+        ],
+        [
+          "Risk",
+          "Identify the failure mode before committing.",
+          "Most losses come from ignored risk, not missing information."
+        ],
+        [
+          "Next step",
+          "Choose one action to test first.",
+          "Small tests reduce expensive mistakes."
+        ]
+      ]
+    },
+    "checklist": [
+      "Write down the current patch or progression context.",
+      "Identify the one decision this guide should help you make.",
+      "Check whether the cost is acceptable before committing.",
+      "Look for one safe test before spending major resources.",
+      "Review the result and update the plan after new information."
+    ],
+    "example": "If a raid path looks cheap but exposes you for a long time, add counter risk to the decision instead of judging sulfur alone.",
+    "mistakes": [
+      "Following advice without checking the current patch context.",
+      "Optimizing one number while ignoring risk and execution.",
+      "Spending resources before confirming the next practical step.",
+      "Treating a highlight result as a repeatable plan."
+    ],
+    "related": [
+      "rust-raid-cost-calculator.html",
+      "rust-cheapest-raid-method.html",
+      "rust-solo-raid-checklist.html"
+    ],
+    "sources": [
+      "RaidBench estimates",
+      "Facepunch/Rust official updates",
+      "Community question patterns"
+    ],
+    "monetization": "This topic can feed a future Rust Raid Prep credit action after payment is enabled."
+  },
+  {
+    "slug": "rust-ladder-hatch-raid-cost",
+    "title": "Rust ladder hatch raid cost",
+    "description": "Ladder hatch raid estimates and when vertical entry is worth the exposure.",
+    "problem": "How much does a ladder hatch cost to raid?",
+    "shortAnswer": "A ladder hatch can be a strong entry point, but vertical control and counters matter as much as raw sulfur.",
+    "table": {
+      "headers": [
+        "Decision area",
+        "Check",
+        "Why it matters"
+      ],
+      "rows": [
+        [
+          "Context",
+          "Confirm patch, wipe, league, or progression stage.",
+          "Advice without context ages quickly."
+        ],
+        [
+          "Cost",
+          "Estimate resource, currency, time, or opportunity cost.",
+          "A plan can be correct and still not worth doing now."
+        ],
+        [
+          "Risk",
+          "Identify the failure mode before committing.",
+          "Most losses come from ignored risk, not missing information."
+        ],
+        [
+          "Next step",
+          "Choose one action to test first.",
+          "Small tests reduce expensive mistakes."
+        ]
+      ]
+    },
+    "checklist": [
+      "Write down the current patch or progression context.",
+      "Identify the one decision this guide should help you make.",
+      "Check whether the cost is acceptable before committing.",
+      "Look for one safe test before spending major resources.",
+      "Review the result and update the plan after new information."
+    ],
+    "example": "If a raid path looks cheap but exposes you for a long time, add counter risk to the decision instead of judging sulfur alone.",
+    "mistakes": [
+      "Following advice without checking the current patch context.",
+      "Optimizing one number while ignoring risk and execution.",
+      "Spending resources before confirming the next practical step.",
+      "Treating a highlight result as a repeatable plan."
+    ],
+    "related": [
+      "rust-raid-cost-calculator.html",
+      "rust-cheapest-raid-method.html",
+      "rust-solo-raid-checklist.html"
+    ],
+    "sources": [
+      "RaidBench estimates",
+      "Facepunch/Rust official updates",
+      "Community question patterns"
+    ],
+    "monetization": "This topic can feed a future Rust Raid Prep credit action after payment is enabled."
+  },
+  {
+    "slug": "rust-online-vs-offline-raid-cost",
+    "title": "Rust online vs offline raid cost: plan the risk, not just the boom",
+    "description": "Compare online and offline raid planning by uncertainty, defender response, reserve boom, roles, sealing, and exit rules.",
+    "problem": "How much extra boom should I bring for an online raid?",
+    "shortAnswer": "There is no honest universal buffer percentage for an online raid. Defenders can repair, seal, move loot, change the route, and contest the breach, so budget for one plausible surprise layer and define a stop condition. An offline route is more predictable, but counter-raiders and scouting errors still exist.",
+    "publishedAt": "2026-08-09",
+    "reviewedAt": "2026-08-09",
+    "status": "Decision framework; server population and rules change the risk",
+    "table": {
+      "headers": [
+        "Planning factor",
+        "Online raid",
+        "Offline raid"
+      ],
+      "rows": [
+        [
+          "Route certainty",
+          "Low: defenders can alter and reseal the path",
+          "Higher, but scouting can still be wrong"
+        ],
+        [
+          "Reserve boom",
+          "At least one plausible surprise layer, chosen from scouting",
+          "A smaller route-specific correction may be enough"
+        ],
+        [
+          "Team jobs",
+          "Breach, cover, launcher recovery, sealing, and calls",
+          "Breach, counter watch, banking, and sealing"
+        ],
+        [
+          "Stop condition",
+          "Set before the first explosive; defenders create sunk-cost pressure",
+          "Set before the raid; counters can still erase a winning route"
+        ]
+      ]
+    },
+    "checklist": [
+      "Write the confirmed route and the most likely surprise layer.",
+      "Separate route boom from reserve boom so the reserve is not spent casually.",
+      "Assign who recovers the launcher and who carries seal materials.",
+      "Choose the condition that ends the raid: reserve spent, launcher lost, route invalid, or counters controlling the breach.",
+      "Bank valuable loot before extending into an uncertain layer."
+    ],
+    "example": "If the scouted path appears to be two garage doors, the route estimate is only the opening hypothesis. For an online attempt, reserve for the plausible next layer, assign a launcher recovery role, and stop if the reserve is spent before the expected core appears.",
+    "mistakes": [
+      "Applying the same buffer percentage to every base and server.",
+      "Treating defender repairs and reseals as free extra layers with no stop rule.",
+      "Keeping all boom on one player without a recovery call.",
+      "Continuing only because the raid has already consumed resources."
+    ],
+    "related": [
+      "rust-raid-cost-calculator.html",
+      "rust-cheapest-raid-method.html",
+      "rust-raid-buffer-calculator-guide.html",
+      "rust-counter-raid-escape-plan.html"
+    ],
+    "sources": [
+      {
+        "label": "RaidBench planning model",
+        "url": "../about.html",
+        "note": "Route, reserve, role, and stop-condition framework."
+      },
+      {
+        "label": "Community question pattern",
+        "url": "https://www.reddit.com/r/playrust/comments/1vdgzxq/fast_raiding_vs_efficient_raiding/",
+        "note": "Used as demand evidence only."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What percentage of extra boom should I bring to an online raid?",
+        "answer": "Use a route-specific layer, not a universal percentage. Identify the most plausible hidden or resealed layer and reserve enough for that decision; custom servers and defender behavior can change the requirement."
+      },
+      {
+        "question": "Are offline raids predictable?",
+        "answer": "They are usually more predictable than an active defense, but scouting errors, counters, traps, and unexpected layers still make exact-cost planning fragile."
+      },
+      {
+        "question": "When should an online raid stop?",
+        "answer": "Stop when a prewritten condition is met, such as exhausting the reserve, losing launcher control, discovering an invalid route, or losing control of the breach to defenders or counters."
+      }
+    ],
+    "monetization": "A reviewed Rust Raid Plan turns the target, team, and reserve into an explicit route and stop condition."
+  },
+  {
+    "slug": "rust-raid-buffer-calculator-guide",
+    "title": "Rust raid buffer calculator guide",
+    "description": "How much extra boom to bring for hidden doors, repairs, counters, and mistakes.",
+    "problem": "How much extra boom should I bring?",
+    "shortAnswer": "Exact raid math fails when the base is not exact. A realistic buffer protects the raid from one bad assumption.",
+    "table": {
+      "headers": [
+        "Decision area",
+        "Check",
+        "Why it matters"
+      ],
+      "rows": [
+        [
+          "Context",
+          "Confirm patch, wipe, league, or progression stage.",
+          "Advice without context ages quickly."
+        ],
+        [
+          "Cost",
+          "Estimate resource, currency, time, or opportunity cost.",
+          "A plan can be correct and still not worth doing now."
+        ],
+        [
+          "Risk",
+          "Identify the failure mode before committing.",
+          "Most losses come from ignored risk, not missing information."
+        ],
+        [
+          "Next step",
+          "Choose one action to test first.",
+          "Small tests reduce expensive mistakes."
+        ]
+      ]
+    },
+    "checklist": [
+      "Write down the current patch or progression context.",
+      "Identify the one decision this guide should help you make.",
+      "Check whether the cost is acceptable before committing.",
+      "Look for one safe test before spending major resources.",
+      "Review the result and update the plan after new information."
+    ],
+    "example": "If a raid path looks cheap but exposes you for a long time, add counter risk to the decision instead of judging sulfur alone.",
+    "mistakes": [
+      "Following advice without checking the current patch context.",
+      "Optimizing one number while ignoring risk and execution.",
+      "Spending resources before confirming the next practical step.",
+      "Treating a highlight result as a repeatable plan."
+    ],
+    "related": [
+      "rust-raid-cost-calculator.html",
+      "rust-cheapest-raid-method.html",
+      "rust-solo-raid-checklist.html"
+    ],
+    "sources": [
+      "RaidBench estimates",
+      "Facepunch/Rust official updates",
+      "Community question patterns"
+    ],
+    "monetization": "This topic can feed a future Rust Raid Prep credit action after payment is enabled."
+  },
+  {
+    "slug": "rust-raid-profit-calculator-outline",
+    "title": "Rust raid break-even calculator: was the raid worth it?",
+    "description": "Estimate raid break-even from boom used, recovered loot, lost kits, time, counters, and strategic value without pretending every item has one fixed price.",
+    "problem": "Was the raid worth it?",
+    "shortAnswer": "Start with resource break-even: recovered sulfur-equivalent value minus boom and lost kits. Then judge time, counter risk, and strategic value separately. A raid can be resource-positive but strategically poor, or resource-negative but worthwhile because it removed an immediate threat.",
+    "publishedAt": "2026-08-09",
+    "reviewedAt": "2026-08-09",
+    "status": "Player-entered estimates; no universal loot exchange rate",
+    "table": {
+      "headers": [
+        "Line item",
+        "Write down"
+      ],
+      "rows": [
+        [
+          "Sulfur spent",
+          "Total sulfur equivalent from boom used."
+        ],
+        [
+          "Gear lost",
+          "Kits, weapons, meds, ammo."
+        ],
+        [
+          "Loot recovered",
+          "Sulfur, metal, HQM, comps, weapons."
+        ],
+        [
+          "Time cost",
+          "Farm time plus raid time."
+        ],
+        [
+          "Risk result",
+          "Counters, deaths, base exposure."
+        ],
+        [
+          "Strategic value",
+          "Threat removed, territory gained, or progression unlocked."
+        ]
+      ]
+    },
+    "checklist": [
+      "Record estimated sulfur before the raid.",
+      "Record actual sulfur after the raid.",
+      "Estimate lost kits and consumables in the same unit you use for recovered loot.",
+      "Keep time and strategic value visible instead of hiding them in a made-up exchange rate.",
+      "Use the result to improve the next target-selection decision."
+    ],
+    "example": "If a raid uses 5,600 sulfur, returns loot you value at 7,000 sulfur equivalent, and loses a 1,000-equivalent kit, the resource result is +400. That is above resource break-even, but a long exposed raid can still be a poor use of wipe time.",
+    "calculator": {
+      "type": "raid_break_even"
+    },
+    "sections": [
+      {
+        "title": "Use two verdicts, not one",
+        "paragraphs": [
+          "Record a resource verdict first, then a strategic verdict. Keeping them separate prevents a satisfying fight from disguising a material loss and prevents a defensive raid from looking pointless simply because the boxes were light."
+        ],
+        "bullets": [
+          "Resource verdict: recovered value minus boom and losses.",
+          "Strategic verdict: threat removed, location secured, or future farming protected."
+        ]
+      }
+    ],
+    "mistakes": [
+      "Counting only loot and ignoring boom cost.",
+      "Ignoring failed attempts.",
+      "Assigning precise values to every item without stating the assumptions.",
+      "Calling a raid profitable without tracking actual spend."
+    ],
+    "related": [
+      "rust-raid-cost-calculator.html",
+      "rust-sulfur-farming-route.html",
+      "rust-cheapest-raid-method.html"
+    ],
+    "sources": [
+      {
+        "label": "RaidBench verified raid calculator",
+        "url": "../index.html#raid-calculator",
+        "note": "Provides the boom-side sulfur estimate."
+      },
+      {
+        "label": "Community question pattern",
+        "url": "https://www.reddit.com/r/playrust/comments/1ruodeb/profitable_raids/",
+        "note": "Used to select the break-even question, not as a price source."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What counts as profit in a Rust raid?",
+        "answer": "For resource profit, subtract boom and lost-kit value from recovered loot value using your own stated conversion assumptions. Review time, counters, and strategic value separately."
+      },
+      {
+        "question": "How should I value guns and components?",
+        "answer": "Use the replacement or progression value on your server and at your stage of the wipe. Do not present one exchange rate as universal across servers, wipes, and group sizes."
+      },
+      {
+        "question": "Can a resource-negative raid still be worth it?",
+        "answer": "Yes. Removing a direct threat, protecting a farm route, or securing territory can create strategic value, but label that result separately from resource profit."
+      }
+    ],
+    "monetization": "A reviewed Rust Raid Plan adds route cost, reserve, roles, and stop conditions before the spend occurs."
+  },
+  {
+    "slug": "rust-rocket-splash-basics",
+    "title": "Rust rocket splash basics",
+    "description": "When rocket splash makes a raid path better than the cheapest direct damage method.",
+    "problem": "When are rockets better than cheaper direct damage?",
+    "shortAnswer": "Rockets become better when splash damages more than the first target. If splash is wasted, cheaper direct methods may win. If splash opens several pieces or speeds up pressure, rockets can justify higher sulfur.",
+    "table": {
+      "headers": [
+        "Situation",
+        "Rocket value"
+      ],
+      "rows": [
+        [
+          "Single isolated door",
+          "Often low value."
+        ],
+        [
+          "Wall plus nearby deployables",
+          "Potentially high value."
+        ],
+        [
+          "Grouped doors or splashable path",
+          "High value if aimed well."
+        ],
+        [
+          "Online raid pressure",
+          "Speed may matter more than sulfur."
+        ]
+      ]
+    },
+    "checklist": [
+      "Look for multiple pieces in splash range.",
+      "Avoid rockets when splash hits nothing useful.",
+      "Use rockets when speed and pressure matter.",
+      "Recalculate if the path changes."
+    ],
+    "example": "A stone wall may cost more with rockets than C4 on paper, but splash can matter if it damages nearby doors or a second wall.",
+    "mistakes": [
+      "Treating rocket cost as only single-target damage.",
+      "Using rockets where splash is wasted.",
+      "Ignoring the value of raid speed."
+    ],
+    "related": [
+      "rust-cheapest-raid-method.html",
+      "rust-stone-wall-raid-cost.html",
+      "rust-explosive-ammo-vs-rockets.html"
+    ],
+    "sources": [
+      "RaidBench calculator estimates",
+      "In-game verification recommended after major patches"
+    ],
+    "monetization": "The Rust Raid Prep Pack includes a route worksheet for noting splash opportunities."
+  },
+  {
+    "slug": "rust-satchel-raid-risk-checklist",
+    "title": "Rust satchel raid risk checklist",
+    "description": "A checklist for using satchels without losing the raid to timing, noise, and counters.",
+    "problem": "When are satchels worth using?",
+    "shortAnswer": "Satchels are budget-friendly but noisy and unreliable. They are best when the target is small and you can survive the delay.",
+    "table": {
+      "headers": [
+        "Decision area",
+        "Check",
+        "Why it matters"
+      ],
+      "rows": [
+        [
+          "Context",
+          "Confirm patch, wipe, league, or progression stage.",
+          "Advice without context ages quickly."
+        ],
+        [
+          "Cost",
+          "Estimate resource, currency, time, or opportunity cost.",
+          "A plan can be correct and still not worth doing now."
+        ],
+        [
+          "Risk",
+          "Identify the failure mode before committing.",
+          "Most losses come from ignored risk, not missing information."
+        ],
+        [
+          "Next step",
+          "Choose one action to test first.",
+          "Small tests reduce expensive mistakes."
+        ]
+      ]
+    },
+    "checklist": [
+      "Write down the current patch or progression context.",
+      "Identify the one decision this guide should help you make.",
+      "Check whether the cost is acceptable before committing.",
+      "Look for one safe test before spending major resources.",
+      "Review the result and update the plan after new information."
+    ],
+    "example": "If a raid path looks cheap but exposes you for a long time, add counter risk to the decision instead of judging sulfur alone.",
+    "mistakes": [
+      "Following advice without checking the current patch context.",
+      "Optimizing one number while ignoring risk and execution.",
+      "Spending resources before confirming the next practical step.",
+      "Treating a highlight result as a repeatable plan."
+    ],
+    "related": [
+      "rust-raid-cost-calculator.html",
+      "rust-cheapest-raid-method.html",
+      "rust-solo-raid-checklist.html"
+    ],
+    "sources": [
+      "RaidBench estimates",
+      "Facepunch/Rust official updates",
+      "Community question patterns"
+    ],
+    "monetization": "This topic can feed a future Rust Raid Prep credit action after payment is enabled."
+  },
+  {
+    "slug": "rust-sealing-after-raid-checklist",
+    "title": "Rust sealing after raid checklist",
+    "description": "What to bring and what to decide before sealing a breach.",
+    "problem": "What should I bring to seal a raid?",
+    "shortAnswer": "Sealing is a raid phase, not an afterthought. Building plan, materials, doors, locks, and role clarity protect the result.",
+    "table": {
+      "headers": [
+        "Decision area",
+        "Check",
+        "Why it matters"
+      ],
+      "rows": [
+        [
+          "Context",
+          "Confirm patch, wipe, league, or progression stage.",
+          "Advice without context ages quickly."
+        ],
+        [
+          "Cost",
+          "Estimate resource, currency, time, or opportunity cost.",
+          "A plan can be correct and still not worth doing now."
+        ],
+        [
+          "Risk",
+          "Identify the failure mode before committing.",
+          "Most losses come from ignored risk, not missing information."
+        ],
+        [
+          "Next step",
+          "Choose one action to test first.",
+          "Small tests reduce expensive mistakes."
+        ]
+      ]
+    },
+    "checklist": [
+      "Write down the current patch or progression context.",
+      "Identify the one decision this guide should help you make.",
+      "Check whether the cost is acceptable before committing.",
+      "Look for one safe test before spending major resources.",
+      "Review the result and update the plan after new information."
+    ],
+    "example": "If a raid path looks cheap but exposes you for a long time, add counter risk to the decision instead of judging sulfur alone.",
+    "mistakes": [
+      "Following advice without checking the current patch context.",
+      "Optimizing one number while ignoring risk and execution.",
+      "Spending resources before confirming the next practical step.",
+      "Treating a highlight result as a repeatable plan."
+    ],
+    "related": [
+      "rust-raid-cost-calculator.html",
+      "rust-cheapest-raid-method.html",
+      "rust-solo-raid-checklist.html"
+    ],
+    "sources": [
+      "RaidBench estimates",
+      "Facepunch/Rust official updates",
+      "Community question patterns"
+    ],
+    "monetization": "This topic can feed a future Rust Raid Prep credit action after payment is enabled."
+  },
+  {
+    "slug": "rust-sheet-metal-wall-raid-cost",
+    "title": "Rust sheet metal wall raid cost",
+    "description": "A practical sulfur estimate for sheet metal walls and when splash damage changes the choice.",
+    "problem": "How much does it cost to raid a sheet metal wall?",
+    "shortAnswer": "A sheet metal wall is usually a serious wall-side commitment. C4 is direct, rockets create splash value, and explosive ammo only works when the shooting angle is safe.",
+    "table": {
+      "headers": [
+        "Decision area",
+        "Check",
+        "Why it matters"
+      ],
+      "rows": [
+        [
+          "Context",
+          "Confirm patch, wipe, league, or progression stage.",
+          "Advice without context ages quickly."
+        ],
+        [
+          "Cost",
+          "Estimate resource, currency, time, or opportunity cost.",
+          "A plan can be correct and still not worth doing now."
+        ],
+        [
+          "Risk",
+          "Identify the failure mode before committing.",
+          "Most losses come from ignored risk, not missing information."
+        ],
+        [
+          "Next step",
+          "Choose one action to test first.",
+          "Small tests reduce expensive mistakes."
+        ]
+      ]
+    },
+    "checklist": [
+      "Write down the current patch or progression context.",
+      "Identify the one decision this guide should help you make.",
+      "Check whether the cost is acceptable before committing.",
+      "Look for one safe test before spending major resources.",
+      "Review the result and update the plan after new information."
+    ],
+    "example": "If a raid path looks cheap but exposes you for a long time, add counter risk to the decision instead of judging sulfur alone.",
+    "mistakes": [
+      "Following advice without checking the current patch context.",
+      "Optimizing one number while ignoring risk and execution.",
+      "Spending resources before confirming the next practical step.",
+      "Treating a highlight result as a repeatable plan."
+    ],
+    "related": [
+      "rust-raid-cost-calculator.html",
+      "rust-cheapest-raid-method.html",
+      "rust-solo-raid-checklist.html"
+    ],
+    "sources": [
+      "RaidBench estimates",
+      "Facepunch/Rust official updates",
+      "Community question patterns"
+    ],
+    "monetization": "This topic can feed a future Rust Raid Prep credit action after payment is enabled."
+  },
+  {
+    "slug": "rust-small-base-raid-path",
+    "title": "Rust door path vs wall path for a small base",
+    "description": "Compare the door, wall, and roof paths into a Rust 1x2 or 2x2 by confirmed layers, sulfur, splash, exposure, TC probability, and exit options.",
+    "problem": "Should I raid the doors or the wall of a small Rust base?",
+    "shortAnswer": "Choose the route with the lowest risk-adjusted cost, not the fewest visible layers. Count confirmed doors, price the cheapest plausible wall or roof route, estimate where the TC and loot are likely to sit, and include exposure plus the next unknown layer before crafting.",
+    "publishedAt": "2026-08-09",
+    "reviewedAt": "2026-08-09",
+    "status": "Layout framework; scouting quality determines the answer",
+    "table": {
+      "headers": [
+        "Route",
+        "Choose it when",
+        "Warning sign"
+      ],
+      "rows": [
+        [
+          "Door path",
+          "Door count is visible and the path likely reaches the core",
+          "Airlocks, garage doors, or turns hide additional layers"
+        ],
+        [
+          "Wall path",
+          "The target room and wall grade are well identified",
+          "Honeycomb or a false core makes the breach a side room"
+        ],
+        [
+          "Roof path",
+          "Roof access is controlled and vertical layout is readable",
+          "Ladder hatches, traps, or poor exits create a second raid"
+        ],
+        [
+          "Do not raid",
+          "None of the routes has a credible payoff or exit",
+          "The plan depends on several unverified assumptions"
+        ]
+      ]
+    },
+    "checklist": [
+      "Sketch the footprint, entrances, airlock turns, roof access, and visible upgrades.",
+      "Calculate a low and high estimate for each credible route.",
+      "Mark the likely TC, main loot room, and where a false room could sit.",
+      "Add exposure, splash opportunity, sealing, and escape to the comparison.",
+      "Choose the route only after writing what evidence would make you stop."
+    ],
+    "example": "A two-door path can look cheaper than a stone wall, but the calculation changes if the second door probably opens into another airlock while the wall is confidently identified as the core. Compare a range, not a single optimistic count.",
+    "mistakes": [
+      "Counting visible doors as the complete route.",
+      "Assuming the most upgraded wall always protects the main loot.",
+      "Ignoring roof access and vertical control.",
+      "Continuing after the breach disproves the original layout."
+    ],
+    "related": [
+      "rust-raid-cost-calculator.html",
+      "rust-cheapest-raid-method.html",
+      "rust-honeycomb-raid-decision.html",
+      "rust-raid-buffer-calculator-guide.html"
+    ],
+    "sources": [
+      {
+        "label": "RaidBench verified raid calculator",
+        "url": "../index.html#raid-calculator",
+        "note": "Current vanilla PC target and sulfur estimates."
+      },
+      {
+        "label": "Facepunch Rust Wiki - Rocket",
+        "url": "https://wiki.facepunch.com/rust/item/ammo.rocket.basic",
+        "note": "Official splash and building-grade reference."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Is the door path usually cheaper than the wall path?",
+        "answer": "Sometimes, but visible doors may hide additional layers. Compare low and high route estimates and include the probability that each route reaches the TC or main loot."
+      },
+      {
+        "question": "Should I raid the most upgraded wall?",
+        "answer": "Not automatically. An upgraded wall can protect the core, disguise a side room, or reflect later repairs. Use the full footprint and other scouting evidence before committing."
+      },
+      {
+        "question": "When should I abandon the planned path?",
+        "answer": "Stop and recalculate when the breach reveals a layout that invalidates the estimated layer count, TC position, loot probability, or safe exit."
+      }
+    ],
+    "monetization": "A reviewed Rust Raid Plan compares the player's actual door, wall, and roof routes before credits are charged."
   },
   {
     "slug": "rust-solo-raid-checklist",
@@ -69,12 +1402,27 @@
     "problem": "What should a solo player check before starting a raid?",
     "shortAnswer": "A solo raid needs a clear stop condition, enough boom for one surprise layer, and a plan for counters. The checklist matters because a solo player cannot split scouting, placing boom, sealing, and fighting as easily as a duo.",
     "table": {
-      "headers": ["Category", "Bring or decide"],
+      "headers": [
+        "Category",
+        "Bring or decide"
+      ],
       "rows": [
-        ["Boom", "Estimated cost plus one extra layer buffer."],
-        ["Survival", "Meds, ammo, fallback weapon, armor you can afford to lose."],
-        ["Control", "Building plan, seal materials, doors/locks if needed."],
-        ["Exit", "Bank route, backup path, stop condition."]
+        [
+          "Boom",
+          "Estimated cost plus one extra layer buffer."
+        ],
+        [
+          "Survival",
+          "Meds, ammo, fallback weapon, armor you can afford to lose."
+        ],
+        [
+          "Control",
+          "Building plan, seal materials, doors/locks if needed."
+        ],
+        [
+          "Exit",
+          "Bank route, backup path, stop condition."
+        ]
       ]
     },
     "checklist": [
@@ -90,196 +1438,139 @@
       "Starting without seal materials.",
       "Continuing after the raid becomes more expensive than the expected loot."
     ],
-    "related": ["rust-raid-cost-calculator.html", "rust-cheapest-raid-method.html", "rust-sulfur-farming-route.html"],
-    "sources": ["RaidBench calculator estimates", "Community question patterns", "In-game verification recommended"],
+    "related": [
+      "rust-raid-cost-calculator.html",
+      "rust-cheapest-raid-method.html",
+      "rust-sulfur-farming-route.html"
+    ],
+    "sources": [
+      "RaidBench calculator estimates",
+      "Community question patterns",
+      "In-game verification recommended"
+    ],
     "monetization": "The paid pack turns this into a printable pre-raid checklist."
   },
   {
-    "slug": "rust-duo-raid-roles",
-    "title": "Rust duo raid roles checklist",
-    "description": "A simple duo raid role split for boom placement, counter-watch, sealing, and loot movement.",
-    "problem": "How should two players split roles during a raid?",
-    "shortAnswer": "A duo raid works best when one player owns the raid path and one player owns safety. Without role clarity, duos waste time, miss counters, and lose loot during the breach.",
+    "slug": "rust-solo-sulfur-farming-target",
+    "title": "Rust solo sulfur farming target",
+    "description": "Solo sulfur targets for small raids, wall paths, and emergency buffers.",
+    "problem": "How much sulfur should a solo farm before raiding?",
+    "shortAnswer": "A solo target should match one clear raid plan plus a fallback. Farming endlessly without a target wastes wipe time.",
     "table": {
-      "headers": ["Role", "Primary job", "Backup job"],
+      "headers": [
+        "Decision area",
+        "Check",
+        "Why it matters"
+      ],
       "rows": [
-        ["Boom lead", "Place boom and call next target.", "Track remaining sulfur."],
-        ["Security", "Watch counters and flank angles.", "Carry seal materials."],
-        ["Loot runner", "Move high-value loot early.", "Call stop condition."],
-        ["Both", "Know exit and bank route.", "Avoid tunnel vision."]
+        [
+          "Context",
+          "Confirm patch, wipe, league, or progression stage.",
+          "Advice without context ages quickly."
+        ],
+        [
+          "Cost",
+          "Estimate resource, currency, time, or opportunity cost.",
+          "A plan can be correct and still not worth doing now."
+        ],
+        [
+          "Risk",
+          "Identify the failure mode before committing.",
+          "Most losses come from ignored risk, not missing information."
+        ],
+        [
+          "Next step",
+          "Choose one action to test first.",
+          "Small tests reduce expensive mistakes."
+        ]
       ]
     },
     "checklist": [
-      "Agree who places boom before leaving base.",
-      "Keep one player watching during every breach.",
-      "Move loot in waves, not only at the end.",
-      "Have a shared stop condition."
+      "Write down the current patch or progression context.",
+      "Identify the one decision this guide should help you make.",
+      "Check whether the cost is acceptable before committing.",
+      "Look for one safe test before spending major resources.",
+      "Review the result and update the plan after new information."
     ],
-    "example": "If the boom lead is breaking a garage door, the second player should not stare at the door. They should hold the flank and prepare seal materials.",
+    "example": "If a raid path looks cheap but exposes you for a long time, add counter risk to the decision instead of judging sulfur alone.",
     "mistakes": [
-      "Both players looting at the same time.",
-      "No one carrying seal materials.",
-      "Switching boom types mid-raid without recalculating cost."
+      "Following advice without checking the current patch context.",
+      "Optimizing one number while ignoring risk and execution.",
+      "Spending resources before confirming the next practical step.",
+      "Treating a highlight result as a repeatable plan."
     ],
-    "related": ["rust-solo-raid-checklist.html", "rust-garage-door-raid-cost.html", "rust-raid-cost-calculator.html"],
-    "sources": ["RaidBench calculator estimates", "Community question patterns", "In-game verification recommended"],
-    "monetization": "The Rust Raid Prep Pack includes a duo role sheet."
+    "related": [
+      "rust-raid-cost-calculator.html",
+      "rust-cheapest-raid-method.html",
+      "rust-solo-raid-checklist.html"
+    ],
+    "sources": [
+      "RaidBench estimates",
+      "Facepunch/Rust official updates",
+      "Community question patterns"
+    ],
+    "monetization": "This topic can feed a future Rust Raid Prep credit action after payment is enabled."
   },
   {
-    "slug": "rust-why-did-my-base-decay",
-    "title": "Why did my Rust base decay?",
-    "description": "Common reasons a Rust base decays, including missing upkeep, wrong material, tool cupboard issues, and building changes.",
-    "problem": "Why did my base start decaying even though I thought it had upkeep?",
-    "shortAnswer": "Most decay problems come from one of four things: the tool cupboard ran out of one required material, the base changed after expansion, upkeep was placed in the wrong TC, or the structure was outside protection.",
+    "slug": "rust-sulfur-to-gunpowder-conversion",
+    "title": "Rust sulfur to gunpowder conversion",
+    "description": "Fast sulfur-to-gunpowder planning for players preparing a raid budget.",
+    "problem": "How much gunpowder do I need for my sulfur target?",
+    "shortAnswer": "Use sulfur as the planning unit, then convert to gunpowder only after the target path is clear.",
     "table": {
-      "headers": ["Cause", "What to check"],
+      "headers": [
+        "Decision area",
+        "Check",
+        "Why it matters"
+      ],
       "rows": [
-        ["Missing material", "Stone, metal, HQM, and wood are tracked separately."],
-        ["Base expansion", "New honeycomb or doors increased upkeep."],
-        ["Wrong TC", "Material was placed in a different cupboard."],
-        ["Outside coverage", "Some pieces may not be protected as expected."]
+        [
+          "Context",
+          "Confirm patch, wipe, league, or progression stage.",
+          "Advice without context ages quickly."
+        ],
+        [
+          "Cost",
+          "Estimate resource, currency, time, or opportunity cost.",
+          "A plan can be correct and still not worth doing now."
+        ],
+        [
+          "Risk",
+          "Identify the failure mode before committing.",
+          "Most losses come from ignored risk, not missing information."
+        ],
+        [
+          "Next step",
+          "Choose one action to test first.",
+          "Small tests reduce expensive mistakes."
+        ]
       ]
     },
     "checklist": [
-      "Check every material category, not only total time.",
-      "Recheck upkeep after expanding.",
-      "Keep at least one emergency day before roaming or raiding.",
-      "Use the upkeep estimator for weekly targets."
+      "Write down the current patch or progression context.",
+      "Identify the one decision this guide should help you make.",
+      "Check whether the cost is acceptable before committing.",
+      "Look for one safe test before spending major resources.",
+      "Review the result and update the plan after new information."
     ],
-    "example": "A base can show plenty of stone but still decay metal pieces if the cupboard has no metal fragments left.",
+    "example": "If a raid path looks cheap but exposes you for a long time, add counter risk to the decision instead of judging sulfur alone.",
     "mistakes": [
-      "Only looking at one resource stack.",
-      "Forgetting that upgrades change upkeep.",
-      "Leaving for a raid with no emergency upkeep buffer."
+      "Following advice without checking the current patch context.",
+      "Optimizing one number while ignoring risk and execution.",
+      "Spending resources before confirming the next practical step.",
+      "Treating a highlight result as a repeatable plan."
     ],
-    "related": ["rust-base-upkeep-calculator.html", "rust-tc-upkeep-weekly-sheet.html", "rust-wipe-day-upgrade-order.html"],
-    "sources": ["Facepunch/Rust official updates", "Tool cupboard upkeep behavior", "In-game verification recommended"],
-    "monetization": "The Rust Raid Prep Pack includes a weekly upkeep worksheet."
-  },
-  {
-    "slug": "rust-wipe-day-upgrade-order",
-    "title": "Rust wipe day base upgrade order",
-    "description": "A practical wipe day upgrade order for reducing early raid risk without overbuilding upkeep.",
-    "problem": "What should I upgrade first on wipe day?",
-    "shortAnswer": "On wipe day, upgrade in the order that protects loot and controls upkeep: core security first, then doors, then honeycomb, then comfort and expansion. Overbuilding too early can create upkeep pressure.",
-    "table": {
-      "headers": ["Priority", "Upgrade", "Reason"],
-      "rows": [
-        ["1", "Secure core and TC", "Protect ownership and early loot."],
-        ["2", "Door path", "Doors are common early raid targets."],
-        ["3", "Key walls/honeycomb", "Protect most likely raid side."],
-        ["4", "Storage and workbench area", "Improve function after security."],
-        ["5", "Expansion", "Only after upkeep is manageable."]
-      ]
-    },
-    "checklist": [
-      "Do not expand faster than you can upkeep.",
-      "Prioritize the loot path over decorative space.",
-      "Recalculate weekly upkeep after every major upgrade.",
-      "Keep one emergency upkeep day."
+    "related": [
+      "rust-raid-cost-calculator.html",
+      "rust-cheapest-raid-method.html",
+      "rust-solo-raid-checklist.html"
     ],
-    "example": "A small secure core with a manageable upkeep target is often better than a larger base that becomes expensive before you can defend it.",
-    "mistakes": [
-      "Building a large footprint before farming upkeep.",
-      "Leaving weak doors on an upgraded core.",
-      "Forgetting to add upkeep after upgrading walls."
+    "sources": [
+      "RaidBench estimates",
+      "Facepunch/Rust official updates",
+      "Community question patterns"
     ],
-    "related": ["rust-base-upkeep-calculator.html", "rust-why-did-my-base-decay.html", "rust-cheapest-raid-method.html"],
-    "sources": ["Facepunch/Rust official updates", "Community base-building questions", "In-game verification recommended"],
-    "monetization": "The paid worksheet helps plan weekly upkeep before expanding."
-  },
-  {
-    "slug": "rust-raid-profit-calculator-outline",
-    "title": "Rust raid profit calculator outline",
-    "description": "A simple way to judge whether a raid was worth the sulfur before building a full profit calculator.",
-    "problem": "Was the raid worth it?",
-    "shortAnswer": "A raid is profitable only if recovered value beats sulfur, gear, time, and risk. For early validation, track sulfur spent, boom lost, gear lost, and loot recovered instead of pretending every item has a stable price.",
-    "table": {
-      "headers": ["Line item", "Write down"],
-      "rows": [
-        ["Sulfur spent", "Total sulfur equivalent from boom used."],
-        ["Gear lost", "Kits, weapons, meds, ammo."],
-        ["Loot recovered", "Sulfur, metal, HQM, comps, weapons."],
-        ["Time cost", "Farm time plus raid time."],
-        ["Risk result", "Counters, deaths, base exposure."]
-      ]
-    },
-    "checklist": [
-      "Record estimated sulfur before the raid.",
-      "Record actual sulfur after the raid.",
-      "Separate emotional win from material profit.",
-      "Use the result to choose future targets."
-    ],
-    "example": "A raid that returns guns but burns all sulfur may feel good but still slow down the next objective.",
-    "mistakes": [
-      "Counting only loot and ignoring boom cost.",
-      "Ignoring failed attempts.",
-      "Calling a raid profitable without tracking actual spend."
-    ],
-    "related": ["rust-raid-cost-calculator.html", "rust-sulfur-farming-route.html", "rust-cheapest-raid-method.html"],
-    "sources": ["RaidBench calculator estimates", "Community raid review patterns", "In-game verification recommended"],
-    "monetization": "The Rust Raid Prep Pack includes a post-raid review sheet."
-  },
-  {
-    "slug": "rust-explosive-ammo-door-path",
-    "title": "Rust explosive ammo door path",
-    "description": "When explosive ammo makes sense for a door path and when rockets or C4 are safer.",
-    "problem": "Should I use explosive ammo through a door path?",
-    "shortAnswer": "Explosive ammo is attractive when the path is short, the shooting angle is safe, and sulfur efficiency matters. It becomes risky when the raid is loud, exposed, or likely to attract counters before you finish.",
-    "table": {
-      "headers": ["Door", "Explosive ammo estimate", "Risk note"],
-      "rows": [
-        ["Sheet Metal Door", "63", "Efficient if you can shoot safely."],
-        ["Garage Door", "About 150", "Longer exposure; watch counters."],
-        ["Armored Door", "200", "Often too slow under pressure."]
-      ]
-    },
-    "checklist": [
-      "Confirm the angle is safe before starting.",
-      "Bring enough ammo for one extra door.",
-      "Decide when to swap to faster boom.",
-      "Do not tunnel vision while shooting."
-    ],
-    "example": "Explosive ammo can be fine for one sheet door. For several garage doors, the time risk can make rockets or C4 more practical.",
-    "mistakes": [
-      "Using explosive ammo in a high-traffic area.",
-      "Standing exposed while shooting.",
-      "Forgetting ammo/gun durability and counters."
-    ],
-    "related": ["rust-explosive-ammo-vs-rockets.html", "rust-garage-door-raid-cost.html", "rust-solo-raid-checklist.html"],
-    "sources": ["RaidBench calculator estimates", "In-game verification recommended after major patches"],
-    "monetization": "The paid checklist helps choose a stop condition before a long door path."
-  },
-  {
-    "slug": "rust-rocket-splash-basics",
-    "title": "Rust rocket splash basics",
-    "description": "When rocket splash makes a raid path better than the cheapest direct damage method.",
-    "problem": "When are rockets better than cheaper direct damage?",
-    "shortAnswer": "Rockets become better when splash damages more than the first target. If splash is wasted, cheaper direct methods may win. If splash opens several pieces or speeds up pressure, rockets can justify higher sulfur.",
-    "table": {
-      "headers": ["Situation", "Rocket value"],
-      "rows": [
-        ["Single isolated door", "Often low value."],
-        ["Wall plus nearby deployables", "Potentially high value."],
-        ["Grouped doors or splashable path", "High value if aimed well."],
-        ["Online raid pressure", "Speed may matter more than sulfur."]
-      ]
-    },
-    "checklist": [
-      "Look for multiple pieces in splash range.",
-      "Avoid rockets when splash hits nothing useful.",
-      "Use rockets when speed and pressure matter.",
-      "Recalculate if the path changes."
-    ],
-    "example": "A stone wall may cost more with rockets than C4 on paper, but splash can matter if it damages nearby doors or a second wall.",
-    "mistakes": [
-      "Treating rocket cost as only single-target damage.",
-      "Using rockets where splash is wasted.",
-      "Ignoring the value of raid speed."
-    ],
-    "related": ["rust-cheapest-raid-method.html", "rust-stone-wall-raid-cost.html", "rust-explosive-ammo-vs-rockets.html"],
-    "sources": ["RaidBench calculator estimates", "In-game verification recommended after major patches"],
-    "monetization": "The Rust Raid Prep Pack includes a route worksheet for noting splash opportunities."
+    "monetization": "This topic can feed a future Rust Raid Prep credit action after payment is enabled."
   },
   {
     "slug": "rust-tc-upkeep-weekly-sheet",
@@ -288,12 +1579,37 @@
     "problem": "How much upkeep should I farm for the week?",
     "shortAnswer": "Multiply each daily tool cupboard resource by seven, then add a buffer before raids, long roams, or offline time. Track wood, stone, metal, and HQM separately.",
     "table": {
-      "headers": ["Resource", "Daily", "Weekly formula", "Buffer idea"],
+      "headers": [
+        "Resource",
+        "Daily",
+        "Weekly formula",
+        "Buffer idea"
+      ],
       "rows": [
-        ["Wood", "TC value", "daily x 7", "Add one extra day if used."],
-        ["Stone", "TC value", "daily x 7", "Add 10-20% for expansion."],
-        ["Metal fragments", "TC value", "daily x 7", "Add buffer before upgrading doors."],
-        ["HQM", "TC value", "daily x 7", "Track carefully; small shortages matter."]
+        [
+          "Wood",
+          "TC value",
+          "daily x 7",
+          "Add one extra day if used."
+        ],
+        [
+          "Stone",
+          "TC value",
+          "daily x 7",
+          "Add 10-20% for expansion."
+        ],
+        [
+          "Metal fragments",
+          "TC value",
+          "daily x 7",
+          "Add buffer before upgrading doors."
+        ],
+        [
+          "HQM",
+          "TC value",
+          "daily x 7",
+          "Track carefully; small shortages matter."
+        ]
       ]
     },
     "checklist": [
@@ -308,8 +1624,512 @@
       "Forgetting HQM or metal after upgrades.",
       "Not recalculating after honeycomb."
     ],
-    "related": ["rust-base-upkeep-calculator.html", "rust-why-did-my-base-decay.html", "rust-wipe-day-upgrade-order.html"],
-    "sources": ["Facepunch/Rust official updates", "Tool cupboard upkeep behavior", "In-game verification recommended"],
+    "related": [
+      "rust-base-upkeep-calculator.html",
+      "rust-why-did-my-base-decay.html",
+      "rust-wipe-day-upgrade-order.html"
+    ],
+    "sources": [
+      "Facepunch/Rust official updates",
+      "Tool cupboard upkeep behavior",
+      "In-game verification recommended"
+    ],
     "monetization": "The paid pack includes a weekly upkeep worksheet."
+  },
+  {
+    "slug": "rust-turret-compound-raid-prep",
+    "title": "Rust turret compound raid prep",
+    "description": "A raid prep checklist for turrets, sight lines, ladders, and recovery.",
+    "problem": "How should I prepare for a turret compound raid?",
+    "shortAnswer": "Turret compounds demand visibility and route planning. Explosives are only one part of the cost.",
+    "table": {
+      "headers": [
+        "Decision area",
+        "Check",
+        "Why it matters"
+      ],
+      "rows": [
+        [
+          "Context",
+          "Confirm patch, wipe, league, or progression stage.",
+          "Advice without context ages quickly."
+        ],
+        [
+          "Cost",
+          "Estimate resource, currency, time, or opportunity cost.",
+          "A plan can be correct and still not worth doing now."
+        ],
+        [
+          "Risk",
+          "Identify the failure mode before committing.",
+          "Most losses come from ignored risk, not missing information."
+        ],
+        [
+          "Next step",
+          "Choose one action to test first.",
+          "Small tests reduce expensive mistakes."
+        ]
+      ]
+    },
+    "checklist": [
+      "Write down the current patch or progression context.",
+      "Identify the one decision this guide should help you make.",
+      "Check whether the cost is acceptable before committing.",
+      "Look for one safe test before spending major resources.",
+      "Review the result and update the plan after new information."
+    ],
+    "example": "If a raid path looks cheap but exposes you for a long time, add counter risk to the decision instead of judging sulfur alone.",
+    "mistakes": [
+      "Following advice without checking the current patch context.",
+      "Optimizing one number while ignoring risk and execution.",
+      "Spending resources before confirming the next practical step.",
+      "Treating a highlight result as a repeatable plan."
+    ],
+    "related": [
+      "rust-raid-cost-calculator.html",
+      "rust-cheapest-raid-method.html",
+      "rust-solo-raid-checklist.html"
+    ],
+    "sources": [
+      "RaidBench estimates",
+      "Facepunch/Rust official updates",
+      "Community question patterns"
+    ],
+    "monetization": "This topic can feed a future Rust Raid Prep credit action after payment is enabled."
+  },
+  {
+    "slug": "rust-weekly-upkeep-buffer",
+    "title": "Rust weekly upkeep buffer",
+    "description": "How to choose a weekly upkeep buffer without over-farming or decaying.",
+    "problem": "How many days of upkeep should I keep?",
+    "shortAnswer": "A good upkeep buffer protects your base while leaving resources for progression. More is not always better if it delays defense.",
+    "table": {
+      "headers": [
+        "Decision area",
+        "Check",
+        "Why it matters"
+      ],
+      "rows": [
+        [
+          "Context",
+          "Confirm patch, wipe, league, or progression stage.",
+          "Advice without context ages quickly."
+        ],
+        [
+          "Cost",
+          "Estimate resource, currency, time, or opportunity cost.",
+          "A plan can be correct and still not worth doing now."
+        ],
+        [
+          "Risk",
+          "Identify the failure mode before committing.",
+          "Most losses come from ignored risk, not missing information."
+        ],
+        [
+          "Next step",
+          "Choose one action to test first.",
+          "Small tests reduce expensive mistakes."
+        ]
+      ]
+    },
+    "checklist": [
+      "Write down the current patch or progression context.",
+      "Identify the one decision this guide should help you make.",
+      "Check whether the cost is acceptable before committing.",
+      "Look for one safe test before spending major resources.",
+      "Review the result and update the plan after new information."
+    ],
+    "example": "If a raid path looks cheap but exposes you for a long time, add counter risk to the decision instead of judging sulfur alone.",
+    "mistakes": [
+      "Following advice without checking the current patch context.",
+      "Optimizing one number while ignoring risk and execution.",
+      "Spending resources before confirming the next practical step.",
+      "Treating a highlight result as a repeatable plan."
+    ],
+    "related": [
+      "rust-raid-cost-calculator.html",
+      "rust-cheapest-raid-method.html",
+      "rust-solo-raid-checklist.html"
+    ],
+    "sources": [
+      "RaidBench estimates",
+      "Facepunch/Rust official updates",
+      "Community question patterns"
+    ],
+    "monetization": "This topic can feed a future Rust Raid Prep credit action after payment is enabled."
+  },
+  {
+    "slug": "rust-why-did-my-base-decay",
+    "title": "Why did my Rust base decay?",
+    "description": "Common reasons a Rust base decays, including missing upkeep, wrong material, tool cupboard issues, and building changes.",
+    "problem": "Why did my base start decaying even though I thought it had upkeep?",
+    "shortAnswer": "Most decay problems come from one of four things: the tool cupboard ran out of one required material, the base changed after expansion, upkeep was placed in the wrong TC, or the structure was outside protection.",
+    "table": {
+      "headers": [
+        "Cause",
+        "What to check"
+      ],
+      "rows": [
+        [
+          "Missing material",
+          "Stone, metal, HQM, and wood are tracked separately."
+        ],
+        [
+          "Base expansion",
+          "New honeycomb or doors increased upkeep."
+        ],
+        [
+          "Wrong TC",
+          "Material was placed in a different cupboard."
+        ],
+        [
+          "Outside coverage",
+          "Some pieces may not be protected as expected."
+        ]
+      ]
+    },
+    "checklist": [
+      "Check every material category, not only total time.",
+      "Recheck upkeep after expanding.",
+      "Keep at least one emergency day before roaming or raiding.",
+      "Use the upkeep estimator for weekly targets."
+    ],
+    "example": "A base can show plenty of stone but still decay metal pieces if the cupboard has no metal fragments left.",
+    "mistakes": [
+      "Only looking at one resource stack.",
+      "Forgetting that upgrades change upkeep.",
+      "Leaving for a raid with no emergency upkeep buffer."
+    ],
+    "related": [
+      "rust-base-upkeep-calculator.html",
+      "rust-tc-upkeep-weekly-sheet.html",
+      "rust-wipe-day-upgrade-order.html"
+    ],
+    "sources": [
+      "Facepunch/Rust official updates",
+      "Tool cupboard upkeep behavior",
+      "In-game verification recommended"
+    ],
+    "monetization": "The Rust Raid Prep Pack includes a weekly upkeep worksheet."
+  },
+  {
+    "slug": "rust-wipe-day-upgrade-order",
+    "title": "Rust wipe day base upgrade order",
+    "description": "A practical wipe day upgrade order for reducing early raid risk without overbuilding upkeep.",
+    "problem": "What should I upgrade first on wipe day?",
+    "shortAnswer": "On wipe day, upgrade in the order that protects loot and controls upkeep: core security first, then doors, then honeycomb, then comfort and expansion. Overbuilding too early can create upkeep pressure.",
+    "table": {
+      "headers": [
+        "Priority",
+        "Upgrade",
+        "Reason"
+      ],
+      "rows": [
+        [
+          "1",
+          "Secure core and TC",
+          "Protect ownership and early loot."
+        ],
+        [
+          "2",
+          "Door path",
+          "Doors are common early raid targets."
+        ],
+        [
+          "3",
+          "Key walls/honeycomb",
+          "Protect most likely raid side."
+        ],
+        [
+          "4",
+          "Storage and workbench area",
+          "Improve function after security."
+        ],
+        [
+          "5",
+          "Expansion",
+          "Only after upkeep is manageable."
+        ]
+      ]
+    },
+    "checklist": [
+      "Do not expand faster than you can upkeep.",
+      "Prioritize the loot path over decorative space.",
+      "Recalculate weekly upkeep after every major upgrade.",
+      "Keep one emergency upkeep day."
+    ],
+    "example": "A small secure core with a manageable upkeep target is often better than a larger base that becomes expensive before you can defend it.",
+    "mistakes": [
+      "Building a large footprint before farming upkeep.",
+      "Leaving weak doors on an upgraded core.",
+      "Forgetting to add upkeep after upgrading walls."
+    ],
+    "related": [
+      "rust-base-upkeep-calculator.html",
+      "rust-why-did-my-base-decay.html",
+      "rust-cheapest-raid-method.html"
+    ],
+    "sources": [
+      "Facepunch/Rust official updates",
+      "Community base-building questions",
+      "In-game verification recommended"
+    ],
+    "monetization": "The paid worksheet helps plan weekly upkeep before expanding."
+  },
+  {
+    "slug": "rust-wooden-door-raid-cost",
+    "title": "Rust wooden door raid cost",
+    "description": "Early wipe wooden door raid options, risk, and when a cheap raid still wastes time.",
+    "problem": "What is the cheapest way to break a wooden door?",
+    "shortAnswer": "Wooden doors are cheap targets, but the question is whether the loot path continues. Use them for fast early opportunities, not blind commitment.",
+    "table": {
+      "headers": [
+        "Decision area",
+        "Check",
+        "Why it matters"
+      ],
+      "rows": [
+        [
+          "Context",
+          "Confirm patch, wipe, league, or progression stage.",
+          "Advice without context ages quickly."
+        ],
+        [
+          "Cost",
+          "Estimate resource, currency, time, or opportunity cost.",
+          "A plan can be correct and still not worth doing now."
+        ],
+        [
+          "Risk",
+          "Identify the failure mode before committing.",
+          "Most losses come from ignored risk, not missing information."
+        ],
+        [
+          "Next step",
+          "Choose one action to test first.",
+          "Small tests reduce expensive mistakes."
+        ]
+      ]
+    },
+    "checklist": [
+      "Write down the current patch or progression context.",
+      "Identify the one decision this guide should help you make.",
+      "Check whether the cost is acceptable before committing.",
+      "Look for one safe test before spending major resources.",
+      "Review the result and update the plan after new information."
+    ],
+    "example": "If a raid path looks cheap but exposes you for a long time, add counter risk to the decision instead of judging sulfur alone.",
+    "mistakes": [
+      "Following advice without checking the current patch context.",
+      "Optimizing one number while ignoring risk and execution.",
+      "Spending resources before confirming the next practical step.",
+      "Treating a highlight result as a repeatable plan."
+    ],
+    "related": [
+      "rust-raid-cost-calculator.html",
+      "rust-cheapest-raid-method.html",
+      "rust-solo-raid-checklist.html"
+    ],
+    "sources": [
+      "RaidBench estimates",
+      "Facepunch/Rust official updates",
+      "Community question patterns"
+    ],
+    "monetization": "This topic can feed a future Rust Raid Prep credit action after payment is enabled."
+  },
+  {
+    "slug": "rust-fast-vs-efficient-raiding",
+    "title": "Rust fast raiding vs sulfur-efficient raiding",
+    "description": "Choose between a faster breach and a lower-sulfur breach by comparing exposure, splash, counters, team control, replacement cost, and the route after entry.",
+    "problem": "Should I raid fast or use the most sulfur-efficient method?",
+    "shortAnswer": "Choose the method with the lowest expected loss, not automatically the lowest sulfur total. A slower method is efficient only if the extra exposure does not materially raise the chance of losing boom, kits, or control of the breach. Speed is worth paying for when it protects a larger investment.",
+    "publishedAt": "2026-08-09",
+    "reviewedAt": "2026-08-09",
+    "status": "Risk-adjusted decision framework for vanilla Rust PC",
+    "table": {
+      "headers": [
+        "Situation",
+        "Favor speed",
+        "Favor sulfur efficiency"
+      ],
+      "rows": [
+        [
+          "Counter pressure",
+          "Busy area, visible approach, or valuable launcher exposed",
+          "Quiet target with controlled sightlines and exits"
+        ],
+        [
+          "Target layout",
+          "Route must be opened before defenders can adapt",
+          "Short, isolated path with no useful splash"
+        ],
+        [
+          "Team capacity",
+          "Roles and resupply support a high-tempo breach",
+          "Small team can hold the firing angle for longer"
+        ],
+        [
+          "Resource position",
+          "Losing the raid would cost more than the sulfur premium",
+          "Sulfur is the bottleneck and the position is defensible"
+        ],
+        [
+          "Decision rule",
+          "Pay more to shorten meaningful exposure",
+          "Save sulfur only when the added time is survivable"
+        ]
+      ]
+    },
+    "checklist": [
+      "Calculate the complete route with at least two viable methods.",
+      "Estimate how long each method leaves the team exposed and what can be lost.",
+      "Check whether rockets create useful splash instead of decorative noise.",
+      "Choose the stop condition before paying a speed premium.",
+      "Review the actual spend and losses after the raid to improve the next estimate."
+    ],
+    "example": "If a lower-sulfur door method saves 1,000 sulfur but keeps the shooter exposed long enough to risk a launcher and full kit, the apparent saving may be negative. On a quiet isolated target, the same method can be the better decision.",
+    "sections": [
+      {
+        "title": "A simple expected-loss test",
+        "paragraphs": [
+          "Write the sulfur premium for the faster route beside the additional gear and boom that the slower route exposes. If the plausible loss from extra time is larger than the premium, speed is not wasteful; it is insurance."
+        ]
+      }
+    ],
+    "mistakes": [
+      "Calling the lowest sulfur total the cheapest route without pricing failure.",
+      "Paying for speed when the route is still unscouted.",
+      "Assuming a large group should always use rockets.",
+      "Ignoring banking, sealing, and launcher recovery time."
+    ],
+    "related": [
+      "rust-c4-vs-rockets.html",
+      "rust-cheapest-raid-method.html",
+      "rust-online-vs-offline-raid-cost.html",
+      "rust-raid-profit-calculator-outline.html"
+    ],
+    "sources": [
+      {
+        "label": "Facepunch Rust Wiki - Rocket",
+        "url": "https://wiki.facepunch.com/rust/item/ammo.rocket.basic",
+        "note": "Official splash and building-grade reference."
+      },
+      {
+        "label": "RaidBench verified raid calculator",
+        "url": "../index.html#raid-calculator",
+        "note": "Provides item and sulfur comparisons for the route."
+      },
+      {
+        "label": "Community question pattern",
+        "url": "https://www.reddit.com/r/playrust/comments/1vdgzxq/fast_raiding_vs_efficient_raiding/",
+        "note": "Used to identify current demand; community comments are not mechanics evidence."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Is the lowest-sulfur raid method always the best?",
+        "answer": "No. Add the cost of extra exposure, likely counters, lost kits, launcher risk, and route uncertainty. The lowest item cost can have a higher expected loss."
+      },
+      {
+        "question": "When is faster raiding worth the sulfur premium?",
+        "answer": "Speed is valuable when it materially reduces defender response, counter exposure, or the chance of losing expensive equipment and carried boom."
+      },
+      {
+        "question": "How do I compare speed and efficiency without exact probabilities?",
+        "answer": "Use scenarios. Compare the faster route's sulfur premium with one plausible failure on the slower route, then state which assumption would change the choice."
+      }
+    ],
+    "monetization": "A reviewed Rust Raid Plan applies this expected-loss test to the player's actual target, team, and available sulfur."
+  },
+  {
+    "slug": "rust-100-rocket-base-worth-raiding",
+    "title": "Is a 100-rocket base worth raiding in Rust?",
+    "description": "A target-selection framework for expensive Rust bases: route confidence, likely loot, strategic value, counter exposure, reserve boom, and reasons to walk away.",
+    "problem": "Why would anyone raid a base that appears to cost 100 rockets?",
+    "shortAnswer": "A base that appears to cost 100 rockets is not automatically worth 100 rockets, and the visible shell may not be the real route. Raid only when scouting supports a cheaper credible path, unusually strong loot or strategic value, and an exit plan that survives counters. Otherwise, walking away is the profitable decision.",
+    "publishedAt": "2026-08-09",
+    "reviewedAt": "2026-08-09",
+    "status": "Target-selection framework; no claim about hidden loot",
+    "table": {
+      "headers": [
+        "Evidence",
+        "Supports raiding",
+        "Supports walking away"
+      ],
+      "rows": [
+        [
+          "Route confidence",
+          "A scouted door, roof, or splash route is materially cheaper than the shell",
+          "The plan assumes the core location and every hidden layer"
+        ],
+        [
+          "Economic signal",
+          "Repeated high-value activity and storage behavior support the estimate",
+          "Base size is the only evidence of loot"
+        ],
+        [
+          "Strategic value",
+          "The base directly blocks territory, farming, or team survival",
+          "The target is selected mainly for prestige"
+        ],
+        [
+          "Execution",
+          "Team, reserve, sealing, banking, and exit roles are ready",
+          "Success depends on no counters and no wrong turns"
+        ],
+        [
+          "Stop rule",
+          "A specific layer, reserve, or time limit ends the attempt",
+          "The only plan is to continue because boom was already spent"
+        ]
+      ]
+    },
+    "checklist": [
+      "Separate visible shell cost from the cheapest credible breach route.",
+      "Record direct evidence of activity and likely stored value without inventing certainty.",
+      "Compare resource profit and strategic value as two different verdicts.",
+      "Reserve enough for one named uncertainty, not every imaginable layer.",
+      "Walk away when the route needs several optimistic assumptions at once."
+    ],
+    "example": "A massive compound can still have a weak operational route, while a compact base can hide several expensive layers. The useful question is not how intimidating the exterior looks; it is what the best evidenced route costs and what success changes for your team.",
+    "mistakes": [
+      "Treating base size as proof of stored loot.",
+      "Using the most expensive exterior path as the only estimate.",
+      "Combining resource profit and revenge into one vague justification.",
+      "Continuing after the breach disproves the scouting model."
+    ],
+    "related": [
+      "rust-small-base-raid-path.html",
+      "rust-raid-profit-calculator-outline.html",
+      "rust-raid-buffer-calculator-guide.html",
+      "rust-counter-raid-escape-plan.html"
+    ],
+    "sources": [
+      {
+        "label": "RaidBench verified raid calculator",
+        "url": "../index.html#raid-calculator",
+        "note": "Used to model the credible route rather than the exterior impression."
+      },
+      {
+        "label": "Community question pattern",
+        "url": "https://www.reddit.com/r/playrust/comments/1twab6t/raid_cost/",
+        "note": "Used as demand evidence only; comments do not establish hidden loot or a universal route."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Does a large Rust base usually contain enough loot to repay the raid?",
+        "answer": "Size alone cannot establish loot value. Use observed activity, route confidence, strategic value, and the cost of failure; treat hidden loot as uncertain."
+      },
+      {
+        "question": "Why do groups raid apparently unprofitable bases?",
+        "answer": "Possible reasons include a cheaper hidden route, strategic pressure, territory control, threat removal, imperfect information, or a non-economic objective. None guarantees resource profit."
+      },
+      {
+        "question": "When should I walk away from an expensive target?",
+        "answer": "Walk away when the route, payoff, and safe exit each depend on unverified optimistic assumptions, or when the planned stop condition would be ignored after the first spend."
+      }
+    ],
+    "monetization": "A reviewed Rust Raid Plan checks the route and stop rule without pretending to know the target's hidden loot."
   }
 ]

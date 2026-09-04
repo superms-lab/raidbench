@@ -1,0 +1,13 @@
+{
+  "runtime_id": "raidbench-codex-content-runtime-v1",
+  "version": "1.0.0",
+  "primary_model": "gpt-5.6-sol",
+  "reasoning_effort": "high",
+  "fallback_models": [
+    "gpt-5.6-terra",
+    "gpt-5.5"
+  ],
+  "fallback_policy": "Fail closed unless an operator explicitly selects an approved fallback after confirming that the primary model is unavailable.",
+  "max_new_guides_per_day": 1,
+  "external_posts_require_platform_permission": true
+}

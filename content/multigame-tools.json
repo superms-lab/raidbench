@@ -1,0 +1,195 @@
+{
+  "schemaVersion": "1.0.0",
+  "reviewedAt": "2026-09-03",
+  "tools": [
+    {
+      "id": "project-zomboid-save-change-risk",
+      "gameId": "project-zomboid",
+      "slug": "project-zomboid-save-change-risk",
+      "type": "risk",
+      "formula": "save-change-risk",
+      "title": "Project Zomboid save-change risk planner",
+      "description": "Score the operational risk of changing sandbox settings, build branches, or mods before touching an established Project Zomboid world.",
+      "question": "How carefully should I test this save change?",
+      "fields": [
+        { "id": "saveImportance", "label": "Save importance", "inputType": "select", "default": 5, "options": [{ "value": 1, "label": "Disposable test world" }, { "value": 3, "label": "Replaceable active world" }, { "value": 5, "label": "Long-running important world" }] },
+        { "id": "modCount", "label": "Enabled mods", "inputType": "number", "min": 0, "max": 200, "step": 1, "default": 10, "unit": "mods" },
+        { "id": "changeScope", "label": "Change scope", "inputType": "select", "default": 3, "options": [{ "value": 1, "label": "One sandbox value" }, { "value": 3, "label": "Several related values" }, { "value": 5, "label": "Build, mods, and settings together" }] },
+        { "id": "compatibilityConfidence", "label": "Compatibility evidence", "inputType": "select", "default": 2, "options": [{ "value": 1, "label": "Unknown" }, { "value": 3, "label": "Some current reports" }, { "value": 5, "label": "Current controlled test" }] },
+        { "id": "backupReady", "label": "Verified backup", "inputType": "select", "default": 0, "options": [{ "value": 0, "label": "No verified backup" }, { "value": 1, "label": "Backup copied and test-loaded" }] }
+      ],
+      "assumptions": ["This is a RaidBench planning score, not a probability of corruption.", "A complete backup includes the save data needed to restore the world, not only a screenshot or settings note.", "Change one variable at a time when possible."],
+      "sourceIds": ["project-zomboid-official-news", "project-zomboid-steam-news"],
+      "guideSlugs": ["project-zomboid-change-sandbox-settings-mid-save", "project-zomboid-build-update-save-checklist"]
+    },
+    {
+      "id": "escape-from-tarkov-loadout-budget",
+      "gameId": "escape-from-tarkov",
+      "slug": "escape-from-tarkov-loadout-budget",
+      "type": "budget",
+      "formula": "tarkov-loadout-budget",
+      "title": "Escape from Tarkov loadout replacement budget",
+      "description": "Calculate the complete user-entered cost of one Tarkov loadout, a replacement batch, and how many kits fit the current budget.",
+      "question": "Can I afford to lose and replace this complete loadout?",
+      "fields": [
+        { "id": "weaponCost", "label": "Weapon and modifications", "inputType": "number", "min": 0, "max": 10000000, "step": 1000, "default": 120000, "unit": "currency" },
+        { "id": "magazines", "label": "Magazines", "inputType": "number", "min": 0, "max": 20, "step": 1, "default": 4, "unit": "items" },
+        { "id": "magazineCost", "label": "Cost per magazine", "inputType": "number", "min": 0, "max": 1000000, "step": 500, "default": 8000, "unit": "currency" },
+        { "id": "rounds", "label": "Rounds carried", "inputType": "number", "min": 0, "max": 1000, "step": 1, "default": 160, "unit": "rounds" },
+        { "id": "roundCost", "label": "Cost per round", "inputType": "number", "min": 0, "max": 100000, "step": 10, "default": 600, "unit": "currency" },
+        { "id": "armorCost", "label": "Armor and rig", "inputType": "number", "min": 0, "max": 10000000, "step": 1000, "default": 150000, "unit": "currency" },
+        { "id": "supportCost", "label": "Meds, headset, bag, utility", "inputType": "number", "min": 0, "max": 10000000, "step": 1000, "default": 90000, "unit": "currency" },
+        { "id": "copies", "label": "Replacement kits", "inputType": "number", "min": 1, "max": 20, "step": 1, "default": 3, "unit": "kits" },
+        { "id": "reservePercent", "label": "Price and restock reserve", "inputType": "number", "min": 0, "max": 100, "step": 5, "default": 15, "unit": "%" },
+        { "id": "availableBudget", "label": "Available budget", "inputType": "number", "min": 0, "max": 1000000000, "step": 10000, "default": 2000000, "unit": "currency" }
+      ],
+      "assumptions": ["Enter current values from the game and the market or traders available to this account.", "The tool does not supply live prices or claim a particular ammunition choice is correct.", "Insurance returns and recovered equipment are excluded unless the player reduces the entered costs."],
+      "sourceIds": ["escape-from-tarkov-official-forum", "escape-from-tarkov-steam-news"],
+      "guideSlugs": ["escape-from-tarkov-budget-weapon-choice", "escape-from-tarkov-ammo-armor-assumption-check"]
+    },
+    {
+      "id": "ark-survival-ascended-roster-materials",
+      "gameId": "ark-survival-ascended",
+      "slug": "ark-survival-ascended-roster-materials",
+      "type": "budget",
+      "formula": "ark-roster-materials",
+      "title": "ARK Survival Ascended roster material planner",
+      "description": "Turn user-entered per-saddle material requirements into a full roster budget with replacements and a configurable reserve.",
+      "question": "What does it cost to equip the complete creature roster?",
+      "fields": [
+        { "id": "creatures", "label": "Creatures to equip", "inputType": "number", "min": 1, "max": 100, "step": 1, "default": 18, "unit": "creatures" },
+        { "id": "replacements", "label": "Replacement saddles", "inputType": "number", "min": 0, "max": 50, "step": 1, "default": 2, "unit": "saddles" },
+        { "id": "hidePerSaddle", "label": "Hide per saddle", "inputType": "number", "min": 0, "max": 1000000, "step": 10, "default": 0, "unit": "hide" },
+        { "id": "fiberPerSaddle", "label": "Fiber per saddle", "inputType": "number", "min": 0, "max": 1000000, "step": 10, "default": 0, "unit": "fiber" },
+        { "id": "metalPerSaddle", "label": "Metal per saddle", "inputType": "number", "min": 0, "max": 1000000, "step": 10, "default": 0, "unit": "metal" },
+        { "id": "reservePercent", "label": "Material reserve", "inputType": "number", "min": 0, "max": 100, "step": 5, "default": 10, "unit": "%" }
+      ],
+      "assumptions": ["Copy material requirements from the blueprint shown on the current server.", "Server settings, crafting skills, mods, and blueprint quality can change the entered requirements.", "The tool rounds each material total upward."],
+      "sourceIds": ["ark-survival-ascended-official-news", "ark-survival-ascended-steam-news"],
+      "guideSlugs": ["ark-survival-ascended-saddle-blueprint-plan", "ark-survival-ascended-boss-prep-budget"]
+    },
+    {
+      "id": "warframe-upgrade-priority-comparator",
+      "gameId": "warframe",
+      "slug": "warframe-upgrade-priority-comparator",
+      "type": "compare",
+      "formula": "weighted-comparison",
+      "title": "Warframe upgrade priority comparator",
+      "description": "Compare two Warframe upgrades by problem fit, reuse across loadouts, resource efficiency, and confidence in the current evidence.",
+      "question": "Which upgrade deserves scarce resources first?",
+      "optionDefaults": ["Upgrade A", "Upgrade B"],
+      "criteria": [
+        { "id": "problemFit", "label": "Fixes the measured problem", "weight": 35, "defaultA": 4, "defaultB": 3 },
+        { "id": "reuse", "label": "Useful across current loadouts", "weight": 25, "defaultA": 3, "defaultB": 5 },
+        { "id": "efficiency", "label": "Impact relative to resource cost", "weight": 25, "defaultA": 3, "defaultB": 4 },
+        { "id": "confidence", "label": "Current evidence confidence", "weight": 15, "defaultA": 4, "defaultB": 3 }
+      ],
+      "assumptions": ["Scores are player judgments from 1 to 5, not hidden game statistics.", "Compare upgrades against the same target activity and account state.", "A close score means a controlled test is more useful than another ranking."],
+      "sourceIds": ["warframe-official-patch-notes", "warframe-steam-news"],
+      "guideSlugs": ["warframe-build-bottleneck-check", "warframe-mod-upgrade-spending-plan"]
+    },
+    {
+      "id": "once-human-scenario-comparator",
+      "gameId": "once-human",
+      "slug": "once-human-scenario-comparator",
+      "type": "compare",
+      "formula": "weighted-comparison",
+      "title": "Once Human scenario fit comparator",
+      "description": "Compare two Once Human scenarios or character paths by schedule, group compatibility, goal fit, carryover confidence, and maintenance burden.",
+      "question": "Which scenario fits the way I can actually play?",
+      "optionDefaults": ["Scenario A", "Scenario B"],
+      "criteria": [
+        { "id": "scheduleFit", "label": "Schedule fits available playtime", "weight": 30, "defaultA": 3, "defaultB": 4 },
+        { "id": "groupFit", "label": "Friends and server compatibility", "weight": 20, "defaultA": 4, "defaultB": 3 },
+        { "id": "goalFit", "label": "Supports the intended play goal", "weight": 25, "defaultA": 4, "defaultB": 4 },
+        { "id": "carryoverConfidence", "label": "Carryover rules are confirmed", "weight": 15, "defaultA": 2, "defaultB": 4 },
+        { "id": "maintenanceFit", "label": "Maintenance burden is manageable", "weight": 10, "defaultA": 3, "defaultB": 4 }
+      ],
+      "assumptions": ["Confirm current scenario and carryover rules in official notices before an irreversible move.", "Scores measure personal fit from 1 to 5.", "The tool does not predict rewards or guarantee server availability."],
+      "sourceIds": ["once-human-official-updates", "once-human-steam-news"],
+      "guideSlugs": ["once-human-character-scenario-carryover-check", "once-human-scenario-choice-checklist"]
+    },
+    {
+      "id": "counter-strike-2-team-buy-budget",
+      "gameId": "counter-strike-2",
+      "slug": "counter-strike-2-team-buy-budget",
+      "type": "budget",
+      "formula": "cs2-team-buy-budget",
+      "title": "CS2 team buy budget calculator",
+      "description": "Compare current team money and carried equipment with a user-entered target kit and next-round reserve before calling buy, force, or save.",
+      "question": "Can the team afford one coherent buy and still protect the next round?",
+      "fields": [
+        { "id": "players", "label": "Players included", "inputType": "number", "min": 1, "max": 5, "step": 1, "default": 5, "unit": "players" },
+        { "id": "averageCash", "label": "Average cash per player", "inputType": "number", "min": 0, "max": 100000, "step": 100, "default": 4200, "unit": "money" },
+        { "id": "carriedValue", "label": "Carried equipment value", "inputType": "number", "min": 0, "max": 500000, "step": 100, "default": 0, "unit": "team total" },
+        { "id": "targetKitCost", "label": "Target kit cost per player", "inputType": "number", "min": 0, "max": 100000, "step": 100, "default": 4800, "unit": "money" },
+        { "id": "nextRoundReserve", "label": "Desired next-round reserve", "inputType": "number", "min": 0, "max": 500000, "step": 100, "default": 5000, "unit": "team total" }
+      ],
+      "assumptions": ["Enter current in-game values; the tool does not embed weapon or utility prices.", "Average cash is a planning shortcut and cannot replace checking extreme differences between players.", "Carried equipment value is optional and should include only usable equipment."],
+      "sourceIds": ["counter-strike-2-official-updates", "counter-strike-2-steam-news"],
+      "guideSlugs": ["counter-strike-2-buy-force-save-decision", "counter-strike-2-map-role-prep"]
+    },
+    {
+      "id": "dota-2-item-decision-comparator",
+      "gameId": "dota-2",
+      "slug": "dota-2-item-decision-comparator",
+      "type": "compare",
+      "formula": "weighted-comparison",
+      "title": "Dota 2 item decision comparator",
+      "description": "Compare two Dota 2 purchases by threat response, timing, role fit, component usefulness, and overlap with allied items.",
+      "question": "Which item improves the next important game window?",
+      "optionDefaults": ["Item A", "Item B"],
+      "criteria": [
+        { "id": "threatFit", "label": "Answers the current enemy threat", "weight": 30, "defaultA": 4, "defaultB": 3 },
+        { "id": "timingFit", "label": "Completes before the next objective", "weight": 25, "defaultA": 3, "defaultB": 5 },
+        { "id": "roleFit", "label": "Supports the hero's current job", "weight": 25, "defaultA": 4, "defaultB": 4 },
+        { "id": "componentValue", "label": "Components help before completion", "weight": 10, "defaultA": 3, "defaultB": 4 },
+        { "id": "teamFit", "label": "Adds a missing team function", "weight": 10, "defaultA": 4, "defaultB": 3 }
+      ],
+      "assumptions": ["Confirm current item behavior in Valve patch notes or the live client.", "Scores are contextual judgments from 1 to 5.", "Compare both items against the same match state and next objective."],
+      "sourceIds": ["dota-2-official-patches", "dota-2-steam-news"],
+      "guideSlugs": ["dota-2-item-choice-by-game-state", "dota-2-objective-timing-checklist"]
+    },
+    {
+      "id": "pubg-battlegrounds-rotation-timing",
+      "gameId": "pubg-battlegrounds",
+      "slug": "pubg-battlegrounds-rotation-timing",
+      "type": "timing",
+      "formula": "pubg-rotation-timing",
+      "title": "PUBG rotation timing planner",
+      "description": "Estimate travel time and departure margin from player-entered distance, practical speed, terrain delay, expected contact, and zone time remaining.",
+      "question": "How much time does this rotation leave for a blocked route or fight?",
+      "fields": [
+        { "id": "distanceKm", "label": "Estimated route distance", "inputType": "number", "min": 0, "max": 50, "step": 0.1, "default": 2.5, "unit": "km" },
+        { "id": "speedKmh", "label": "Practical travel speed", "inputType": "number", "min": 1, "max": 200, "step": 1, "default": 35, "unit": "km/h" },
+        { "id": "terrainDelay", "label": "Terrain and route delay", "inputType": "number", "min": 0, "max": 60, "step": 0.5, "default": 1.5, "unit": "minutes" },
+        { "id": "contactDelay", "label": "Expected contact delay", "inputType": "number", "min": 0, "max": 60, "step": 0.5, "default": 1, "unit": "minutes" },
+        { "id": "timeRemaining", "label": "Time before required arrival", "inputType": "number", "min": 0, "max": 120, "step": 0.5, "default": 8, "unit": "minutes" }
+      ],
+      "assumptions": ["Distance and practical speed are player estimates, not live map telemetry.", "Terrain and contact delays should be increased when the route is contested or unfamiliar.", "The result is a planning margin, not a guarantee of zone safety."],
+      "sourceIds": ["pubg-battlegrounds-official-news", "pubg-battlegrounds-steam-news"],
+      "guideSlugs": ["pubg-battlegrounds-rotation-timing-plan", "pubg-battlegrounds-drop-location-decision"]
+    },
+    {
+      "id": "rainbow-six-siege-operator-comparator",
+      "gameId": "rainbow-six-siege",
+      "slug": "rainbow-six-siege-operator-comparator",
+      "type": "compare",
+      "formula": "weighted-comparison",
+      "title": "Rainbow Six Siege operator unlock comparator",
+      "description": "Compare two Siege operators by missing team role, map frequency, personal execution, team overlap, and confidence in current patch information.",
+      "question": "Which operator is more likely to improve the rounds I actually play?",
+      "optionDefaults": ["Operator A", "Operator B"],
+      "criteria": [
+        { "id": "roleGap", "label": "Fills a recurring team role gap", "weight": 35, "defaultA": 4, "defaultB": 3 },
+        { "id": "mapFrequency", "label": "Useful on frequently played maps and sites", "weight": 20, "defaultA": 3, "defaultB": 4 },
+        { "id": "execution", "label": "Player can execute the operator's job", "weight": 20, "defaultA": 4, "defaultB": 4 },
+        { "id": "teamFit", "label": "Adds value without duplicating the squad", "weight": 15, "defaultA": 4, "defaultB": 3 },
+        { "id": "patchConfidence", "label": "Current ability and loadout are verified", "weight": 10, "defaultA": 3, "defaultB": 3 }
+      ],
+      "assumptions": ["Confirm current operator abilities and loadouts in Ubisoft sources or the live client.", "Scores are contextual judgments from 1 to 5.", "The result ranks personal fit, not universal operator power."],
+      "sourceIds": ["rainbow-six-siege-official-patch-notes", "rainbow-six-siege-steam-news"],
+      "guideSlugs": ["rainbow-six-siege-operator-unlock-choice", "rainbow-six-siege-attack-role-composition"]
+    }
+  ]
+}

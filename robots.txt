@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://raidbench.com/sitemap.xml
+# AI-readable editorial index: https://raidbench.com/llms.txt

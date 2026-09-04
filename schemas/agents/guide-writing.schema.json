@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RaidBench guide writing",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["case_id", "stage", "drafts", "content_positioning"],
+  "properties": {
+    "case_id": {"type": "string"},
+    "stage": {"type": "string", "enum": ["guide_writing"]},
+    "drafts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "draft_id", "opportunity_ids", "refresh_ids", "evidence_ids", "slug",
+          "title", "meta_description", "hero_hook", "short_answer", "community_answer",
+          "outline", "checklist", "example", "common_mistakes", "faqs", "related_slugs",
+          "cta_policy", "patch_note", "source_note", "publish_priority", "risk_flags"
+        ],
+        "properties": {
+          "draft_id": {"type": "string"},
+          "opportunity_ids": {"type": "array", "items": {"type": "string"}},
+          "refresh_ids": {"type": "array", "items": {"type": "string"}},
+          "evidence_ids": {"type": "array", "items": {"type": "string"}},
+          "slug": {"type": "string"},
+          "title": {"type": "string"},
+          "meta_description": {"type": "string"},
+          "hero_hook": {"type": "string"},
+          "short_answer": {"type": "string"},
+          "community_answer": {"type": "string", "minLength": 120, "maxLength": 1200},
+          "outline": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 6,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["heading", "purpose", "bullets"],
+              "properties": {
+                "heading": {"type": "string"},
+                "purpose": {"type": "string"},
+                "bullets": {"type": "array", "items": {"type": "string"}}
+              }
+            }
+          },
+          "checklist": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 8,
+            "items": {"type": "string"}
+          },
+          "example": {"type": "string"},
+          "common_mistakes": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 6,
+            "items": {"type": "string"}
+          },
+          "faqs": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 6,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["question", "answer"],
+              "properties": {
+                "question": {"type": "string"},
+                "answer": {"type": "string"}
+              }
+            }
+          },
+          "related_slugs": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 4,
+            "items": {"type": "string"}
+          },
+          "cta_policy": {"type": "string", "enum": ["free_only", "wait_for_payment", "owner_review_required"]},
+          "patch_note": {"type": "string"},
+          "source_note": {"type": "string"},
+          "publish_priority": {"type": "string", "enum": ["high", "medium", "low"]},
+          "risk_flags": {"type": "array", "items": {"type": "string"}}
+        }
+      },
+      "maxItems": 1
+    },
+    "content_positioning": {"type": "string"}
+  }
+}

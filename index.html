@@ -3,23 +3,84 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>RaidBench - Rust Raid Cost &amp; Upkeep Calculator</title>
+    <title>RaidBench - Game Guides, Calculators &amp; Decision Tools</title>
     <meta
       name="description"
-      content="Patch-aware Rust raid cost and upkeep tools with explosive comparisons, sulfur estimates, breach planning, and focused player guides."
+      content="Patch-aware game guides, calculators, comparisons, and decision tools for Rust, POE2, Palworld, Project Zomboid, Tarkov, ARK, Warframe, Once Human, CS2, Dota 2, PUBG, and Rainbow Six Siege."
     />
     <meta name="robots" content="index,follow" />
     <link rel="canonical" href="https://raidbench.com/" />
-    <meta property="og:title" content="RaidBench - Rust Raid Cost &amp; Upkeep Calculator" />
+    <meta property="og:title" content="RaidBench - Game Guides &amp; Decision Tools" />
     <meta
       property="og:description"
-      content="Compare rockets, C4, satchels, explosive ammo, sulfur requirements, and upkeep before committing valuable resources."
+      content="Focused answers, calculators, comparisons, and patch checks for complex game decisions."
     />
     <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://raidbench.com/assets/raidbench-calculator-share.png" />
+    <meta property="og:image:alt" content="A Rust-style survival base beside the RaidBench raid planning tools" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="alternate" type="application/rss+xml" title="RaidBench Patch Watch" href="https://raidbench.com/feed.xml" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="theme-color" content="#101312" />
-    <link rel="stylesheet" href="./styles.css?v=20260715d" />
+    <link rel="stylesheet" href="./styles.css?v=20260801b" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "RaidBench",
+        "url": "https://raidbench.com/",
+        "description": "Patch-aware game guides, calculators, comparisons, and decision tools across twelve complex games.",
+        "author": {
+          "@type": "Organization",
+          "name": "RaidBench",
+          "url": "https://raidbench.com/about"
+        }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Dataset",
+        "name": "RaidBench Vanilla Rust PC Raid Cost Reference",
+        "description": "Patch-aware target counts and sulfur roll-ups for common vanilla Rust PC raid targets.",
+        "url": "https://raidbench.com/#raid-chart",
+        "dateModified": "2026-08-20",
+        "creator": { "@type": "Organization", "name": "RaidBench", "url": "https://raidbench.com/about" },
+        "distribution": [
+          { "@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "https://raidbench.com/rust-raid-costs.json" },
+          { "@type": "DataDownload", "encodingFormat": "text/csv", "contentUrl": "https://raidbench.com/rust-raid-costs.csv" }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How much sulfur does one rocket cost in Rust?",
+            "acceptedAnswer": { "@type": "Answer", "text": "The current vanilla Rust PC recipe roll-up is 1,400 sulfur per rocket." }
+          },
+          {
+            "@type": "Question",
+            "name": "How many rockets does a sheet metal door take in Rust?",
+            "acceptedAnswer": { "@type": "Answer", "text": "The current RaidBench vanilla reference uses two rockets for one sheet metal door." }
+          },
+          {
+            "@type": "Question",
+            "name": "Should I use C4 or rockets in Rust?",
+            "acceptedAnswer": { "@type": "Answer", "text": "C4 concentrates damage on an isolated target. Rockets become more valuable when their splash reaches another useful building piece. Compare the complete route." }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I share a RaidBench route with my team?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. The calculator can copy a share link that restores targets, quantities, methods, and totals without exposing account information." }
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <header class="site-header">
@@ -28,22 +89,63 @@
         <span>RaidBench</span>
       </a>
       <nav class="nav" aria-label="Primary">
-        <a href="#tools">Tools</a>
-        <a href="#guides">Guides</a>
-        <a href="#database">Database</a>
-        <a href="./palworld.html">Palworld Lab</a>
-        <a href="./poe2.html">POE2 Lab</a>
-        <a href="#updates">Updates</a>
+        <a href="./games.html">Games</a>
+        <a href="./guides.html">Guides</a>
+        <a href="./tools.html">Tools</a>
+        <a href="./updates.html">Patch Watch</a>
+        <a href="./about.html">About</a>
+        <a href="./customer" data-live-commerce hidden>Player Account</a>
       </nav>
       <a class="header-action" href="#raid-calculator">Open Calculator</a>
     </header>
 
     <main id="top">
+      <!-- GAME_SELECTOR_START -->
+      <section class="game-selector-hero" id="games" aria-labelledby="game-selector-title">
+        <div class="game-selector-copy">
+          <h1 id="game-selector-title">Game guides and decision tools for the next costly choice.</h1>
+          <p>Choose a game to find focused answers, calculators, patch checks, and planning tools built around decisions players actually need to make.</p>
+          <div class="lab-actions">
+            <a class="primary-action" href="./games.html">Explore all 12 games</a>
+            <a class="secondary-action" href="./guides.html">Search every guide</a>
+          </div>
+        </div>
+        <div class="game-selector-panel">
+          <label for="homepage-game-select">Choose a game</label>
+          <div class="game-selector-control">
+            <select id="homepage-game-select">
+              <option value="/games/rust/">Rust</option>
+              <option value="/games/poe2/">Path of Exile 2</option>
+              <option value="/games/palworld/">Palworld</option>
+              <option value="/games/project-zomboid/">Project Zomboid</option>
+              <option value="/games/escape-from-tarkov/">Escape from Tarkov</option>
+              <option value="/games/ark-survival-ascended/">ARK: Survival Ascended</option>
+              <option value="/games/warframe/">Warframe</option>
+              <option value="/games/once-human/">Once Human</option>
+              <option value="/games/counter-strike-2/">Counter-Strike 2</option>
+              <option value="/games/dota-2/">Dota 2</option>
+              <option value="/games/pubg-battlegrounds/">PUBG: BATTLEGROUNDS</option>
+              <option value="/games/rainbow-six-siege/">Tom Clancy&#39;s Rainbow Six Siege</option>
+            </select>
+            <button class="primary-action" id="open-selected-game" type="button">Open game</button>
+          </div>
+          <p class="game-selector-note">One account and one editorial standard across every game section.</p>
+        </div>
+      </section>
+      <section class="homepage-popular-band" aria-labelledby="popular-decisions-title">
+        <div><h2 id="popular-decisions-title">Popular decisions</h2><p>Start with a reviewed answer or a working tool.</p></div>
+        <div class="popular-question-list">
+          <a href="./#raid-calculator"><span>Rust</span><strong>Open raid calculator</strong></a>
+          <a href="./pages/poe2-outdated-build-guide-checklist"><span>POE2</span><strong>Check an outdated build</strong></a>
+          <a href="./pages/palworld-base-automation-scorecard"><span>Palworld</span><strong>Audit base automation</strong></a>
+        </div>
+      </section>
+      <!-- GAME_SELECTOR_END -->
       <section class="tool-grid" id="tools" aria-label="Rust planning tools">
         <article class="panel raid-panel" id="raid-calculator">
           <div class="tool-intro">
             <p class="eyebrow">Rust raid planning, refined</p>
-            <h1 id="hero-title">Plan the raid before you commit the sulfur.</h1>
+            <h2 id="hero-title">Plan the raid before you commit the sulfur.</h2>
             <p>
               Compare breach methods, calculate sulfur and gunpowder requirements, and build a
               reliable upkeep buffer with fast, patch-aware planning tools.
@@ -105,6 +207,18 @@
               <strong id="gunpowder-total">0</strong>
             </div>
           </div>
+          <div class="result-share">
+            <button class="secondary-action compact" id="copy-raid-link" type="button">Copy share link</button>
+            <a class="secondary-action compact" href="./rust-route-presets.html">Open route presets</a>
+            <span id="share-status" role="status" aria-live="polite">Share this exact route without re-entering the targets.</span>
+          </div>
+          <div class="result-commerce" data-live-commerce hidden>
+            <div>
+              <strong id="verification-title">Want the route compared, not merely counted?</strong>
+              <span id="verification-copy">The $5 starter includes two route checks. Each compares all four methods, applies your decision priority, and shows whether the explosives already in base are enough.</span>
+            </div>
+            <a class="primary-action compact" id="verify-raid" href="./customer?intent=instant&amp;utm_source=calculator&amp;utm_medium=internal&amp;utm_campaign=rust_route_check" data-commerce-cta>Compare this route</a>
+          </div>
         </article>
 
         <div class="side-stack">
@@ -146,6 +260,21 @@
               <div><span>HQM / week</span><strong id="hqm-week">0</strong></div>
             </div>
           </aside>
+        </div>
+      </section>
+
+      <section class="lab-band" aria-labelledby="patch-watch-title">
+        <div class="section-head">
+          <p class="eyebrow">Latest official-source brief</p>
+          <h2 id="patch-watch-title">Breach and Clear changes upkeep and access before the explosive math begins.</h2>
+          <p>
+            Standard monitored breach counts passed their source check, while group-scaled TC upkeep,
+            monument blockers, and grenade stack changes now deserve fresh planning.
+          </p>
+        </div>
+        <div class="lab-actions">
+          <a class="primary-action" href="./pages/rust-breach-and-clear-raid-upkeep-check.html">Read the player impact</a>
+          <a class="secondary-action" href="./updates.html">Open Patch Watch</a>
         </div>
       </section>
 
@@ -197,46 +326,25 @@
               <p>Practical early-game breach paths for solo and duo players working with limited resources.</p>
             </div>
           </a>
-          <a class="guide-item" href="./pages/rust-solo-raid-guide.html">
-            <span>07</span>
-            <div>
-              <h3>Solo Raid Guide</h3>
-              <p>Balance target value, explosive cost, exposure, sealing, and a realistic exit plan.</p>
-            </div>
-          </a>
-          <a class="guide-item" href="./pages/rust-sulfur-farming-route.html">
-            <span>08</span>
-            <div>
-              <h3>Sulfur Farming Route</h3>
-              <p>Set a precise farming target and organize routes around the resources your next raid requires.</p>
-            </div>
-          </a>
-          <a class="guide-item" href="./pages/rust-tool-cupboard-upkeep-guide.html">
-            <span>09</span>
-            <div>
-              <h3>Tool Cupboard Upkeep</h3>
-              <p>Understand daily upkeep, weekly totals, coverage, and the buffer that keeps a base secure.</p>
-            </div>
-          </a>
-          <a class="guide-item" href="./pages/rust-explosive-ammo-vs-rockets.html">
-            <span>10</span>
-            <div>
-              <h3>Explosive Ammo vs Rockets</h3>
-              <p>Compare resource efficiency, execution time, splash value, and operational exposure.</p>
-            </div>
-          </a>
-          <a class="guide-item" href="./palworld.html">
+          <a class="guide-item" href="./games/palworld/">
             <span>11</span>
             <div>
               <h3>Palworld Base &amp; Boss Prep Lab</h3>
               <p>Diagnose production bottlenecks, prepare boss attempts, and organize repeatable resource routes.</p>
             </div>
           </a>
-          <a class="guide-item" href="./poe2.html">
+          <a class="guide-item" href="./games/poe2/">
             <span>12</span>
             <div>
               <h3>POE2 Build Audit Lab</h3>
               <p>Review patch relevance, defensive gaps, route fit, and item decisions before investing currency.</p>
+            </div>
+          </a>
+          <a class="guide-item" href="./guides.html">
+            <span>ALL</span>
+            <div>
+              <h3>Search the complete guide library</h3>
+              <p>Filter every public Rust, POE2, and Palworld guide by problem, item, boss, route, or resource.</p>
             </div>
           </a>
         </div>
@@ -246,21 +354,31 @@
         <article id="raid-chart">
           <h2>Raid cost chart</h2>
           <p>
-            Start with the calculator above, then confirm the final plan in-game. Estimates are
-            intentionally conservative and optimized for fast comparison across common raid paths.
+            Vanilla Rust PC target counts and recipes are cross-checked against the
+            <a href="https://wiki.facepunch.com/rust/item/ammo.rocket.basic" target="_blank" rel="noopener noreferrer">Facepunch Rust Wiki</a>
+            and an <a href="https://frozen-rust.com/rust-raid-calculator.html" target="_blank" rel="noopener noreferrer">independent current reference</a>.
+            Paid answers use a separate 72-hour evidence gate; custom server settings must still be confirmed.
           </p>
-          <table>
-            <thead>
-              <tr>
-                <th>Target</th>
-                <th>Rockets</th>
-                <th>C4</th>
-                <th>Satchels</th>
-                <th>Explosive ammo</th>
-              </tr>
-            </thead>
-            <tbody id="target-table"></tbody>
-          </table>
+          <div class="table-scroll" tabindex="0" role="region" aria-label="Rust raid cost table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Target</th>
+                  <th>Rockets</th>
+                  <th>C4</th>
+                  <th>Satchels</th>
+                  <th>Explosive ammo</th>
+                </tr>
+              </thead>
+              <tbody id="target-table"></tbody>
+            </table>
+          </div>
+          <div class="data-downloads" aria-label="Download verified Rust raid data">
+            <span>Verified data updated August 20, 2026</span>
+            <a href="./rust-raid-costs.json" data-track-event="raid_data_download" data-asset-format="json">JSON</a>
+            <a href="./rust-raid-costs.csv" download data-track-event="raid_data_download" data-asset-format="csv">CSV</a>
+            <a href="./rust-raid-calculator-widget">Free widget</a>
+          </div>
         </article>
 
         <article id="upkeep-basics">
@@ -302,74 +420,46 @@
           </p>
         </div>
         <div class="guide-list">
-          <a class="guide-item" href="./pages/rust-armored-wall-raid-cost.html">
+          <a class="guide-item" href="./pages/rust-fast-vs-efficient-raiding.html">
             <span>11</span>
             <div>
-              <h3>Armored Wall Raid Cost</h3>
-              <p>Compare rockets, C4, satchels, and explosive ammo for armored walls.</p>
+              <h3>Fast vs Sulfur-Efficient Raiding</h3>
+              <p>Decide when a faster breach is worth more than the sulfur it costs.</p>
             </div>
           </a>
-          <a class="guide-item" href="./pages/rust-cheapest-raid-method.html">
+          <a class="guide-item" href="./pages/rust-small-base-raid-path.html">
             <span>12</span>
             <div>
-              <h3>Cheapest Raid Method</h3>
-              <p>Use the lowest sulfur estimate as a starting point, then adjust for risk.</p>
-            </div>
-          </a>
-          <a class="guide-item" href="./pages/rust-solo-raid-checklist.html">
-            <span>13</span>
-            <div>
-              <h3>Solo Raid Checklist</h3>
-              <p>Plan boom, seal materials, escape route, and stop condition before leaving base.</p>
-            </div>
-          </a>
-          <a class="guide-item" href="./pages/rust-duo-raid-roles.html">
-            <span>14</span>
-            <div>
-              <h3>Duo Raid Roles</h3>
-              <p>Split boom placement, security, sealing, and loot movement cleanly.</p>
-            </div>
-          </a>
-          <a class="guide-item" href="./pages/rust-why-did-my-base-decay.html">
-            <span>15</span>
-            <div>
-              <h3>Why Did My Base Decay?</h3>
-              <p>Check missing materials, expansion upkeep, wrong TC, and coverage mistakes.</p>
-            </div>
-          </a>
-          <a class="guide-item" href="./pages/rust-wipe-day-upgrade-order.html">
-            <span>16</span>
-            <div>
-              <h3>Wipe Day Upgrade Order</h3>
-              <p>Upgrade security without creating an upkeep problem too early.</p>
+              <h3>Door Path vs Wall Path</h3>
+              <p>Compare the credible route, hidden layers, TC probability, and exit before crafting.</p>
             </div>
           </a>
           <a class="guide-item" href="./pages/rust-raid-profit-calculator-outline.html">
-            <span>17</span>
+            <span>13</span>
             <div>
-              <h3>Raid Value Review</h3>
-              <p>Track sulfur spent, gear lost, loot recovered, time, and risk.</p>
+              <h3>Raid Break-Even Calculator</h3>
+              <p>Separate resource profit from time, counter risk, and strategic value.</p>
             </div>
           </a>
-          <a class="guide-item" href="./pages/rust-explosive-ammo-door-path.html">
-            <span>18</span>
+          <a class="guide-item" href="./pages/rust-c4-vs-rockets.html">
+            <span>14</span>
             <div>
-              <h3>Explosive Ammo Door Path</h3>
-              <p>Know when low sulfur cost is worth the longer shooting exposure.</p>
+              <h3>C4 vs Rockets</h3>
+              <p>Compare sulfur, concentrated damage, useful splash, and the complete route.</p>
             </div>
           </a>
-          <a class="guide-item" href="./pages/rust-rocket-splash-basics.html">
-            <span>19</span>
+          <a class="guide-item" href="./pages/rust-100-rocket-base-worth-raiding.html">
+            <span>15</span>
             <div>
-              <h3>Rocket Splash Basics</h3>
-              <p>Use rockets when splash and speed justify the extra sulfur.</p>
+              <h3>Is a 100-Rocket Base Worth It?</h3>
+              <p>Use evidence, route confidence, strategic value, and a stop rule before saying yes.</p>
             </div>
           </a>
-          <a class="guide-item" href="./pages/rust-tc-upkeep-weekly-sheet.html">
-            <span>20</span>
+          <a class="guide-item" href="./guides.html">
+            <span>ALL</span>
             <div>
-              <h3>TC Upkeep Weekly Sheet</h3>
-              <p>Turn daily cupboard values into weekly resource targets with buffer.</p>
+              <h3>More Rust problem guides</h3>
+              <p>Search raid buffers, door paths, upkeep sheets, sulfur targets, counters, sealing, and wipe-day decisions.</p>
             </div>
           </a>
         </div>
@@ -386,6 +476,22 @@
         <a class="primary-action" href="#guides">Open free guides</a>
       </section>
 
+      <section class="monetization-band" data-live-commerce hidden aria-labelledby="verified-answer-title">
+        <div>
+          <p class="eyebrow">Verified answers from $5</p>
+          <h2 id="verified-answer-title">Start with one current answer. Upgrade only when the route deserves it.</h2>
+          <p>
+            Use a $5 starter pack for two personalized route checks, or a $19 pack for a complete
+            multi-layer raid plan. Every result is delivered in your account with sources, review
+            date, and calculation checks. Unsupported or stale requests are held without charge.
+          </p>
+        </div>
+        <div class="lab-actions">
+          <a class="primary-action" href="./customer?intent=instant&amp;utm_source=homepage&amp;utm_medium=internal&amp;utm_campaign=rust_instant_answer" data-commerce-cta>Get a verified answer</a>
+          <a class="secondary-action" href="./rust-raid-plan">See the full offer</a>
+        </div>
+      </section>
+
       <section class="lab-band" id="poe2-lab">
         <div class="section-head">
           <h2>POE2 planning lab</h2>
@@ -395,36 +501,47 @@
           </p>
         </div>
         <div class="lab-actions">
-          <a class="primary-action" href="./poe2.html">Open POE2 Lab</a>
+          <a class="primary-action" href="./games/poe2/">Open POE2 Lab</a>
           <a class="secondary-action" href="./pages/poe2-build-planner-roadmap.html">Planning framework</a>
         </div>
       </section>
 
       <section class="updates" id="updates">
         <div>
-          <h2>Stay current</h2>
+          <h2>Check the patch before trusting the plan</h2>
           <p>
-            Game balance changes quickly. Update notes highlight calculator revisions, guide
-            refreshes, and any recommendations that deserve another look after a major patch.
+            Patch Watch connects official update notes to the player decisions they actually
+            change, including retired workarounds and guidance that needs another test.
           </p>
         </div>
-        <form class="email-form">
-          <label for="email">Get update notes</label>
-          <div>
-            <input id="email" type="email" placeholder="you@example.com" />
-            <button type="submit">Notify me</button>
-          </div>
-        </form>
+        <div class="lab-actions">
+          <a class="primary-action" href="./updates.html">Open Patch Watch</a>
+          <a class="secondary-action" href="./about.html">How guides are reviewed</a>
+        </div>
+      </section>
+
+      <section class="article-grid homepage-faq" aria-labelledby="rust-raid-faq-title">
+        <article class="article-card faq-card">
+          <p class="eyebrow">Quick answers, current assumptions</p>
+          <h2 id="rust-raid-faq-title">Rust raid-cost questions worth checking before you craft</h2>
+          <details><summary>How much sulfur does one rocket cost?</summary><p>The current vanilla Rust PC recipe roll-up is 1,400 sulfur per rocket. RaidBench checks the monitored recipe and target counts before releasing paid answers.</p></details>
+          <details><summary>How many rockets does a sheet metal door take?</summary><p>The current RaidBench vanilla reference uses two rockets for one sheet metal door. A mixed method can be cheaper, so compare the complete route instead of one layer.</p></details>
+          <details><summary>Should I use C4 or rockets?</summary><p>C4 concentrates damage on an isolated target. Rockets become more valuable when their splash reaches another useful building piece. The correct comparison is the full route, not one item.</p></details>
+          <details><summary>Can I share a RaidBench route with my team?</summary><p>Yes. Build the route in the calculator and use Copy share link. The link restores targets, quantities, methods, and totals without exposing account information.</p></details>
+        </article>
       </section>
     </main>
 
     <footer class="footer">
-      <p>RaidBench is an unofficial fan-made planning tool and is not affiliated with or endorsed by Facepunch Studios.</p>
+      <p>RaidBench is an independent, unofficial player resource and is not affiliated with or endorsed by Facepunch Studios.</p>
       <p>All trademarks and game names belong to their respective owners.</p>
-    <p class="footer-links"><a href="./privacy.html">Privacy</a><a href="./terms.html">Terms</a><a href="./refund-policy.html">Refund Policy</a></p></footer>
+    <p class="footer-links"><a href="./updates.html">Patch Watch</a><a href="./about.html">Editorial standards</a><a href="./privacy.html">Privacy</a><a href="./terms.html">Terms</a><a href="./refund-policy.html">Refunds</a></p></footer>
 
-    <script src="./config.js"></script>
-    <script src="./analytics.js"></script>
-    <script src="./app.js"></script>
+    <script src="./config.js?v=20260801b"></script>
+    <script src="./analytics.js?v=20260809a"></script>
+    <script src="./raid-data.js?v=20260809a"></script>
+    <script src="./route-state.js?v=20260820a"></script>
+    <script src="./app.js?v=20260820a"></script>
+    <script src="./game-directory.js?v=20260903b"></script>
   </body>
 </html>

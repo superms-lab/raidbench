@@ -1,0 +1,7 @@
+priority,channel,target_url,topic,action,link_policy,status,reason
+1,reddit,https://www.reddit.com/r/RustPc/comments/1vr34m5/best_way_to_hide_loot/,Protecting recovery loot before a raid,Send exact link-free draft to owner through Feishu,No link and no brand mention,ready_for_owner_review,Fresh specific question with an actionable answer
+2,reddit,https://www.reddit.com/r/playrust/comments/1vqgqty/two_100k_sulfer_shops_2x_as_a_solo/,Solo sulfur-shop economics,Use as demand signal for a shop break-even guide,Research only,research_only,Discussion does not ask RaidBench for an answer
+3,reddit,https://www.reddit.com/r/playrust/comments/1vr01cm/so_with_alistair_gone_can_we_finally_get_rid_of/,Blueprint fragment economy,Watch official patch response before publishing claims,Research only,research_only,Opinion debate requires official evidence before a guide update
+4,reddit,https://www.reddit.com/r/playrust/comments/1uxmyts/y_rockets_over_c4/,Rockets versus C4,Keep existing guide current; do not revive thread to promote,No new reply,research_only,Question is already answered and no longer fresh
+5,steam,,Rust raid planning questions,Research recurring wording only,No commercial links,research_only,Steam community conduct limits promotion
+6,discord,,Rust server resource channels,Offer widget only after server-specific rule check,Only moderator-approved resource placement,needs_target,Requires a named server and current channel rules

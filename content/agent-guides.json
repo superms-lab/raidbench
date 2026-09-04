@@ -1,0 +1,635 @@
+[
+  {
+    "slug": "poe2-forbidden-rites-filter-readiness",
+    "game": "POE2",
+    "title": "POE2 Forbidden Rites Loot Filter Readiness Checklist",
+    "description": "Prepare your POE2 loot filter for Forbidden Rites with a conservative checklist covering the listed Soul Cores, Sacred Bloom, and Expedition Tablet.",
+    "problem": "Forbidden Rites adds listed items your current filter may not recognize as intended. Review visibility before changing strictness or assigning value.",
+    "shortAnswer": "Before the Forbidden Rites launch, preserve a copy of your current filter and review whether it could suppress the listed Soul Cores, Sacred Bloom under Map Fragments, or Expedition Tablet under Tablet. Keep the review conservative: the supplied announcement does not establish filter syntax, item values, or post-launch behavior. Maintain your current strictness until you can validate visibility in the launched version, then change one rule at a time.",
+    "publishedAt": "2026-09-03",
+    "reviewedAt": "2026-09-03",
+    "status": "Evidence-bounded POE2 guide; recheck after relevant patch changes",
+    "sections": [
+      {
+        "title": "What the Forbidden Rites announcement confirms",
+        "purpose": "Establish the narrow factual basis for the readiness review.",
+        "bullets": [
+          "Forbidden Rites was announced for a September 4 launch at 1PM PDT.",
+          "The supplied item information lists Soul Cores, Sacred Bloom under Map Fragments, and Expedition Tablet under Tablet.",
+          "The announcement says item-filter information was prepared for the event."
+        ]
+      },
+      {
+        "title": "What remains unverified",
+        "purpose": "Prevent unsupported rules or value assumptions from entering the guide.",
+        "bullets": [
+          "The captured source does not include filter syntax.",
+          "The source does not establish the value or rarity of the listed items.",
+          "Post-launch filter behavior was not available when the evidence was captured."
+        ]
+      },
+      {
+        "title": "Create a reversible starting point",
+        "purpose": "Make the review safe to undo and easy to diagnose.",
+        "bullets": [
+          "Save a clearly named copy of the current filter before making changes.",
+          "Record the filter version and strictness used before launch.",
+          "Write the listed additions into a separate review list."
+        ]
+      },
+      {
+        "title": "Review visibility without guessing at syntax",
+        "purpose": "Provide a source-bounded decision framework for checking a filter.",
+        "bullets": [
+          "Inspect whether existing rules could suppress the relevant item categories.",
+          "If coverage cannot be confirmed, preserve visibility until launched behavior can be checked.",
+          "Avoid changing strictness and category handling in the same test."
+        ]
+      },
+      {
+        "title": "Validate after launch",
+        "purpose": "Turn pre-launch preparation into a controlled post-launch check.",
+        "bullets": [
+          "Recheck the launched version before treating any pre-launch assumption as settled.",
+          "Test one rule change at a time and record the result.",
+          "Revisit visibility when build needs or the repeated content route changes."
+        ]
+      }
+    ],
+    "checklist": [
+      "Save a backup of the current filter before editing it.",
+      "Add the listed Soul Cores to the launch review list.",
+      "Add Sacred Bloom under Map Fragments to the launch review list.",
+      "Add Expedition Tablet under Tablet to the launch review list.",
+      "Keep uncertain additions visible until launched behavior is validated."
+    ],
+    "example": "A player uses a strict filter that worked before Forbidden Rites. Instead of rewriting it before launch, they save a backup and create a review list containing the listed Soul Cores, Sacred Bloom, and Expedition Tablet. After launch, they first confirm whether those additions appear as intended. If one category needs adjustment, they change only that rule and retest, leaving value judgments for a separate review.",
+    "mistakes": [
+      "Editing the only copy of a working filter.",
+      "Assuming the captured announcement provides filter syntax.",
+      "Assigning value to a listed item before its relevance is understood.",
+      "Increasing filter strictness while testing new item visibility."
+    ],
+    "faqs": [
+      {
+        "question": "Which additions should I review for Forbidden Rites?",
+        "answer": "The supplied announcement lists Soul Cores, Sacred Bloom under Map Fragments, and Expedition Tablet under Tablet. Use them as a visibility review list without inferring value or rarity."
+      },
+      {
+        "question": "Does the announcement provide filter rules I can paste?",
+        "answer": "The captured evidence does not include filter syntax, so this guide does not prescribe rule text."
+      },
+      {
+        "question": "Should I make my filter stricter for the launch?",
+        "answer": "Only if your progression stage and repeated content already justify it. Changing strictness during the same test can make visibility problems harder to diagnose."
+      },
+      {
+        "question": "When should I review the filter again?",
+        "answer": "Recheck it after the launched version can be observed and whenever your build needs, progression stage, or repeated content route changes."
+      }
+    ],
+    "related": [
+      "poe2-loot-filter-setup-checklist",
+      "poe2-item-value-triage",
+      "poe2-outdated-build-guide-checklist"
+    ],
+    "sources": [
+      {
+        "label": "Path of Exile 2: Forbidden Rites Patch Notes and Item Filter Information",
+        "url": "https://store.steampowered.com/news/app/2694490/view/686389990174753302",
+        "note": "Primary patch, product, or publisher evidence; stay within the captured text."
+      }
+    ],
+    "sourceNote": "E-01 is the sole factual source for the listed additions and launch context. The existing poe2-loot-filter-setup-checklist was used only for overlap review: it covers stage-based filter strictness, while this new page addresses the narrower Forbidden Rites launch-delta workflow. REF-01 should also be applied to the existing page as a conservative refresh.",
+    "patchNote": "Pre-launch guidance for Forbidden Rites, announced for September 4 at 1PM PDT. Refresh after launch because E-01 does not establish filter syntax, item values, balance effects, or post-launch behavior.",
+    "communityAnswer": "Start by saving a copy of the filter that currently works for you. The Forbidden Rites announcement lists Soul Cores, Sacred Bloom under Map Fragments, and Expedition Tablet under Tablet, so treat those as a visibility review list. Do not assume their value or guess at unsupported filter syntax. Keep your existing strictness during the initial review, verify how the launched version handles each listed addition, and adjust one rule at a time so you can identify what changed. If an item's relevance is still unclear, make it visible temporarily rather than assigning it an aggressive rule.",
+    "automation": {
+      "caseId": "auto-poe2-2026-09-03-eadcce956a",
+      "draftId": "DRAFT-01",
+      "signalId": "sig_5489d7cf1477d875b6",
+      "qa": "passed",
+      "generatedAt": "2026-09-03T03:24:57+00:00"
+    }
+  },
+  {
+    "slug": "palworld-1-0-returning-player-revalidation",
+    "game": "Palworld",
+    "title": "Palworld 1.0 Returning Player Revalidation Checklist",
+    "description": "Returning to Palworld after Early Access? Recheck mission progress, random-spawn data, Pal roles, progression goals, and resource plans for version 1.0.",
+    "problem": "Palworld 1.0 changed enough systems that an old save may be familiar while your old plan is not. Revalidate the parts that affect your next decision before resuming the grind.",
+    "shortAnswer": "Start by checking mission status rather than assuming every objective carried over: version 1.0 reset main- and sub-mission progress, while some tutorial and Tower Boss-related main missions may be marked complete based on prior Tower Boss defeats. Replace random-spawn placement data from v0.7.3 and earlier, then reassess Pal roles, routes, and progression priorities because habitats, Pal stats and abilities, Partner Skills, rewards, drops, and the player level cap changed.",
+    "publishedAt": "2026-08-11",
+    "reviewedAt": "2026-08-11",
+    "status": "Evidence-bounded Palworld guide; recheck after relevant patch changes",
+    "sections": [
+      {
+        "title": "What changed for returning players in Palworld 1.0",
+        "purpose": "Establish the confirmed revalidation triggers without implying that every save element or previous strategy became invalid.",
+        "bullets": [
+          "Main- and sub-mission progress was reset following reward adjustments.",
+          "Some tutorial and Tower Boss-related main missions may be marked complete according to prior Tower Boss defeat progress.",
+          "The player level cap increased from 65 to 80, and new technologies were added.",
+          "Pal habitats, stats, abilities, and the Partner Skills of over 200 Pals were reworked or rebalanced.",
+          "Treasure chests, dungeon rewards, item drops, dungeon layouts, and several exploration systems changed."
+        ]
+      },
+      {
+        "title": "Audit your mission state before choosing a destination",
+        "purpose": "Help returning players identify their actual story position from the current interface.",
+        "bullets": [
+          "Open the mission screens and record which main missions, sub-missions, and tutorial objectives are currently active or complete.",
+          "Treat the displayed state as the starting point for planning instead of reconstructing it from Early Access memory.",
+          "If a Tower Boss-related mission appears complete, connect that status to recorded defeat progress without assuming the same exception applies elsewhere.",
+          "Choose the next displayed objective only after checking its destination markers and stated rewards."
+        ]
+      },
+      {
+        "title": "Replace invalid random-spawn information",
+        "purpose": "Prevent players using random Pal spawn mode from planning around placement data that version 1.0 no longer carries forward.",
+        "bullets": [
+          "If random Pal spawn mode is enabled, retire placement notes or route maps based on v0.7.3 and earlier.",
+          "Scout the regions relevant to the current goal and create fresh observations before committing to a capture route.",
+          "Do not generalize this placement-data warning to every mode; the changelog states it specifically for random Pal spawn mode."
+        ]
+      },
+      {
+        "title": "Revalidate Pal roles instead of copying an old team",
+        "purpose": "Turn broad balance changes into a practical team review without unsupported rankings.",
+        "bullets": [
+          "Assign each current Pal a job such as combat, support, travel, capture assistance, or base work.",
+          "Read current stats, abilities, and Partner Skill descriptions before retaining an old role assignment.",
+          "Test whether each Pal still performs the intended job under the current version.",
+          "Change one role at a time so the effect is observable.",
+          "Use current objectives and available resources as the decision criteria; there is no universally suitable choice."
+        ]
+      },
+      {
+        "title": "Rebuild progression priorities around one next goal",
+        "purpose": "Keep the returning-player review focused despite the expanded level cap, new areas, technologies, bosses, and exploration systems.",
+        "bullets": [
+          "Select one near-term goal: mission progress, exploration, a boss attempt, base development, or team rebuilding.",
+          "List only the technologies, equipment, Pals, travel points, and materials needed for that goal.",
+          "Check whether new watchtowers, fast-travel points, settlements, islands, or dungeon entrances change the route.",
+          "Reassess the plan after completing the goal instead of redesigning the entire save at once."
+        ]
+      },
+      {
+        "title": "Review rewards and resource routes cautiously",
+        "purpose": "Address overlap with older resource and boss-preparation guidance while staying within the changelog evidence.",
+        "bullets": [
+          "Do not assume an Early Access chest, dungeon, or item-drop route produces the same result in version 1.0.",
+          "Run a short observation pass before investing heavily in a remembered route.",
+          "For boss preparation, verify the current team roles and required supplies rather than relying on previous balance assumptions.",
+          "Keep useful general planning habits, but retest any recommendation that depends on habitats, rewards, drops, stats, abilities, or Partner Skills."
+        ]
+      }
+    ],
+    "checklist": [
+      "Open the current mission screens and record active and completed objectives.",
+      "Check whether prior Tower Boss defeats affected any displayed mission completion.",
+      "Replace random-spawn placement data from v0.7.3 and earlier if that mode is enabled.",
+      "Choose one immediate progression goal.",
+      "Review the current role of every Pal needed for that goal.",
+      "Verify current stats, abilities, and Partner Skill descriptions for those Pals.",
+      "Test remembered reward and resource routes before committing substantial time.",
+      "Record the revised team, route, and next checkpoint."
+    ],
+    "example": "A returning player remembers preparing a team for a Tower Boss and using an old random-spawn capture route. They first check the mission screen and find that the relevant mission state does not match their old notes. Because random Pal spawn mode is enabled, they retire placement data from v0.7.3 and earlier. They then review the current roles and descriptions of the Pals intended for the fight, run a short route test for the required supplies, and change only the parts of the plan that current observations no longer support.",
+    "mistakes": [
+      "Assuming every mission retained its Early Access status.",
+      "Assuming the limited conditional mission completion applies to all reset progress.",
+      "Using v0.7.3-or-earlier placement data in random Pal spawn mode.",
+      "Keeping old Pal role assignments without reading current abilities and Partner Skills.",
+      "Treating every previous route or preparation habit as invalid instead of testing patch-sensitive parts.",
+      "Trying to replan the entire save before selecting one immediate goal."
+    ],
+    "faqs": [
+      {
+        "question": "Did Palworld 1.0 reset all progress?",
+        "answer": "The supplied changelog confirms resets to main- and sub-mission progress, with conditional completion for some tutorial and Tower Boss-related main missions based on Tower Boss defeat progress. It does not support a claim that all save progress was reset."
+      },
+      {
+        "question": "Can I keep using an old Pal location map?",
+        "answer": "If you use random Pal spawn mode, placement data from v0.7.3 and earlier is no longer carried over correctly after the habitat rebalance. The supplied evidence does not establish that the same warning applies to every game mode."
+      },
+      {
+        "question": "Do I need to replace my entire Pal team?",
+        "answer": "Not necessarily. Review each Pal against its current role because version 1.0 rebalanced Pal stats and abilities and reworked the Partner Skills of over 200 Pals. Keep choices that still meet the role after inspection and testing."
+      },
+      {
+        "question": "What should I do first after loading an old save?",
+        "answer": "Check the current mission state, choose one immediate goal, and then revalidate only the Pals, routes, rewards, and resources that affect that goal."
+      },
+      {
+        "question": "Are old farming and dungeon routes still reliable?",
+        "answer": "Treat them as unverified until tested. Version 1.0 rebalanced treasure chests, dungeon rewards, and item drops, while also changing dungeon and exploration features. The changelog does not specify the outcome for every individual route."
+      }
+    ],
+    "related": [
+      "palworld-beginner-progression-checklist",
+      "palworld-boss-prep-checklist",
+      "palworld-resource-route-planner",
+      "palworld-breeding-goal-checklist"
+    ],
+    "sources": [
+      {
+        "label": "Palworld v1.0 - Official Release Changelog",
+        "url": "https://store.steampowered.com/news/app/1623730/view/686383649529010623",
+        "note": "Primary patch, product, or publisher evidence; stay within the captured text."
+      }
+    ],
+    "sourceNote": "Current-game claims are limited to the captured excerpt of E-01, the official Palworld v1.0 changelog. Existing RaidBench excerpts were used only to identify overlap and differentiate this returning-player workflow; they were not treated as authority for game facts. The captured changelog is incomplete, so later sections and unquoted mechanics are outside this draft's scope.",
+    "patchNote": "Written specifically for the Palworld 1.0 revalidation problem. Unlike the existing beginner progression checklist, this page begins with an established save and separates confirmed mission resets, conditional completion, and invalid random-spawn placement data from broader systems that should be retested rather than presumed obsolete.",
+    "communityAnswer": "Check your mission log first. Version 1.0 reset main- and sub-mission progress, although some tutorial and Tower Boss-related main missions may be marked complete based on earlier Tower Boss defeats. If you use random Pal spawns, discard placement data from v0.7.3 and earlier. Then review each team member by its current role instead of trusting an old tier list or loadout, because Pal habitats, stats, abilities, and many Partner Skills changed. Finally, choose one immediate goal—story progress, exploration, a boss, base development, or team rebuilding—and verify only the routes, rewards, and resources needed for that goal.",
+    "automation": {
+      "caseId": "auto-palworld-2026-08-11-11eceba607",
+      "draftId": "DRAFT-01",
+      "signalId": "sig_d896e9d8af95bfaf69",
+      "qa": "passed",
+      "generatedAt": "2026-08-11T15:28:53+00:00"
+    }
+  },
+  {
+    "slug": "palworld-100993-mod-stability-checklist",
+    "game": "Palworld",
+    "title": "Palworld v1.0.2.100993 Mod Stability: PC Update Checklist",
+    "description": "What Palworld v1.0.2.100993 changes for PC mod users, what remains unknown, and how to test a modded setup without assuming compatibility.",
+    "problem": "The update targets stability when playing with mods, but it does not certify your mod stack. Use a controlled comparison to find out what changed on your PC.",
+    "shortAnswer": "Palworld v1.0.2.100993 is a PC-only update containing processing adjustments intended to improve stability when playing with mods. The official notice also says the PC-only patch will not negatively affect crossplay with other game versions. It does not promise crash-free play or confirm compatibility with any individual mod, so record your current setup and compare the same scenario before and after updating.",
+    "publishedAt": "2026-08-10",
+    "reviewedAt": "2026-08-10",
+    "status": "Evidence-bounded Palworld guide; recheck after relevant patch changes",
+    "sections": [
+      {
+        "title": "What v1.0.2.100993 actually confirms",
+        "purpose": "Separate the official patch facts from conclusions the notice does not support.",
+        "bullets": [
+          "The update includes processing adjustments intended to improve stability when playing with mods.",
+          "The patch applies to the PC version only.",
+          "The publisher states that the PC-only patch will not negatively affect crossplay with other game versions.",
+          "The notice does not name affected mods, explain the technical cause, quantify an improvement, or guarantee stability."
+        ]
+      },
+      {
+        "title": "Record a useful before-update baseline",
+        "purpose": "Preserve enough context to make the post-update comparison meaningful.",
+        "bullets": [
+          "Write down the exact game version, platform, active mods, load order if applicable, and relevant configuration.",
+          "Describe one symptom in observable terms, such as when it occurs and whether it can be repeated.",
+          "Choose a short, repeatable test scenario instead of relying on a general impression.",
+          "Use a reversible test setup where available, and avoid risking an important save merely to diagnose a mod."
+        ]
+      },
+      {
+        "title": "Run a controlled post-update test",
+        "purpose": "Change as little as possible so the result is easier to interpret.",
+        "bullets": [
+          "Confirm that the PC installation has updated to v1.0.2.100993 before comparing results.",
+          "Repeat the same scenario under similar conditions and record what happens.",
+          "If safe for the installation and save, compare a no-mod baseline with the modded setup.",
+          "Restore mods individually or in small groups when practical, recording the point at which the symptom appears."
+        ]
+      },
+      {
+        "title": "Interpret the result cautiously",
+        "purpose": "Turn test observations into next steps without claiming an unsupported cause.",
+        "bullets": [
+          "If the symptom disappears, record the improvement but do not assume every scenario or mod is now stable.",
+          "If it appears only after certain mods are restored, investigate that part of the stack without treating the patch as proof of fault.",
+          "If it also occurs in the no-mod comparison, the supplied patch notice is not enough to identify the cause.",
+          "Keep the test notes so later game or mod changes can be compared against the same baseline."
+        ]
+      },
+      {
+        "title": "Understand the crossplay statement",
+        "purpose": "Explain the narrow scope of the publisher's crossplay assurance.",
+        "bullets": [
+          "The official statement covers the PC-only patch and says it will not negatively affect crossplay with other game versions.",
+          "It does not establish that every mod is suitable for crossplay.",
+          "Treat mod-specific behavior as an open question until it is tested or documented by an appropriate source."
+        ]
+      }
+    ],
+    "checklist": [
+      "Confirm that the affected installation is the PC version.",
+      "Record the game version before updating.",
+      "List active mods and relevant configuration.",
+      "Write down one repeatable symptom and test scenario.",
+      "Preserve a reversible test setup where available.",
+      "Update and confirm version v1.0.2.100993.",
+      "Repeat the same scenario and record the outcome.",
+      "Compare a no-mod baseline only when doing so is safe for the installation and save."
+    ],
+    "example": "Suppose a PC player can repeat a stability problem after entering the same area with a known mod stack. Before updating, they record the game version, active mods, configuration, and exact reproduction steps. After confirming v1.0.2.100993 is installed, they repeat that scenario without changing anything else. If the symptom remains, they use a separate, reversible test setup to compare a no-mod run and then restore mods gradually. The result does not prove why the problem occurs, but it narrows whether the observed behavior tracks the base installation, the complete mod stack, or a smaller group of mods.",
+    "mistakes": [
+      "Assuming that an intended stability improvement guarantees crash-free modded play.",
+      "Treating the patch as certification for every individual mod.",
+      "Testing several game, mod, and configuration changes at once.",
+      "Relying on memory instead of recording a repeatable before-and-after scenario.",
+      "Using an important save for experiments without a reversible setup.",
+      "Reading the crossplay statement as a universal promise about mod compatibility."
+    ],
+    "faqs": [
+      {
+        "question": "Does v1.0.2.100993 guarantee that Palworld mods will work?",
+        "answer": "No. The official notice says processing was adjusted to improve stability when playing with mods, but it does not guarantee stability or confirm compatibility with individual mods."
+      },
+      {
+        "question": "Is the mod-stability patch available on every platform?",
+        "answer": "No. The supplied official notice identifies v1.0.2.100993 as a PC-only patch."
+      },
+      {
+        "question": "Will this PC-only patch break crossplay with other game versions?",
+        "answer": "The publisher states that it will not negatively affect crossplay with other game versions. That statement does not establish mod-specific crossplay compatibility."
+      },
+      {
+        "question": "What should I do if the same problem continues after updating?",
+        "answer": "Repeat a documented test under comparable conditions. If safe, compare a no-mod baseline and restore mods gradually. Record the results, because the patch notice alone does not identify affected mods or technical causes."
+      },
+      {
+        "question": "How can I tell whether the patch improved my setup?",
+        "answer": "Compare the same repeatable scenario before and after updating while keeping other variables steady. Treat any improvement as an observation about that tested setup, not a guarantee for every mod or situation."
+      }
+    ],
+    "related": [
+      "palworld-beginner-progression-checklist",
+      "palworld-base-automation-scorecard",
+      "palworld-base-location-checklist"
+    ],
+    "sources": [
+      {
+        "label": "Mod Support Improvement",
+        "url": "https://store.steampowered.com/news/app/1623730/view/683009119697764920",
+        "note": "Primary patch, product, or publisher evidence; stay within the captured text."
+      }
+    ],
+    "sourceNote": "Based solely on official patch evidence E-01, published July 30, 2026. The closed source set provides no per-mod compatibility findings, technical cause, measured stability results, or direct player reports.",
+    "patchNote": "Reviewed for Palworld v1.0.2.100993. Claims are limited to the official PC-only processing adjustments intended to improve stability with mods and the publisher's stated lack of negative crossplay impact.",
+    "communityAnswer": "Palworld v1.0.2.100993 is a PC-only patch with processing adjustments intended to improve stability when playing with mods. It does not certify individual mods or guarantee that every modded setup will become stable. Record your game version, mod list, configuration, and a repeatable problem scenario, then test that same scenario after updating. If it is safe for your setup, compare a no-mod baseline with mods restored gradually so you can identify when the symptom returns. The patch notice says this PC-only update will not negatively affect crossplay with other game versions, but that statement does not establish compatibility for every modded configuration.",
+    "automation": {
+      "caseId": "auto-palworld-2026-08-10-5218254c7f",
+      "draftId": "draft-palworld-mod-stability-100993",
+      "signalId": "sig_b3e899013aa669bfc1",
+      "qa": "passed",
+      "generatedAt": "2026-08-10T00:27:18+00:00"
+    }
+  },
+  {
+    "slug": "palworld-v1-0-3-progression-reprioritization",
+    "game": "Palworld",
+    "title": "Palworld v1.0.3 Progression Re-Prioritization Checklist",
+    "description": "Recheck Palworld v1.0.3 technology unlocks, oil infrastructure, Fiber, World Tree Holy Water, crafting, missions, and encounter plans.",
+    "problem": "Palworld v1.0.3 changed several progression gates and resource decisions, so an older plan may no longer match the requirements shown in your current save.",
+    "shortAnswer": "Start with the objective blocking your progress, then inspect only the v1.0.3 systems connected to it. Some Jetragon-related technologies moved from level 79 to 70, while the Aquatic Construction Kit moved from level 66 to 23 and its Ancient Technology Point requirement fell from 4 to 1. Oil extractors now have lower building costs and faster production, Fiber obtained from trees was doubled, and World Tree Holy Water became lighter, lasts longer, and has additional sources. Recheck the current requirements in your save before spending materials, rebuilding a base, or repeating an old farming route.",
+    "publishedAt": "2026-08-12",
+    "reviewedAt": "2026-08-12",
+    "status": "Evidence-bounded Palworld guide; recheck after relevant patch changes",
+    "sections": [
+      {
+        "title": "Identify the decision v1.0.3 could change",
+        "purpose": "Prevent a broad rebuild when only one progression gate or resource bottleneck needs review.",
+        "bullets": [
+          "Write down the next objective: unlock a technology, build infrastructure, craft equipment, gather a resource, progress a mission, or prepare for an encounter.",
+          "Record the exact requirement currently blocking that objective in your save.",
+          "Review the matching v1.0.3 change before committing levels, points, materials, or base space."
+        ]
+      },
+      {
+        "title": "Recheck technology unlocks before spending points",
+        "purpose": "Apply the confirmed unlock changes without assuming every technology moved.",
+        "bullets": [
+          "Some Jetragon-related technologies moved from level 79 to 70; check which affected entries are available to your character.",
+          "The Pal Gear used to ride Jetragon requires fewer materials after v1.0.3, so inspect its current recipe before farming from an older list.",
+          "The Aquatic Construction Kit moved from level 66 to 23, and its Ancient Technology Point requirement changed from 4 to 1.",
+          "Because its required materials and work amount were also adjusted, use the current displayed requirements for the final build decision."
+        ]
+      },
+      {
+        "title": "Re-evaluate oil infrastructure by current need",
+        "purpose": "Turn the oil changes into a measured build or expansion decision.",
+        "bullets": [
+          "Both the Crude Oil Extractor and High-Pressure Crude Oil Extractor received lower building costs and faster crude oil production.",
+          "Compare the current requirements with the materials and power capacity already available in your base.",
+          "Expand only when oil is connected to the next objective; the patch does not establish that every base should prioritize an extractor immediately.",
+          "A base mission requiring a Crude Oil Extractor can now also progress through a High-Pressure Crude Oil Extractor, so verify mission state before building a second facility solely for completion."
+        ]
+      },
+      {
+        "title": "Retest changed resource routes",
+        "purpose": "Update resource plans using confirmed changes while avoiding unsupported rate estimates.",
+        "bullets": [
+          "Fiber obtained from trees was doubled, so retest a short tree-gathering route before committing to an older alternative.",
+          "World Tree Holy Water now weighs 0.1 instead of 1 and has a longer duration.",
+          "World Tree Holy Water was added to World Tree expedition, World Tree fishing, and Large Fishing Pond rewards.",
+          "Amounts obtained from Pals in The World Tree area and from Teafant Spring were increased, but the supplied evidence does not quantify the rates; compare sources against your own travel and production constraints."
+        ]
+      },
+      {
+        "title": "Treat crafting adjustments as a prompt to inspect",
+        "purpose": "Avoid inventing a direction or magnitude for changes not fully quantified in the patch notice.",
+        "bullets": [
+          "The work amount required to craft the Ancient Armor series was adjusted.",
+          "Check the current crafting requirement before scheduling workers or gathering inputs.",
+          "Do not infer a specific time saving from the patch notice because it does not provide the before-and-after work values."
+        ]
+      },
+      {
+        "title": "Verify affected missions and encounters separately",
+        "purpose": "Keep progression fixes distinct from technology and resource recommendations.",
+        "bullets": [
+          "If a raid boss battle previously failed to progress as intended, test its current behavior after v1.0.3 rather than relying on the old result.",
+          "Reward settings were corrected for the normal Moon Lord and Ultra Raid Boss battles; reassess old reward expectations against current results.",
+          "Change only one preparation variable after a failed attempt so encounter review remains useful."
+        ]
+      }
+    ],
+    "checklist": [
+      "Name the next progression objective and its current blocker.",
+      "Check whether an affected technology is now accessible at your level.",
+      "Inspect current material and point requirements before unlocking or crafting.",
+      "Compare oil infrastructure costs and output with your present base needs.",
+      "Retest a short tree-gathering route before retaining an older Fiber plan.",
+      "Compare the newly listed World Tree Holy Water sources against your current route.",
+      "Verify mission state before constructing an oil facility solely for mission progress.",
+      "Record one observed result before changing another part of the plan."
+    ],
+    "example": "A level 70 player had postponed Jetragon-related progression and was preparing to expand oil production. After v1.0.3, the player first checks which of the affected Jetragon-related technologies are now available at level 70 and inspects the reduced Pal Gear material requirements. The player then compares the current extractor costs and production with the base's immediate oil need instead of rebuilding automatically. If Fiber is also blocking construction, the player retests gathering from trees because the amount obtained from trees was doubled. This sequence resolves confirmed patch-sensitive decisions while leaving unrelated parts of the base unchanged.",
+    "mistakes": [
+      "Assuming every technology unlock level changed in v1.0.3.",
+      "Using an older material list without checking the current recipe.",
+      "Rebuilding oil infrastructure before confirming oil is the active bottleneck.",
+      "Turning an unquantified crafting adjustment into a precise time-saving claim.",
+      "Comparing resource routes without accounting for travel, storage, or base constraints.",
+      "Treating a corrected encounter or reward setting as a universal strategy change."
+    ],
+    "faqs": [
+      {
+        "question": "Do I need to rebuild my oil setup after v1.0.3?",
+        "answer": "Not necessarily. The patch confirms lower building costs and faster production for both oil extractors, but it does not show that rebuilding is suitable for every base. Compare your existing capacity, current requirements, and next objective first."
+      },
+      {
+        "question": "What changed for the Aquatic Construction Kit?",
+        "answer": "Its unlock level moved from 66 to 23, and its Ancient Technology Point requirement changed from 4 to 1. Required materials and work amount were also adjusted, so inspect the current displayed requirements."
+      },
+      {
+        "question": "Did every Jetragon technology move to level 70?",
+        "answer": "The supplied notice says some Jetragon-related technologies moved from level 79 to 70. Check the individual entries rather than applying that change to every related technology."
+      },
+      {
+        "question": "Is gathering Fiber from trees now preferable to every other source?",
+        "answer": "The amount of Fiber obtained from trees was doubled, but the evidence does not compare total route time, travel, storage, or other sources. Retest the route under your own conditions."
+      },
+      {
+        "question": "Did Ancient Armor become faster to craft?",
+        "answer": "The notice confirms that the required crafting work amount was adjusted but does not provide the direction or values. Use the current requirement instead of assuming a specific result."
+      },
+      {
+        "question": "What World Tree Holy Water plan should I recheck?",
+        "answer": "Reconsider carrying capacity and source selection. Its weight changed from 1 to 0.1, its duration was extended, it was added to three World Tree-related reward sources, and amounts from Pals in The World Tree area and Teafant Spring were increased."
+      }
+    ],
+    "related": [
+      "palworld-1-0-returning-player-revalidation",
+      "palworld-resource-route-planner",
+      "palworld-base-automation-scorecard",
+      "palworld-beginner-progression-checklist"
+    ],
+    "sources": [
+      {
+        "label": "v1.0.3: Balance Adjustments & Bug Fixes",
+        "url": "https://store.steampowered.com/news/app/1623730/view/695395286786244641",
+        "note": "Primary patch, product, or publisher evidence; stay within the captured text."
+      }
+    ],
+    "sourceNote": "Current-game claims are bounded to E-01, the official v1.0.3 patch notice. Existing RaidBench excerpts were used only to resolve overlap: this draft focuses narrowly on v1.0.3 re-prioritization and does not replace the broader returning-player, beginner, resource-routing, base-automation, or boss-preparation guides. The closed source does not provide complete material costs, production rates, crafting work values, or comparative route timings.",
+    "patchNote": "Reviewed for Palworld v1.0.3 on 2026-08-12. Recheck this page after patches affecting technology requirements, crafting work, resource yields, oil infrastructure, missions, or raid encounters.",
+    "communityAnswer": "Re-prioritize around your immediate blocker rather than rebuilding every plan at once. If technology access is the issue, check the affected Jetragon-related entries and the Aquatic Construction Kit first: some Jetragon-related technologies now unlock at level 70 instead of 79, and the Aquatic Construction Kit moved from level 66 to 23 with its Ancient Technology Point requirement reduced from 4 to 1. If production is the issue, compare the current costs and output of your oil setup because extractor building costs were reduced and production speed was increased. If resources are the issue, retest tree gathering because Fiber obtained from trees was doubled, and reconsider World Tree Holy Water sources because its duration, weight, and availability changed. Treat Ancient Armor as a recheck rather than assuming a specific improvement, since the patch confirms an adjustment to crafting work amount without giving the full values. Change one part of the plan at a time so you can see whether it actually removes the current bottleneck.",
+    "automation": {
+      "caseId": "auto-palworld-2026-08-12-8c180833c2",
+      "draftId": "DRAFT-01",
+      "signalId": "sig_a29dfd0676e96a8d44",
+      "qa": "passed",
+      "generatedAt": "2026-08-12T04:30:24+00:00"
+    }
+  },
+  {
+    "slug": "rust-limited-playtime-session-plan",
+    "game": "Rust",
+    "title": "How to Play Rust With Limited Time: A Session Planning Checklist",
+    "description": "Plan Rust around limited playtime by choosing a suitable server format, setting session-sized goals, separating essential tasks from optional progress, and defining a stopping point.",
+    "problem": "You do not need to treat every login as a race through the entire wipe. Build each session around the time you actually have and one result you can finish.",
+    "shortAnswer": "Choose a server format whose reset cadence, activity level, team rules, and other listed settings fit your schedule and preferred style. Before each session, select one modest objective, identify any essential maintenance, defer optional work, and decide when you will stop. After a setback or game update, reassess the next session instead of trying to recover an entire progression plan at once.",
+    "publishedAt": "2026-09-03",
+    "reviewedAt": "2026-09-03",
+    "status": "Evidence-bounded Rust guide; recheck after relevant patch changes",
+    "sections": [
+      {
+        "title": "Define your real playtime budget",
+        "purpose": "Turn an inconsistent schedule into a usable planning boundary.",
+        "bullets": [
+          "Estimate the time you can comfortably spend in the next session.",
+          "Distinguish reliable play windows from time that may disappear unexpectedly.",
+          "Choose a stopping point before selecting the session objective."
+        ]
+      },
+      {
+        "title": "Choose a server by fit, not reputation",
+        "purpose": "Evaluate server characteristics without presenting one format as universally suitable.",
+        "bullets": [
+          "Check the server's stated reset cadence, activity level, team rules, and other relevant settings.",
+          "Ask whether the format still feels worthwhile if you miss a planned session.",
+          "Recheck the server description because custom settings and schedules can vary."
+        ]
+      },
+      {
+        "title": "Build a session-sized objective",
+        "purpose": "Keep each login useful even when the broader wipe plan remains unfinished.",
+        "bullets": [
+          "Select one objective that can stand on its own.",
+          "Define the smallest result that would make the session feel complete.",
+          "Keep an optional follow-up task ready only if time remains."
+        ]
+      },
+      {
+        "title": "Separate essential work from optional progress",
+        "purpose": "Prevent a long wish list from consuming the entire session.",
+        "bullets": [
+          "Identify anything that genuinely needs attention during this login.",
+          "Keep upgrades, exploration, and other expansion goals in a separate optional list.",
+          "Avoid relying on fixed upkeep formulas or upgrade sequences until the related guidance is revalidated."
+        ]
+      },
+      {
+        "title": "Reset the plan after interruptions",
+        "purpose": "Provide a practical response to missed sessions, setbacks, or changed priorities.",
+        "bullets": [
+          "Review what remains available rather than rebuilding the previous plan by default.",
+          "Choose whether to continue, simplify the objective, or change formats.",
+          "Treat a changed plan as a new decision, not as an obligation to recover prior progress."
+        ]
+      }
+    ],
+    "checklist": [
+      "Write down the time available for the next session.",
+      "Verify the server's current description, reset cadence, team rules, and relevant settings.",
+      "Choose one session objective that can be completed independently.",
+      "Define the smallest acceptable result for that objective.",
+      "Identify essential maintenance separately from optional progress.",
+      "Prepare one optional task in case time remains.",
+      "Set a stopping point before starting.",
+      "Reassess the next objective after a setback, missed session, or major update."
+    ],
+    "example": "A player has a short weekday window and a less predictable weekend. For the weekday session, they choose one contained objective and define its smallest useful result. They handle only clearly necessary maintenance before starting it. If extra time remains, they use a preselected optional task; otherwise, they stop at the planned boundary. When the weekend arrives, they assess the current position again instead of assuming the earlier plan still deserves priority.",
+    "mistakes": [
+      "Choosing a server without checking whether its listed schedule and rules fit your availability.",
+      "Starting a session with several competing priorities.",
+      "Treating optional expansion as essential work.",
+      "Letting a modest objective grow without a stopping point.",
+      "Trying to restore the previous plan immediately after every setback.",
+      "Reusing exact upkeep or upgrade advice that has not been revalidated against current conditions."
+    ],
+    "faqs": [
+      {
+        "question": "Which Rust server format suits a limited schedule?",
+        "answer": "There is no universally suitable choice. Compare the server's stated reset cadence, activity level, team rules, and other settings with your available time, preferred activities, and tolerance for restarting. Verify those details in the current server description."
+      },
+      {
+        "question": "What should I do during a short Rust session?",
+        "answer": "Choose one objective with a clear minimum result, handle only genuinely essential maintenance first, and keep any additional task optional. A defined stopping point keeps the session within your available time."
+      },
+      {
+        "question": "How should I respond when I lose progress?",
+        "answer": "Assess what is available now and choose the next useful, achievable objective. Continuing, simplifying, changing servers, or pausing are all valid decisions depending on your schedule and preferences."
+      },
+      {
+        "question": "Should I follow a fixed progression or upgrade order?",
+        "answer": "Use an order only when it matches your present situation and verified server conditions. The supplied official update evidence does not validate a universal low-time progression sequence, so this guide uses a decision framework instead."
+      }
+    ],
+    "related": [
+      "rust-solo-raid-checklist"
+    ],
+    "sources": [
+      {
+        "label": "Rust Steam news feed",
+        "url": "https://store.steampowered.com/feeds/news/app/252490",
+        "note": "Primary patch, product, or publisher evidence; stay within the captured text."
+      },
+      {
+        "label": "News — Rust",
+        "url": "https://rust.facepunch.com/news",
+        "note": "Primary patch, product, or publisher evidence; stay within the captured text."
+      }
+    ],
+    "sourceNote": "E-01 establishes the limited-time player problem as demand context only. E-02 and E-04 provide official update context but do not validate a particular low-time strategy, server recommendation, upkeep formula, or upgrade sequence. The advice is therefore conditional and based on player-selected criteria. Existing inventory excerpts were used only to avoid overlap: this page focuses on session design and server-fit decisions, while the affected existing pages cover upkeep, decay, and wipe-day upgrades.",
+    "patchNote": "Official August 2026 update evidence describes new monument interactions along with balances and improvements, but it does not establish a change to upkeep or building rules. Existing upkeep formulas, emergency-buffer advice, and wipe-day upgrade sequencing therefore require review before being reused; this draft remains distinct by using a schedule-first framework without those claims.",
+    "communityAnswer": "Start by choosing a server whose listed reset cadence, activity level, team rules, and other settings fit the time and play style you actually have. Give each session one modest objective, handle any essential maintenance first, and treat everything else as optional. Set a stopping point before you begin so a short session does not expand into an open-ended grind. If progress is lost, plan the next useful session from your current position instead of trying to recreate the old plan immediately. There is no universally suitable server or progression route, so use your schedule and tolerance for restarting as the deciding criteria.",
+    "automation": {
+      "caseId": "auto-rust-2026-09-03-decb85d8e9",
+      "draftId": "draft-rust-limited-playtime-session-plan",
+      "signalId": "sig_d56f1f0a4dc862bf2d",
+      "qa": "passed",
+      "generatedAt": "2026-09-03T00:25:32+00:00"
+    }
+  }
+]

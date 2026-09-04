@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "dota-2-item-decision-comparator",
+  "gameId": "dota-2",
+  "reviewedAt": "2026-09-03",
+  "instructions": "Replace the default inputs with current player-entered values, then retain the assumptions with any shared result.",
+  "inputs": {
+    "optionA": "Item A",
+    "optionB": "Item B",
+    "threatFitA": 4,
+    "threatFitB": 3,
+    "timingFitA": 3,
+    "timingFitB": 5,
+    "roleFitA": 4,
+    "roleFitB": 4,
+    "componentValueA": 3,
+    "componentValueB": 4,
+    "teamFitA": 4,
+    "teamFitB": 3
+  },
+  "assumptions": [
+    "Confirm current item behavior in Valve patch notes or the live client.",
+    "Scores are contextual judgments from 1 to 5.",
+    "Compare both items against the same match state and next objective."
+  ]
+}

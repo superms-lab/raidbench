@@ -1,0 +1,43 @@
+{
+  "effectiveFrom": "2026-09-03",
+  "timezone": "Asia/Shanghai",
+  "qualityPolicy": "Targets are ceilings. Missing evidence or failed QA produces no public output.",
+  "publicGuides": {
+    "dailyMaximum": 2,
+    "weekly": {
+      "Rust": 9,
+      "POE2": 3,
+      "Palworld": 0,
+      "Project Zomboid": 0,
+      "Escape from Tarkov": 0,
+      "ARK: Survival Ascended": 0,
+      "Warframe": 0,
+      "Once Human": 0,
+      "Counter-Strike 2": 0,
+      "Dota 2": 0,
+      "PUBG: BATTLEGROUNDS": 0,
+      "Tom Clancy's Rainbow Six Siege": 0
+    }
+  },
+  "weeklyAssets": {
+    "calculatorPresetsComparisonsOrDownloads": 3,
+    "patchSensitiveRefreshes": 3
+  },
+  "community": {
+    "linkFreeRepliesPerDay": 3,
+    "standalonePromotionalPostsRequireOwnerReview": true,
+    "profileLink": {
+      "required": true,
+      "disclosureRequired": true,
+      "utmSource": "reddit_profile",
+      "utmMedium": "owned_profile",
+      "utmCampaign": "first_sale_launch"
+    }
+  },
+  "partnerships": {
+    "contactsPerWeek": 6,
+    "publicBusinessContactOnly": true,
+    "personalizationRequired": true,
+    "automaticFollowUp": false
+  }
+}

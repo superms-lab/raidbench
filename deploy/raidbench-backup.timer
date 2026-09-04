@@ -1,0 +1,10 @@
+[Unit]
+Description=Create a daily RaidBench SQLite backup
+
+[Timer]
+OnCalendar=*-*-* 03:25:00 UTC
+Persistent=true
+RandomizedDelaySec=10min
+
+[Install]
+WantedBy=timers.target

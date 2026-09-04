@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RaidBench publish QA",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "case_id", "stage", "decision", "publish_safe", "checked_claims",
+    "localization_checks", "blockers", "warnings", "owner_decision_summary_zh"
+  ],
+  "properties": {
+    "case_id": {"type": "string"},
+    "stage": {"type": "string", "enum": ["publish_qa"]},
+    "decision": {"type": "string", "enum": ["pass", "block"]},
+    "publish_safe": {"type": "boolean"},
+    "checked_claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["claim_id", "source_artifact", "item_id", "claim_text", "evidence_ids", "status", "reason", "corrected_text"],
+        "properties": {
+          "claim_id": {"type": "string"},
+          "source_artifact": {"type": "string", "enum": ["demand_analysis", "patch_sentinel", "guide_writing", "owner_localization"]},
+          "item_id": {"type": "string"},
+          "claim_text": {"type": "string"},
+          "evidence_ids": {"type": "array", "items": {"type": "string"}},
+          "status": {"type": "string", "enum": ["supported", "needs_revision", "unsupported"]},
+          "reason": {"type": "string"},
+          "corrected_text": {"type": "string"}
+        }
+      }
+    },
+    "localization_checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["draft_id", "status", "note"],
+        "properties": {
+          "draft_id": {"type": "string"},
+          "status": {"type": "string", "enum": ["aligned", "needs_revision", "mismatch"]},
+          "note": {"type": "string"}
+        }
+      }
+    },
+    "blockers": {"type": "array", "items": {"$ref": "#/$defs/issue"}},
+    "warnings": {"type": "array", "items": {"$ref": "#/$defs/issue"}},
+    "owner_decision_summary_zh": {"type": "string"}
+  },
+  "$defs": {
+    "issue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["code", "artifact", "item_id", "message", "required_action"],
+      "properties": {
+        "code": {"type": "string"},
+        "artifact": {"type": "string"},
+        "item_id": {"type": "string"},
+        "message": {"type": "string"},
+        "required_action": {"type": "string"}
+      }
+    }
+  }
+}

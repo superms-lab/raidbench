@@ -1,0 +1,160 @@
+{
+  "verifiedAt": "2026-09-03",
+  "scope": "Vanilla Rust PC data; custom and modded servers can differ.",
+  "verification": {
+    "latestOfficialChangelistId": "4045",
+    "latestOfficialPatchName": "Breach and Clear",
+    "latestOfficialPatchDate": "2026-09-03",
+    "countsReferenceModified": "2026-07-03",
+    "policy": "Refresh only while the latest official changelist, official recipe markers, and every monitored count remain unchanged. Breach and Clear changelist 4045 was reviewed: group TC upkeep scaling, monument blockers, and grenade stack changes are outside this six-target explosive-cost dataset and do not change its monitored door or wall counts or recipes.",
+    "lastAutomatedCheckAt": "2026-09-03T23:10:47.547359+00:00"
+  },
+  "sources": [
+    {
+      "id": "facepunch-armored-door-hp",
+      "type": "official",
+      "label": "Facepunch Rust update - Armored Door HP",
+      "url": "https://rust.facepunch.com/news/the-big-qol-update",
+      "supports": "Facepunch increased Armored Door HP by 25 percent; the current door has 1,000 HP.",
+      "targets": [
+        "armored-door"
+      ]
+    },
+    {
+      "id": "facepunch-explosives-recipe",
+      "type": "official",
+      "label": "Facepunch Rust Wiki - Explosives",
+      "url": "https://wiki.facepunch.com/rust/item/explosives",
+      "supports": "Explosives recipe used by rockets and timed explosive charges.",
+      "methods": [
+        "rockets",
+        "c4"
+      ]
+    },
+    {
+      "id": "facepunch-gunpowder-workbench-recipe",
+      "type": "official",
+      "label": "Facepunch Rust Wiki - Gun Powder",
+      "url": "https://wiki.facepunch.com/rust/item/gunpowder",
+      "supports": "The standard workbench recipe uses 20 sulfur and 30 charcoal to produce 10 gunpowder.",
+      "methods": [
+        "rockets",
+        "c4",
+        "satchels",
+        "explosiveAmmo"
+      ]
+    },
+    {
+      "id": "facepunch-c4-recipe",
+      "type": "official",
+      "label": "Facepunch Rust Wiki - Timed Explosive Charge",
+      "url": "https://wiki.facepunch.com/rust/item/explosive.timed",
+      "supports": "Current C4 recipe.",
+      "methods": [
+        "c4"
+      ]
+    },
+    {
+      "id": "facepunch-satchel-recipe",
+      "type": "official",
+      "label": "Facepunch Rust Wiki - Satchel Charge",
+      "url": "https://wiki.facepunch.com/rust/item/explosive.satchel",
+      "supports": "Current satchel recipe.",
+      "methods": [
+        "satchels"
+      ]
+    },
+    {
+      "id": "facepunch-explosive-ammo-recipe",
+      "type": "official",
+      "label": "Facepunch Rust Wiki - Explosive 5.56 Rifle Ammo",
+      "url": "https://wiki.facepunch.com/rust/item/ammo.rifle.explosive",
+      "supports": "Explosive ammo recipe and craft yield.",
+      "methods": [
+        "explosiveAmmo"
+      ]
+    },
+    {
+      "id": "frozen-rust-current-counts",
+      "type": "independent",
+      "label": "Independent current raid-cost cross-check - Frozen Rust",
+      "url": "https://frozen-rust.com/rust-raid-calculator.html",
+      "supports": "Current target counts and rolled-up sulfur costs for the monitored breach methods.",
+      "methods": [
+        "rockets",
+        "c4",
+        "satchels",
+        "explosiveAmmo"
+      ]
+    }
+  ],
+  "gunpowderCrafting": {
+    "workbench": {
+      "sulfur": 20,
+      "charcoal": 30,
+      "yield": 10
+    }
+  },
+  "sulfurPerItem": {
+    "rockets": 1400,
+    "c4": 2200,
+    "satchels": 480,
+    "explosiveAmmo": 25
+  },
+  "gunpowderPerItem": {
+    "rockets": 650,
+    "c4": 1000,
+    "satchels": 240,
+    "explosiveAmmo": 10
+  },
+  "targets": [
+    {
+      "id": "sheet-door",
+      "label": "Sheet Metal Door",
+      "rockets": 2,
+      "c4": 1,
+      "satchels": 4,
+      "explosiveAmmo": 63
+    },
+    {
+      "id": "garage-door",
+      "label": "Garage Door",
+      "rockets": 3,
+      "c4": 2,
+      "satchels": 9,
+      "explosiveAmmo": 150
+    },
+    {
+      "id": "armored-door",
+      "label": "Armored Door",
+      "rockets": 5,
+      "c4": 3,
+      "satchels": 15,
+      "explosiveAmmo": 250
+    },
+    {
+      "id": "stone-wall",
+      "label": "Stone Wall",
+      "rockets": 4,
+      "c4": 2,
+      "satchels": 10,
+      "explosiveAmmo": 185
+    },
+    {
+      "id": "sheet-wall",
+      "label": "Sheet Metal Wall",
+      "rockets": 8,
+      "c4": 4,
+      "satchels": 23,
+      "explosiveAmmo": 400
+    },
+    {
+      "id": "armored-wall",
+      "label": "Armored Wall",
+      "rockets": 15,
+      "c4": 8,
+      "satchels": 46,
+      "explosiveAmmo": 799
+    }
+  ]
+}

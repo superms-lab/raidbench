@@ -1,0 +1,37 @@
+name: raidbench-content-automation
+
+services:
+  content-agent:
+    build:
+      context: /opt/raidbench-publisher/workspace
+      dockerfile: deploy/Dockerfile.content-agent
+    image: local/raidbench-content-agent:2026-09-04-phase8-live-answer-v1
+    env_file:
+      - path: /opt/raidbench-agent/secrets/content-agent.env
+        format: raw
+    environment:
+      HOME: /home/raidbench
+      CODEX_HOME: /home/raidbench/.codex
+      XDG_CACHE_HOME: /home/raidbench/.cache
+      XDG_CONFIG_HOME: /home/raidbench/.config
+      RAIDBENCH_LOCAL_DB_PATH: /data/raidbench.local.db
+      RAIDBENCH_AUTOMATION_STATE_DIR: /workspace/private-data/content-automation
+      RAIDBENCH_WRANGLER_BIN: /usr/local/bin/wrangler
+    volumes:
+      - /opt/raidbench-publisher/workspace:/workspace
+      - /opt/raidbench-agent/data:/data
+      - /opt/raidbench-agent/artifacts:/workspace/private-data
+      - /opt/raidbench-agent/runtime-home:/home/raidbench
+      - /opt/raidbench-agent/codex:/home/raidbench/.codex
+      - /opt/raidbench/jobs/inbox:/workspace/private-data/answer-jobs/inbox:ro
+      - /opt/raidbench/jobs/outbox:/workspace/private-data/answer-jobs/outbox
+    read_only: true
+    tmpfs:
+      - /tmp:size=512m,mode=1777
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: 2g
+    cpus: 2.0
+    restart: "no"

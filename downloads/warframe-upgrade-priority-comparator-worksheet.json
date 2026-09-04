@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "warframe-upgrade-priority-comparator",
+  "gameId": "warframe",
+  "reviewedAt": "2026-09-03",
+  "instructions": "Replace the default inputs with current player-entered values, then retain the assumptions with any shared result.",
+  "inputs": {
+    "optionA": "Upgrade A",
+    "optionB": "Upgrade B",
+    "problemFitA": 4,
+    "problemFitB": 3,
+    "reuseA": 3,
+    "reuseB": 5,
+    "efficiencyA": 3,
+    "efficiencyB": 4,
+    "confidenceA": 4,
+    "confidenceB": 3
+  },
+  "assumptions": [
+    "Scores are player judgments from 1 to 5, not hidden game statistics.",
+    "Compare upgrades against the same target activity and account state.",
+    "A close score means a controlled test is more useful than another ranking."
+  ]
+}

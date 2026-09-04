@@ -1,0 +1,23 @@
+[Unit]
+Description=Discover bounded player-demand signals across all RaidBench games
+Wants=network-online.target docker.service
+After=network-online.target docker.service raidbench-source-scout.service
+Requires=docker.service
+StartLimitIntervalSec=2h
+StartLimitBurst=8
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/raidbench-publisher
+ExecStartPre=/usr/bin/install -d -o raidbench-agent -g raidbench-agent -m 0750 /opt/raidbench-agent/artifacts/content-automation
+ExecStartPre=/usr/bin/chown -R raidbench-agent:raidbench-agent /opt/raidbench-publisher/workspace /opt/raidbench-agent/artifacts/content-automation
+ExecStart=/usr/bin/docker compose -f /opt/raidbench-publisher/compose.yaml run --rm --no-deps content-agent python3 scripts/discover_multigame_demand.py --database /data/raidbench.local.db --state /workspace/private-data/content-automation/multigame-demand-state.json --output /workspace/private-data/content-automation/multigame-demand-backlog.json --limit 3
+TimeoutStartSec=45min
+Restart=on-failure
+RestartSec=20min
+Nice=10
+IOSchedulingClass=best-effort
+IOSchedulingPriority=7
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,272 @@
+{
+  "schemaVersion": "1.0.0",
+  "asOf": "2026-09-03",
+  "policyVersion": "raidbench-paid-answer-v2",
+  "casesPerProduct": 3,
+  "blueprints": [
+    {
+      "productId": "poe2-build-decision-review",
+      "gameId": "poe2",
+      "gameVersion": "Path of Exile 2 update 0.5.5 Forbidden Rites; source check 2026-09-03",
+      "questionText": "My Lightning Arrow Deadeye stalls in high-intensity Expedition encounters. What should I verify before spending a 150 Divine budget?",
+      "inputs": {
+        "currentPatch": "0.5.5 Forbidden Rites",
+        "buildDescription": "Level 96 Lightning Arrow Deadeye; the player reports four deaths and an eleven-minute average across ten comparable Expedition runs, but supplied no live trade-price claim.",
+        "targetContent": "High-intensity Expedition encounters",
+        "observedProblem": "Damage uptime collapses after movement and recovery pressure begins.",
+        "budget": "150 Divine maximum; do not infer current item prices."
+      },
+      "missingField": "buildDescription",
+      "evidenceSourceIds": ["poe2-official-patch-notes", "poe2-steam-news"],
+      "answerFocus": "Separate observed performance from inferred build mechanics, identify the first measurement to retest, and do not prescribe an item or live price absent inspectable evidence."
+    },
+    {
+      "productId": "palworld-base-progression-review",
+      "gameId": "palworld",
+      "gameVersion": "Palworld version 1.0; source check 2026-09-03",
+      "questionText": "Why does my dedicated-server ore base stop filling storage while I am away, and what is the safest first test?",
+      "inputs": {
+        "gameVersion": "1.0",
+        "serverType": "Dedicated server with no production-changing mods reported",
+        "currentGoal": "Keep ore production stable during one thirty-minute observation window",
+        "baseOrProgressionState": "Second base with four assigned miners, four transport workers, two storage containers, and a clear route according to the player",
+        "observedProblem": "Storage remains unchanged after the player leaves the area"
+      },
+      "missingField": "serverType",
+      "evidenceSourceIds": ["palworld-official-news", "palworld-steam-news"],
+      "answerFocus": "Recommend a one-variable observation plan and distinguish player-reported state from any unverified simulation or pathing mechanic."
+    },
+    {
+      "productId": "project-zomboid-save-plan-review",
+      "gameId": "project-zomboid",
+      "gameVersion": "Project Zomboid stable build 42.20.4; source check 2026-09-03",
+      "questionText": "How should I test a mid-save zombie-setting change without risking my long-running modded world?",
+      "inputs": {
+        "currentBuild": "42.20.4 stable",
+        "requestedChange": "Change several related zombie population and behavior settings",
+        "modList": "12 enabled mods; exact list supplied in the benchmark attachment",
+        "saveImportance": "Long-running important world",
+        "backupStatus": "Backup copied and successfully test-loaded"
+      },
+      "missingField": "backupStatus",
+      "evidenceSourceIds": ["project-zomboid-official-news", "project-zomboid-steam-news"],
+      "answerFocus": "Use the planning score only as a test-sequencing aid; do not express it as a corruption probability or promise that a backup will restore correctly.",
+      "calculationFixture": {
+        "toolId": "project-zomboid-save-change-risk",
+        "inputs": { "saveImportance": 5, "modCount": 12, "changeScope": 3, "compatibilityConfidence": 3, "backupReady": 1 },
+        "assertions": [
+          { "calculationId": "save_change_risk_score", "label": "Planning risk score", "path": "primary", "expected": 62, "tolerance": 0 }
+        ]
+      }
+    },
+    {
+      "productId": "escape-from-tarkov-loadout-route-review",
+      "gameId": "escape-from-tarkov",
+      "gameVersion": "Escape from Tarkov publisher sources checked 2026-09-03; exact gameplay patch not asserted",
+      "questionText": "Can my current account afford three copies of this task loadout while preserving a fifteen percent restock reserve?",
+      "inputs": {
+        "currentPatch": "Publisher source check 2026-09-03; exact patch identifier unavailable",
+        "mode": "PvP",
+        "accountAccess": "Level 20 account; player-entered trader and market values only",
+        "mapOrTask": "Player-named task route; no route-mechanic claim requested",
+        "budget": 2000000,
+        "availableEquipment": { "weaponCost": 120000, "magazines": 4, "magazineCost": 8000, "rounds": 160, "roundCost": 600, "armorCost": 150000, "supportCost": 90000, "copies": 3, "reservePercent": 15 }
+      },
+      "missingField": "accountAccess",
+      "evidenceSourceIds": ["escape-from-tarkov-official-forum", "escape-from-tarkov-steam-news"],
+      "answerFocus": "Calculate only from the player's entered costs, explicitly avoid live-price and ammunition-performance claims, and state that the exact patch identifier remains a limitation.",
+      "calculationFixture": {
+        "toolId": "escape-from-tarkov-loadout-budget",
+        "inputs": { "weaponCost": 120000, "magazines": 4, "magazineCost": 8000, "rounds": 160, "roundCost": 600, "armorCost": 150000, "supportCost": 90000, "copies": 3, "reservePercent": 15, "availableBudget": 2000000 },
+        "assertions": [
+          { "calculationId": "protected_batch_budget", "label": "Protected batch budget", "path": "primary", "expected": 1683600, "tolerance": 0 },
+          { "calculationId": "cost_per_kit", "label": "Cost per kit", "path": "metrics.0.value", "expected": 488000, "tolerance": 0 },
+          { "calculationId": "current_shortfall", "label": "Current shortfall", "path": "metrics.2.value", "expected": 0, "tolerance": 0 }
+        ]
+      }
+    },
+    {
+      "productId": "ark-survival-ascended-roster-plan-review",
+      "gameId": "ark-survival-ascended",
+      "gameVersion": "ARK: Survival Ascended publisher source check 2026-09-03",
+      "questionText": "What material budget should I stage for eighteen roster saddles, two replacements, and a ten percent reserve on this server?",
+      "inputs": {
+        "gameVersion": "Publisher source check 2026-09-03",
+        "map": "Player-specified current map",
+        "serverRates": "Player-entered server settings; no official-rate assumption",
+        "activeMods": "No crafting-cost mods reported",
+        "targetCreatureOrEncounter": "Eighteen-creature roster with two replacement saddles",
+        "currentResources": { "hidePerSaddle": 350, "fiberPerSaddle": 180, "metalPerSaddle": 60, "reservePercent": 10 }
+      },
+      "missingField": "serverRates",
+      "evidenceSourceIds": ["ark-survival-ascended-official-news", "ark-survival-ascended-steam-news"],
+      "answerFocus": "Use only the blueprint values supplied by the player and do not infer official rates, boss requirements, crafting-skill effects, or mod behavior.",
+      "calculationFixture": {
+        "toolId": "ark-survival-ascended-roster-materials",
+        "inputs": { "creatures": 18, "replacements": 2, "hidePerSaddle": 350, "fiberPerSaddle": 180, "metalPerSaddle": 60, "reservePercent": 10 },
+        "assertions": [
+          { "calculationId": "saddles_budgeted", "label": "Saddles budgeted", "path": "primary", "expected": 20, "tolerance": 0 },
+          { "calculationId": "hide_total", "label": "Hide total", "path": "metrics.0.value", "expected": 7700, "tolerance": 0 },
+          { "calculationId": "fiber_total", "label": "Fiber total", "path": "metrics.1.value", "expected": 3960, "tolerance": 0 },
+          { "calculationId": "metal_total", "label": "Metal total", "path": "metrics.2.value", "expected": 1320, "tolerance": 0 }
+        ]
+      }
+    },
+    {
+      "productId": "warframe-build-progression-review",
+      "gameId": "warframe",
+      "gameVersion": "Warframe Update 43.5 Amir's Shockwave; source check 2026-09-03",
+      "questionText": "Which of my two upgrades deserves scarce resources first for the target activity I described?",
+      "inputs": {
+        "currentPatch": "Update 43.5 Amir's Shockwave",
+        "accountProgress": "Returning account with the target activity unlocked",
+        "loadout": "Player supplied the current frame, weapon, and mod configuration; no hidden-stat claim requested",
+        "targetActivity": "Player-specified repeatable activity",
+        "observedProblem": "The measured problem recurs in the same activity",
+        "availableResources": "Enough for one upgrade; player-scored comparison attached"
+      },
+      "missingField": "loadout",
+      "evidenceSourceIds": ["warframe-official-patch-notes", "warframe-steam-news"],
+      "answerFocus": "Treat the scores as player judgments, explain why the higher weighted score wins, and avoid claims about universal meta strength or unverified mod behavior.",
+      "calculationFixture": {
+        "toolId": "warframe-upgrade-priority-comparator",
+        "inputs": { "optionA": "Upgrade A", "optionB": "Upgrade B", "problemFitA": 4, "problemFitB": 3, "reuseA": 3, "reuseB": 5, "efficiencyA": 3, "efficiencyB": 4, "confidenceA": 4, "confidenceB": 3 },
+        "assertions": [
+          { "calculationId": "upgrade_a_score", "label": "Upgrade A score", "path": "metrics.0.value", "expected": 70, "tolerance": 0 },
+          { "calculationId": "upgrade_b_score", "label": "Upgrade B score", "path": "metrics.1.value", "expected": 75, "tolerance": 0 },
+          { "calculationId": "upgrade_score_gap", "label": "Score gap", "path": "metrics.2.value", "expected": 5, "tolerance": 0 }
+        ]
+      }
+    },
+    {
+      "productId": "once-human-scenario-build-review",
+      "gameId": "once-human",
+      "gameVersion": "Once Human version 3.0.5; source check 2026-09-03",
+      "questionText": "Which of these two scenario paths better fits my schedule, group, goal, and confirmed carryover information?",
+      "inputs": {
+        "currentVersion": "3.0.5",
+        "currentScenario": "Scenario A",
+        "candidateScenarioOrBuild": "Scenario B",
+        "accountOrCharacterState": "Player-supplied state; no unverified carryover claim may be added",
+        "goal": "Choose by schedule, group fit, goal fit, confirmed carryover information, and maintenance burden"
+      },
+      "missingField": "accountOrCharacterState",
+      "evidenceSourceIds": ["once-human-official-updates", "once-human-steam-news"],
+      "answerFocus": "Rank only the supplied personal-fit scores and require separate official confirmation before any irreversible carryover decision.",
+      "calculationFixture": {
+        "toolId": "once-human-scenario-comparator",
+        "inputs": { "optionA": "Scenario A", "optionB": "Scenario B", "scheduleFitA": 3, "scheduleFitB": 4, "groupFitA": 4, "groupFitB": 3, "goalFitA": 4, "goalFitB": 4, "carryoverConfidenceA": 2, "carryoverConfidenceB": 4, "maintenanceFitA": 3, "maintenanceFitB": 4 },
+        "assertions": [
+          { "calculationId": "scenario_a_score", "label": "Scenario A score", "path": "metrics.0.value", "expected": 66, "tolerance": 0 },
+          { "calculationId": "scenario_b_score", "label": "Scenario B score", "path": "metrics.1.value", "expected": 76, "tolerance": 0 },
+          { "calculationId": "scenario_score_gap", "label": "Score gap", "path": "metrics.2.value", "expected": 10, "tolerance": 0 }
+        ]
+      }
+    },
+    {
+      "productId": "counter-strike-2-round-plan-review",
+      "gameId": "counter-strike-2",
+      "gameVersion": "Counter-Strike 2 publisher source check 2026-09-03",
+      "questionText": "Can this five-player team afford the entered target buy while preserving the next-round reserve?",
+      "inputs": {
+        "currentPatch": "Publisher source check 2026-09-03; no weapon-price claim embedded",
+        "matchMode": "Five-player competitive",
+        "map": "Player-specified map",
+        "roundOrDemoEvidence": "Timestamped round state supplied with five players averaging 4,200 cash and no carried value",
+        "playerRole": "Team economy review",
+        "reviewQuestion": "Compare the entered team pool with five 4,800 target kits and a 5,000 reserve"
+      },
+      "missingField": "roundOrDemoEvidence",
+      "evidenceSourceIds": ["counter-strike-2-official-updates", "counter-strike-2-steam-news"],
+      "answerFocus": "The supplied team values can support a free economy calculation but not the full paid role, utility, spacing, timing, and first-decision review. Return no charge rather than presenting a partial calculation as the paid product.",
+      "calculationFixture": {
+        "toolId": "counter-strike-2-team-buy-budget",
+        "inputs": { "players": 5, "averageCash": 4200, "carriedValue": 0, "targetKitCost": 4800, "nextRoundReserve": 5000 },
+        "assertions": [
+          { "calculationId": "target_buy_shortfall", "label": "Target-buy shortfall", "path": "primary", "expected": 8000, "tolerance": 0 },
+          { "calculationId": "team_resources", "label": "Team resources", "path": "metrics.0.value", "expected": 21000, "tolerance": 0 },
+          { "calculationId": "required_with_reserve", "label": "Required with reserve", "path": "metrics.1.value", "expected": 29000, "tolerance": 0 },
+          { "calculationId": "full_kits_affordable", "label": "Full kits affordable", "path": "metrics.2.value", "expected": 3, "tolerance": 0 }
+        ]
+      }
+    },
+    {
+      "productId": "dota-2-match-decision-review",
+      "gameId": "dota-2",
+      "gameVersion": "Dota 2 publisher patch archive source check 2026-09-03",
+      "questionText": "Which of the two player-entered item options better fits the next objective window in this replay segment?",
+      "inputs": {
+        "currentPatch": "Publisher patch archive checked 2026-09-03; exact item behavior not asserted",
+        "matchIdOrReplay": "Synthetic benchmark replay segment with timestamped player observations",
+        "heroAndRole": "Player-supplied hero and role",
+        "reviewQuestion": "Compare two options using threat, timing, role, component, and team-fit scores",
+        "targetDecisionWindow": "The next player-specified objective window"
+      },
+      "missingField": "matchIdOrReplay",
+      "evidenceSourceIds": ["dota-2-official-patches", "dota-2-steam-news"],
+      "answerFocus": "Report the weighted comparison only, separate observation from inference, and avoid unverified item-mechanic or universal build claims.",
+      "calculationFixture": {
+        "toolId": "dota-2-item-decision-comparator",
+        "inputs": { "optionA": "Item A", "optionB": "Item B", "threatFitA": 4, "threatFitB": 3, "timingFitA": 3, "timingFitB": 5, "roleFitA": 4, "roleFitB": 4, "componentValueA": 3, "componentValueB": 4, "teamFitA": 4, "teamFitB": 3 },
+        "assertions": [
+          { "calculationId": "item_a_score", "label": "Item A score", "path": "metrics.0.value", "expected": 73, "tolerance": 0 },
+          { "calculationId": "item_b_score", "label": "Item B score", "path": "metrics.1.value", "expected": 77, "tolerance": 0 },
+          { "calculationId": "item_score_gap", "label": "Score gap", "path": "metrics.2.value", "expected": 4, "tolerance": 0 }
+        ]
+      }
+    },
+    {
+      "productId": "pubg-battlegrounds-rotation-review",
+      "gameId": "pubg-battlegrounds",
+      "gameVersion": "PUBG: BATTLEGROUNDS Update 42.3; source check 2026-09-03",
+      "questionText": "Does this estimated vehicle rotation leave enough time for terrain and one expected contact delay?",
+      "inputs": {
+        "currentPatch": "Update 42.3",
+        "map": "Player-specified current map",
+        "matchEvidence": "Timestamped player estimate: 2.5 km route at 35 km/h practical speed",
+        "squadContext": "One vehicle, one expected contact, no live telemetry",
+        "zoneAndTiming": "Eight minutes remaining, 1.5 minutes terrain delay, one minute contact delay",
+        "reviewQuestion": "Calculate travel time and remaining planning margin from the supplied estimates"
+      },
+      "missingField": "matchEvidence",
+      "evidenceSourceIds": ["pubg-battlegrounds-official-news", "pubg-battlegrounds-steam-news"],
+      "answerFocus": "Treat every movement value as a player estimate, show the timing arithmetic, and do not promise zone safety or use live telemetry.",
+      "calculationFixture": {
+        "toolId": "pubg-battlegrounds-rotation-timing",
+        "inputs": { "distanceKm": 2.5, "speedKmh": 35, "terrainDelay": 1.5, "contactDelay": 1, "timeRemaining": 8 },
+        "assertions": [
+          { "calculationId": "estimated_route_time", "label": "Estimated route time", "path": "primary", "expected": 6.8, "tolerance": 0.05 },
+          { "calculationId": "arrival_margin", "label": "Arrival margin", "path": "metrics.0.value", "expected": 1.2, "tolerance": 0.05 },
+          { "calculationId": "latest_departure", "label": "Latest departure in", "path": "metrics.1.value", "expected": 0, "tolerance": 0.05 },
+          { "calculationId": "movement_time", "label": "Movement time", "path": "metrics.2.value", "expected": 4.3, "tolerance": 0.05 }
+        ]
+      }
+    },
+    {
+      "productId": "rainbow-six-siege-operator-site-review",
+      "gameId": "rainbow-six-siege",
+      "gameVersion": "Rainbow Six Siege Y11S3; source check 2026-09-03",
+      "questionText": "Which of these two available operators better fills the recurring role gap on the sites my squad plays?",
+      "inputs": {
+        "currentSeason": "Y11S3",
+        "mapAndSite": "Player-supplied map and site pool",
+        "side": "Defense",
+        "availableOperators": "Operator A and Operator B; current abilities must not be inferred",
+        "teamContext": "Recurring role gap and squad-overlap scores supplied by the player",
+        "reviewQuestion": "Compare role gap, map frequency, execution, team fit, and patch confidence"
+      },
+      "missingField": "availableOperators",
+      "evidenceSourceIds": ["rainbow-six-siege-official-patch-notes", "rainbow-six-siege-steam-news"],
+      "answerFocus": "Rank personal fit from the supplied scores only and do not add current loadout, ability, counter, or universal tier claims.",
+      "calculationFixture": {
+        "toolId": "rainbow-six-siege-operator-comparator",
+        "inputs": { "optionA": "Operator A", "optionB": "Operator B", "roleGapA": 4, "roleGapB": 3, "mapFrequencyA": 3, "mapFrequencyB": 4, "executionA": 4, "executionB": 4, "teamFitA": 4, "teamFitB": 3, "patchConfidenceA": 3, "patchConfidenceB": 3 },
+        "assertions": [
+          { "calculationId": "operator_a_score", "label": "Operator A score", "path": "metrics.0.value", "expected": 74, "tolerance": 0 },
+          { "calculationId": "operator_b_score", "label": "Operator B score", "path": "metrics.1.value", "expected": 68, "tolerance": 0 },
+          { "calculationId": "operator_score_gap", "label": "Score gap", "path": "metrics.2.value", "expected": 6, "tolerance": 0 }
+        ]
+      }
+    }
+  ]
+}

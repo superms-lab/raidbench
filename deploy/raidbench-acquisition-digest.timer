@@ -1,0 +1,11 @@
+[Unit]
+Description=Send RaidBench acquisition work to Feishu every evening
+
+[Timer]
+OnCalendar=*-*-* 12:00:00 UTC
+Persistent=true
+AccuracySec=1min
+Unit=raidbench-acquisition-digest.service
+
+[Install]
+WantedBy=timers.target

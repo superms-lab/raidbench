@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>RaidBench 获客工作台</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <style>
+      :root { color-scheme: light; --ink:#17212a; --muted:#62707c; --line:#d9e0e4; --surface:#fff; --canvas:#f3f5f6; --green:#16794b; --blue:#23659a; --gold:#9b6509; }
+      * { box-sizing: border-box; }
+      body { margin:0; min-width:320px; background:var(--canvas); color:var(--ink); font-family:Inter,"PingFang SC","Microsoft YaHei",system-ui,sans-serif; letter-spacing:0; }
+      button, a { font:inherit; }
+      .topbar { display:flex; min-height:64px; align-items:center; justify-content:space-between; gap:18px; padding:0 28px; border-bottom:1px solid var(--line); background:var(--surface); }
+      .brand { font-size:17px; font-weight:760; }
+      .nav { display:flex; gap:18px; }
+      .nav a { color:var(--muted); font-size:13px; text-decoration:none; }
+      main { width:min(1080px,calc(100% - 40px)); margin:0 auto; padding:30px 0 54px; }
+      .heading { display:flex; align-items:end; justify-content:space-between; gap:24px; }
+      h1 { margin:0; font-size:28px; }
+      .subtitle,.sync { color:var(--muted); font-size:13px; }
+      .subtitle { margin:8px 0 0; }
+      .metrics { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin-top:24px; }
+      .quota-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin-top:16px; }
+      .quota { padding:16px; border:1px solid var(--line); border-radius:7px; background:var(--surface); }
+      .quota span { color:var(--muted); font-size:12px; }
+      .quota strong { display:block; margin-top:9px; font-size:22px; }
+      .quota small { display:block; margin-top:7px; color:var(--muted); }
+      .metric { min-height:104px; padding:17px; border:1px solid var(--line); border-radius:7px; background:var(--surface); }
+      .metric span { color:var(--muted); font-size:12px; }
+      .metric strong { display:block; margin-top:12px; font-size:26px; }
+      .metric:nth-child(1) strong { color:var(--gold); } .metric:nth-child(2) strong { color:var(--green); } .metric:nth-child(3) strong { color:var(--blue); }
+      .queue-head { display:flex; align-items:center; justify-content:space-between; gap:16px; margin-top:30px; padding-top:24px; border-top:1px solid var(--line); }
+      h2 { margin:0; font-size:18px; }
+      .reload,.action { min-height:36px; padding:0 13px; border:1px solid #b9c4cb; border-radius:6px; background:#fff; color:var(--ink); cursor:pointer; text-decoration:none; }
+      .queue { display:grid; gap:14px; margin-top:16px; }
+      .draft { display:grid; grid-template-columns:180px minmax(0,1fr); border:1px solid var(--line); border-radius:7px; overflow:hidden; background:var(--surface); }
+      .draft-meta { padding:20px; border-right:1px solid var(--line); background:#f8fafb; }
+      .type { display:inline-block; padding:4px 7px; border-radius:4px; background:#e7f1f8; color:var(--blue); font-size:11px; font-weight:700; }
+      .draft-meta strong { display:block; margin-top:14px; font-size:14px; }
+      .draft-meta small { display:block; margin-top:7px; color:var(--muted); line-height:1.5; }
+      .draft-body { min-width:0; padding:20px; }
+      .draft-body h3 { margin:0; font-size:17px; line-height:1.4; }
+      .intent { margin:10px 0 0; color:var(--muted); font-size:13px; line-height:1.6; }
+      .copybox { margin-top:16px; padding:15px; border:1px solid var(--line); border-radius:6px; background:#f8fafb; color:#293742; font-size:13px; line-height:1.65; white-space:pre-wrap; }
+      .actions { display:flex; flex-wrap:wrap; gap:9px; margin-top:14px; }
+      .action.primary { border-color:var(--blue); background:var(--blue); color:#fff; }
+      .action.done { border-color:#bdd8c9; color:var(--green); }
+      .empty { margin-top:16px; padding:28px; border:1px solid var(--line); border-radius:7px; background:#fff; color:var(--muted); }
+      .status-ok { color:var(--green); } .status-warn { color:var(--gold); }
+      @media(max-width:720px){ .topbar{padding:0 16px}.nav a:not(:last-child){display:none} main{width:calc(100% - 24px);padding-top:22px}.heading{display:block}.sync{margin-top:10px}.metrics,.quota-grid{grid-template-columns:1fr}.draft{grid-template-columns:1fr}.draft-meta{border-right:0;border-bottom:1px solid var(--line)} }
+    </style>
+  </head>
+  <body>
+    <header class="topbar"><div class="brand">RaidBench <span class="subtitle">经营后台</span></div><nav class="nav"><a href="./owner-traffic-zh.html">流量</a><a href="./owner-acquisition-zh.html">获客</a><a href="./owner-demand-zh.html">需求</a><a href="./owner-products-zh.html">产品准入</a><a href="./owner-costs-zh.html">成本</a></nav></header>
+    <main>
+      <div class="heading"><div><h1>获客工作台</h1><p class="subtitle">Reddit 回复与个人主页发布内容分开管理。</p></div><div class="sync" id="sync">正在读取服务器队列</div></div>
+      <section class="metrics"><article class="metric"><span>待处理</span><strong id="pending">--</strong></article><article class="metric"><span>已完成</span><strong id="completed">--</strong></article><article class="metric"><span>提醒通道</span><strong id="notification">--</strong></article></section>
+      <div class="queue-head"><h2>增长配额</h2><span class="subtitle" id="growth-week">正在读取本周进度</span></div>
+      <section class="quota-grid" id="growth-quotas"></section>
+      <div class="queue-head"><h2>内容队列</h2><button class="reload" id="reload" type="button">刷新</button></div>
+      <section class="queue" id="queue"></section>
+    </main>
+    <script>
+      const escapeHtml = (value) => String(value ?? "").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;");
+      const typeLabel = (type) => type === "profile_post" ? "个人主页发布" : "社区回复";
+      const formatDate = (value) => value ? new Date(value).toLocaleString("zh-CN", { dateStyle:"medium", timeStyle:"short" }) : "--";
+      async function copyText(text, button) { await navigator.clipboard.writeText(text); const old=button.textContent; button.textContent="已复制"; setTimeout(()=>button.textContent=old,1600); }
+      async function markDone(id, type) { const response=await fetch("/api/owner/acquisition/mark",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({draftId:id,status:type==="profile_post"?"published":"replied"})}); if(!response.ok) throw new Error("更新失败"); await load(); }
+      function render(payload) {
+        const drafts=payload.drafts || []; const pending=drafts.filter(item=>item.actionRequired); const complete=drafts.length-pending.length;
+        document.querySelector("#pending").textContent=pending.length; document.querySelector("#completed").textContent=complete;
+        const status=payload.digest?.delivery_status || "未运行";
+        const labels={webhook_and_email_accepted_delivery_unverified:"飞书 + 邮件",webhook_accepted_delivery_unverified:"仅飞书",email_accepted_delivery_unverified:"仅邮件"};
+        const notification=document.querySelector("#notification"); notification.textContent=labels[status] || "未验证"; notification.className=labels[status]?"status-warn":"";
+        document.querySelector("#sync").textContent=`服务器同步：${new Date(payload.generatedAt).toLocaleString("zh-CN")}`;
+        const queue=document.querySelector("#queue"); if(!drafts.length){queue.innerHTML='<div class="empty">当前没有草稿。</div>';return;}
+        queue.innerHTML=drafts.map(item=>`<article class="draft"><div class="draft-meta"><span class="type">${typeLabel(item.draftType)}</span><strong>${item.actionRequired?"待处理":"已完成"}</strong><small>${escapeHtml(item.game)}<br>${escapeHtml(formatDate(item.createdAt))}</small></div><div class="draft-body"><h3>${escapeHtml(item.targetTitle)}</h3><p class="intent">${escapeHtml(item.intentZh || "等待语境复核")}</p><div class="copybox">${escapeHtml(item.draftText)}</div><div class="actions"><a class="action primary" href="${escapeHtml(item.targetUrl)}" target="_blank" rel="noopener">打开 Reddit</a><button class="action" type="button" data-copy="${escapeHtml(item.draftId)}">复制英文</button>${item.actionRequired?`<button class="action done" type="button" data-done="${escapeHtml(item.draftId)}" data-type="${escapeHtml(item.draftType)}">标记完成</button>`:""}</div></div></article>`).join("");
+        queue.querySelectorAll("[data-copy]").forEach(button=>button.addEventListener("click",()=>copyText(drafts.find(item=>item.draftId===button.dataset.copy).draftText,button)));
+        queue.querySelectorAll("[data-done]").forEach(button=>button.addEventListener("click",()=>markDone(button.dataset.done,button.dataset.type).catch(error=>alert(error.message))));
+      }
+      function renderGrowth(payload){const labels={rustPages:"Rust 问题页",poe2Pages:"POE2 问题页",weeklyAssets:"工具与数据",patchRefreshes:"补丁复核",partnerContacts:"合作触达",repliesToday:"今日回复草稿"};document.querySelector("#growth-week").textContent=`${payload.week} · 个人主页帖：${payload.profilePostStatus === "published" ? "已发布" : "待发布确认"}`;document.querySelector("#growth-quotas").innerHTML=Object.entries(payload.metrics||{}).map(([key,value])=>`<article class="quota"><span>${escapeHtml(labels[key]||key)}</span><strong>${value.actual} / ${value.target}</strong><small>${value.actual>=value.target?"本周期目标已完成":"继续按质量闸门推进"}</small></article>`).join("");}
+      async function load(){document.querySelector("#sync").textContent="正在读取服务器队列"; const [queueResponse,growthResponse]=await Promise.all([fetch("/api/owner/acquisition",{cache:"no-store"}),fetch("/api/owner/growth",{cache:"no-store"})]); if(!queueResponse.ok||!growthResponse.ok) throw new Error("服务器队列读取失败"); render(await queueResponse.json()); renderGrowth(await growthResponse.json());}
+      document.querySelector("#reload").addEventListener("click",()=>load().catch(error=>document.querySelector("#sync").textContent=error.message)); load().catch(error=>document.querySelector("#sync").textContent=error.message);
+    </script>
+  </body>
+</html>

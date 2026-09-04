@@ -1,0 +1,30 @@
+[Unit]
+Description=RaidBench public-source demand scout
+Wants=network-online.target
+After=network-online.target
+StartLimitIntervalSec=1h
+StartLimitBurst=3
+
+[Service]
+Type=oneshot
+User=raidbench-agent
+Group=raidbench-agent
+WorkingDirectory=/opt/raidbench-agent/app
+Environment=HOME=/opt/raidbench-agent
+Environment=RAIDBENCH_LOCAL_DB_PATH=/opt/raidbench-agent/data/raidbench.local.db
+Environment=RAIDBENCH_SCOUT_INBOX_DIR=/opt/raidbench-agent/artifacts/inbox
+Environment=RAIDBENCH_SCOUT_OPERATIONS_DIR=/opt/raidbench-agent/artifacts/operations
+EnvironmentFile=-/opt/raidbench-agent/secrets/source-scout.env
+ExecStart=/usr/bin/node scripts/run-content-agents.mjs
+TimeoutStartSec=5min
+Restart=on-failure
+RestartSec=15min
+NoNewPrivileges=true
+PrivateDevices=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/opt/raidbench-agent/data /opt/raidbench-agent/artifacts
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+LockPersonality=true
+MemoryMax=512M
