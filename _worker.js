@@ -1,5 +1,6 @@
 const ANALYTICS_PAGEVIEW_PATH = "/api/analytics/pageview";
 const ANALYTICS_EVENT_PATH = "/api/analytics/event";
+const ANALYTICS_SUMMARY_PATH = "/api/analytics/summary";
 const API_PREFIX = "/api/";
 const ORIGIN_PREFIX = "/__raidbench/app";
 const RETIRED_DRAFT_PREFIX = "/draft-review/";
@@ -73,6 +74,92 @@ function analyticsRequestAllowed(request) {
   if (!ALLOWED_HOSTS.has(url.hostname.toLowerCase())) return false;
   const origin = request.headers.get("Origin");
   return !origin || ALLOWED_ORIGINS.has(origin);
+}
+
+function constantTimeEqual(left, right) {
+  if (!left || !right || left.length !== right.length) return false;
+  let mismatch = 0;
+  for (let index = 0; index < left.length; index += 1) {
+    mismatch |= left.charCodeAt(index) ^ right.charCodeAt(index);
+  }
+  return mismatch === 0;
+}
+
+async function readAnalyticsSummary(request, env) {
+  if (request.method !== "GET") return response(405, { error: "method_not_allowed" });
+  const providedKey = request.headers.get("X-RaidBench-Analytics-Key") || "";
+  if (!constantTimeEqual(providedKey, String(env.RAIDBENCH_ORIGIN_KEY || ""))) {
+    return response(404, { error: "not_found" });
+  }
+  if (!env.ANALYTICS_DB) return response(503, { error: "analytics_unavailable" });
+
+  const results = await env.ANALYTICS_DB.batch([
+    env.ANALYTICS_DB.prepare(
+      `SELECT
+        COALESCE(SUM(CASE WHEN day = date('now') THEN views ELSE 0 END), 0) AS today,
+        COALESCE(SUM(CASE WHEN day = date('now', '-1 day') THEN views ELSE 0 END), 0) AS yesterday,
+        COALESCE(SUM(CASE WHEN day >= date('now', '-6 days') THEN views ELSE 0 END), 0) AS last_7_days,
+        COALESCE(SUM(CASE WHEN day >= date('now', '-29 days') THEN views ELSE 0 END), 0) AS last_30_days,
+        COUNT(DISTINCT path) AS measured_pages
+      FROM page_views
+      WHERE day >= date('now', '-29 days')`,
+    ),
+    env.ANALYTICS_DB.prepare(
+      `SELECT day, SUM(views) AS views
+      FROM page_views
+      WHERE day >= date('now', '-29 days')
+      GROUP BY day
+      ORDER BY day`,
+    ),
+    env.ANALYTICS_DB.prepare(
+      `SELECT path, SUM(views) AS views
+      FROM page_views
+      WHERE day >= date('now', '-29 days')
+      GROUP BY path
+      ORDER BY views DESC, path
+      LIMIT 5`,
+    ),
+    env.ANALYTICS_DB.prepare(
+      `SELECT referrer_host, SUM(views) AS views
+      FROM page_views
+      WHERE day >= date('now', '-29 days')
+      GROUP BY referrer_host
+      ORDER BY views DESC, referrer_host
+      LIMIT 5`,
+    ),
+    env.ANALYTICS_DB.prepare(
+      `SELECT
+        COALESCE(SUM(CASE WHEN event_name = 'live_account_cta_click' THEN events ELSE 0 END), 0) AS account_entries,
+        COALESCE(SUM(CASE WHEN event_name = 'checkout_start' THEN events ELSE 0 END), 0) AS checkout_starts,
+        COALESCE(SUM(CASE WHEN event_name = 'payment_capture_success' THEN events ELSE 0 END), 0) AS payment_successes,
+        COALESCE(SUM(events), 0) AS tracked_events
+      FROM conversion_events
+      WHERE day >= date('now', '-29 days') AND source <> 'qa'`,
+    ),
+  ]);
+  const rows = results.map((result) => result?.results || []);
+  const summary = rows[0]?.[0] || {};
+  const funnel = rows[4]?.[0] || {};
+  return response(200, {
+    generatedAt: new Date().toISOString(),
+    source: "RaidBench first-party aggregate analytics",
+    metrics: {
+      today: Number(summary.today || 0),
+      yesterday: Number(summary.yesterday || 0),
+      last7Days: Number(summary.last_7_days || 0),
+      last30Days: Number(summary.last_30_days || 0),
+      measuredPages: Number(summary.measured_pages || 0),
+    },
+    daily: rows[1].map((row) => ({ day: row.day, views: Number(row.views || 0) })),
+    topPages: rows[2].map((row) => ({ path: row.path, views: Number(row.views || 0) })),
+    referrers: rows[3].map((row) => ({ host: row.referrer_host, views: Number(row.views || 0) })),
+    funnel: {
+      accountEntries: Number(funnel.account_entries || 0),
+      checkoutStarts: Number(funnel.checkout_starts || 0),
+      paymentSuccesses: Number(funnel.payment_successes || 0),
+      trackedEvents: Number(funnel.tracked_events || 0),
+    },
+  });
 }
 
 async function recordPageView(request, env) {
@@ -243,6 +330,15 @@ export default {
         return await recordConversionEvent(request, env);
       } catch (error) {
         console.error("RaidBench conversion analytics write failed", error instanceof Error ? error.message : "unknown");
+        return response(503, { error: "analytics_unavailable" });
+      }
+    }
+
+    if (url.pathname === ANALYTICS_SUMMARY_PATH) {
+      try {
+        return await readAnalyticsSummary(request, env);
+      } catch (error) {
+        console.error("RaidBench analytics summary failed", error instanceof Error ? error.message : "unknown");
         return response(503, { error: "analytics_unavailable" });
       }
     }

@@ -229,6 +229,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://raidbench.com/pages/escape-from-tarkov-post-patch-assumption-triage</loc>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://raidbench.com/pages/escape-from-tarkov-quest-route-plan</loc>
     <lastmod>2026-09-03</lastmod>
     <changefreq>weekly</changefreq>
@@ -248,6 +254,12 @@
   </url>
   <url>
     <loc>https://raidbench.com/pages/once-human-3-0-4-issue-status-check</loc>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://raidbench.com/pages/once-human-3-0-4-september-3-symptom-check</loc>
     <lastmod>2026-09-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -339,6 +351,12 @@
   <url>
     <loc>https://raidbench.com/pages/palworld-breeding-goal-checklist</loc>
     <lastmod>2026-07-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://raidbench.com/pages/palworld-first-breeding-project</loc>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -531,6 +549,12 @@
   <url>
     <loc>https://raidbench.com/pages/rainbow-six-siege-defense-site-setup</loc>
     <lastmod>2026-09-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://raidbench.com/pages/rainbow-six-siege-game-sense-training-loop</loc>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>

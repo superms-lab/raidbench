@@ -1,5 +1,5 @@
 [Unit]
-Description=Discover one fresh RaidBench Reddit question for owner review
+Description=Discover one fresh multi-game Reddit question for owner review
 Wants=network-online.target docker.service
 After=network-online.target docker.service
 Requires=docker.service
@@ -11,7 +11,7 @@ Type=oneshot
 WorkingDirectory=/opt/raidbench-publisher
 ExecStartPre=/usr/bin/install -d -o raidbench-agent -g raidbench-agent -m 0750 /opt/raidbench-agent/artifacts/content-automation/community-drafts
 ExecStartPre=/usr/bin/chown raidbench-agent:raidbench-agent /opt/raidbench-agent/artifacts/content-automation/community-drafts
-ExecStart=/usr/bin/docker compose -f /opt/raidbench-publisher/compose.yaml run --rm --no-deps content-agent python3 scripts/discover_reddit_reply_draft.py --draft-dir /workspace/private-data/content-automation/community-drafts --output-dir /workspace/private-data/content-automation/community-drafts --state /workspace/private-data/content-automation/community-discovery-state.json --database /data/raidbench.local.db --daily-limit 3
+ExecStart=/usr/bin/docker compose -f /opt/raidbench-publisher/compose.yaml run --rm --no-deps content-agent python3 scripts/discover_reddit_reply_draft.py --draft-dir /workspace/private-data/content-automation/community-drafts --output-dir /workspace/private-data/content-automation/community-drafts --state /workspace/private-data/content-automation/community-discovery-state.json --database /data/raidbench.local.db --daily-target 6
 TimeoutStartSec=20min
 Restart=on-failure
 RestartSec=20min

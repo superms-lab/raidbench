@@ -84,7 +84,7 @@ def build_card(draft: dict[str, Any], *, timestamp: int | None = None, secret: s
     "建议英文回复：\n"
     f"{draft['draft_text']}\n\n"
     "请先核对原帖语境和社区规则，再打开原帖、复制上述回复并由你手动点击发布。\n"
-    "当前建议：每天最多 1 条，至少间隔 24 小时。"
+    "当前节奏：每天准备 6 条候选并分散到不同游戏；同一社区当天不重复，发布前仍需核对语境。"
   )
   actions = [
     {

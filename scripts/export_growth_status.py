@@ -155,7 +155,7 @@ def main() -> int:
       "weeklyAssets": {"actual": assets_this_week, "target": int(quotas.get("weeklyAssets", {}).get("calculatorPresetsComparisonsOrDownloads", 3))},
       "patchRefreshes": {"actual": patch_checks, "target": int(quotas.get("weeklyAssets", {}).get("patchSensitiveRefreshes", 3))},
       "partnerContacts": {"actual": partner_contacts, "target": int(quotas.get("partnerships", {}).get("contactsPerWeek", 6))},
-      "repliesToday": {"actual": replies_today, "target": int(quotas.get("community", {}).get("linkFreeRepliesPerDay", 3))},
+      "repliesToday": {"actual": replies_today, "target": int(quotas.get("community", {}).get("linkFreeRepliesPerDay", 6))},
     },
     "gamePages": game_pages,
     "profilePostStatus": profile_status,

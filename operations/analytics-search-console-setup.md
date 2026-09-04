@@ -44,6 +44,17 @@ node scripts/fetch-traffic-dashboard.mjs
 
 The snapshot is written to ignored local file `local/traffic-dashboard.json`.
 
+## Daily Feishu Traffic Brief
+
+At 20:00 China time, `raidbench-acquisition-digest.timer` sends the owner one Feishu-only growth brief containing
+the current day's page views, yesterday's views, rolling 7-day and 30-day totals, top pages, account entries,
+checkout starts, payment successes, and up to six new Reddit reply drafts.
+
+The Pages Worker serves aggregate data from `GET /api/analytics/summary` only when the request carries the existing
+RaidBench edge-origin key. Requests without the correct key return `404`. The endpoint never returns IP addresses,
+cookies, account data, full referrer URLs, or individual visit records. The VPS reuses the existing key from the
+protected Caddy environment; no broader Cloudflare API token or paid analytics service is required.
+
 ## Cloudflare Web Analytics
 
 Optional enhancement status on July 18, 2026:

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Send one daily RaidBench acquisition brief through Feishu and email."""
+"""Send one daily RaidBench growth brief through Feishu, with optional legacy email delivery."""
 
 from __future__ import annotations
 
@@ -7,10 +7,11 @@ import argparse
 import json
 import os
 import sys
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 from urllib.error import HTTPError, URLError
+from urllib.parse import urlparse
 from urllib.request import Request, urlopen
 from zoneinfo import ZoneInfo
 
@@ -117,9 +118,84 @@ def select_unnotified_draft(drafts: list[dict[str, Any]], state: dict[str, Any])
   return selected[0] if selected else None
 
 
-def build_digest_card(drafts: list[dict[str, Any]], *, signed_at: int | None = None, secret: str = "") -> dict[str, Any]:
+def refresh_traffic_dashboard(path: Path) -> None:
+  key = (
+    os.environ.get("RAIDBENCH_ANALYTICS_READ_KEY", "").strip()
+    or os.environ.get("RAIDBENCH_EDGE_ORIGIN_KEY", "").strip()
+  )
+  if not key:
+    raise NotificationError("Traffic summary key is not configured")
+  endpoint = os.environ.get(
+    "RAIDBENCH_ANALYTICS_SUMMARY_URL",
+    "https://raidbench.com/api/analytics/summary",
+  ).strip()
+  parsed = urlparse(endpoint)
+  if parsed.scheme != "https" or parsed.hostname not in {"raidbench.com", "www.raidbench.com"}:
+    raise NotificationError("Traffic summary URL must use the RaidBench HTTPS origin")
+  request = Request(
+    endpoint,
+    headers={
+      "Accept": "application/json",
+      "User-Agent": "RaidBench daily growth digest",
+      "X-RaidBench-Analytics-Key": key,
+    },
+  )
+  try:
+    with urlopen(request, timeout=20) as response:
+      value = json.loads(response.read().decode("utf-8"))
+  except HTTPError as exc:
+    raise NotificationError(f"Traffic summary endpoint rejected the request ({exc.code})") from exc
+  except (URLError, TimeoutError, json.JSONDecodeError) as exc:
+    raise NotificationError("Traffic summary endpoint did not return usable data") from exc
+  if not isinstance(value, dict) or not isinstance(value.get("metrics"), dict):
+    raise NotificationError("Traffic summary response is missing metrics")
+  path.parent.mkdir(parents=True, exist_ok=True)
+  temporary = path.with_suffix(path.suffix + ".tmp")
+  temporary.write_text(json.dumps(value, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+  temporary.replace(path)
+
+
+def traffic_card_elements(traffic: dict[str, Any] | None, error: str = "") -> list[dict[str, Any]]:
+  if not traffic:
+    note = "今日流量暂时无法读取。" + (f" 原因：{error}" if error else "")
+    return [
+      {"tag": "hr"},
+      {"tag": "div", "text": {"tag": "lark_md", "content": f"**网站流量**\n{note}"}},
+    ]
+  metrics = traffic.get("metrics") if isinstance(traffic.get("metrics"), dict) else {}
+  funnel = traffic.get("funnel") if isinstance(traffic.get("funnel"), dict) else {}
+  daily = traffic.get("daily") if isinstance(traffic.get("daily"), list) else []
+  yesterday_day = (datetime.now(timezone.utc) - timedelta(days=1)).date().isoformat()
+  yesterday = int(metrics.get("yesterday") or next(
+    (int(item.get("views") or 0) for item in daily if isinstance(item, dict) and item.get("day") == yesterday_day),
+    0,
+  ))
+  top_pages = [item for item in traffic.get("topPages", []) if isinstance(item, dict)][:3]
+  page_summary = " · ".join(f"`{item.get('path', '/')}` {int(item.get('views') or 0)}" for item in top_pages) or "暂无"
+  content = (
+    "**网站流量（Cloudflare 第一方统计）**\n"
+    f"今日 **{int(metrics.get('today') or 0)}** · 昨日 **{yesterday}** · "
+    f"近 7 日 **{int(metrics.get('last7Days') or 0)}** · 近 30 日 **{int(metrics.get('last30Days') or 0)}**\n"
+    f"近 30 日转化：进入账户 **{int(funnel.get('accountEntries') or 0)}** · "
+    f"发起结账 **{int(funnel.get('checkoutStarts') or 0)}** · 支付成功 **{int(funnel.get('paymentSuccesses') or 0)}**\n"
+    f"热门页面：{page_summary}"
+  )
+  return [
+    {"tag": "hr"},
+    {"tag": "div", "text": {"tag": "lark_md", "content": content}},
+  ]
+
+
+def build_digest_card(
+  drafts: list[dict[str, Any]],
+  *,
+  traffic: dict[str, Any] | None = None,
+  traffic_error: str = "",
+  signed_at: int | None = None,
+  secret: str = "",
+) -> dict[str, Any]:
   if drafts:
-    title = f"RaidBench 每日获客简报 · {len(drafts)} 条待处理"
+    title = f"RaidBench 每日增长简报 · {len(drafts)} 条待处理"
     color = "blue" if all(str(draft.get("draft_type") or "reply") == "reply" for draft in drafts) else "orange"
     elements = [{
       "tag": "div",
@@ -132,7 +208,7 @@ def build_digest_card(drafts: list[dict[str, Any]], *, signed_at: int | None = N
       intent = str(draft.get("intent_zh") or "请先阅读原帖，确认英文内容与对方问题一致。")
       if draft_type == "reply":
         content = (
-          f"**{index}. {draft.get('target_title', '')}**\n"
+          f"**{index}. [{draft.get('game', '')}] {draft.get('target_title', '')}**\n"
           f"**用户意图：** {intent}\n\n"
           "**建议英文回复（无链接、无销售话术）：**\n"
           f"{draft.get('draft_text', '')}"
@@ -166,7 +242,7 @@ def build_digest_card(drafts: list[dict[str, Any]], *, signed_at: int | None = N
       }],
     })
   else:
-    title = "RaidBench 每日获客简报 · 系统在线"
+    title = "RaidBench 每日增长简报 · 系统在线"
     color = "green"
     elements = [{
       "tag": "div",
@@ -175,6 +251,8 @@ def build_digest_card(drafts: list[dict[str, Any]], *, signed_at: int | None = N
         "content": "<at id=all></at> 今日没有可安全发布的 Reddit 草稿。系统仍在运行，没有为了凑数量而发送低质量或违规内容。",
       },
     }]
+
+  elements[1:1] = traffic_card_elements(traffic, traffic_error)
 
   payload: dict[str, Any] = {
     "msg_type": "interactive",
@@ -298,6 +376,10 @@ def parse_args() -> argparse.Namespace:
   parser = argparse.ArgumentParser(description="Send the daily RaidBench acquisition brief.")
   parser.add_argument("--draft-dir", type=Path, action="append", required=True)
   parser.add_argument("--state", type=Path, required=True)
+  parser.add_argument("--traffic-dashboard", type=Path)
+  parser.add_argument("--refresh-traffic", action="store_true")
+  parser.add_argument("--limit", type=int, default=6)
+  parser.add_argument("--feishu-only", action="store_true")
   parser.add_argument("--dry-run", action="store_true")
   parser.add_argument("--force", action="store_true")
   return parser.parse_args()
@@ -311,14 +393,34 @@ def main() -> int:
     if not args.force and state.get("last_attempt_day") == today:
       print(json.dumps({"status": "already_attempted_today", "day": today}))
       return 0
+    traffic: dict[str, Any] | None = None
+    traffic_error = ""
+    if args.traffic_dashboard:
+      try:
+        if args.refresh_traffic:
+          refresh_traffic_dashboard(args.traffic_dashboard)
+        value = read_json(args.traffic_dashboard, {})
+        if isinstance(value, dict) and isinstance(value.get("metrics"), dict):
+          traffic = value
+        else:
+          traffic_error = "流量文件缺少 metrics 数据"
+      except (NotificationError, OSError) as exc:
+        traffic_error = str(exc)
     drafts = load_pending_drafts(args.draft_dir)
-    digest_drafts = select_unnotified_drafts(drafts, state, limit=3)
+    digest_drafts = select_unnotified_drafts(drafts, state, limit=max(1, min(12, args.limit)))
     secret = os.environ.get("RAIDBENCH_FEISHU_WEBHOOK_SECRET", "").strip()
-    payload = build_digest_card(digest_drafts, secret=secret)
+    payload = build_digest_card(digest_drafts, traffic=traffic, traffic_error=traffic_error, secret=secret)
     selected_ids = [str(draft["draft_id"]) for draft in digest_drafts]
     selected = selected_ids[-1] if selected_ids else ""
     if args.dry_run:
-      print(json.dumps({"status": "dry_run_passed", "selected": selected_ids, "pending": len(drafts), "signed": bool(secret)}))
+      print(json.dumps({
+        "status": "dry_run_passed",
+        "selected": selected_ids,
+        "pending": len(drafts),
+        "signed": bool(secret),
+        "traffic_today": int((traffic or {}).get("metrics", {}).get("today") or 0),
+        "traffic_error": traffic_error,
+      }))
       return 0
 
     webhook = os.environ.get("RAIDBENCH_FEISHU_WEBHOOK_URL", "").strip()
@@ -330,10 +432,13 @@ def main() -> int:
       except NotificationError as exc:
         webhook_error = str(exc)
 
-    try:
-      email_result = send_email_digest(digest_drafts)
-    except NotificationError as exc:
-      email_result = {"status": "failed", "error": str(exc)}
+    if args.feishu_only:
+      email_result = {"status": "disabled"}
+    else:
+      try:
+        email_result = send_email_digest(digest_drafts)
+      except NotificationError as exc:
+        email_result = {"status": "failed", "error": str(exc)}
 
     webhook_accepted = not webhook_error and webhook_result.get("status") != "not_configured"
     email_accepted = email_result.get("status") == "provider_accepted_delivery_unverified"
@@ -365,6 +470,9 @@ def main() -> int:
       "last_webhook_result": webhook_result,
       "last_webhook_error": webhook_error,
       "last_email_result": email_result,
+      "last_traffic_generated_at": str((traffic or {}).get("generatedAt") or ""),
+      "last_traffic_today": int((traffic or {}).get("metrics", {}).get("today") or 0),
+      "last_traffic_error": traffic_error,
       "delivery_status": delivery_status,
     })
     args.state.write_text(json.dumps(state, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -372,6 +480,8 @@ def main() -> int:
       "status": delivery_status,
       "selected": selected_ids,
       "pending": len(drafts),
+      "traffic_today": int((traffic or {}).get("metrics", {}).get("today") or 0),
+      "traffic_error": traffic_error,
     }))
     return 0
   except NotificationError as exc:

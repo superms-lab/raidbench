@@ -25,7 +25,7 @@
     "patchSensitiveRefreshes": 3
   },
   "community": {
-    "linkFreeRepliesPerDay": 3,
+    "linkFreeRepliesPerDay": 6,
     "standalonePromotionalPostsRequireOwnerReview": true,
     "profileLink": {
       "required": true,

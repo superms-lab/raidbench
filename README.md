@@ -61,6 +61,9 @@ node scripts/serve-owner-dashboard.mjs
 
 Then visit `http://127.0.0.1:4289/owner-traffic-zh.html`.
 
+The 20:00 China-time Feishu growth brief refreshes the same Cloudflare D1 dataset and reports today's views,
+seven- and thirty-day totals, top pages, and conversion counts alongside up to six new Reddit reply drafts.
+
 The private product-admission dashboard is `http://127.0.0.1:4289/owner-products-zh.html`.
 
 GA4 remains optional. Leave `ga4MeasurementId` blank in `config.js` until a real Measurement ID exists.

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import importlib.util
 import json
+import os
 import sys
 import tempfile
 import unittest
@@ -20,6 +21,33 @@ SPEC.loader.exec_module(digest)
 
 
 class RaidBenchAcquisitionDigestTests(unittest.TestCase):
+  def test_refreshes_traffic_from_the_protected_summary_endpoint(self) -> None:
+    class FakeResponse:
+      def __enter__(self):
+        return self
+
+      def __exit__(self, *_args):
+        return False
+
+      def read(self):
+        return json.dumps({"metrics": {"today": 12}, "topPages": [], "funnel": {}}).encode()
+
+    previous_key = os.environ.get("RAIDBENCH_EDGE_ORIGIN_KEY")
+    original_urlopen = digest.urlopen
+    os.environ["RAIDBENCH_EDGE_ORIGIN_KEY"] = "private-test-key"
+    digest.urlopen = lambda request, timeout: FakeResponse()
+    try:
+      with tempfile.TemporaryDirectory() as temporary:
+        path = Path(temporary) / "traffic.json"
+        digest.refresh_traffic_dashboard(path)
+        self.assertEqual(json.loads(path.read_text())["metrics"]["today"], 12)
+    finally:
+      digest.urlopen = original_urlopen
+      if previous_key is None:
+        os.environ.pop("RAIDBENCH_EDGE_ORIGIN_KEY", None)
+      else:
+        os.environ["RAIDBENCH_EDGE_ORIGIN_KEY"] = previous_key
+
   def test_loads_pending_reply_and_builds_at_all_card(self) -> None:
     with tempfile.TemporaryDirectory() as temporary:
       directory = Path(temporary)
@@ -144,6 +172,33 @@ class RaidBenchAcquisitionDigestTests(unittest.TestCase):
     subject, body = digest.build_digest_email(drafts)
     self.assertIn("3 条", subject)
     self.assertIn("Question 3", body)
+
+  def test_daily_card_includes_game_labels_and_first_party_traffic(self) -> None:
+    drafts = [{
+      "draft_id": "reply_poe2_test",
+      "draft_type": "reply",
+      "game": "POE2",
+      "target_title": "How should I fix this build?",
+      "target_reddit_url": "https://www.reddit.com/r/PathOfExile2/comments/abc123/build_help/",
+      "intent_zh": "玩家希望定位构筑问题。",
+      "draft_text": "Check defenses before replacing every damage item.",
+    }]
+    traffic = {
+      "metrics": {"today": 21, "last7Days": 80, "last30Days": 330},
+      "daily": [],
+      "topPages": [{"path": "/games/poe2/", "views": 18}],
+      "funnel": {"accountEntries": 3, "checkoutStarts": 1, "paymentSuccesses": 0},
+    }
+    payload = digest.build_digest_card(drafts, traffic=traffic)
+    content = "\n".join(
+      element.get("text", {}).get("content", "")
+      for element in payload["card"]["elements"]
+      if element.get("tag") == "div"
+    )
+    self.assertIn("[POE2]", content)
+    self.assertIn("今日 **21**", content)
+    self.assertIn("发起结账 **1**", content)
+    self.assertIn("`/games/poe2/` 18", content)
 
   def test_yesterdays_unnotified_draft_is_not_recycled(self) -> None:
     drafts = [{

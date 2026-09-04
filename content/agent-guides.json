@@ -250,6 +250,129 @@
     }
   },
   {
+    "slug": "once-human-3-0-4-september-3-symptom-check",
+    "game": "Once Human",
+    "title": "Once Human 3.0.4 September 3 Bug-Fix Symptom Check",
+    "description": "Match a Once Human 3.0.4 symptom to the September 3 fix record, preserve console-only qualifiers, and gather useful details before troubleshooting.",
+    "problem": "Before changing settings or reinstalling, check whether your symptom appears in the dated September 3 record—and whether its platform qualifier matches your case.",
+    "shortAnswer": "The September 3 record separates four issues expected to be fixed from one console-only issue listed as fixed. The expected group covers missing skill VFX for the Ephemeral Dream - Butterfly's Emissary skin, abnormal Behemoth mount-action display, incorrect swimming status in certain underground scenes, and—on console only—a missing team entry in the function wheel and navigation menu in Manibus (Novice). The console-only language-switching issue during the beginner securement-facility task appears in the fixed group. A match confirms that the symptom was documented; it does not prove that every current occurrence has the same cause or status. Record the platform, displayed version, location, trigger, and observed result before changing the installation or submitting a report.",
+    "publishedAt": "2026-09-04",
+    "reviewedAt": "2026-09-04",
+    "status": "Evidence-bounded Once Human guide; recheck after relevant patch changes",
+    "sections": [
+      {
+        "title": "Read the September 3 status labels correctly",
+        "purpose": "Prevent a dated announcement from being treated as proof that every occurrence has disappeared.",
+        "bullets": [
+          "Treat the first group as issues the announcement expected to be fixed by 6:00 AM PT, while recognizing that the captured sentence about actual completion is incomplete.",
+          "Treat the separate task-guidance entry as listed in the announcement's fixed group.",
+          "Use the record as a bounded symptom list rather than a complete catalog of version 3.0.4 issues."
+        ]
+      },
+      {
+        "title": "Match the expected-fix symptom group",
+        "purpose": "Give players a concise matrix that preserves the subject and scope of each documented symptom.",
+        "bullets": [
+          "Ephemeral Dream - Butterfly's Emissary skin: its skill VFX could be missing.",
+          "Behemoth mount: its actions could display abnormally.",
+          "Certain underground scenes: players could incorrectly enter swimming status.",
+          "Console only, Manibus (Novice): the team entry could disappear from both the function wheel and navigation menu."
+        ]
+      },
+      {
+        "title": "Separate the console-only fixed entry",
+        "purpose": "Keep the platform qualifier and task context attached to the documented classification.",
+        "bullets": [
+          "The entry applies to console only.",
+          "The symptom was task guidance switching to another language.",
+          "The documented context was the beginner task while building securement facilities.",
+          "Do not infer the same classification for PC or mobile from this console-only entry."
+        ]
+      },
+      {
+        "title": "Verify a live symptom before troubleshooting",
+        "purpose": "Turn a possible match into a reproducible record without assuming its cause.",
+        "bullets": [
+          "Record the platform and displayed game version.",
+          "Write down the scenario, scene, task, skin, or mount involved.",
+          "Repeat only the action that triggered the symptom and note the observed result.",
+          "Compare the full context with the announcement instead of matching on one shared word.",
+          "Check a newer official notice before treating the September 3 label as current."
+        ]
+      },
+      {
+        "title": "Report a remaining issue with useful context",
+        "purpose": "Help players submit a bounded report when the symptom persists or falls outside the supplied list.",
+        "bullets": [
+          "On PC, the official index directs players through ESC, Support & Feedback, and Submit Suggestion.",
+          "On mobile, the official index directs players through the map's left-side menu, the headphones icon, Suggestions, and Submit Suggestion.",
+          "Include the platform, displayed version, reproduction sequence, location, and observed result.",
+          "Describe an unlisted symptom as unclassified by this record rather than declaring it resolved or unresolved."
+        ]
+      }
+    ],
+    "checklist": [
+      "Identify the exact symptom before changing settings.",
+      "Record the platform and displayed game version.",
+      "Capture the scenario, location, task, skin, or mount involved.",
+      "Match the complete symptom and every platform qualifier to the September 3 record.",
+      "Distinguish the expected-fix group from the separately listed fixed entry.",
+      "Recheck newer official notices or submit a detailed report if the symptom remains."
+    ],
+    "example": "A console player in Manibus (Novice) cannot see the team entry in either the function wheel or navigation menu. That full description matches the console-only entry in the September 3 expected-fix group. The player records the displayed version, confirms both menu locations, repeats the trigger once, and notes the time observed. Because the dated listing does not establish the current status of every occurrence, the player checks for a newer notice and reports the recorded details if the symptom remains. A PC player with a missing team entry would not inherit the console-only classification from this record.",
+    "mistakes": [
+      "Treating the expected-fix group as proof that every live occurrence is resolved.",
+      "Applying a console-only classification to PC or mobile.",
+      "Assuming an unlisted symptom was classified by the September 3 record.",
+      "Reinstalling or changing several settings before recording a reproducible case."
+    ],
+    "faqs": [
+      {
+        "question": "Does the September 3 record prove my symptom is fixed now?",
+        "answer": "No. It is a dated classification record. Most entries appear in a group expected to be fixed, while the console-only task-guidance entry appears in a separate fixed group. Newer notices and the details of the live case still matter."
+      },
+      {
+        "question": "What if my symptom resembles an entry but occurs on another platform?",
+        "answer": "Preserve the platform qualifier. The missing team entry and task-guidance language entries are console only in the supplied record, so their classification should not be extended to PC or mobile."
+      },
+      {
+        "question": "What if my issue is not in this list?",
+        "answer": "Describe it as unclassified by the supplied September 3 record. The announcement is a limited fix list, not a complete catalog of version 3.0.4 behavior."
+      },
+      {
+        "question": "What should I record before reporting the issue?",
+        "answer": "Record the platform, displayed version, scenario or location, affected task or cosmetic context, triggering action, observed result, and whether the result repeats."
+      }
+    ],
+    "related": [
+      "once-human-3-0-4-issue-status-check",
+      "once-human-update-migration-checklist",
+      "once-human-september-2-update-workflow-check"
+    ],
+    "sources": [
+      {
+        "label": "Once Human - Strange worlds survival game",
+        "url": "https://www.oncehuman.game/news/update/",
+        "note": "Primary patch, product, or publisher evidence; stay within the captured text."
+      },
+      {
+        "label": "Once Human Steam news feed",
+        "url": "https://store.steampowered.com/feeds/news/app/2139460",
+        "note": "Primary patch, product, or publisher evidence; stay within the captured text."
+      }
+    ],
+    "sourceNote": "E-02 supports the September 3 symptom descriptions, status-group distinction, platform qualifiers, and publication date. E-01 confirms that the official update index listed the September 3 bug-fix notice and supplies the PC and mobile reporting paths. The evidence was captured on September 4, 2026, and does not establish later status changes or a complete issue catalog.",
+    "patchNote": "REF-01 is addressed with a new dated companion page instead of reusing the existing human-maintained issue-status slug. The new page focuses narrowly on the September 3 symptom classifications now available in E-02; the existing page remains the broader August 31 status guide. This resolves the inventory overlap while correcting its stated evidence gap without treating existing copy as factual authority.",
+    "communityAnswer": "Start by matching both the symptom and its platform qualifier to the September 3 record. Missing VFX for the Ephemeral Dream - Butterfly's Emissary skin, abnormal Behemoth mount actions, incorrect swimming status in certain underground scenes, and a console-only missing team entry in Manibus (Novice) were placed in the group expected to be fixed. A separate console-only issue that changed task-guidance language during the beginner securement-facility task was listed as fixed. If your case does not match those descriptions, the record does not classify it. If it does match, note your platform, displayed version, location, trigger, and exact result before changing settings or reinstalling. A dated listing confirms documentation, not the present status of every occurrence.",
+    "automation": {
+      "caseId": "auto-once human-2026-09-04-37f3cb4643",
+      "draftId": "DRAFT-01",
+      "signalId": "sig_0a93033c4b5dde5cce",
+      "qa": "passed",
+      "generatedAt": "2026-09-04T10:09:59+00:00"
+    }
+  },
+  {
     "slug": "once-human-september-2-update-workflow-check",
     "game": "Once Human",
     "title": "Once Human September 2 Update: Download, Storage Search, and Portable Crafting Check",
@@ -899,6 +1022,124 @@
     }
   },
   {
+    "slug": "palworld-first-breeding-project",
+    "game": "Palworld",
+    "title": "Palworld Breeding Starter Plan: Finish One Small Project",
+    "description": "Make Palworld breeding less intimidating with a small first-project workflow that limits decisions, records results, and postpones unnecessary optimization.",
+    "problem": "Breeding becomes easier to learn when your first project has one target, one success rule, and a clear stopping point.",
+    "shortAnswer": "Choose one practical outcome for a Pal you already use, define the minimum result that would make the project worthwhile, and limit your first attempt to learning that loop. Record what you tried and what you learned. Leave additional optimization layers for later, and verify any mechanic-specific instructions against your current game version.",
+    "publishedAt": "2026-09-04",
+    "reviewedAt": "2026-09-04",
+    "status": "Evidence-bounded Palworld guide; recheck after relevant patch changes",
+    "sections": [
+      {
+        "title": "Define what finishing means",
+        "purpose": "Turn a broad interest in breeding into one bounded decision.",
+        "bullets": [
+          "Choose one Pal and one intended role for the first project.",
+          "Describe a minimum acceptable result in plain language before starting.",
+          "Separate the first-project requirement from improvements that can wait."
+        ]
+      },
+      {
+        "title": "Limit the first project",
+        "purpose": "Reduce the number of decisions the player must track at once.",
+        "bullets": [
+          "Use breeding stock already available instead of making several acquisition plans at the same time.",
+          "Set a session or attempt limit that fits the resources and attention available.",
+          "Treat the project as practice unless its result directly supports the next progression goal."
+        ]
+      },
+      {
+        "title": "Record a simple learning loop",
+        "purpose": "Make each attempt useful without relying on unsupported efficiency claims.",
+        "bullets": [
+          "Write down the target, the choices made, and the observed result.",
+          "Compare each result with the original success rule rather than changing the goal mid-session.",
+          "End each session by naming one decision to keep or change next time."
+        ]
+      },
+      {
+        "title": "Add complexity one layer at a time",
+        "purpose": "Prevent premature optimization from overwhelming the basic workflow.",
+        "bullets": [
+          "Introduce one additional selection criterion only after the current process is understandable.",
+          "Keep required qualities separate from optional preferences.",
+          "Verify current mechanic details in the active game version before following version-sensitive advice."
+        ]
+      },
+      {
+        "title": "Continue, pause, or reset the project",
+        "purpose": "Give the player a stopping rule that prevents aimless effort.",
+        "bullets": [
+          "Continue when the next attempt follows clearly from the recorded result.",
+          "Pause when the project no longer supports a current goal or available resources.",
+          "Reset to a smaller target when several unresolved decisions are competing for attention."
+        ]
+      }
+    ],
+    "checklist": [
+      "Name one Pal for the first project.",
+      "Assign that Pal one intended role.",
+      "Write one minimum success rule.",
+      "Set a limit for the first session.",
+      "Record choices and observed results.",
+      "Choose one next change or stop the project."
+    ],
+    "example": "Suppose you want a Pal you already use to fit one clearly defined role. Instead of pursuing every possible improvement, write a minimum result that would make the project useful. Run one limited session, compare each result only with that rule, and note what influenced your next choice. If nothing meets the rule, change one part of the plan for the next session. If the process becomes difficult to explain, simplify the target before continuing.",
+    "mistakes": [
+      "Starting with several roles for the same target.",
+      "Changing the success rule after every result.",
+      "Treating optional improvements as immediate requirements.",
+      "Continuing without recording what the previous attempt taught.",
+      "Following version-sensitive instructions without checking current information."
+    ],
+    "faqs": [
+      {
+        "question": "Do I need to understand every breeding detail before starting?",
+        "answer": "No. Begin with one target and one success rule. Learn enough to make the next decision, then add complexity gradually."
+      },
+      {
+        "question": "How should I choose a first target?",
+        "answer": "Choose a Pal you already use and a role you can describe clearly. This keeps the project connected to an immediate goal without requiring an unsupported ranking."
+      },
+      {
+        "question": "When should I optimize additional qualities?",
+        "answer": "Wait until the basic project is understandable and repeatable, unless one specific quality is the sole purpose of the project. Add only one new criterion at a time."
+      },
+      {
+        "question": "How do I know when to stop?",
+        "answer": "Stop when the minimum success rule is met, the project no longer supports a current goal, or the next attempt cannot be stated clearly. Record the reason so restarting remains deliberate."
+      },
+      {
+        "question": "Is this workflow tied to one patch?",
+        "answer": "The workflow is procedural, but breeding details can be version-sensitive. Confirm mechanic-specific requirements and descriptions in the current version before committing resources."
+      }
+    ],
+    "related": [
+      "palworld-breeding-goal-checklist",
+      "palworld-resource-route-planner",
+      "palworld-base-automation-scorecard"
+    ],
+    "sources": [
+      {
+        "label": "Palworld Steam news feed",
+        "url": "https://store.steampowered.com/feeds/news/app/1623730",
+        "note": "Primary patch, product, or publisher evidence; stay within the captured text."
+      }
+    ],
+    "sourceNote": "E-01 supports the existence and framing of the player problem only; it is not used as factual authority. E-02 supplies patch context but no current breeding-mechanics evidence. No precise recipes, rates, combinations, or universal recommendations are asserted.",
+    "patchNote": "The captured v1.0.3 material confirms a balance update but does not establish changes to breeding, condensation, passive skills, individual values, recipes, probabilities, or optimal combinations. This draft therefore does not label the existing breeding guide outdated and keeps its advice procedural and version-qualified.",
+    "communityAnswer": "Start with one small project instead of trying to master the entire breeding system. Pick a Pal you already use, name one job you want it to fill, and write a simple success rule before beginning. During the project, record only the choices you made and whether each result met that rule. Stop after a short, planned session and decide what the next attempt should change. Once you can explain that basic loop without guessing, add one new optimization question at a time. If the process becomes confusing again, reduce the target rather than expanding the project.",
+    "automation": {
+      "caseId": "auto-palworld-2026-09-04-0620439ac5",
+      "draftId": "DRAFT-01",
+      "signalId": "sig_bbafc730c56bf85de0",
+      "qa": "passed",
+      "generatedAt": "2026-09-04T13:33:28+00:00"
+    }
+  },
+  {
     "slug": "palworld-v1-0-3-progression-reprioritization",
     "game": "Palworld",
     "title": "Palworld v1.0.3 Progression Re-Prioritization Checklist",
@@ -1037,6 +1278,135 @@
     }
   },
   {
+    "slug": "rainbow-six-siege-game-sense-training-loop",
+    "game": "Rainbow Six Siege",
+    "title": "Rainbow Six Siege game sense training loop",
+    "description": "Improve Rainbow Six Siege game sense with a repeatable routine for planning rounds, reacting to information, reviewing decisions, and choosing focused drills.",
+    "problem": "Turn vague awareness problems into one decision you can observe, review, and practice across several rounds.",
+    "shortAnswer": "Use a repeatable loop: choose one decision theme, state your opening plan, name the information that would change it, then review whether you noticed and acted on that cue. Practice the same theme across several rounds before selecting the next one. This builds a training routine around decisions instead of treating every lost fight as an aim problem.",
+    "publishedAt": "2026-09-04",
+    "reviewedAt": "2026-09-04",
+    "status": "Evidence-bounded Rainbow Six Siege guide; recheck after relevant patch changes",
+    "sections": [
+      {
+        "title": "Why game sense needs a training loop",
+        "purpose": "Define game sense as a set of reviewable decisions without claiming that one routine fits every player.",
+        "bullets": [
+          "Separate decision errors from mechanical execution errors.",
+          "Choose a recurring problem that can be observed across multiple rounds.",
+          "Measure whether the decision process changed rather than judging only the round result."
+        ]
+      },
+      {
+        "title": "Choose one decision theme",
+        "purpose": "Help the reader narrow practice to a manageable skill.",
+        "bullets": [
+          "Start with information use, timing, positioning, coordination, or fallback planning.",
+          "Describe the problem as a decision you control.",
+          "Keep the same theme for a short practice block before changing focus."
+        ]
+      },
+      {
+        "title": "Write a plan and a change cue",
+        "purpose": "Create a clear pre-round hypothesis that can be tested afterward.",
+        "bullets": [
+          "State the opening intention in one sentence.",
+          "Name the information that would confirm the plan.",
+          "Name the cue that would trigger a pause, reroute, retreat, or request for help."
+        ]
+      },
+      {
+        "title": "Run the in-round decision check",
+        "purpose": "Give the player a compact way to process new information without prescribing patch-sensitive mechanics.",
+        "bullets": [
+          "Ask what is known and what is still assumed.",
+          "Check whether the current action supports the stated plan.",
+          "When the change cue appears, make a deliberate choice instead of continuing by habit."
+        ]
+      },
+      {
+        "title": "Review the first useful learning moment",
+        "purpose": "Convert one round into a focused practice rule while remaining distinct from the detailed round-review guide.",
+        "bullets": [
+          "Reconstruct only the information available at the time.",
+          "Find the earliest relevant cue, interpretation, or response that broke down.",
+          "Write one conditional rule to test in the next practice block."
+        ]
+      },
+      {
+        "title": "Keep drills patch-aware",
+        "purpose": "Prevent evergreen decision advice from depending on modes or equipment affected by updates.",
+        "bullets": [
+          "Keep the core routine independent of a specific operator, weapon, attachment, or training mode.",
+          "Check current official notes before publishing a mode-specific drill.",
+          "Retest a drill when an update changes a dependency it uses."
+        ]
+      }
+    ],
+    "checklist": [
+      "Choose one decision theme for the practice block.",
+      "Write the opening plan in one sentence.",
+      "Name the cue that should change the plan.",
+      "During the round, separate confirmed information from assumptions.",
+      "Record the first relevant cue that was missed, misread, or acted on late.",
+      "Create one conditional rule for the next practice block.",
+      "Check current official notes before using a mode- or equipment-specific drill."
+    ],
+    "example": "Practice theme: reacting to lost route information. Opening plan: advance through the selected route while a teammate watches the exposed side. Change cue: that coverage disappears or becomes uncertain. In-round decision: pause and request updated information instead of continuing on the original assumption. Review: identify when the coverage became uncertain and whether the cue was noticed. Next-block rule: if route coverage is no longer confirmed, stop before entering the next exposed position and reassess. The lesson is the decision trigger, not whether the round was won.",
+    "mistakes": [
+      "Trying to train information use, timing, positioning, and coordination in the same practice block.",
+      "Writing an opening plan without defining what should change it.",
+      "Reviewing the decision with information that was unavailable at the time.",
+      "Changing the drill after one unusual round instead of looking for a recurring pattern."
+    ],
+    "faqs": [
+      {
+        "question": "What should I practice first if my aim already feels reliable?",
+        "answer": "Choose the earliest recurring decision problem you can describe clearly. Information use is a practical starting point when you often act on assumptions, while timing or positioning may be more useful when the needed information was noticed but the response was late or unsafe."
+      },
+      {
+        "question": "How do I know whether the problem was game sense or mechanics?",
+        "answer": "Ask whether the intended action was reasonable given the information available. If the choice itself was weak, train the cue and decision. If the choice was sound but the execution failed, keep the decision rule and practice the relevant mechanical task separately."
+      },
+      {
+        "question": "Do I need a recording to use this routine?",
+        "answer": "No. Immediately after the round, note the plan, the change cue, and the first decision you would test differently. A recording can help reconstruct the sequence, but the routine still works with concise notes."
+      },
+      {
+        "question": "Should I copy a specific operator or training-mode drill?",
+        "answer": "Only when it matches the decision theme and its current dependencies have been checked. The core planning-and-review loop should remain useful without relying on one operator, weapon, attachment, or mode."
+      }
+    ],
+    "related": [
+      "rainbow-six-siege-round-review-checklist",
+      "rainbow-six-siege-attack-role-composition",
+      "rainbow-six-siege-defense-site-setup",
+      "rainbow-six-siege-patch-operator-recheck"
+    ],
+    "sources": [
+      {
+        "label": "Rainbow Six Siege Steam news feed",
+        "url": "https://store.steampowered.com/feeds/news/app/359550",
+        "note": "Primary patch, product, or publisher evidence; stay within the captured text."
+      },
+      {
+        "label": "News | Tom Clancy&#x27;s Rainbow Six Siege | Ubisoft (US)",
+        "url": "https://www.ubisoft.com/en-us/game/rainbow-six/siege/news-updates?category=patch-notes",
+        "note": "Primary patch, product, or publisher evidence; stay within the captured text."
+      }
+    ],
+    "sourceNote": "E-01 supports the player-problem selection only and is not factual gameplay authority. E-02 and E-03 support the limited patch-sensitivity note. The training loop is presented as a conditional decision framework without precise mechanic or outcome claims. The page differs from the existing round-review checklist by teaching a progressive, multi-round practice routine; that existing page remains the deeper companion for reviewing an individual round.",
+    "patchNote": "Keep the guide mode-agnostic. E-02 records Y11S3 fixes involving AI training bots, Shooting Range tutorial objectives, weapon sight behavior, and grip availability, while E-03 confirms recent Y11S3 patch and Designer's Notes activity. Recheck official notes before adding drills that depend on those modes or equipment.",
+    "communityAnswer": "Try practicing one decision theme at a time instead of attempting to notice everything. Before a round, state your opening plan and name the cue that should make you change it. During the round, ask what you know, what remains uncertain, and whether your next move still serves the plan. Afterward, write down the first cue you missed, misunderstood, or reacted to too slowly. Turn that moment into a simple rule for the next few rounds, such as pausing for fresh information before changing position. Keep the same theme long enough to see a pattern, then move to timing, positioning, coordination, or another recurring weakness. If a recording is available, review the decision from your perspective at that moment rather than judging it with information learned later.",
+    "automation": {
+      "caseId": "auto-rainbow six siege-2026-09-04-e32b813f25",
+      "draftId": "draft_r6_game_sense_training_loop",
+      "signalId": "sig_8db26858c7296fc9aa",
+      "qa": "passed",
+      "generatedAt": "2026-09-04T13:27:36+00:00"
+    }
+  },
+  {
     "slug": "rust-limited-playtime-session-plan",
     "game": "Rust",
     "title": "How to Play Rust With Limited Time: A Session Planning Checklist",
@@ -1154,6 +1524,140 @@
       "signalId": "sig_d56f1f0a4dc862bf2d",
       "qa": "passed",
       "generatedAt": "2026-09-03T00:25:32+00:00"
+    }
+  },
+  {
+    "slug": "escape-from-tarkov-post-patch-assumption-triage",
+    "game": "Tarkov",
+    "title": "Escape from Tarkov post-patch assumption triage",
+    "description": "Use this post-patch Tarkov checklist to identify which loadout, progression, stash, route, and extraction assumptions need fresh verification.",
+    "problem": "A patch does not make every plan obsolete, but it does make undocumented assumptions worth checking before the next costly decision.",
+    "shortAnswer": "Start by confirming the active version and mode, then identify which parts of your plan depend on current access, requirements, balance, routes, or progression. Verify those dependencies against detailed authoritative patch information before changing the plan. When the evidence does not identify a specific effect, mark the assumption for review instead of declaring it outdated.",
+    "publishedAt": "2026-09-04",
+    "reviewedAt": "2026-09-04",
+    "status": "Evidence-bounded Tarkov guide; recheck after relevant patch changes",
+    "sections": [
+      {
+        "title": "What the patch signal establishes",
+        "purpose": "Set a strict evidence boundary before offering any gameplay advice.",
+        "bullets": [
+          "The captured official project-news listing establishes ongoing patch activity.",
+          "The listing does not establish a specific change to mechanics, access, economy, progression, routes, or extraction conditions.",
+          "Any affected assumption therefore needs verification rather than an automatic reversal."
+        ]
+      },
+      {
+        "title": "Define the decision before checking details",
+        "purpose": "Prevent an unfocused review of every possible game system.",
+        "bullets": [
+          "Name the immediate decision, such as preparing a loadout, choosing a progression goal, clearing stash space, planning a quest route, or selecting an extraction.",
+          "Record the active version and mode shown by the game or authoritative release information.",
+          "List only the current facts that the decision depends on."
+        ]
+      },
+      {
+        "title": "Sort assumptions by dependency",
+        "purpose": "Route the player to the relevant verification task without repeating existing category guides.",
+        "bullets": [
+          "For loadouts, recheck current equipment, ammunition, magazine, trader, and replacement assumptions relevant to the intended use.",
+          "For progression, recheck task dependencies, access conditions, and the sequence behind the selected goal.",
+          "For stash decisions, recheck the current use and replacement access behind each important keep-or-sell choice.",
+          "For routes and extractions, recheck current requirements, availability, and fallback assumptions for the selected map and mode."
+        ]
+      },
+      {
+        "title": "Classify each assumption",
+        "purpose": "Turn incomplete patch evidence into a practical decision state.",
+        "bullets": [
+          "Verified: detailed authoritative information supports using the assumption for the active version and mode.",
+          "Needs review: patch activity is established, but the available detail does not resolve this dependency.",
+          "Conflicted: current authoritative detail disagrees with the old assumption, so the plan needs revision."
+        ]
+      },
+      {
+        "title": "Choose the smallest safe revision",
+        "purpose": "Avoid unnecessary changes while protecting patch-sensitive decisions.",
+        "bullets": [
+          "Keep verified parts of the plan intact.",
+          "Replace or remove only dependencies contradicted by current authoritative detail.",
+          "Delay expensive or difficult-to-reverse commitments when a critical dependency remains unresolved.",
+          "Reassess the complete decision after changing a dependency because the surrounding plan may rely on it."
+        ]
+      },
+      {
+        "title": "Use the category guides for deeper checks",
+        "purpose": "Differentiate this central triage page from the existing focused guides and direct readers to the appropriate checklist.",
+        "bullets": [
+          "Use the ammunition and armor assumption guide for target, access, and affordability checks.",
+          "Use the budget weapon guide for complete-kit access and replacement planning.",
+          "Use the stash and progression guides for inventory uses, dependencies, and near-term priorities.",
+          "Use the quest-route and extraction guides for requirements, route branches, timing, and fallback planning."
+        ]
+      }
+    ],
+    "checklist": [
+      "Confirm the active version and game mode.",
+      "Name the immediate decision you need to make.",
+      "List the patch-sensitive assumptions supporting that decision.",
+      "Sort each assumption into loadout, progression, stash, quest route, or extraction.",
+      "Check relevant dependencies against detailed authoritative patch information.",
+      "Label each assumption verified, needs review, or conflicted.",
+      "Revise only the affected part of the plan.",
+      "Reassess before committing valuable equipment or a long attempt."
+    ],
+    "example": "Suppose a player wants to reuse a familiar quest plan after noticing new patch activity. The route depends on a current task requirement, usable equipment access, and a planned extraction. The captured project-news listing does not say that any of these changed, so the player should not discard the route or assume it remains valid. They record the active version and mode, verify each dependency using detailed authoritative information, retain the supported parts, and revise only any conflicted requirement or route condition. If the extraction condition remains unresolved, they choose a plan with a verified fallback before starting the attempt.",
+    "mistakes": [
+      "Treating the existence of a patch as proof that a specific mechanic changed.",
+      "Assuming an old plan remains current without identifying its dependencies.",
+      "Reviewing unrelated systems instead of the decision at hand.",
+      "Using a general announcement as evidence for an uncaptured gameplay detail.",
+      "Changing an entire plan when only one dependency conflicts with current information.",
+      "Committing valuable equipment while a critical access or requirement assumption remains unresolved."
+    ],
+    "faqs": [
+      {
+        "question": "Does a new patch mean my previous plan is unusable?",
+        "answer": "The supplied evidence does not support that conclusion. Break the plan into dependencies and verify the patch-sensitive ones before deciding what to retain or revise."
+      },
+      {
+        "question": "What should I check first after patch activity appears?",
+        "answer": "Check the active version and mode, then identify the immediate decision and its critical dependencies. This keeps the review bounded and useful."
+      },
+      {
+        "question": "Can the official project-news listing confirm what changed?",
+        "answer": "In the captured source set, it confirms patch activity but does not provide enough detail to establish a specific gameplay, economy, progression, route, extraction, or availability change."
+      },
+      {
+        "question": "What if I cannot verify a critical assumption?",
+        "answer": "Mark it as needing review and avoid building the plan around it. Use a verified alternative or postpone the difficult-to-reverse commitment until authoritative detail resolves it."
+      },
+      {
+        "question": "How is this different from the existing Tarkov checklists?",
+        "answer": "This page is a central triage layer. It identifies which decision category needs attention and then points the reader toward the focused loadout, progression, stash, quest-route, or extraction checklist."
+      }
+    ],
+    "related": [
+      "escape-from-tarkov-ammo-armor-assumption-check",
+      "escape-from-tarkov-budget-weapon-choice",
+      "escape-from-tarkov-stash-keep-sell-triage",
+      "escape-from-tarkov-wipe-progression-priorities"
+    ],
+    "sources": [
+      {
+        "label": "Project news - Escape from Tarkov Forum",
+        "url": "https://forum.escapefromtarkov.com/forum/4-project-news/",
+        "note": "Primary patch, product, or publisher evidence; stay within the captured text."
+      }
+    ],
+    "sourceNote": "Factual scope is limited to the captured Battlestate Games-controlled project-news listing in E-01. Existing RaidBench excerpts were used only to prevent duplication: this draft acts as a central post-patch triage layer, while the published pages remain the focused category checklists.",
+    "patchNote": "E-01 establishes official patch activity but contains no detailed effects. The guide therefore uses a verification and routing framework and makes no claim that a particular mechanic, item, trader, task, route, extraction, or economy condition changed.",
+    "communityAnswer": "After a patch, do not rebuild every plan from scratch. Confirm the active version and mode, then write down the assumptions behind the decision you are about to make. Sort them into equipment and ammunition access, trader or progression access, stash uses, quest requirements and routes, or extraction conditions. Check only the relevant dependencies against detailed authoritative patch information. If the available announcement does not describe a specific change, treat that point as unverified rather than changed. Keep the existing plan when its important assumptions still check out; otherwise revise the smallest affected part and reassess before committing valuable equipment or a long task attempt.",
+    "automation": {
+      "caseId": "auto-tarkov-2026-09-04-1cef06268d",
+      "draftId": "draft_tarkov_post_patch_assumption_triage",
+      "signalId": "sig_96d22f10d314c1ed94",
+      "qa": "passed",
+      "generatedAt": "2026-09-04T10:49:15+00:00"
     }
   }
 ]

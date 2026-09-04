@@ -1,11 +1,10 @@
 [Unit]
-Description=Prepare up to three new RaidBench Reddit reply drafts before the daily digest
+Description=Use up to ten varied search slots to prepare six Reddit reply drafts
 
 [Timer]
-OnCalendar=*-*-* 00,05,10:25:00 UTC
-RandomizedDelaySec=5min
+OnCalendar=*-*-* 00,01,02,03,04,05,06,07,08,09:50:00 UTC
 Persistent=true
-AccuracySec=1min
+AccuracySec=30s
 Unit=raidbench-community-scout.service
 
 [Install]

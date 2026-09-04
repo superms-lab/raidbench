@@ -11,19 +11,20 @@ Timezone: Asia/Shanghai
 | At least 14 pages per week for each of the other eleven games | The same hourly source cadence, deficit prioritization, and publication workflow applies to POE2 and all expanded games | Demand is context only; facts still require official or publisher evidence | Active |
 | 3 calculator presets, comparisons, or downloads | Twelve reviewed Rust route presets are released in groups of three each Monday | Presets contain route inputs, not invented raid counts; live calculator applies the reviewed dataset | Active; first three are public |
 | 3 patch-sensitive refreshes | Monday, Wednesday, and Friday rotate through the patch registry | A source change marks the page for revision; the system never changes a review date merely to look fresh | Active; first baseline completed |
-| 3 link-free professional Reddit replies per day | Searches run around 08:25, 13:25, and 18:25 China time; the 20:00 Feishu digest can contain up to three distinct drafts | No Reddit API, bulk crawl, links, brand promotion, or automatic public posting | Active; owner still performs public posting |
+| 6 link-free professional Reddit replies per day | Up to ten hourly search slots run from 08:50 through 17:50 China time; failed searches do not count toward the six-draft target, and a game is not repeated that day | No Reddit API, bulk crawl, links, brand promotion, or automatic public posting | Active; owner still performs public posting |
+| Daily first-party traffic brief | The 20:00 Feishu task refreshes Cloudflare D1 and reports today, yesterday, 7-day, 30-day, top-page, and conversion totals | Aggregate metrics only; the operational brief is Feishu-only | Active |
 | One disclosed UTM link on the Reddit profile | Prepared profile post points to the free planner/paid offer with `reddit_profile` UTM attribution | Standalone promotional posts require owner review | Prepared, not verified as published or pinned |
 | 6 Rust partner contacts per week | Tuesday Agent finds only official public partnership/business contacts; strict validation, one contact per domain, no automatic follow-up | Gambling, skin trading, cheats, RMT, private contacts, and unverified addresses are rejected | Six contacts completed in the current rolling seven-day window |
 
 ## Timers
 
-- `raidbench-community-scout.timer`: three windows per day.
-- `raidbench-poe2-demand.timer`: once per day.
+- `raidbench-community-scout.timer`: up to ten multi-game search windows, stopping after six successful drafts.
+- `raidbench-multigame-demand.timer`: shared demand rotation for all twelve games.
 - `raidbench-content-agent.timer`: six offset selection and fail-closed publication attempts per hour.
 - `raidbench-growth-assets.timer`: Monday release of three route assets.
 - `raidbench-patch-refresh.timer`: Monday, Wednesday, and Friday source revalidation.
 - `raidbench-partner-outreach.timer`: Tuesday bounded partner outreach.
-- `raidbench-acquisition-digest.timer`: 20:00 China-time Feishu digest.
+- `raidbench-acquisition-digest.timer`: 20:00 China-time Feishu drafts and traffic digest.
 
 ## Current Published Asset
 
