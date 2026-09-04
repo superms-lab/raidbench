@@ -36,7 +36,7 @@ class RaidBenchRedditCommunityScoutTests(unittest.TestCase):
       "target_reddit_url": f"https://www.reddit.com/r/{community}/comments/abc123/what_base/",
       "published_at": (now - timedelta(hours=10)).isoformat(),
       "intent_zh": "玩家希望为在线时间不一致的三人小队选择可维护的基地结构。",
-      "draft_text": "Start with the base your most active player can maintain alone, then add team features only when the group is actually online. A compact two-by-one or two-by-two with an airlock, protected tool cupboard, and separated loot gives you a reliable reset point. Add a second exit and modest honeycomb before spending upkeep on a large shooting floor. Put kits and basic resources where the regular player can reach them without opening every door. When all three players are active, expand storage and flank options rather than replacing the entire core. The useful test is simple: if one person can farm a day of upkeep and recover after a loss, the base fits the group. If keeping it alive requires all three players every session, the design is already too large for the way you actually play.",
+      "draft_text": "Build the smallest base your most active player can maintain alone. A compact two-by-one or two-by-two with an airlock, protected tool cupboard, split loot, and a second exit is enough for a casual trio. Add honeycomb or a shooting floor only when all three players are consistently online. The test is simple: if one person can cover upkeep and recover after a loss, the base fits. If it requires the whole trio every session, it is already too large.",
       "verification_note": "Search evidence showed an exact r/playrust thread and a current publication timestamp.",
     }
 
@@ -79,6 +79,13 @@ class RaidBenchRedditCommunityScoutTests(unittest.TestCase):
       scout.validate_candidate(value, now=now, seen_thread_ids=set(), profile=self.rust_profile),
     )
     value["draft_text"] += " Visit my website for more help."
+    with self.assertRaises(scout.DiscoveryError):
+      scout.validate_candidate(value, now=now, seen_thread_ids=set(), profile=self.rust_profile)
+
+  def test_rejects_a_reply_that_reads_like_a_long_guide(self) -> None:
+    now = datetime(2026, 8, 24, 12, tzinfo=timezone.utc)
+    value = self.candidate(now)
+    value["draft_text"] = " ".join(["advice"] * 111)
     with self.assertRaises(scout.DiscoveryError):
       scout.validate_candidate(value, now=now, seen_thread_ids=set(), profile=self.rust_profile)
 

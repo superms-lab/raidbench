@@ -243,7 +243,7 @@ Use live web search to find exactly one genuinely recent public thread in one of
 
 Do not use the Reddit Data API, do not scrape in bulk, do not log in, and do not post anything. Use a focused `site:reddit.com/r/<community>/comments` query with terms such as {query_terms}. Use no more than four focused web-search/open operations. Exclude these previously seen Reddit thread IDs: {exclusions}.
 
-For the selected question, write an original English reply of 90-190 words. Answer the user's actual problem on Reddit. Keep patch-sensitive claims conditional, avoid unverified exact resource counts, and do not include a link, brand name, sales language, invitation to message, or promise of results. Write `intent_zh` as a concise professional Chinese summary for the owner. Put a short factual audit note in `verification_note`; it is private and will not be posted.
+For the selected question, write an original English reply of 45-90 words. Sound like a helpful experienced player, not a guide article. Lead with the answer, keep one central recommendation, and include only the steps needed to act on it. Do not pad the reply with every related tip. Keep patch-sensitive claims conditional, avoid unverified exact resource counts, and do not include a link, brand name, sales language, invitation to message, or promise of results. Write `intent_zh` as a concise professional Chinese summary for the owner. Put a short factual audit note in `verification_note`; it is private and will not be posted.
 
 If any freshness, URL, title, or relevance requirement cannot be verified, return status `none` and empty strings for every other field. Otherwise return status `candidate`, the canonical exact Reddit URL, the exact title, and an ISO 8601 publication date. Return only data matching the supplied JSON schema."""
 
@@ -329,8 +329,8 @@ def validate_candidate(
   if len(intent_zh) < 12 or not CJK_PATTERN.search(intent_zh):
     raise DiscoveryError("Candidate requires a useful Chinese owner summary")
   word_count = len(draft_text.split())
-  if not 70 <= word_count <= 220:
-    raise DiscoveryError(f"Candidate reply must contain 70-220 words, got {word_count}")
+  if not 35 <= word_count <= 110:
+    raise DiscoveryError(f"Candidate reply must contain 35-110 words, got {word_count}")
   if CJK_PATTERN.search(draft_text):
     raise DiscoveryError("Candidate Reddit reply must be English")
   if LINK_PATTERN.search(draft_text) or PROMOTION_PATTERN.search(draft_text):
