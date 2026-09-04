@@ -133,10 +133,12 @@ class RaidBenchAutomaticContentTests(unittest.TestCase):
     self.assertEqual([row["signal_id"] for row in build_retry], ["signal"])
     self.assertEqual(waiting, [])
 
-  def test_recovers_stale_agent_item_without_consuming_daily_limit(self) -> None:
+  def test_recovers_stale_agent_item_without_counting_it_as_published(self) -> None:
     with tempfile.TemporaryDirectory(dir=ROOT) as temporary:
       database_path = Path(temporary) / "test.db"
-      database_path.touch()
+      seed_connection = automation.sqlite3.connect(database_path)
+      seed_connection.executescript((ROOT / "local" / "raidbench-local-schema.sql").read_text(encoding="utf-8"))
+      seed_connection.close()
       connection = automation.open_database(database_path)
       stale_at = (datetime.now(timezone.utc) - timedelta(hours=1)).isoformat()
       connection.execute(
@@ -148,27 +150,22 @@ class RaidBenchAutomaticContentTests(unittest.TestCase):
         (stale_at, stale_at),
       )
       connection.commit()
-      previous_limit = os.environ.get("RAIDBENCH_MAX_NEW_GUIDES_PER_DAY")
-      os.environ["RAIDBENCH_MAX_NEW_GUIDES_PER_DAY"] = "1"
       try:
         recovered = automation.recover_interrupted_items(connection)
         row = connection.execute(
           "SELECT status, last_error, updated_at FROM content_automation_items WHERE id = 'auto-stale'"
         ).fetchone()
-        limit_reached = automation.daily_limit_reached(connection)
+        progress = automation.publication_minimum_progress(connection)
       finally:
-        if previous_limit is None:
-          os.environ.pop("RAIDBENCH_MAX_NEW_GUIDES_PER_DAY", None)
-        else:
-          os.environ["RAIDBENCH_MAX_NEW_GUIDES_PER_DAY"] = previous_limit
         connection.close()
     self.assertEqual(recovered, 1)
     self.assertEqual(row["status"], "agent_failed")
     self.assertIn("Recovered", row["last_error"])
     self.assertEqual(row["updated_at"], stale_at)
-    self.assertFalse(limit_reached)
+    self.assertEqual(progress["daily"]["actual"], 0)
+    self.assertEqual(progress["daily"]["deficit"], progress["daily"]["minimum"])
 
-  def test_weekly_guide_limit_is_scoped_by_game(self) -> None:
+  def test_weekly_minimum_prioritizes_a_game_with_a_deficit_without_filtering_others(self) -> None:
     with tempfile.TemporaryDirectory(dir=ROOT) as temporary:
       database_path = Path(temporary) / "test.db"
       connection = automation.sqlite3.connect(database_path)
@@ -202,25 +199,39 @@ class RaidBenchAutomaticContentTests(unittest.TestCase):
         (now, now, now),
       )
       connection.commit()
-      previous_rust = os.environ.get("RAIDBENCH_RUST_WEEKLY_GUIDE_LIMIT")
-      previous_poe = os.environ.get("RAIDBENCH_POE2_WEEKLY_GUIDE_LIMIT")
-      os.environ["RAIDBENCH_RUST_WEEKLY_GUIDE_LIMIT"] = "1"
-      os.environ["RAIDBENCH_POE2_WEEKLY_GUIDE_LIMIT"] = "1"
+      previous_rust = os.environ.get("RAIDBENCH_RUST_WEEKLY_GUIDE_MINIMUM")
+      previous_poe = os.environ.get("RAIDBENCH_POE2_WEEKLY_GUIDE_MINIMUM")
+      os.environ["RAIDBENCH_RUST_WEEKLY_GUIDE_MINIMUM"] = "1"
+      os.environ["RAIDBENCH_POE2_WEEKLY_GUIDE_MINIMUM"] = "1"
       try:
-        self.assertTrue(automation.weekly_guide_limit_reached(connection, "Rust"))
-        self.assertFalse(automation.weekly_guide_limit_reached(connection, "POE2"))
+        rust_candidate = {
+          "game": "Rust", "pain_score": 5, "commercial_score": 5, "patch_sensitive": 1,
+          "evidence_json": "{}", "created_at": now,
+        }
+        poe_candidate = {
+          "game": "POE2", "pain_score": 4, "commercial_score": 4, "patch_sensitive": 1,
+          "evidence_json": "{}", "created_at": now,
+        }
+        prioritized = automation.prioritize_candidates_by_minimum(
+          connection,
+          [rust_candidate, poe_candidate],
+        )
+        progress = automation.publication_minimum_progress(connection)
+        self.assertEqual([row["game"] for row in prioritized], ["POE2", "Rust"])
+        self.assertEqual(progress["weekly"]["rust"]["deficit"], 0)
+        self.assertEqual(progress["weekly"]["poe2"]["deficit"], 1)
       finally:
         if previous_rust is None:
-          os.environ.pop("RAIDBENCH_RUST_WEEKLY_GUIDE_LIMIT", None)
+          os.environ.pop("RAIDBENCH_RUST_WEEKLY_GUIDE_MINIMUM", None)
         else:
-          os.environ["RAIDBENCH_RUST_WEEKLY_GUIDE_LIMIT"] = previous_rust
+          os.environ["RAIDBENCH_RUST_WEEKLY_GUIDE_MINIMUM"] = previous_rust
         if previous_poe is None:
-          os.environ.pop("RAIDBENCH_POE2_WEEKLY_GUIDE_LIMIT", None)
+          os.environ.pop("RAIDBENCH_POE2_WEEKLY_GUIDE_MINIMUM", None)
         else:
-          os.environ["RAIDBENCH_POE2_WEEKLY_GUIDE_LIMIT"] = previous_poe
+          os.environ["RAIDBENCH_POE2_WEEKLY_GUIDE_MINIMUM"] = previous_poe
         connection.close()
 
-  def test_daily_limit_counts_a_today_publish_created_yesterday(self) -> None:
+  def test_daily_minimum_progress_counts_a_today_publish_created_yesterday(self) -> None:
     with tempfile.TemporaryDirectory(dir=ROOT) as temporary:
       database_path = Path(temporary) / "test.db"
       connection = automation.sqlite3.connect(database_path)
@@ -232,18 +243,19 @@ class RaidBenchAutomaticContentTests(unittest.TestCase):
         ) values ('item','signal','community-web-search','published',datetime('now','-1 day'),datetime('now'),datetime('now'))"""
       )
       connection.commit()
-      previous = os.environ.get("RAIDBENCH_MAX_NEW_GUIDES_PER_DAY")
-      os.environ["RAIDBENCH_MAX_NEW_GUIDES_PER_DAY"] = "1"
+      previous = os.environ.get("RAIDBENCH_MIN_NEW_GUIDES_PER_DAY")
+      os.environ["RAIDBENCH_MIN_NEW_GUIDES_PER_DAY"] = "2"
       try:
-        self.assertTrue(automation.daily_limit_reached(connection))
+        progress = automation.publication_minimum_progress(connection)
+        self.assertEqual(progress["daily"], {"actual": 1, "minimum": 2, "deficit": 1})
       finally:
         if previous is None:
-          os.environ.pop("RAIDBENCH_MAX_NEW_GUIDES_PER_DAY", None)
+          os.environ.pop("RAIDBENCH_MIN_NEW_GUIDES_PER_DAY", None)
         else:
-          os.environ["RAIDBENCH_MAX_NEW_GUIDES_PER_DAY"] = previous
+          os.environ["RAIDBENCH_MIN_NEW_GUIDES_PER_DAY"] = previous
         connection.close()
 
-  def test_hourly_limit_counts_the_cycle_start_hour(self) -> None:
+  def test_hourly_minimum_progress_uses_the_publish_hour(self) -> None:
     with tempfile.TemporaryDirectory(dir=ROOT) as temporary:
       database_path = Path(temporary) / "test.db"
       connection = automation.sqlite3.connect(database_path)
@@ -257,21 +269,23 @@ class RaidBenchAutomaticContentTests(unittest.TestCase):
         (now.isoformat(), now.isoformat(), now.isoformat()),
       )
       connection.commit()
-      previous = os.environ.get("RAIDBENCH_MAX_NEW_GUIDES_PER_HOUR")
-      os.environ["RAIDBENCH_MAX_NEW_GUIDES_PER_HOUR"] = "1"
+      previous = os.environ.get("RAIDBENCH_MIN_NEW_GUIDES_PER_HOUR")
+      os.environ["RAIDBENCH_MIN_NEW_GUIDES_PER_HOUR"] = "2"
       try:
-        self.assertTrue(automation.hourly_limit_reached(connection))
+        progress = automation.publication_minimum_progress(connection)
+        self.assertEqual(progress["hourly"], {"actual": 1, "minimum": 2, "deficit": 1})
         connection.execute(
-          "update content_automation_items set created_at=?",
+          "update content_automation_items set published_at=?",
           ((now - timedelta(hours=1)).isoformat(),),
         )
         connection.commit()
-        self.assertFalse(automation.hourly_limit_reached(connection))
+        progress = automation.publication_minimum_progress(connection)
+        self.assertEqual(progress["hourly"], {"actual": 0, "minimum": 2, "deficit": 2})
       finally:
         if previous is None:
-          os.environ.pop("RAIDBENCH_MAX_NEW_GUIDES_PER_HOUR", None)
+          os.environ.pop("RAIDBENCH_MIN_NEW_GUIDES_PER_HOUR", None)
         else:
-          os.environ["RAIDBENCH_MAX_NEW_GUIDES_PER_HOUR"] = previous
+          os.environ["RAIDBENCH_MIN_NEW_GUIDES_PER_HOUR"] = previous
         connection.close()
 
   def test_inventory_includes_relevant_public_copy_for_overlap_review(self) -> None:

@@ -1,10 +1,11 @@
 {
   "effectiveFrom": "2026-09-04",
   "timezone": "Asia/Shanghai",
-  "qualityPolicy": "Targets are ceilings. Missing evidence or failed QA produces no public output.",
+  "qualityPolicy": "Targets are minimums used to measure deficits and prioritize work. They never cap publication. Missing evidence or failed QA still produces no public output.",
   "publicGuides": {
-    "dailyMaximum": 24,
-    "weekly": {
+    "hourlyMinimum": 1,
+    "dailyMinimum": 24,
+    "weeklyMinimum": {
       "Rust": 14,
       "POE2": 14,
       "Palworld": 14,
@@ -17,8 +18,7 @@
       "Dota 2": 14,
       "PUBG: BATTLEGROUNDS": 14,
       "Tom Clancy's Rainbow Six Siege": 14
-    },
-    "hourlyMaximum": 1
+    }
   },
   "weeklyAssets": {
     "calculatorPresetsComparisonsOrDownloads": 3,

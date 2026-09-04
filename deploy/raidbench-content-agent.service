@@ -3,8 +3,8 @@ Description=RaidBench fail-closed Codex content and GEO/SEO publisher
 Wants=network-online.target
 After=network-online.target docker.service raidbench-source-scout.service
 Requires=docker.service
-StartLimitIntervalSec=2h
-StartLimitBurst=8
+StartLimitIntervalSec=10min
+StartLimitBurst=6
 
 [Service]
 Type=oneshot

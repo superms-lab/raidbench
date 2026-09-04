@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Export private RaidBench growth quota progress for the owner dashboard."""
+"""Export private RaidBench growth minimum progress for the owner dashboard."""
 
 from __future__ import annotations
 
@@ -45,7 +45,7 @@ def in_window(value: str, start: datetime, end: datetime) -> bool:
 
 
 def parse_args() -> argparse.Namespace:
-  parser = argparse.ArgumentParser(description="Export RaidBench growth quota progress.")
+  parser = argparse.ArgumentParser(description="Export RaidBench growth minimum progress.")
   parser.add_argument("--database", type=Path, required=True)
   parser.add_argument("--quota", type=Path, required=True)
   parser.add_argument("--draft-dir", type=Path, required=True)
@@ -59,8 +59,32 @@ def main() -> int:
   args = parse_args()
   now = datetime.now(LOCAL_TIMEZONE)
   start, end = current_week_bounds(now)
+  day_start = now.replace(hour=0, minute=0, second=0, microsecond=0)
+  hour_start = now.replace(minute=0, second=0, microsecond=0)
   quotas = read_json(args.quota, {})
-  weekly_guides = quotas.get("publicGuides", {}).get("weekly", {})
+  public_guide_targets = quotas.get("publicGuides", {})
+  weekly_guides = public_guide_targets.get("weeklyMinimum", {})
+  registry = read_json(Path(__file__).resolve().parents[1] / "content" / "game-registry.json", {})
+  games = registry.get("games", []) if isinstance(registry, dict) else []
+  aliases: dict[str, str] = {}
+  game_pages: dict[str, dict[str, Any]] = {}
+  for game in games:
+    if not isinstance(game, dict):
+      continue
+    game_id = str(game.get("id") or "")
+    name = str(game.get("name") or "")
+    short_name = str(game.get("shortName") or name)
+    if not game_id or not short_name:
+      continue
+    aliases[name] = game_id
+    aliases[short_name] = game_id
+    target = int(weekly_guides.get(name, weekly_guides.get(short_name, 0)))
+    game_pages[game_id] = {
+      "label": short_name,
+      "actual": 0,
+      "target": target,
+      "deficit": target,
+    }
 
   connection = sqlite3.connect(args.database)
   rows = connection.execute(
@@ -72,10 +96,20 @@ def main() -> int:
     """
   ).fetchall()
   connection.close()
-  published = {"Rust": 0, "POE2": 0}
+  hourly_published = 0
+  daily_published = 0
   for game, published_at in rows:
-    if game in published and in_window(str(published_at), start, end):
-      published[game] += 1
+    published_value = str(published_at)
+    if in_window(published_value, hour_start, hour_start + timedelta(hours=1)):
+      hourly_published += 1
+    if in_window(published_value, day_start, day_start + timedelta(days=1)):
+      daily_published += 1
+    game_id = aliases.get(str(game))
+    if game_id and in_window(published_value, start, end):
+      game_pages[game_id]["actual"] += 1
+
+  for progress in game_pages.values():
+    progress["deficit"] = max(0, int(progress["target"]) - int(progress["actual"]))
 
   replies_today = 0
   profile_status = "missing"
@@ -116,13 +150,14 @@ def main() -> int:
     "week": current_week,
     "weekStart": start.date().isoformat(),
     "metrics": {
-      "rustPages": {"actual": published["Rust"], "target": int(weekly_guides.get("Rust", 9))},
-      "poe2Pages": {"actual": published["POE2"], "target": int(weekly_guides.get("POE2", 3))},
+      "hourlyPages": {"actual": hourly_published, "target": int(public_guide_targets.get("hourlyMinimum", 1))},
+      "dailyPages": {"actual": daily_published, "target": int(public_guide_targets.get("dailyMinimum", 24))},
       "weeklyAssets": {"actual": assets_this_week, "target": int(quotas.get("weeklyAssets", {}).get("calculatorPresetsComparisonsOrDownloads", 3))},
       "patchRefreshes": {"actual": patch_checks, "target": int(quotas.get("weeklyAssets", {}).get("patchSensitiveRefreshes", 3))},
       "partnerContacts": {"actual": partner_contacts, "target": int(quotas.get("partnerships", {}).get("contactsPerWeek", 6))},
       "repliesToday": {"actual": replies_today, "target": int(quotas.get("community", {}).get("linkFreeRepliesPerDay", 3))},
     },
+    "gamePages": game_pages,
     "profilePostStatus": profile_status,
   }
   print(json.dumps(result, ensure_ascii=False))

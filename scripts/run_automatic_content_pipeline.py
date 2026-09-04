@@ -21,6 +21,7 @@ from datetime import datetime, timedelta, timezone
 from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any
+from zoneinfo import ZoneInfo
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -30,6 +31,7 @@ AGENT_GUIDES_PATH = ROOT / "content" / "agent-guides.json"
 GAME_REGISTRY_PATH = ROOT / "content" / "game-registry.json"
 GAME_REGISTRY = json.loads(GAME_REGISTRY_PATH.read_text(encoding="utf-8"))["games"]
 GROWTH_QUOTAS = json.loads((ROOT / "config" / "growth-quotas.json").read_text(encoding="utf-8"))
+TARGET_TIMEZONE = ZoneInfo(str(GROWTH_QUOTAS.get("timezone", "UTC")))
 GAME_BY_NAME = {
   alias: game
   for game in GAME_REGISTRY
@@ -289,69 +291,124 @@ def candidate_rows(connection: sqlite3.Connection, reddit_permission: bool) -> l
   return eligible
 
 
-def daily_limit_reached(connection: sqlite3.Connection) -> bool:
-  default = int(GROWTH_QUOTAS.get("publicGuides", {}).get("dailyMaximum", 24))
-  configured = int(os.environ.get("RAIDBENCH_MAX_NEW_GUIDES_PER_DAY", str(default)))
-  used = connection.execute(
+def quota_period_start(period: str) -> str:
+  now = datetime.now(timezone.utc).astimezone(TARGET_TIMEZONE)
+  if period == "hour":
+    start = now.replace(minute=0, second=0, microsecond=0)
+  elif period == "day":
+    start = now.replace(hour=0, minute=0, second=0, microsecond=0)
+  elif period == "week":
+    start = (now - timedelta(days=now.weekday())).replace(hour=0, minute=0, second=0, microsecond=0)
+  else:
+    raise ValueError(f"Unsupported quota period: {period}")
+  return start.astimezone(timezone.utc).replace(microsecond=0).isoformat()
+
+
+def hourly_guide_minimum() -> int:
+  default = int(GROWTH_QUOTAS.get("publicGuides", {}).get("hourlyMinimum", 1))
+  return max(0, int(os.environ.get("RAIDBENCH_MIN_NEW_GUIDES_PER_HOUR", str(default))))
+
+
+def daily_guide_minimum() -> int:
+  default = int(GROWTH_QUOTAS.get("publicGuides", {}).get("dailyMinimum", 24))
+  return max(0, int(os.environ.get("RAIDBENCH_MIN_NEW_GUIDES_PER_DAY", str(default))))
+
+
+def published_since(connection: sqlite3.Connection, start: str) -> int:
+  value = connection.execute(
     """
     SELECT count(*)
     FROM content_automation_items
-    WHERE datetime(COALESCE(NULLIF(published_at, ''), created_at)) >= datetime('now', 'start of day')
-      AND status NOT IN ('agent_failed', 'qa_blocked', 'build_failed')
-    """
+    WHERE status = 'published'
+      AND published_at != ''
+      AND datetime(published_at) >= datetime(?)
+    """,
+    (start,),
   ).fetchone()[0]
-  return int(used) >= configured
+  return int(value)
 
 
-def hourly_limit_reached(connection: sqlite3.Connection) -> bool:
-  default = int(GROWTH_QUOTAS.get("publicGuides", {}).get("hourlyMaximum", 1))
-  configured = int(os.environ.get("RAIDBENCH_MAX_NEW_GUIDES_PER_HOUR", str(default)))
-  used = connection.execute(
-    """
-    SELECT count(*)
-    FROM content_automation_items
-    WHERE datetime(created_at) >= datetime(strftime('%Y-%m-%d %H:00:00', 'now'))
-      AND status NOT IN ('agent_failed', 'qa_blocked', 'build_failed')
-    """
-  ).fetchone()[0]
-  return int(used) >= configured
-
-
-def utc_week_start() -> str:
-  now = datetime.now(timezone.utc)
-  return (now - timedelta(days=now.weekday())).date().isoformat()
-
-
-def weekly_guide_limit(game: str) -> int:
+def weekly_guide_minimum(game: str) -> int:
   registry_game = GAME_BY_NAME.get(game)
   if registry_game is None:
     return 0
-  weekly_defaults = GROWTH_QUOTAS.get("publicGuides", {}).get("weekly", {})
+  weekly_defaults = GROWTH_QUOTAS.get("publicGuides", {}).get("weeklyMinimum", {})
   default = weekly_defaults.get(
     str(registry_game["name"]),
     weekly_defaults.get(str(registry_game["shortName"]), 0),
   )
   env_key = re.sub(r"[^A-Z0-9]+", "_", str(registry_game["id"]).upper()).strip("_")
-  env_name = f"RAIDBENCH_{env_key}_WEEKLY_GUIDE_LIMIT"
+  env_name = f"RAIDBENCH_{env_key}_WEEKLY_GUIDE_MINIMUM"
   return max(0, int(os.environ.get(env_name, str(default))))
 
 
-def weekly_guide_limit_reached(connection: sqlite3.Connection, game: str) -> bool:
-  limit = weekly_guide_limit(game)
-  if limit == 0:
-    return True
+def weekly_published_count(connection: sqlite3.Connection, game: str) -> int:
+  registry_game = GAME_BY_NAME.get(game)
+  aliases = [game]
+  if registry_game is not None:
+    aliases = list(dict.fromkeys((str(registry_game["name"]), str(registry_game["shortName"]))))
+  placeholders = ",".join("?" for _ in aliases)
   used = connection.execute(
-    """
+    f"""
     SELECT count(*)
     FROM content_automation_items item
     JOIN content_signals signal ON signal.id = item.signal_id
-    WHERE signal.game = ?
-      AND item.status IN ('published', 'qa_passed_staged')
-      AND COALESCE(NULLIF(item.published_at, ''), item.updated_at) >= ?
+    WHERE signal.game IN ({placeholders})
+      AND item.status = 'published'
+      AND item.published_at != ''
+      AND datetime(item.published_at) >= datetime(?)
     """,
-    (game, utc_week_start()),
+    (*aliases, quota_period_start("week")),
   ).fetchone()[0]
-  return int(used) >= limit
+  return int(used)
+
+
+def publication_minimum_progress(connection: sqlite3.Connection) -> dict[str, Any]:
+  hourly_minimum = hourly_guide_minimum()
+  daily_minimum = daily_guide_minimum()
+  hourly_actual = published_since(connection, quota_period_start("hour"))
+  daily_actual = published_since(connection, quota_period_start("day"))
+  weekly: dict[str, dict[str, Any]] = {}
+  for game in GAME_REGISTRY:
+    short_name = str(game["shortName"])
+    minimum = weekly_guide_minimum(short_name)
+    actual = weekly_published_count(connection, short_name)
+    weekly[str(game["id"])] = {
+      "game": short_name,
+      "actual": actual,
+      "minimum": minimum,
+      "deficit": max(0, minimum - actual),
+    }
+  return {
+    "hourly": {
+      "actual": hourly_actual,
+      "minimum": hourly_minimum,
+      "deficit": max(0, hourly_minimum - hourly_actual),
+    },
+    "daily": {
+      "actual": daily_actual,
+      "minimum": daily_minimum,
+      "deficit": max(0, daily_minimum - daily_actual),
+    },
+    "weekly": weekly,
+  }
+
+
+def prioritize_candidates_by_minimum(
+  connection: sqlite3.Connection,
+  candidates: list[sqlite3.Row],
+) -> list[sqlite3.Row]:
+  preferred_game = os.environ.get("RAIDBENCH_PREFERRED_GAME", "").strip()
+  preference_bonus = max(0, int(os.environ.get("RAIDBENCH_PREFERRED_GAME_SCORE_BONUS", "2")))
+  candidate_games = {str(candidate["game"]) for candidate in candidates}
+  weekly_counts = {game: weekly_published_count(connection, game) for game in candidate_games}
+
+  def priority(row: sqlite3.Row) -> tuple[Any, ...]:
+    game = str(row["game"])
+    deficit = max(0, weekly_guide_minimum(game) - weekly_counts[game])
+    return (int(deficit > 0), deficit, *candidate_rank(row, preferred_game, preference_bonus))
+
+  return sorted(candidates, key=priority, reverse=True)
 
 
 def recover_interrupted_items(connection: sqlite3.Connection) -> int:
@@ -1213,11 +1270,12 @@ def execute(args: argparse.Namespace) -> int:
       backfill_agent_post_drafts(connection, state_dir)
       notification_results = deliver_pending_draft_notifications(connection, state_dir)
       reddit_permission = env_true("RAIDBENCH_REDDIT_COMMERCIAL_PERMISSION_CONFIRMED")
-      candidates = [
-        candidate
-        for candidate in candidate_rows(connection, reddit_permission)
-        if not weekly_guide_limit_reached(connection, str(candidate["game"]))
-      ]
+      minimum_progress = publication_minimum_progress(connection)
+      print(json.dumps({"publication_minimum_progress": minimum_progress}, ensure_ascii=False))
+      candidates = prioritize_candidates_by_minimum(
+        connection,
+        candidate_rows(connection, reddit_permission),
+      )
       if not candidates:
         print("No eligible unprocessed content signal is available.")
         if notification_results:
@@ -1232,17 +1290,8 @@ def execute(args: argparse.Namespace) -> int:
           "source_type": candidate["source_type"],
           "score": int(candidate["pain_score"]) + int(candidate["commercial_score"]),
           "reddit_permission_confirmed": reddit_permission,
+          "minimums_are_non_blocking": True,
         }, indent=2))
-        return 0
-      if hourly_limit_reached(connection):
-        print("Hourly automatic guide limit reached; no Codex run started.")
-        if notification_results:
-          print(json.dumps({"draft_notifications": notification_results}, indent=2))
-        return 0
-      if daily_limit_reached(connection):
-        print("Daily automatic guide limit reached; no Codex run started.")
-        if notification_results:
-          print(json.dumps({"draft_notifications": notification_results}, indent=2))
         return 0
 
       case, case_path = build_case(connection, candidate, state_dir)

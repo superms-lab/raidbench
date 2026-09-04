@@ -1,8 +1,8 @@
 [Unit]
-Description=Run one RaidBench content QA and publication cycle every hour
+Description=Run RaidBench content QA and publication attempts six times per hour
 
 [Timer]
-OnCalendar=*-*-* *:55:30
+OnCalendar=*-*-* *:05,15,25,35,45,55:30
 Persistent=true
 AccuracySec=30s
 Unit=raidbench-content-agent.service

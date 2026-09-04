@@ -155,7 +155,7 @@ journalctl -u raidbench-multigame-demand.service -n 100 --no-pager
 
 The source scout checks 25 direct publisher-controlled sources across all twelve games every hour, matching the Rust factual-source cadence. Each source has a fixed UTC minute offset from `00` through `48`, spaced two minutes apart; the timer wakes every minute and processes at most two due or catch-up sources. Community demand remains a separate daily-per-game lane: the multi-game service rotates three games every six hours and attempts each game at most once per UTC day. It stores at most one exact recent community question per game in the private backlog, does not use the Reddit Data API, bulk-crawl community listings, or publish externally. The legacy standalone POE2 demand timer is disabled after this shared rotation is installed.
 
-The owned-site publisher runs at UTC minute `55:30`, after the final factual-source slot. It may publish at most one new guide per hour and 24 per day, with a 14-per-game weekly ceiling. These are ceilings, not filler targets: no qualifying new signal or any failed evidence, duplication, policy, build, or independent-QA check produces no public page for that hour.
+The owned-site publisher gets six attempts per hour at UTC minutes `05`, `15`, `25`, `35`, `45`, and `55`, offset from the even-minute source slots. One guide per hour, 24 per day, and 14 per game per week are minimum operating targets used to measure deficits and prioritize games. There is no guide-count ceiling. No qualifying new signal or any failed evidence, duplication, policy, build, or independent-QA check produces no public page for that attempt.
 
 ## Multi-Game Shadow Answer QA
 

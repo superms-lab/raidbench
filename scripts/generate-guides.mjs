@@ -269,7 +269,7 @@ ${relatedHtml(guide.related, calculatorHref)}
 fs.mkdirSync(pagesDir, { recursive: true });
 for (const guide of data) {
   if (hiddenPattern.test(guide.slug)) continue;
-  fs.writeFileSync(path.join(pagesDir, `${guide.slug}.html`), pageHtml(guide));
+  fs.writeFileSync(path.join(pagesDir, `${guide.slug}.html`), pageHtml(guide).replace(/[ \t]+$/gm, ""));
 }
 
 console.log(

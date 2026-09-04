@@ -113,7 +113,7 @@ node scripts/build-public-dist.mjs
 
 Guide blueprints that still use the generic decision table are generated as `noindex` drafts and are omitted from the public guide library until they pass editorial review.
 
-The production Source Scout wakes every minute but processes only the source slots due at that minute. Twenty-five factual sources are distributed across UTC minute offsets `00` through `48` at two-minute intervals. The content publisher runs at UTC minute `55:30` and may publish at most one new guide per hour after the complete evidence and independent-QA pipeline passes. No qualifying signal or a failed QA gate produces no publication for that hour.
+The production Source Scout wakes every minute but processes only the source slots due at that minute. Twenty-five factual sources are distributed across UTC minute offsets `00` through `48` at two-minute intervals. The content publisher gets six non-overlapping attempts each hour at UTC minutes `05`, `15`, `25`, `35`, `45`, and `55`. One guide can pass through each attempt. One guide per hour, 24 per day, and 14 per game per week are minimum operating targets, never publication ceilings. A qualifying signal must still pass the complete evidence and independent-QA pipeline; failed checks do not produce filler pages.
 
 The first paid deliverable draft lives in `operations/raid-prep-pack-v1.md`.
 

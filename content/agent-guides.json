@@ -1,5 +1,255 @@
 [
   {
+    "slug": "ark-survival-ascended-astraeos-heaven-abyss-readiness",
+    "game": "ARK",
+    "title": "ARK Survival Ascended Astraeos Heaven & Abyss readiness checklist",
+    "description": "Prepare for Astraeos Heaven & Abyss with a patch-aware checklist for regions, ships, creatures, minibosses, Kraken encounters, and recovery risk.",
+    "problem": "Turn the Astraeos update into one controlled objective instead of risking a full roster and equipment budget on an unverified plan.",
+    "shortAnswer": "Choose one Heaven & Abyss objective first: explore Helianthos, scout Abyssanthos, evaluate a ship, locate a new creature, approach a miniboss, or prepare for the two Kraken Ascension encounters. Confirm that your map, content ownership, server settings, and active mods match the plan. Then set a transport method, recovery budget, acceptable-loss limit, and turn-back condition before committing important equipment or creatures. The publisher announcement confirms the additions but does not establish exact routes, encounter requirements, statistics, or tactics, so verify those details in the live build.",
+    "publishedAt": "2026-09-04",
+    "reviewedAt": "2026-09-04",
+    "status": "Evidence-bounded ARK guide; recheck after relevant patch changes",
+    "sections": [
+      {
+        "title": "Start with the confirmed update scope",
+        "purpose": "Explain what the publisher announcement supports without extending it into unverified strategy.",
+        "bullets": [
+          "Separate Helianthos, Abyssanthos, ship, creature, miniboss, and Kraken objectives.",
+          "Note that the announcement describes underwater air pockets suitable for base building in Abyssanthos without assuming their safety or accessibility.",
+          "Distinguish the Astraeos-linked Trireme from the Tides of Fortune-linked Galleon before planning around either vessel."
+        ]
+      },
+      {
+        "title": "Choose one objective for the first trip",
+        "purpose": "Prevent a broad update tour from consuming resources without a clear decision target.",
+        "bullets": [
+          "Name the destination, creature, vessel, or encounter being evaluated.",
+          "Define what information or result would make the trip worthwhile.",
+          "Defer unrelated goals until the first objective has been checked against the live build."
+        ]
+      },
+      {
+        "title": "Verify the live environment",
+        "purpose": "Catch ownership, server, and configuration differences before resources are committed.",
+        "bullets": [
+          "Confirm the current map version and access to any content required by the objective.",
+          "Record server settings and active mods that could change travel, creatures, equipment, or encounter preparation.",
+          "Recheck update-specific details in the live build because the announcement does not document every requirement or mechanic."
+        ]
+      },
+      {
+        "title": "Build a reversible entry and recovery plan",
+        "purpose": "Limit exposure while the new objective remains unverified.",
+        "bullets": [
+          "Choose transport for entry and return, including what happens if the primary method is unavailable.",
+          "Carry equipment whose loss fits the stated replacement budget.",
+          "Set a turn-back condition tied to supplies, transport, environmental uncertainty, or an unmet requirement."
+        ]
+      },
+      {
+        "title": "Prepare separately for minibosses and Kraken encounters",
+        "purpose": "Keep encounter planning specific without inventing tactics or thresholds.",
+        "bullets": [
+          "Treat the Colossus, Kroaratos, and the two Kraken Ascension encounters as distinct objectives.",
+          "Verify the current terminal and encounter requirements before assembling the final roster.",
+          "Budget player equipment, roster roles, supplies, recovery, and replacements as a complete plan."
+        ]
+      },
+      {
+        "title": "Review the first attempt before scaling",
+        "purpose": "Convert reconnaissance into a better-supported follow-up decision.",
+        "bullets": [
+          "Record which assumptions were confirmed or disproved.",
+          "Change one weak part of the plan at a time so its effect remains visible.",
+          "Scale equipment, creatures, or construction only after the route, access, and recovery plan are understood."
+        ]
+      }
+    ],
+    "checklist": [
+      "Choose one Helianthos, Abyssanthos, ship, creature, miniboss, or Kraken objective.",
+      "Confirm the current map version and required content ownership.",
+      "Record relevant server settings and active mods.",
+      "Verify destination or encounter access in the live build.",
+      "Prepare transport for both entry and return.",
+      "Set an acceptable-loss budget and replacement plan.",
+      "Define a turn-back condition before departure."
+    ],
+    "example": "A tribe wants to investigate Abyssanthos for a possible underwater base location and later approach the underwater Kraken encounter. It treats these as two projects. For the first trip, the tribe confirms access to the updated Astraeos map, records its server settings and mods, and prepares a replaceable scouting loadout with a return plan. Its objective is only to verify access, environmental constraints, and whether a candidate air pocket fits the tribe's needs. The tribe does not bring its encounter roster or begin permanent construction. After recording what the live build confirms, it creates a separate Kraken-readiness budget covering roster roles, player equipment, supplies, recovery, and replacements.",
+    "mistakes": [
+      "Combining exploration, creature acquisition, ship testing, and encounter preparation into one trip.",
+      "Assuming promotional feature descriptions provide exact routes or encounter tactics.",
+      "Committing important equipment or creatures before confirming access and return transport.",
+      "Applying preparation advice without checking server settings and active mods."
+    ],
+    "faqs": [
+      {
+        "question": "Should I visit Helianthos or Abyssanthos first?",
+        "answer": "There is no universally suitable order. Choose Helianthos if its island environment matches your immediate objective, or Abyssanthos if you specifically need to evaluate the announced deep-sea region and its underwater air pockets. Base the order on access, transport, replacement risk, and what you need to learn."
+      },
+      {
+        "question": "Do I need a Galleon or Trireme for this update?",
+        "answer": "Only plan around a ship when it serves the selected objective. The announcement links the Trireme to Astraeos ownership and the Galleon to Tides of Fortune ownership. It does not establish that either vessel is required for every region or encounter."
+      },
+      {
+        "question": "What should I bring to the Kraken encounters?",
+        "answer": "The evidence confirms two Kraken Ascension encounters but does not provide a complete requirement or tactics guide. Verify the current encounter requirements, then budget roster roles, player equipment, supplies, recovery, and replacements before committing the full team."
+      },
+      {
+        "question": "Can I use an older Astraeos preparation plan?",
+        "answer": "Use it as a draft only. Recheck its assumptions against the current map, ownership, server configuration, active mods, destination access, and encounter requirements before committing resources."
+      }
+    ],
+    "related": [
+      "ark-survival-ascended-boss-prep-budget",
+      "ark-survival-ascended-server-settings-check",
+      "ark-survival-ascended-saddle-blueprint-plan",
+      "ark-survival-ascended-taming-plan"
+    ],
+    "sources": [
+      {
+        "label": "Astraeos Heaven & Abyss Update is now live!",
+        "url": "https://store.steampowered.com/news/app/2399830/view/684137556498972991",
+        "note": "Primary patch, product, or publisher evidence; stay within the captured text."
+      },
+      {
+        "label": "ARK News - ARK - Official Community Forums",
+        "url": "https://survivetheark.com/index.php?/articles.html/",
+        "note": "Primary patch, product, or publisher evidence; stay within the captured text."
+      }
+    ],
+    "sourceNote": "E-01 is the substantive publisher announcement supporting the named regions, ships, creatures, minibosses, boss terminal, and two Kraken encounters. E-02 confirms the update's appearance in the official ARK news index but does not provide an independent detailed account. Existing RaidBench excerpts were used only to avoid overlap: this draft is update-specific, while the existing boss guide remains a general encounter-budget framework. No exact routes, requirements, statistics, costs, loot rates, or tactics were inferred.",
+    "patchNote": "Patch-sensitive new guide based on the Astraeos Heaven & Abyss announcement captured on 2026-09-03 and the official news listing captured on 2026-09-04. Review the boss-preparation guide for an update-specific cross-link while preserving its general framework. Monitor the saddle, server-settings, and taming guides; the supplied evidence does not prove that their existing advice is outdated.",
+    "communityAnswer": "Treat Heaven & Abyss as several separate decisions rather than one large preparation problem. Pick your immediate goal: Helianthos exploration, Abyssanthos scouting, ship use, a new creature, a miniboss, or the two Kraken Ascension encounters. The update confirms those activities exist, but that alone does not establish exact routes, requirements, or tactics. Before committing important equipment or creatures, confirm your content ownership, map version, server settings, and active mods. Prepare transport in both directions, decide what losses you can replace, and set a clear reason to turn back. For an encounter goal, budget the whole roster, player equipment, consumables, recovery supplies, and replacement capacity rather than judging readiness from one strong creature.",
+    "automation": {
+      "caseId": "auto-ark-2026-09-04-dc0e9ea802",
+      "draftId": "draft_ark_astraeos_heaven_abyss_readiness",
+      "signalId": "sig_e889183a8889fdaadd",
+      "qa": "passed",
+      "generatedAt": "2026-09-04T09:00:44+00:00"
+    }
+  },
+  {
+    "slug": "once-human-3-0-4-issue-status-check",
+    "game": "Once Human",
+    "title": "Once Human 3.0.4 Issue Status Check: Fixed, Unresolved, or Intended?",
+    "description": "Classify selected Once Human 3.0.4 symptoms as listed for correction, unresolved, console-specific, or intended before troubleshooting.",
+    "problem": "A symptom after an update does not automatically mean your installation or settings are at fault. Match it to the documented platform and status first.",
+    "shortAnswer": "Use the August 31 version 3.0.4 notice as a dated classification record, not a complete statement of current status. It listed hairstyle dyeing after switching appearance presets or outfits, incorrect update-pending indicators on some appearance presets, Arachsiam combat-region teleporting, and continued console movement after stick input for correction. It said abnormal character darkening on console was not fully resolved. It described the bicycle multiplayer-riding pose as intended behavior while acknowledging that its presentation could be misunderstood. Because the official update index also lists a newer September 3 bug-fix notice whose details are not present in this evidence set, verify the latest official notice before treating any classification here as current.",
+    "publishedAt": "2026-09-04",
+    "reviewedAt": "2026-09-04",
+    "status": "Evidence-bounded Once Human guide; recheck after relevant patch changes",
+    "sections": [
+      {
+        "title": "Classify the symptom before changing anything",
+        "purpose": "Separate documented issue status from assumptions about the player's device, settings, or installation.",
+        "bullets": [
+          "Record the platform, displayed game version, symptom, location, and the action that triggers it.",
+          "Match both the behavior and its qualifier; a console-only entry does not establish the same status on PC or mobile.",
+          "Treat the August 31 notice as a limited list rather than a complete catalog of version 3.0.4 issues."
+        ]
+      },
+      {
+        "title": "Issues listed for correction in the August 31 notice",
+        "purpose": "Summarize only the corrected categories contained in the supplied announcement while preserving their scope.",
+        "bullets": [
+          "Hairstyles with exclusive color palettes could fail to accept dye after switching between appearance presets and outfits.",
+          "Some appearance presets could incorrectly display an update-pending status.",
+          "Arachsiam could fail to teleport players correctly into the combat region.",
+          "On console, a character could continue moving after stick input.",
+          "The announcement said completion timing could vary, so the listing alone does not prove that every player had received the change at a particular moment."
+        ]
+      },
+      {
+        "title": "The console character-darkening issue remained unresolved",
+        "purpose": "Prevent players from mistaking an attempted correction for a completed one.",
+        "bullets": [
+          "The notice said the earlier attempted correction had not worked as intended and the abnormal darkening issue was not fully resolved.",
+          "Its scope in the supplied evidence is console only.",
+          "Recheck newer official notices before deciding whether the unresolved label still applies.",
+          "If it continues, capture the platform, version, appearance context, and reproduction sequence for an official report."
+        ]
+      },
+      {
+        "title": "The bicycle riding pose was described as intended behavior",
+        "purpose": "Distinguish an unusual presentation from an issue the publisher classified as a defect.",
+        "bullets": [
+          "The notice described the pose seen while riding a bicycle as part of its multiplayer-riding design.",
+          "It also acknowledged that the presentation could be mistaken for a defect and said the presentation would be improved.",
+          "Do not extend this classification to unrelated poses, vehicles, or animation symptoms."
+        ]
+      },
+      {
+        "title": "Verify current status and choose the next step",
+        "purpose": "Account for the newer notice visible in the official index without inventing its contents.",
+        "bullets": [
+          "The official update index lists a September 3 version 3.0.4 bug-fix entry, but its detailed changes are not included in the closed evidence.",
+          "Check the latest official notice and in-game version before relying on the August 31 classification.",
+          "Retest the exact trigger once under the same conditions after confirming the update is installed.",
+          "When observed behavior does not match the documented status, preserve the evidence and use the platform's official support route."
+        ]
+      }
+    ],
+    "checklist": [
+      "Confirm the platform and displayed game version.",
+      "Write down the exact symptom and its repeatable trigger.",
+      "Match the symptom to the August 31 classification and any platform qualifier.",
+      "Check the latest official version 3.0.4 notice for a newer status.",
+      "Retest once under the same conditions after confirming the update is installed.",
+      "Report unmatched or continuing behavior with platform, version, context, and reproduction steps."
+    ],
+    "example": "A console player sees their character become abnormally dark after version 3.0.4. The August 31 notice says an earlier correction did not fully resolve that console issue, so the player should not treat that notice as proof that the symptom has been corrected. They first confirm the installed version, then review the newer official bug-fix notice, reproduce the symptom once in the same appearance context, and record the result. If the newer notice does not cover it or the symptom continues, they submit the platform, version, context, and reproduction steps through official support.",
+    "mistakes": [
+      "Treating the August 31 list as a complete current record of every version 3.0.4 issue.",
+      "Dropping the console-only qualifier when discussing movement or character darkening.",
+      "Interpreting an attempted correction as proof that character darkening was resolved.",
+      "Applying the bicycle classification to unrelated animation symptoms."
+    ],
+    "faqs": [
+      {
+        "question": "Was the console character-darkening issue fixed by the August 31 notice?",
+        "answer": "No completed correction is established by that notice. It says an earlier attempt did not perform as expected and the issue was not fully resolved. Check newer official notices for its subsequent status."
+      },
+      {
+        "question": "Is the bicycle multiplayer-riding pose classified as a bug?",
+        "answer": "The August 31 notice describes it as intended multiplayer-riding behavior, while also recognizing that its presentation can be misunderstood. That classification does not cover other animation symptoms."
+      },
+      {
+        "question": "Can I assume every listed correction was active when the notice appeared?",
+        "answer": "No. The announcement says actual completion timing could vary. Confirm the installed version and retest the exact trigger before drawing a conclusion."
+      },
+      {
+        "question": "What if my symptom is absent from this guide?",
+        "answer": "Do not infer its status from a superficially similar entry. Check the latest official notice, record the platform, version, context, and reproduction steps, and submit the unmatched behavior through official support."
+      }
+    ],
+    "related": [
+      "once-human-update-migration-checklist",
+      "once-human-september-2-update-workflow-check"
+    ],
+    "sources": [
+      {
+        "label": "3.0.4 Bug Fixes (August 31)",
+        "url": "https://store.steampowered.com/news/app/2139460/view/702152588870549698",
+        "note": "Primary patch, product, or publisher evidence; stay within the captured text."
+      },
+      {
+        "label": "Once Human - Strange worlds survival game",
+        "url": "https://www.oncehuman.game/news/update/",
+        "note": "Primary patch, product, or publisher evidence; stay within the captured text."
+      }
+    ],
+    "sourceNote": "E-01 supports the August 31 issue classifications, platform qualifiers, unresolved darkening status, bicycle-design classification, and variable completion timing. E-02 supports only that the official update index lists a newer September 3 version 3.0.4 bug-fix entry; its missing details are not inferred. Existing guide excerpts were used solely to avoid duplicate scope and conflicting positioning.",
+    "patchNote": "Patch-sensitive dated guide. Review immediately when detailed September 3 bug-fix evidence or a later version 3.0.4 notice enters the approved source set. This draft narrows the existing migration guide's broad update workflow into symptom classification and does not replace the September 2 workflow page's download, storage-search, or RaidZone crafting coverage.",
+    "communityAnswer": "Start by matching the symptom, platform, and update date. In the August 31 version 3.0.4 notice, hairstyle dyeing after switching presets or outfits, incorrect update-pending indicators on some appearance presets, Arachsiam combat-region teleporting, and continued console movement after stick input were listed for correction. Abnormal character darkening was identified as a console issue that had not been fully resolved. The bicycle multiplayer-riding pose was described as intended behavior, although its presentation could be improved. Treat that notice as a dated snapshot: a newer September 3 bug-fix entry exists, so its details should be checked before assuming any status is still current. If your symptom does not match the documented platform or behavior, record the version, platform, location, and reproduction steps and submit it through official support.",
+    "automation": {
+      "caseId": "auto-once human-2026-09-04-273f086a94",
+      "draftId": "draft-once-human-304-issue-status-check",
+      "signalId": "sig_df03ddda08eb4a37e5",
+      "qa": "passed",
+      "generatedAt": "2026-09-04T07:00:24+00:00"
+    }
+  },
+  {
     "slug": "once-human-september-2-update-workflow-check",
     "game": "Once Human",
     "title": "Once Human September 2 Update: Download, Storage Search, and Portable Crafting Check",

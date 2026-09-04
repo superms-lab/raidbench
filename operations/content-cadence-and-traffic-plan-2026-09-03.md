@@ -5,8 +5,8 @@ Updated: 2026-09-03
 ## Verified Current Cadence
 
 - Public-source Scout: once per hour, normally 24 completed collection runs per UTC day.
-- Content Agent: once per hour, but it starts a guide only when a recent, eligible, source-backed signal exists.
-- Public guide limit: at most one new guide per UTC day.
+- Content Agent: six scheduled attempts per hour, but it starts a guide only when a recent, eligible, source-backed signal exists.
+- Public guide targets: at least one per hour, 24 per day, and 14 per game per week; none of these values caps publication.
 - Reddit community scout: once per day, normally one private reply draft. This does not update the public website.
 - Public content is fail-closed: no eligible signal or a QA block means zero new public pages that day.
 

@@ -56,8 +56,10 @@
     <main>
       <div class="heading"><div><h1>获客工作台</h1><p class="subtitle">Reddit 回复与个人主页发布内容分开管理。</p></div><div class="sync" id="sync">正在读取服务器队列</div></div>
       <section class="metrics"><article class="metric"><span>待处理</span><strong id="pending">--</strong></article><article class="metric"><span>已完成</span><strong id="completed">--</strong></article><article class="metric"><span>提醒通道</span><strong id="notification">--</strong></article></section>
-      <div class="queue-head"><h2>增长配额</h2><span class="subtitle" id="growth-week">正在读取本周进度</span></div>
+      <div class="queue-head"><h2>增长最低目标</h2><span class="subtitle" id="growth-week">正在读取本周进度</span></div>
       <section class="quota-grid" id="growth-quotas"></section>
+      <div class="queue-head"><h2>各游戏每周最低发布量</h2><span class="subtitle">超过目标后继续累计，不停止发布</span></div>
+      <section class="quota-grid" id="game-growth-quotas"></section>
       <div class="queue-head"><h2>内容队列</h2><button class="reload" id="reload" type="button">刷新</button></div>
       <section class="queue" id="queue"></section>
     </main>
@@ -79,7 +81,8 @@
         queue.querySelectorAll("[data-copy]").forEach(button=>button.addEventListener("click",()=>copyText(drafts.find(item=>item.draftId===button.dataset.copy).draftText,button)));
         queue.querySelectorAll("[data-done]").forEach(button=>button.addEventListener("click",()=>markDone(button.dataset.done,button.dataset.type).catch(error=>alert(error.message))));
       }
-      function renderGrowth(payload){const labels={rustPages:"Rust 问题页",poe2Pages:"POE2 问题页",weeklyAssets:"工具与数据",patchRefreshes:"补丁复核",partnerContacts:"合作触达",repliesToday:"今日回复草稿"};document.querySelector("#growth-week").textContent=`${payload.week} · 个人主页帖：${payload.profilePostStatus === "published" ? "已发布" : "待发布确认"}`;document.querySelector("#growth-quotas").innerHTML=Object.entries(payload.metrics||{}).map(([key,value])=>`<article class="quota"><span>${escapeHtml(labels[key]||key)}</span><strong>${value.actual} / ${value.target}</strong><small>${value.actual>=value.target?"本周期目标已完成":"继续按质量闸门推进"}</small></article>`).join("");}
+      function minimumCard(label,value){const remaining=Math.max(0,Number(value.target)-Number(value.actual));return `<article class="quota"><span>${escapeHtml(label)}</span><strong>${value.actual} / 至少 ${value.target}</strong><small>${remaining===0?"最低目标已达到，继续发布":`距最低目标还差 ${remaining}`}</small></article>`;}
+      function renderGrowth(payload){const labels={hourlyPages:"本小时公开攻略",dailyPages:"今日公开攻略",weeklyAssets:"本周工具与数据",patchRefreshes:"本周补丁复核",partnerContacts:"本周合作触达",repliesToday:"今日回复草稿"};document.querySelector("#growth-week").textContent=`${payload.week} · 个人主页帖：${payload.profilePostStatus === "published" ? "已发布" : "待发布确认"}`;document.querySelector("#growth-quotas").innerHTML=Object.entries(payload.metrics||{}).map(([key,value])=>minimumCard(labels[key]||key,value)).join("");document.querySelector("#game-growth-quotas").innerHTML=Object.values(payload.gamePages||{}).map(value=>minimumCard(value.label,value)).join("");}
       async function load(){document.querySelector("#sync").textContent="正在读取服务器队列"; const [queueResponse,growthResponse]=await Promise.all([fetch("/api/owner/acquisition",{cache:"no-store"}),fetch("/api/owner/growth",{cache:"no-store"})]); if(!queueResponse.ok||!growthResponse.ok) throw new Error("服务器队列读取失败"); render(await queueResponse.json()); renderGrowth(await growthResponse.json());}
       document.querySelector("#reload").addEventListener("click",()=>load().catch(error=>document.querySelector("#sync").textContent=error.message)); load().catch(error=>document.querySelector("#sync").textContent=error.message);
     </script>

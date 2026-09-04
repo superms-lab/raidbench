@@ -133,9 +133,10 @@ reported as `platformRestrictedSources` and are not passed to Codex.
 /opt/raidbench-agent/artifacts         cases, stage outputs, logs, builds, and audit history
 ```
 
-`raidbench-content-agent.timer` runs at UTC minute `55:30` of every hour, after the last source slot.
-The ceiling is one newly published guide per hour, 24 per day, and 14 per game per week. Infrastructure failures retry after 15 minutes and systemd
-limits repeated starts. A validly recorded Agent-output failure waits for the next hourly cycle instead of
+`raidbench-content-agent.timer` runs at UTC minutes `05`, `15`, `25`, `35`, `45`, and `55`, between the even-minute source slots.
+One guide per hour, 24 per day, and 14 per game per week are minimum targets. There is no publication quota ceiling;
+weekly deficits only influence candidate priority. Infrastructure failures retry after 15 minutes and systemd
+limits repeated starts. A validly recorded Agent-output failure waits for the next scheduled attempt instead of
 creating a restart loop. Codex runs with a read-only Landlock sandbox inside a non-root, read-only container.
 
 Selection currently uses a minimum signal score of 7 without a preferred-game bonus. Every game has two

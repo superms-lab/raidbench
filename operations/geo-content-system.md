@@ -193,7 +193,7 @@ Answer fully first. Link sparingly as optional further reading.
 
 Days 1-14:
 
-- Let the owned-site pipeline publish at most one QA-approved guide per UTC day.
+- Work toward at least 24 QA-approved guides per day while allowing additional evidence-backed pages.
 - Verify the timer, sitemap, production page, and IndexNow result from the VPS audit trail.
 - No external link promotion except profiles/resources controlled by the owner.
 
