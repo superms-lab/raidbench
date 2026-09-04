@@ -1,11 +1,10 @@
 [Unit]
-Description=Run RaidBench public-source demand scout every hour
+Description=Run the staggered RaidBench public-source scout every minute
 
 [Timer]
-OnCalendar=*-*-* *:05:00
-RandomizedDelaySec=5min
+OnCalendar=*-*-* *:*:20
 Persistent=true
-AccuracySec=1min
+AccuracySec=10s
 Unit=raidbench-source-scout.service
 
 [Install]

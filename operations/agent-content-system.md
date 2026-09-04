@@ -14,6 +14,12 @@ The first verified automatic publication is:
 https://raidbench.com/pages/palworld-100993-mod-stability-checklist
 ```
 
+The first verified publication after enabling all twelve registered games and hourly scheduling is:
+
+```text
+https://raidbench.com/pages/once-human-september-2-update-workflow-check
+```
+
 No owner confirmation is required after the deterministic and Agent QA gates pass. External-platform
 posting remains disabled until the platform grants the required commercial automation permission.
 
@@ -80,9 +86,9 @@ QA, a complete site build, and a successful production check. Failed or blocked 
 
 ## Source Cadence
 
-Do not promise true real-time coverage. Use a disciplined polling loop:
+Do not promise true real-time coverage. Use a disciplined staggered polling loop:
 
-- Official patch/news sources: every 6 hours.
+- Official patch/news and Steam publisher sources: every hour, with one fixed minute slot per source.
 - Steam RSS items: only entries with a parseable publication date no older than 45 days are eligible.
 - Community sources: excluded from the automatic content queue unless commercial platform permission is recorded.
 - Emergency review: after major patches, balance notes, wipes, or visible traffic spikes.
@@ -99,14 +105,14 @@ The deterministic Source Scout is deployed separately from the customer applicat
 /opt/raidbench-agent/artifacts -> durable inbox and owner summary
 ```
 
-`raidbench-source-scout.timer` wakes hourly, shortly after minute five. Approved official and Steam
-sources use a one-hour cadence; Reddit sources are also prepared for hourly discovery but remain excluded
-until separate commercial platform permission is recorded. A bounded ten-minute due-time tolerance absorbs
-systemd jitter so a source fetched near the end of one hourly window is not accidentally deferred for two.
+`raidbench-source-scout.timer` wakes every minute at second 20. The 25 approved official and Steam
+sources use a one-hour cadence and fixed UTC offsets `00, 02, 04, ... 48`; each invocation processes at most
+two due sources. Missed slots are drained at no more than two per minute, while a failed source waits 15
+minutes before retry. Reddit community demand remains a separate daily-per-game search-only lane.
 It runs as the restricted `raidbench-agent` system user and writes only to its isolated Agent database,
 inbox, and owner summary. It cannot access the PayPal environment or production customer database.
-The timer is persistent across VPS restarts; a process-level failure retries after 15 minutes, with a
-three-attempt hourly limit so a broken dependency cannot create an endless restart loop.
+The timer is persistent across VPS restarts; a process-level failure retries after 15 minutes. The service
+start limit permits minute-level healthy runs without allowing an endless restart loop.
 
 The first verified VPS run on 2026-08-09 checked 11 sources, captured 37 signals, queued 11 high-value
 signals, and recorded four inaccessible public sources without bypassing their controls. Empty cadence
@@ -127,13 +133,13 @@ reported as `platformRestrictedSources` and are not passed to Codex.
 /opt/raidbench-agent/artifacts         cases, stage outputs, logs, builds, and audit history
 ```
 
-`raidbench-content-agent.timer` runs shortly after minute twenty of every hour with a randomized delay.
-The daily cap is one newly published guide. Infrastructure failures retry after 15 minutes and systemd
+`raidbench-content-agent.timer` runs at UTC minute `55:30` of every hour, after the last source slot.
+The ceiling is one newly published guide per hour, 24 per day, and 14 per game per week. Infrastructure failures retry after 15 minutes and systemd
 limits repeated starts. A validly recorded Agent-output failure waits for the next hourly cycle instead of
 creating a restart loop. Codex runs with a read-only Landlock sandbox inside a non-root, read-only container.
 
-Selection currently uses a minimum signal score of 7. POE2 receives a bounded +2 preference so it wins
-among similarly strong signals without displacing materially better evidence from another game.
+Selection currently uses a minimum signal score of 7 without a preferred-game bonus. Every game has two
+publisher-controlled sources eligible to enter content QA; the Rust commit stream remains awareness-only.
 
 The Cloudflare API token is account-scoped to Pages Write. It is stored only on the VPS and must never be
 printed, copied into Git, or exposed to browser JavaScript.

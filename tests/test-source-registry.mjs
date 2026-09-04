@@ -15,6 +15,9 @@ assert.equal(registry.policy.redditDataApiAllowed, false);
 assert.equal(registry.policy.bulkCommunityScrapingAllowed, false);
 assert.equal(registry.policy.automaticExternalPostingAllowed, false);
 assert.equal(registry.policy.factCadence, "1h");
+assert.equal(registry.policy.factIntervalMinutes, 2);
+assert.equal(registry.policy.maxFactSourcesPerRun, 2);
+assert.equal(registry.policy.publisherMinuteUtc, 55);
 assert.equal(registry.policy.demandCadence, "24h");
 assert.equal(registry.sources.some((source) => source.sourceType === "reddit-json"), false);
 
@@ -26,6 +29,7 @@ for (const gameId of gameIds) {
   assert.equal(demand.length, 1, `${gameId} needs one demand profile`);
   assert.equal(demand[0].fetchMode, "search-only");
   assert.equal(demand[0].cadence, registry.policy.demandCadence);
+  assert.equal("minuteOffsetUtc" in demand[0], false);
   assert.equal(demand[0].generationEligible, false);
   assert.ok(demand[0].redditCommunities.length >= 1);
   assert.match(demand[0].steamAppId, /^[0-9]+$/);
@@ -35,13 +39,22 @@ for (const gameId of gameIds) {
     if (source.role === "fact") {
       assert.notEqual(source.authority, "community");
       assert.equal(source.cadence, registry.policy.factCadence, `${source.id} must match the Rust hourly fact cadence`);
+      assert.equal(Number.isInteger(source.minuteOffsetUtc), true);
     }
   }
 }
 
-assert.deepEqual(
-  registry.sources.filter((source) => source.generationEligible).map((source) => source.gameId).sort(),
-  ["poe2", "poe2", "rust", "rust"],
-);
+const facts = registry.sources.filter((source) => source.role === "fact");
+assert.deepEqual(facts.map((source) => source.minuteOffsetUtc), Array.from({ length: 25 }, (_, index) => index * 2));
+assert.equal(new Set(facts.map((source) => source.minuteOffsetUtc)).size, 25);
+assert.equal(facts.filter((source) => source.generationEligible).length, 24);
+assert.equal(registry.sources.find((source) => source.id === "rust-commit-stream").generationEligible, false);
+for (const gameId of gameIds) {
+  assert.equal(
+    registry.sources.filter((source) => source.gameId === gameId && source.role === "fact" && source.generationEligible).length,
+    2,
+    `${gameId} needs two publication-eligible factual sources`,
+  );
+}
 
 console.log("Multi-game source registry tests passed.");

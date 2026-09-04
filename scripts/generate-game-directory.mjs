@@ -30,6 +30,10 @@ function escapeHtml(value = "") {
     .replaceAll("'", "&#39;");
 }
 
+function cleanHtml(value) {
+  return String(value).replace(/[ \t]+\n/g, "\n");
+}
+
 function assertRegistry() {
   if (registry.schemaVersion !== "1.0.0" || registry.siteName !== "RaidBench") {
     throw new Error("Unsupported game registry version or site name");
@@ -354,7 +358,7 @@ function updateHomepage() {
   if (!html.includes(start) || !html.includes(end)) {
     throw new Error("index.html is missing the game selector generation markers");
   }
-  const next = html.replace(new RegExp(`${start}[\\s\\S]*?${end}`), homepageSelector());
+  const next = cleanHtml(html.replace(new RegExp(`${start}[\\s\\S]*?${end}`), homepageSelector()));
   fs.writeFileSync(file, next);
 }
 
@@ -363,10 +367,10 @@ assertRegistry();
 for (const game of registry.games) {
   const directory = path.join(root, "games", game.id);
   fs.mkdirSync(directory, { recursive: true });
-  fs.writeFileSync(path.join(directory, "index.html"), gameHub(game));
+  fs.writeFileSync(path.join(directory, "index.html"), cleanHtml(gameHub(game)));
 }
 
-fs.writeFileSync(path.join(root, "games.html"), gamesPage());
+fs.writeFileSync(path.join(root, "games.html"), cleanHtml(gamesPage()));
 fs.writeFileSync(path.join(root, "game-registry.json"), `${JSON.stringify(registry, null, 2)}\n`);
 updateHomepage();
 

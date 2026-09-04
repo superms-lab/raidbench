@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-02T23:09:18.374Z",
-  "reviewedDataDate": "2026-08-23",
+  "generatedAt": "2026-09-04T05:58:21.999Z",
+  "reviewedDataDate": "2026-09-03",
   "scope": "Vanilla Rust PC planning examples. Recheck after relevant patches and custom-server changes.",
   "count": 3,
   "presets": [

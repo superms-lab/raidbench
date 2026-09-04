@@ -113,6 +113,8 @@ node scripts/build-public-dist.mjs
 
 Guide blueprints that still use the generic decision table are generated as `noindex` drafts and are omitted from the public guide library until they pass editorial review.
 
+The production Source Scout wakes every minute but processes only the source slots due at that minute. Twenty-five factual sources are distributed across UTC minute offsets `00` through `48` at two-minute intervals. The content publisher runs at UTC minute `55:30` and may publish at most one new guide per hour after the complete evidence and independent-QA pipeline passes. No qualifying signal or a failed QA gate produces no publication for that hour.
+
 The first paid deliverable draft lives in `operations/raid-prep-pack-v1.md`.
 
 The buyer-facing paid pack files live in `operations/paid-pack/`.

@@ -1,11 +1,10 @@
 [Unit]
-Description=Run RaidBench Codex content automation after each hourly Scout window
+Description=Run one RaidBench content QA and publication cycle every hour
 
 [Timer]
-OnCalendar=*-*-* *:20:00
-RandomizedDelaySec=5min
+OnCalendar=*-*-* *:55:30
 Persistent=true
-AccuracySec=1min
+AccuracySec=30s
 Unit=raidbench-content-agent.service
 
 [Install]

@@ -1,5 +1,279 @@
 [
   {
+    "slug": "once-human-september-2-update-workflow-check",
+    "game": "Once Human",
+    "title": "Once Human September 2 Update: Download, Storage Search, and Portable Crafting Check",
+    "description": "Prepare for the Once Human September 2 update, verify storage search, and test RaidZone portable crafting without prematurely changing established routines.",
+    "problem": "Treat the September 2 update as three separate jobs: prepare the download, verify the new interfaces, and change established routines only after a controlled test.",
+    "shortAnswer": "Before updating, use the platform-specific estimates in the official announcement to reserve download time and storage headroom. Steam users should also allow for the stated possibility of duplicate downloads if the platform push is delayed. After entering the game, verify storage search in a storage crate or Storage Terminal. In RaidZone, test backpack-based portable crafting with one item that previously required a campsite. Keep the campsite in your routine because the announcement says it remains a temporary respawn point and cooking area. Expand any workflow change only after the feature works in the mode and context you intend to play.",
+    "publishedAt": "2026-09-04",
+    "reviewedAt": "2026-09-04",
+    "status": "Evidence-bounded Once Human guide; recheck after relevant patch changes",
+    "sections": [
+      {
+        "title": "Prepare the update before changing anything in game",
+        "purpose": "Separate download logistics from gameplay changes so an installation issue does not get mistaken for a changed mechanic.",
+        "bullets": [
+          "Identify the platform and whether its official estimate distinguishes launcher and in-game downloads.",
+          "Reserve sufficient device space, connection time, and session margin; the announcement notes that actual size may vary.",
+          "On Steam, account for the stated possibility of duplicate downloads when the platform push is delayed.",
+          "Record the scenario or mode whose workflow you plan to test after installation."
+        ]
+      },
+      {
+        "title": "Verify storage search with a known-item test",
+        "purpose": "Confirm the announced search interface without assuming that it changes storage capacity, transfer behavior, or production output.",
+        "bullets": [
+          "Open a storage crate or Storage Terminal after the update.",
+          "Search for an item whose storage location you already know.",
+          "Confirm that the result identifies the expected stored item before relying on search during reorganizing.",
+          "Treat search as a locating aid; the supplied announcement does not establish changes to throughput or storage capacity."
+        ]
+      },
+      {
+        "title": "Test portable crafting inside RaidZone",
+        "purpose": "Validate the documented scope before removing established campsite steps from a routine.",
+        "bullets": [
+          "Enter RaidZone and open the portable crafting entry from the backpack.",
+          "Choose one item that previously required crafting at a campsite.",
+          "Complete a low-cost test and record whether the expected item and operation are available.",
+          "Do not generalize the result to other modes because the announcement says broader availability is planned for the future."
+        ]
+      },
+      {
+        "title": "Keep the remaining campsite functions visible",
+        "purpose": "Prevent a new crafting option from being interpreted as a complete campsite replacement.",
+        "bullets": [
+          "Retain the campsite where its temporary respawn function matters.",
+          "Retain access to its cooking function when the route depends on it.",
+          "Remove only the crafting trip that the RaidZone test actually replaces.",
+          "Restore the prior route if the tested item, mode, or interface does not match the intended use."
+        ]
+      },
+      {
+        "title": "Decide whether to revise the routine",
+        "purpose": "Turn the feature checks into a bounded workflow decision.",
+        "bullets": [
+          "Adopt storage search when it reduces time spent locating known materials.",
+          "Adopt portable crafting only for the tested RaidZone item and context.",
+          "Keep unaffected production, storage, and campsite steps unchanged.",
+          "Recheck the official scope after a later update before extending the routine to another mode."
+        ]
+      }
+    ],
+    "checklist": [
+      "Confirm the device platform and update method.",
+      "Review the matching launcher and in-game download estimates in the official announcement.",
+      "Reserve extra time and storage headroom for size variation.",
+      "If using Steam, allow for the stated duplicate-download possibility.",
+      "Record the scenario or mode that will be tested.",
+      "Search for one known item in a storage crate or Storage Terminal.",
+      "In RaidZone, craft one eligible item from the backpack.",
+      "Keep the campsite available for temporary respawn and cooking functions until the revised route is proven."
+    ],
+    "example": "A Steam player plans a RaidZone session and normally returns to a campsite to craft a particular eligible item. Before the update, the player reviews the official PC estimates and leaves additional time and device space because the notice says actual size may vary and duplicate Steam downloads may occur if the platform push is delayed. After installation, the player searches for a known material in a storage crate, then enters RaidZone and crafts one previously campsite-required item through the backpack. The player removes that single crafting detour from the route but keeps the campsite for temporary respawn and cooking. No other base or inventory step changes until it receives its own test.",
+    "mistakes": [
+      "Using one version number in the page title while the supplied official sources disagree on the label.",
+      "Assuming storage search changes capacity, transfer speed, or production output.",
+      "Removing a campsite before accounting for its remaining temporary respawn and cooking functions.",
+      "Extending RaidZone portable-crafting behavior to other modes before official availability is confirmed.",
+      "Changing storage organization and crafting routes simultaneously, making the source of any improvement unclear."
+    ],
+    "faqs": [
+      {
+        "question": "Is the September 2 update Version 3.0.4 or Version 3.0.5?",
+        "answer": "The closed official evidence is inconsistent: the Steam announcement is titled Version 3.0.5, while the official update listing identifies the September 2 announcement as Version 3.0.4. This guide therefore identifies it by date and leaves the version label under review."
+      },
+      {
+        "question": "Does storage search work in both crates and Storage Terminals?",
+        "answer": "The announcement states that search was added to storage crates and Storage Terminals. Test with a known stored item before reorganizing around the feature."
+      },
+      {
+        "question": "Does storage search improve production output?",
+        "answer": "The supplied evidence supports faster item location, but it does not establish a change to storage capacity, transfer behavior, or production output. Use it as a diagnostic and navigation aid."
+      },
+      {
+        "question": "Can portable crafting replace my campsite in RaidZone?",
+        "answer": "It can replace the campsite crafting trip for supported items that previously required campsite crafting, but the campsite remains a temporary respawn point and cooking area."
+      },
+      {
+        "question": "Is portable crafting available outside RaidZone?",
+        "answer": "The announcement documents current availability in RaidZone and says it will reach other modes in the future. Do not assume availability in another mode until a current official notice or an in-game check confirms it."
+      },
+      {
+        "question": "Why should Steam players leave extra update time?",
+        "answer": "The announcement says duplicate downloads may occur if the Steam platform push is delayed. This is a possibility rather than a certainty, so leave a reasonable margin without treating it as an installation failure."
+      }
+    ],
+    "related": [
+      "once-human-update-migration-checklist",
+      "once-human-base-production-bottleneck",
+      "once-human-resource-priority-plan"
+    ],
+    "sources": [
+      {
+        "label": "Version 3.0.5 Update Announcement",
+        "url": "https://store.steampowered.com/news/app/2139460/view/702152588870549700",
+        "note": "Primary patch, product, or publisher evidence; stay within the captured text."
+      },
+      {
+        "label": "Once Human - Strange worlds survival game",
+        "url": "https://www.oncehuman.game/news/update/",
+        "note": "Primary patch, product, or publisher evidence; stay within the captured text."
+      }
+    ],
+    "sourceNote": "Gameplay and update claims are bounded to E-01, the captured publisher announcement distributed through Steam. E-02 supports the existence of the official September 2 listing but creates an unresolved version-label conflict. The captured E-01 excerpt is truncated later in the announcement, so this draft makes no claims about omitted fixes or qualifications. Existing RaidBench excerpts were used only to prevent duplicate positioning and conflicting site guidance.",
+    "patchNote": "This is a new, date-specific companion page rather than a replacement for the existing evergreen migration checklist. It narrows the update response to download preparation, storage-search verification, and a controlled RaidZone portable-crafting test. The page deliberately omits a version number because E-01 and E-02 conflict on whether the September 2 announcement is labeled Version 3.0.5 or Version 3.0.4. The existing base-production and resource-priority frameworks remain intact; this draft treats search and portable crafting as narrowly scoped workflow checks rather than proof that those guides are outdated.",
+    "communityAnswer": "Prepare download time and storage headroom using the estimate for your platform. If you use Steam, leave extra margin because the update notice says a delayed platform push may cause duplicate downloads. Once you are in the game, test the changes separately: search for a known item in a storage crate or Storage Terminal, then enter RaidZone and try backpack crafting with one item that previously required a campsite. Keep your campsite setup for now, since it still serves as a temporary respawn point and cooking area. If a feature is absent in your current mode or behaves differently from the notice, preserve the old routine until its scope is confirmed.",
+    "automation": {
+      "caseId": "auto-once human-2026-09-04-7ec42d6557",
+      "draftId": "draft_once_human_september_2_workflow_check",
+      "signalId": "sig_31ccb9f4b61511f351",
+      "qa": "passed",
+      "generatedAt": "2026-09-04T05:53:41+00:00"
+    }
+  },
+  {
+    "slug": "poe2-budget-build-upgrade-priority-checklist",
+    "game": "POE2",
+    "title": "POE2 Budget Build Upgrade Priority Checklist: Plan Before You Spend",
+    "description": "Use this patch-aware POE2 checklist to diagnose an endgame build problem, rank affordable upgrades, and validate a critical-strike transition.",
+    "problem": "A large budget can disappear into disconnected purchases. Diagnose the failing encounter, map dependencies, and test a complete transition before committing resources.",
+    "shortAnswer": "Start with the encounter that exposes the build, not a shopping list. Record whether the failure is damage, survival, recovery, mobility, or damage uptime; define the budget ceiling; and compare complete upgrade packages rather than isolated items. Treat a critical-strike transition as a dependency check: it should have a coherent gear, passive, support, defense, and budget plan before any purchase is made. Content Update 0.5.5 and the scheduled Forbidden Rites launch make current build and economy assumptions especially sensitive, while the supplied official evidence does not support specific item, passive, price, or damage prescriptions.",
+    "publishedAt": "2026-09-04",
+    "reviewedAt": "2026-09-04",
+    "status": "Evidence-bounded POE2 guide; recheck after relevant patch changes",
+    "sections": [
+      {
+        "title": "1. Diagnose the encounter before choosing an upgrade",
+        "purpose": "Turn a vague lack-of-damage complaint into an observable failure pattern.",
+        "bullets": [
+          "Repeat a representative version of the difficult content and record the moment the run breaks down.",
+          "Classify the primary constraint as enemy durability, inconsistent damage, low damage uptime, survival, recovery, mobility, or a combination.",
+          "Separate damage shown outside the encounter from damage delivered while moving, avoiding danger, or handling encounter pressure.",
+          "Write one testable goal, such as reducing stalled encounters without weakening the defenses needed to finish them."
+        ]
+      },
+      {
+        "title": "2. Freeze a current-build snapshot",
+        "purpose": "Create a stable baseline so upgrade results can be compared.",
+        "bullets": [
+          "Record the current gear, passive choices, supports, attributes, resistances, recovery, mobility, and any required interactions.",
+          "Note which parts are mandatory for the current setup and which can be changed independently.",
+          "Record results from the same content type, including completion, deaths, stalled encounters, and periods when damage cannot be applied.",
+          "Do not treat an external showcase or tooltip as the baseline for the character being upgraded."
+        ]
+      },
+      {
+        "title": "3. Define the real spending ceiling",
+        "purpose": "Prevent headline budget from being consumed by one purchase while dependencies remain unfunded.",
+        "bullets": [
+          "Use the player's approximately 150-Divine figure as a personal ceiling, not as evidence of current market value.",
+          "Reserve room for supporting changes, replacement pieces, and corrections discovered during testing.",
+          "Reject candidates whose total dependency package cannot be evaluated within the ceiling.",
+          "Recheck availability and cost when acting because the closed evidence contains no current market data."
+        ]
+      },
+      {
+        "title": "4. Rank complete upgrade packages",
+        "purpose": "Compare upgrades by problem solved, dependencies, reversibility, and testability.",
+        "bullets": [
+          "For each candidate, state which diagnosed constraint it is intended to address.",
+          "List every linked change required for the candidate to function without breaking the rest of the build.",
+          "Prefer an upgrade that can be tested independently when two candidates address the same constraint.",
+          "Delay purchases that depend on several unresolved changes or assumptions about post-update prices.",
+          "Keep defense and damage uptime in the comparison instead of ranking candidates by a damage figure alone."
+        ]
+      },
+      {
+        "title": "5. Apply a critical-strike transition gate",
+        "purpose": "Decide whether the proposed transition is complete enough to test without prescribing unsupported mechanics.",
+        "bullets": [
+          "Build separate current-setup and critical-strike plans rather than mixing partial versions of both.",
+          "For the proposed transition, audit gear, passives, supports, attributes, defenses, recovery, mobility, and total cost as one package.",
+          "Identify any single dependency whose absence would make the transition inconclusive.",
+          "Proceed only when the full package fits the ceiling and preserves the functions needed for the target encounter.",
+          "If the package remains incomplete, improve the diagnosed bottleneck in the current setup and keep the transition as a later option."
+        ]
+      },
+      {
+        "title": "6. Validate changes under controlled conditions",
+        "purpose": "Make each upgrade decision measurable and reversible.",
+        "bullets": [
+          "Change one stage of the plan at a time and preserve a record of the previous configuration.",
+          "Test in comparable versions of the same content rather than switching content and configuration together.",
+          "Track completion, deaths, dangerous moments, damage uptime, and whether the original failure pattern changed.",
+          "Stop the sequence if a prerequisite fails or another critical function becomes worse.",
+          "Reassess the remaining budget and dependency map after each accepted stage."
+        ]
+      }
+    ],
+    "checklist": [
+      "Name the exact encounter pattern that the build struggles with.",
+      "Classify the main constraint before comparing purchases.",
+      "Record a current-build baseline from representative content.",
+      "Set a total budget ceiling and reserve room for supporting changes.",
+      "List every dependency for each proposed upgrade package.",
+      "Compare the current setup with a complete critical-strike transition plan.",
+      "Test one stage at a time in comparable content.",
+      "Recheck patch and market assumptions before committing resources."
+    ],
+    "example": "A level 96 Lightning Arrow Deadeye player reports insufficient damage in difficult Expedition content and has an approximately 150-Divine budget. Instead of buying the first appealing damage item, the player records that much of the encounter is spent repositioning and that the proposed critical-strike version also requires several supporting changes. Two packages are created: a limited improvement to the current setup and a full transition package. The player rejects any package whose dependencies cannot fit inside the personal ceiling, tests the smaller reversible change in comparable Expedition content, and records whether the original stall pattern improves. The example demonstrates the decision process; it does not establish an item choice, market price, or expected performance result.",
+    "mistakes": [
+      "Buying an isolated item before pricing and checking its dependencies.",
+      "Calling every encounter failure a damage problem without reviewing uptime or survival.",
+      "Combining parts of two configurations and testing neither as a coherent setup.",
+      "Changing gear, passives, and content simultaneously, which hides what affected the result.",
+      "Using pre-update guidance or remembered prices without revalidating them."
+    ],
+    "faqs": [
+      {
+        "question": "Should I move to a critical-strike setup immediately?",
+        "answer": "Only if the complete transition—including its supporting gear, passives, supports, attributes, defenses, recovery, mobility, and remaining budget—can be evaluated as a coherent package. The supplied evidence does not support a universal recommendation."
+      },
+      {
+        "question": "What should I upgrade first when damage feels low?",
+        "answer": "Start with the diagnosed constraint. Low delivered damage may come from enemy durability, inconsistency, lost uptime, survival pressure, or missing dependencies. Rank candidates by the specific problem they address and test the most reversible complete change."
+      },
+      {
+        "question": "How should I use an approximately 150-Divine budget?",
+        "answer": "Treat it as the player's total personal ceiling rather than a target to spend. Reserve room for linked changes and corrections, then compare the total cost of complete packages. This guide does not provide current prices because none are established by the closed evidence."
+      },
+      {
+        "question": "Does Content Update 0.5.5 invalidate my current setup?",
+        "answer": "The official evidence confirms the update and the scheduled Forbidden Rites launch, but it does not establish that a particular Lightning Arrow, Deadeye, critical-strike, or Expedition choice changed. Revalidate the relevant configuration and market assumptions instead of presuming either validity or invalidity."
+      }
+    ],
+    "related": [
+      "poe2-outdated-build-guide-checklist",
+      "poe2-endgame-defense-checklist",
+      "poe2-endgame-route-scorecard",
+      "poe2-item-value-triage"
+    ],
+    "sources": [
+      {
+        "label": "Patch-Notes - Forum - Path of Exile",
+        "url": "https://www.pathofexile.com/forum/view-forum/2222",
+        "note": "Primary patch, product, or publisher evidence; stay within the captured text."
+      },
+      {
+        "label": "POE2 Steam news feed",
+        "url": "https://store.steampowered.com/feeds/news/app/2694490",
+        "note": "Primary patch, product, or publisher evidence; stay within the captured text."
+      }
+    ],
+    "sourceNote": "E-01 establishes the player problem and approximate budget as demand context only. E-02 and E-03 establish current official patch activity, Content Update 0.5.5, and the scheduled Forbidden Rites launch context. They do not substantiate build-specific mechanics, market prices, passive choices, item prescriptions, or performance estimates. This page differs from the existing outdated-guide checklist by sequencing upgrades for a player's current build rather than evaluating whether an external guide is current; it also keeps defense and route pages as supporting diagnostics rather than duplicating their broader advice.",
+    "patchNote": "Patch-sensitive guide prepared from evidence captured around Content Update 0.5.5 and the scheduled September 4 Forbidden Rites launch. Review after the launched version can be observed and after any relevant patch notes, hotfixes, or economy shifts. The supplied evidence confirms a refresh trigger but no specific Lightning Arrow, Deadeye, critical-strike, Expedition, price, or performance change.",
+    "communityAnswer": "With an approximately 150-Divine budget, I would pause before buying individual damage pieces. First, write down what actually fails in difficult Expedition encounters: enemies surviving too long, inconsistent damage, lost attack time, deaths, or recovery problems. Those lead to different upgrade priorities.\n\nThen compare two complete plans: improving the current Lightning Arrow Deadeye setup and moving to a critical-strike setup. For each plan, list every required gear, passive, support, attribute, resistance, recovery, and mobility change. Reserve part of the budget for dependency fixes and replacements so one purchase does not leave the build incomplete.\n\nChoose the plan that can function as a complete package within the budget. Change one stage at a time, test it in the same type of encounter, and record clear speed, dangerous moments, deaths, and damage uptime. If the critical-strike version only works after several unaffordable dependencies are solved, strengthen the current setup first and revisit the transition later.",
+    "automation": {
+      "caseId": "auto-poe2-2026-09-04-30a8eafd24",
+      "draftId": "draft_poe2_budget_build_upgrade_priority",
+      "signalId": "sig_2bd26d0aa09c78cd70",
+      "qa": "passed",
+      "generatedAt": "2026-09-04T05:05:16+00:00"
+    }
+  },
+  {
     "slug": "poe2-forbidden-rites-filter-readiness",
     "game": "POE2",
     "title": "POE2 Forbidden Rites Loot Filter Readiness Checklist",

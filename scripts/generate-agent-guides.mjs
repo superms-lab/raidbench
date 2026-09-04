@@ -2,8 +2,10 @@ import fs from "node:fs";
 import path from "node:path";
 
 const root = process.cwd();
-const dataPath = path.join(root, "content", "agent-guides.json");
-const pagesDir = path.join(root, "pages");
+const dataPath = process.env.RAIDBENCH_AGENT_GUIDES_PATH || path.join(root, "content", "agent-guides.json");
+const pagesDir = process.env.RAIDBENCH_AGENT_PAGES_DIR || path.join(root, "pages");
+const games = JSON.parse(fs.readFileSync(path.join(root, "content", "game-registry.json"), "utf8")).games;
+const gameByName = new Map(games.flatMap((game) => [[game.name, game], [game.shortName, game]]));
 const marker = "<!-- raidbench-agent-generated -->";
 
 function escapeHtml(value = "") {
@@ -47,7 +49,7 @@ function validateGuide(guide, index) {
     requireString(guide[field], `${label}.${field}`);
   }
   if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(guide.slug)) throw new Error(`${label}.slug is not URL-safe`);
-  if (!['Rust', 'POE2', 'Palworld'].includes(guide.game)) throw new Error(`${label}.game is unsupported`);
+  if (!gameByName.has(guide.game)) throw new Error(`${label}.game is unsupported`);
   requireList(guide.sections, `${label}.sections`, 2);
   requireList(guide.checklist, `${label}.checklist`, 3);
   requireList(guide.mistakes, `${label}.mistakes`, 2);
@@ -94,9 +96,13 @@ function relatedHtml(related) {
 }
 
 function gameHub(game) {
-  if (game === "POE2") return { href: "../poe2.html", label: "POE2 guides" };
-  if (game === "Palworld") return { href: "../palworld.html", label: "Palworld guides" };
-  return { href: "../guides.html", label: "Rust guides" };
+  const registered = gameByName.get(game);
+  if (!registered) throw new Error(`Unsupported guide game: ${game}`);
+  return {
+    href: `../games/${registered.id}/`,
+    label: `${registered.shortName} guides`,
+    publicUrl: `https://raidbench.com/games/${registered.id}/`,
+  };
 }
 
 function pageHtml(guide) {
@@ -130,7 +136,7 @@ function pageHtml(guide) {
         "@type": "BreadcrumbList",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: "RaidBench", item: "https://raidbench.com/" },
-          { "@type": "ListItem", position: 2, name: guide.game, item: `https://raidbench.com/${hub.href.replace("../", "").replace(".html", "")}` },
+          { "@type": "ListItem", position: 2, name: guide.game, item: hub.publicUrl },
           { "@type": "ListItem", position: 3, name: guide.title, item: canonical }
         ]
       }

@@ -2,8 +2,8 @@
 Description=RaidBench public-source demand scout
 Wants=network-online.target
 After=network-online.target
-StartLimitIntervalSec=1h
-StartLimitBurst=3
+StartLimitIntervalSec=10min
+StartLimitBurst=20
 
 [Service]
 Type=oneshot
@@ -16,7 +16,7 @@ Environment=RAIDBENCH_SCOUT_INBOX_DIR=/opt/raidbench-agent/artifacts/inbox
 Environment=RAIDBENCH_SCOUT_OPERATIONS_DIR=/opt/raidbench-agent/artifacts/operations
 EnvironmentFile=-/opt/raidbench-agent/secrets/source-scout.env
 ExecStart=/usr/bin/node scripts/run-content-agents.mjs
-TimeoutStartSec=12min
+TimeoutStartSec=3min
 Restart=on-failure
 RestartSec=15min
 NoNewPrivileges=true

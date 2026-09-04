@@ -7,7 +7,10 @@
     "redditDataApiAllowed": false,
     "bulkCommunityScrapingAllowed": false,
     "automaticExternalPostingAllowed": false,
-    "primaryEvidenceRequiredForFacts": true
+    "primaryEvidenceRequiredForFacts": true,
+    "factIntervalMinutes": 2,
+    "maxFactSourcesPerRun": 2,
+    "publisherMinuteUtc": 55
   },
   "sources": [
     {
@@ -21,7 +24,8 @@
       "freshnessHours": 168,
       "fetchMode": "direct",
       "generationEligible": true,
-      "notes": "Facepunch-controlled Rust news and monthly update notes."
+      "notes": "Facepunch-controlled Rust news and monthly update notes.",
+      "minuteOffsetUtc": 0
     },
     {
       "id": "rust-steam-news",
@@ -34,7 +38,8 @@
       "freshnessHours": 168,
       "fetchMode": "direct",
       "generationEligible": true,
-      "notes": "Publisher announcements distributed through the Rust Steam feed."
+      "notes": "Publisher announcements distributed through the Rust Steam feed.",
+      "minuteOffsetUtc": 2
     },
     {
       "id": "rust-commit-stream",
@@ -47,7 +52,8 @@
       "freshnessHours": 72,
       "fetchMode": "direct",
       "generationEligible": false,
-      "notes": "Facepunch-controlled commit stream for change awareness, not release confirmation."
+      "notes": "Facepunch-controlled commit stream for change awareness, not release confirmation.",
+      "minuteOffsetUtc": 4
     },
     {
       "id": "rust-community-demand",
@@ -61,9 +67,23 @@
       "fetchMode": "search-only",
       "generationEligible": false,
       "steamAppId": "252490",
-      "redditCommunities": ["playrust"],
-      "topics": ["raid_cost", "upkeep", "progression", "base_design", "patch"],
-      "queryTerms": ["raid cost", "base upkeep", "solo progression", "which route", "current patch"],
+      "redditCommunities": [
+        "playrust"
+      ],
+      "topics": [
+        "raid_cost",
+        "upkeep",
+        "progression",
+        "base_design",
+        "patch"
+      ],
+      "queryTerms": [
+        "raid cost",
+        "base upkeep",
+        "solo progression",
+        "which route",
+        "current patch"
+      ],
       "notes": "One exact recent question per bounded search; demand context only."
     },
     {
@@ -77,7 +97,8 @@
       "freshnessHours": 168,
       "fetchMode": "direct",
       "generationEligible": true,
-      "notes": "Grinding Gear Games Path of Exile 2 patch-note forum."
+      "notes": "Grinding Gear Games Path of Exile 2 patch-note forum.",
+      "minuteOffsetUtc": 6
     },
     {
       "id": "poe2-steam-news",
@@ -90,7 +111,8 @@
       "freshnessHours": 168,
       "fetchMode": "direct",
       "generationEligible": true,
-      "notes": "Publisher announcements distributed through the Path of Exile 2 Steam feed."
+      "notes": "Publisher announcements distributed through the Path of Exile 2 Steam feed.",
+      "minuteOffsetUtc": 8
     },
     {
       "id": "poe2-community-demand",
@@ -104,9 +126,24 @@
       "fetchMode": "search-only",
       "generationEligible": false,
       "steamAppId": "2694490",
-      "redditCommunities": ["PathOfExile2"],
-      "topics": ["build_help", "boss_help", "loot_value", "currency_route", "progression", "patch"],
-      "queryTerms": ["build help", "boss help", "item value", "currency route", "current patch"],
+      "redditCommunities": [
+        "PathOfExile2"
+      ],
+      "topics": [
+        "build_help",
+        "boss_help",
+        "loot_value",
+        "currency_route",
+        "progression",
+        "patch"
+      ],
+      "queryTerms": [
+        "build help",
+        "boss help",
+        "item value",
+        "currency route",
+        "current patch"
+      ],
       "notes": "One exact recent question per bounded search; demand context only."
     },
     {
@@ -119,8 +156,9 @@
       "cadence": "1h",
       "freshnessHours": 168,
       "fetchMode": "direct",
-      "generationEligible": false,
-      "notes": "Pocketpair-controlled game news; Palworld items must be selected explicitly."
+      "generationEligible": true,
+      "notes": "Pocketpair-controlled game news; Palworld items must be selected explicitly.",
+      "minuteOffsetUtc": 10
     },
     {
       "id": "palworld-steam-news",
@@ -132,8 +170,9 @@
       "cadence": "1h",
       "freshnessHours": 168,
       "fetchMode": "direct",
-      "generationEligible": false,
-      "notes": "Publisher announcements distributed through the Palworld Steam feed."
+      "generationEligible": true,
+      "notes": "Publisher announcements distributed through the Palworld Steam feed.",
+      "minuteOffsetUtc": 12
     },
     {
       "id": "palworld-community-demand",
@@ -147,9 +186,23 @@
       "fetchMode": "search-only",
       "generationEligible": false,
       "steamAppId": "1623730",
-      "redditCommunities": ["Palworld"],
-      "topics": ["base_automation", "breeding", "boss_help", "progression", "patch"],
-      "queryTerms": ["base production", "breeding help", "boss help", "progression", "after update"],
+      "redditCommunities": [
+        "Palworld"
+      ],
+      "topics": [
+        "base_automation",
+        "breeding",
+        "boss_help",
+        "progression",
+        "patch"
+      ],
+      "queryTerms": [
+        "base production",
+        "breeding help",
+        "boss help",
+        "progression",
+        "after update"
+      ],
       "notes": "One exact recent question per bounded search; demand context only."
     },
     {
@@ -162,8 +215,9 @@
       "cadence": "1h",
       "freshnessHours": 336,
       "fetchMode": "direct",
-      "generationEligible": false,
-      "notes": "The Indie Stone news and build announcements."
+      "generationEligible": true,
+      "notes": "The Indie Stone news and build announcements.",
+      "minuteOffsetUtc": 14
     },
     {
       "id": "project-zomboid-steam-news",
@@ -175,8 +229,9 @@
       "cadence": "1h",
       "freshnessHours": 336,
       "fetchMode": "direct",
-      "generationEligible": false,
-      "notes": "Publisher announcements distributed through the Project Zomboid Steam feed."
+      "generationEligible": true,
+      "notes": "Publisher announcements distributed through the Project Zomboid Steam feed.",
+      "minuteOffsetUtc": 16
     },
     {
       "id": "project-zomboid-community-demand",
@@ -190,9 +245,23 @@
       "fetchMode": "search-only",
       "generationEligible": false,
       "steamAppId": "108600",
-      "redditCommunities": ["projectzomboid"],
-      "topics": ["character_build", "sandbox_settings", "survival_plan", "mod_compatibility", "patch"],
-      "queryTerms": ["which traits", "sandbox settings", "survival help", "mods broken", "Build 42"],
+      "redditCommunities": [
+        "projectzomboid"
+      ],
+      "topics": [
+        "character_build",
+        "sandbox_settings",
+        "survival_plan",
+        "mod_compatibility",
+        "patch"
+      ],
+      "queryTerms": [
+        "which traits",
+        "sandbox settings",
+        "survival help",
+        "mods broken",
+        "Build 42"
+      ],
       "notes": "One exact recent question per bounded search; demand context only."
     },
     {
@@ -205,8 +274,9 @@
       "cadence": "1h",
       "freshnessHours": 168,
       "fetchMode": "direct",
-      "generationEligible": false,
-      "notes": "Battlestate Games-controlled project news forum; used because the main news listing blocks automated fetches."
+      "generationEligible": true,
+      "notes": "Battlestate Games-controlled project news forum; used because the main news listing blocks automated fetches.",
+      "minuteOffsetUtc": 18
     },
     {
       "id": "escape-from-tarkov-steam-news",
@@ -218,8 +288,9 @@
       "cadence": "1h",
       "freshnessHours": 168,
       "fetchMode": "direct",
-      "generationEligible": false,
-      "notes": "Publisher announcements distributed through the Escape from Tarkov Steam feed."
+      "generationEligible": true,
+      "notes": "Publisher announcements distributed through the Escape from Tarkov Steam feed.",
+      "minuteOffsetUtc": 20
     },
     {
       "id": "escape-from-tarkov-community-demand",
@@ -233,9 +304,24 @@
       "fetchMode": "search-only",
       "generationEligible": false,
       "steamAppId": "3932890",
-      "redditCommunities": ["EscapefromTarkov"],
-      "topics": ["quest_route", "extraction", "ammo_armor", "equipment_budget", "progression", "patch"],
-      "queryTerms": ["quest help", "how to extract", "ammo armor", "beginner loadout", "current wipe"],
+      "redditCommunities": [
+        "EscapefromTarkov"
+      ],
+      "topics": [
+        "quest_route",
+        "extraction",
+        "ammo_armor",
+        "equipment_budget",
+        "progression",
+        "patch"
+      ],
+      "queryTerms": [
+        "quest help",
+        "how to extract",
+        "ammo armor",
+        "beginner loadout",
+        "current wipe"
+      ],
       "notes": "One exact recent question per bounded search; demand context only."
     },
     {
@@ -248,8 +334,9 @@
       "cadence": "1h",
       "freshnessHours": 168,
       "fetchMode": "direct",
-      "generationEligible": false,
-      "notes": "Studio Wildcard-controlled ARK announcements."
+      "generationEligible": true,
+      "notes": "Studio Wildcard-controlled ARK announcements.",
+      "minuteOffsetUtc": 22
     },
     {
       "id": "ark-survival-ascended-steam-news",
@@ -261,8 +348,9 @@
       "cadence": "1h",
       "freshnessHours": 168,
       "fetchMode": "direct",
-      "generationEligible": false,
-      "notes": "Publisher announcements distributed through the ARK: Survival Ascended Steam feed."
+      "generationEligible": true,
+      "notes": "Publisher announcements distributed through the ARK: Survival Ascended Steam feed.",
+      "minuteOffsetUtc": 24
     },
     {
       "id": "ark-survival-ascended-community-demand",
@@ -276,9 +364,25 @@
       "fetchMode": "search-only",
       "generationEligible": false,
       "steamAppId": "2399830",
-      "redditCommunities": ["ARK", "playark"],
-      "topics": ["taming", "breeding", "resource_plan", "server_settings", "progression", "patch"],
-      "queryTerms": ["taming help", "breeding stats", "resource calculator", "server settings", "after patch"],
+      "redditCommunities": [
+        "ARK",
+        "playark"
+      ],
+      "topics": [
+        "taming",
+        "breeding",
+        "resource_plan",
+        "server_settings",
+        "progression",
+        "patch"
+      ],
+      "queryTerms": [
+        "taming help",
+        "breeding stats",
+        "resource calculator",
+        "server settings",
+        "after patch"
+      ],
       "notes": "One exact recent question per bounded search; demand context only."
     },
     {
@@ -291,8 +395,9 @@
       "cadence": "1h",
       "freshnessHours": 168,
       "fetchMode": "direct",
-      "generationEligible": false,
-      "notes": "Digital Extremes-controlled Warframe patch notes."
+      "generationEligible": true,
+      "notes": "Digital Extremes-controlled Warframe patch notes.",
+      "minuteOffsetUtc": 26
     },
     {
       "id": "warframe-steam-news",
@@ -304,8 +409,9 @@
       "cadence": "1h",
       "freshnessHours": 168,
       "fetchMode": "direct",
-      "generationEligible": false,
-      "notes": "Publisher announcements distributed through the Warframe Steam feed."
+      "generationEligible": true,
+      "notes": "Publisher announcements distributed through the Warframe Steam feed.",
+      "minuteOffsetUtc": 28
     },
     {
       "id": "warframe-community-demand",
@@ -319,9 +425,23 @@
       "fetchMode": "search-only",
       "generationEligible": false,
       "steamAppId": "230410",
-      "redditCommunities": ["Warframe"],
-      "topics": ["returning_player", "build_help", "farming_route", "progression", "patch"],
-      "queryTerms": ["returning player", "build help", "where to farm", "what next", "after update"],
+      "redditCommunities": [
+        "Warframe"
+      ],
+      "topics": [
+        "returning_player",
+        "build_help",
+        "farming_route",
+        "progression",
+        "patch"
+      ],
+      "queryTerms": [
+        "returning player",
+        "build help",
+        "where to farm",
+        "what next",
+        "after update"
+      ],
       "notes": "One exact recent question per bounded search; demand context only."
     },
     {
@@ -334,8 +454,9 @@
       "cadence": "1h",
       "freshnessHours": 168,
       "fetchMode": "direct",
-      "generationEligible": false,
-      "notes": "NetEase and Starry Studio-controlled Once Human update announcements."
+      "generationEligible": true,
+      "notes": "NetEase and Starry Studio-controlled Once Human update announcements.",
+      "minuteOffsetUtc": 30
     },
     {
       "id": "once-human-steam-news",
@@ -347,8 +468,9 @@
       "cadence": "1h",
       "freshnessHours": 168,
       "fetchMode": "direct",
-      "generationEligible": false,
-      "notes": "Publisher announcements distributed through the Once Human Steam feed."
+      "generationEligible": true,
+      "notes": "Publisher announcements distributed through the Once Human Steam feed.",
+      "minuteOffsetUtc": 32
     },
     {
       "id": "once-human-community-demand",
@@ -362,9 +484,25 @@
       "fetchMode": "search-only",
       "generationEligible": false,
       "steamAppId": "2139460",
-      "redditCommunities": ["OnceHumanOfficial", "OnceHuman"],
-      "topics": ["season_change", "build_help", "base_production", "resource_plan", "progression", "patch"],
-      "queryTerms": ["season reset", "build help", "base production", "what carries over", "after update"],
+      "redditCommunities": [
+        "OnceHumanOfficial",
+        "OnceHuman"
+      ],
+      "topics": [
+        "season_change",
+        "build_help",
+        "base_production",
+        "resource_plan",
+        "progression",
+        "patch"
+      ],
+      "queryTerms": [
+        "season reset",
+        "build help",
+        "base production",
+        "what carries over",
+        "after update"
+      ],
       "notes": "One exact recent question per bounded search; demand context only."
     },
     {
@@ -377,8 +515,9 @@
       "cadence": "1h",
       "freshnessHours": 168,
       "fetchMode": "direct",
-      "generationEligible": false,
-      "notes": "Valve-controlled Counter-Strike release notes."
+      "generationEligible": true,
+      "notes": "Valve-controlled Counter-Strike release notes.",
+      "minuteOffsetUtc": 34
     },
     {
       "id": "counter-strike-2-steam-news",
@@ -390,8 +529,9 @@
       "cadence": "1h",
       "freshnessHours": 168,
       "fetchMode": "direct",
-      "generationEligible": false,
-      "notes": "Publisher announcements distributed through the Counter-Strike 2 Steam feed."
+      "generationEligible": true,
+      "notes": "Publisher announcements distributed through the Counter-Strike 2 Steam feed.",
+      "minuteOffsetUtc": 36
     },
     {
       "id": "counter-strike-2-community-demand",
@@ -405,9 +545,25 @@
       "fetchMode": "search-only",
       "generationEligible": false,
       "steamAppId": "730",
-      "redditCommunities": ["GlobalOffensive", "counterstrike2"],
-      "topics": ["economy", "utility", "settings", "map_plan", "improvement", "patch"],
-      "queryTerms": ["buy or save", "smoke lineup", "settings help", "map strategy", "how to improve"],
+      "redditCommunities": [
+        "GlobalOffensive",
+        "counterstrike2"
+      ],
+      "topics": [
+        "economy",
+        "utility",
+        "settings",
+        "map_plan",
+        "improvement",
+        "patch"
+      ],
+      "queryTerms": [
+        "buy or save",
+        "smoke lineup",
+        "settings help",
+        "map strategy",
+        "how to improve"
+      ],
       "notes": "One exact recent question per bounded search; demand context only."
     },
     {
@@ -420,8 +576,9 @@
       "cadence": "1h",
       "freshnessHours": 168,
       "fetchMode": "direct",
-      "generationEligible": false,
-      "notes": "Valve-controlled Dota 2 gameplay patch archive."
+      "generationEligible": true,
+      "notes": "Valve-controlled Dota 2 gameplay patch archive.",
+      "minuteOffsetUtc": 38
     },
     {
       "id": "dota-2-steam-news",
@@ -433,8 +590,9 @@
       "cadence": "1h",
       "freshnessHours": 168,
       "fetchMode": "direct",
-      "generationEligible": false,
-      "notes": "Publisher announcements distributed through the Dota 2 Steam feed."
+      "generationEligible": true,
+      "notes": "Publisher announcements distributed through the Dota 2 Steam feed.",
+      "minuteOffsetUtc": 40
     },
     {
       "id": "dota-2-community-demand",
@@ -448,9 +606,24 @@
       "fetchMode": "search-only",
       "generationEligible": false,
       "steamAppId": "570",
-      "redditCommunities": ["DotA2"],
-      "topics": ["hero_matchup", "lane_plan", "item_choice", "objective_timing", "replay_review", "patch"],
-      "queryTerms": ["hero counter", "lane help", "which item", "when to take objective", "replay question"],
+      "redditCommunities": [
+        "DotA2"
+      ],
+      "topics": [
+        "hero_matchup",
+        "lane_plan",
+        "item_choice",
+        "objective_timing",
+        "replay_review",
+        "patch"
+      ],
+      "queryTerms": [
+        "hero counter",
+        "lane help",
+        "which item",
+        "when to take objective",
+        "replay question"
+      ],
       "notes": "One exact recent question per bounded search; demand context only."
     },
     {
@@ -463,8 +636,9 @@
       "cadence": "1h",
       "freshnessHours": 168,
       "fetchMode": "direct",
-      "generationEligible": false,
-      "notes": "KRAFTON-controlled PUBG: BATTLEGROUNDS patch-note listing."
+      "generationEligible": true,
+      "notes": "KRAFTON-controlled PUBG: BATTLEGROUNDS patch-note listing.",
+      "minuteOffsetUtc": 42
     },
     {
       "id": "pubg-battlegrounds-steam-news",
@@ -476,8 +650,9 @@
       "cadence": "1h",
       "freshnessHours": 168,
       "fetchMode": "direct",
-      "generationEligible": false,
-      "notes": "Publisher announcements distributed through the PUBG: BATTLEGROUNDS Steam feed."
+      "generationEligible": true,
+      "notes": "Publisher announcements distributed through the PUBG: BATTLEGROUNDS Steam feed.",
+      "minuteOffsetUtc": 44
     },
     {
       "id": "pubg-battlegrounds-community-demand",
@@ -491,9 +666,24 @@
       "fetchMode": "search-only",
       "generationEligible": false,
       "steamAppId": "578080",
-      "redditCommunities": ["PUBATTLEGROUNDS"],
-      "topics": ["weapon_choice", "attachments", "drop_plan", "rotation", "position_review", "patch"],
-      "queryTerms": ["which weapon", "best attachment", "where to drop", "how to rotate", "position help"],
+      "redditCommunities": [
+        "PUBATTLEGROUNDS"
+      ],
+      "topics": [
+        "weapon_choice",
+        "attachments",
+        "drop_plan",
+        "rotation",
+        "position_review",
+        "patch"
+      ],
+      "queryTerms": [
+        "which weapon",
+        "best attachment",
+        "where to drop",
+        "how to rotate",
+        "position help"
+      ],
       "notes": "One exact recent question per bounded search; demand context only."
     },
     {
@@ -506,8 +696,9 @@
       "cadence": "1h",
       "freshnessHours": 168,
       "fetchMode": "direct",
-      "generationEligible": false,
-      "notes": "Ubisoft-controlled Rainbow Six Siege patch notes."
+      "generationEligible": true,
+      "notes": "Ubisoft-controlled Rainbow Six Siege patch notes.",
+      "minuteOffsetUtc": 46
     },
     {
       "id": "rainbow-six-siege-steam-news",
@@ -519,8 +710,9 @@
       "cadence": "1h",
       "freshnessHours": 168,
       "fetchMode": "direct",
-      "generationEligible": false,
-      "notes": "Publisher announcements distributed through the Rainbow Six Siege Steam feed."
+      "generationEligible": true,
+      "notes": "Publisher announcements distributed through the Rainbow Six Siege Steam feed.",
+      "minuteOffsetUtc": 48
     },
     {
       "id": "rainbow-six-siege-community-demand",
@@ -534,9 +726,24 @@
       "fetchMode": "search-only",
       "generationEligible": false,
       "steamAppId": "359550",
-      "redditCommunities": ["Rainbow6"],
-      "topics": ["operator_counter", "site_setup", "loadout", "round_plan", "improvement", "patch"],
-      "queryTerms": ["which operator", "site setup", "best loadout", "attack plan", "how to improve"],
+      "redditCommunities": [
+        "Rainbow6"
+      ],
+      "topics": [
+        "operator_counter",
+        "site_setup",
+        "loadout",
+        "round_plan",
+        "improvement",
+        "patch"
+      ],
+      "queryTerms": [
+        "which operator",
+        "site setup",
+        "best loadout",
+        "attack plan",
+        "how to improve"
+      ],
       "notes": "One exact recent question per bounded search; demand context only."
     }
   ]

@@ -8,8 +8,13 @@
     "schemaVersion": { "const": "1.0.0" },
     "policy": {
       "type": "object",
-      "required": ["communityIsDemandOnly", "redditDataApiAllowed", "bulkCommunityScrapingAllowed", "automaticExternalPostingAllowed", "primaryEvidenceRequiredForFacts"],
+      "required": ["factCadence", "factIntervalMinutes", "maxFactSourcesPerRun", "publisherMinuteUtc", "demandCadence", "communityIsDemandOnly", "redditDataApiAllowed", "bulkCommunityScrapingAllowed", "automaticExternalPostingAllowed", "primaryEvidenceRequiredForFacts"],
       "properties": {
+        "factCadence": { "const": "1h" },
+        "factIntervalMinutes": { "const": 2 },
+        "maxFactSourcesPerRun": { "const": 2 },
+        "publisherMinuteUtc": { "const": 55 },
+        "demandCadence": { "const": "24h" },
         "communityIsDemandOnly": { "const": true },
         "redditDataApiAllowed": { "const": false },
         "bulkCommunityScrapingAllowed": { "const": false },
@@ -35,12 +40,23 @@
           "freshnessHours": { "type": "integer", "minimum": 24, "maximum": 720 },
           "fetchMode": { "enum": ["direct", "search-only"] },
           "generationEligible": { "type": "boolean" },
+          "minuteOffsetUtc": { "type": "integer", "minimum": 0, "maximum": 59 },
           "steamAppId": { "type": "string", "pattern": "^[0-9]+$" },
           "redditCommunities": { "type": "array", "items": { "type": "string", "minLength": 2 } },
           "topics": { "type": "array", "items": { "type": "string", "pattern": "^[a-z0-9_]+$" } },
           "queryTerms": { "type": "array", "items": { "type": "string", "minLength": 3 } },
           "notes": { "type": "string", "minLength": 10 }
         },
+        "allOf": [
+          {
+            "if": { "properties": { "role": { "const": "fact" } }, "required": ["role"] },
+            "then": { "required": ["minuteOffsetUtc"] }
+          },
+          {
+            "if": { "properties": { "role": { "const": "demand" } }, "required": ["role"] },
+            "then": { "not": { "required": ["minuteOffsetUtc"] } }
+          }
+        ],
         "additionalProperties": false
       }
     }

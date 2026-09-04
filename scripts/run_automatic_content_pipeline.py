@@ -290,12 +290,27 @@ def candidate_rows(connection: sqlite3.Connection, reddit_permission: bool) -> l
 
 
 def daily_limit_reached(connection: sqlite3.Connection) -> bool:
-  configured = int(os.environ.get("RAIDBENCH_MAX_NEW_GUIDES_PER_DAY", "1"))
+  default = int(GROWTH_QUOTAS.get("publicGuides", {}).get("dailyMaximum", 24))
+  configured = int(os.environ.get("RAIDBENCH_MAX_NEW_GUIDES_PER_DAY", str(default)))
   used = connection.execute(
     """
     SELECT count(*)
     FROM content_automation_items
-    WHERE COALESCE(NULLIF(published_at, ''), created_at) >= datetime('now', 'start of day')
+    WHERE datetime(COALESCE(NULLIF(published_at, ''), created_at)) >= datetime('now', 'start of day')
+      AND status NOT IN ('agent_failed', 'qa_blocked', 'build_failed')
+    """
+  ).fetchone()[0]
+  return int(used) >= configured
+
+
+def hourly_limit_reached(connection: sqlite3.Connection) -> bool:
+  default = int(GROWTH_QUOTAS.get("publicGuides", {}).get("hourlyMaximum", 1))
+  configured = int(os.environ.get("RAIDBENCH_MAX_NEW_GUIDES_PER_HOUR", str(default)))
+  used = connection.execute(
+    """
+    SELECT count(*)
+    FROM content_automation_items
+    WHERE datetime(created_at) >= datetime(strftime('%Y-%m-%d %H:00:00', 'now'))
       AND status NOT IN ('agent_failed', 'qa_blocked', 'build_failed')
     """
   ).fetchone()[0]
@@ -411,6 +426,80 @@ def public_page_is_indexable(slug: str) -> bool:
   return re.search(r'<meta\s+name="robots"\s+content="[^"]*noindex', html, re.IGNORECASE) is None
 
 
+def sync_guide_inventory(connection: sqlite3.Connection) -> int:
+  game_by_id = {str(item["id"]): str(item["shortName"]) for item in GAME_REGISTRY}
+  records: dict[str, dict[str, Any]] = {}
+
+  def register(guide: dict[str, Any], game: str, status: str, checked_at: str, source_notes: str) -> None:
+    slug = str(guide.get("slug") or "")
+    if re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", slug) is None:
+      return
+    if not (ROOT / "pages" / f"{slug}.html").is_file():
+      return
+    records[slug] = {
+      "slug": slug,
+      "game": game,
+      "title": str(guide.get("title") or slug.replace("-", " ").title()),
+      "status": status,
+      "checked_at": checked_at,
+      "patch_sensitive": int(bool(guide.get("patchSensitive", True))),
+      "source_notes": source_notes,
+    }
+
+  for filename, game in (
+    ("rust-problem-guides.json", "Rust"),
+    ("poe2-problem-guides.json", "POE2"),
+    ("palworld-problem-guides.json", "Palworld"),
+  ):
+    for guide in read_json(ROOT / "content" / filename):
+      register(guide, game, "published_or_draft", utc_now(), "; ".join(str(item) for item in guide.get("sources", [])))
+
+  for guide in read_json(ROOT / "content" / "manual-guides.json"):
+    register(guide, str(guide.get("game") or ""), "published", utc_now(), "Manually reviewed RaidBench guide")
+
+  baseline = read_json(ROOT / "content" / "multigame-baseline-guides.json")
+  for pack in baseline.get("packs", []):
+    game = game_by_id.get(str(pack.get("gameId") or ""), str(pack.get("gameId") or ""))
+    for guide in pack.get("guides", []):
+      register(
+        guide,
+        game,
+        "published",
+        str(baseline.get("reviewedAt") or utc_now()),
+        "Phase 3 source packet; publisher facts plus demand-only community context",
+      )
+
+  for guide in read_json(AGENT_GUIDES_PATH):
+    register(
+      guide,
+      str(guide.get("game") or ""),
+      "published",
+      str(guide.get("reviewedAt") or utc_now()),
+      str(guide.get("sourceNote") or "Source-checked Agent guide"),
+    )
+
+  for item in records.values():
+    connection.execute(
+      """
+      INSERT INTO guide_pages (slug, game, title, status, last_checked_at, patch_sensitive, source_notes)
+      VALUES (?, ?, ?, ?, ?, ?, ?)
+      ON CONFLICT(slug) DO UPDATE SET
+        game=excluded.game,
+        title=excluded.title,
+        status=excluded.status,
+        last_checked_at=excluded.last_checked_at,
+        patch_sensitive=excluded.patch_sensitive,
+        source_notes=excluded.source_notes
+      """,
+      (
+        item["slug"], item["game"], item["title"], item["status"], item["checked_at"],
+        item["patch_sensitive"], item["source_notes"],
+      ),
+    )
+  connection.commit()
+  return len(records)
+
+
 def guide_inventory(
   connection: sqlite3.Connection,
   *,
@@ -436,6 +525,7 @@ def guide_inventory(
     }
     for row in rows
     if row["status"] in {"published", "published_or_draft"}
+    and (not game or row["game"] == game)
     and public_page_is_indexable(str(row["slug"]))
   ]
   if not inventory:
@@ -1118,6 +1208,8 @@ def execute(args: argparse.Namespace) -> int:
       recovered = recover_interrupted_items(connection)
       if recovered:
         print(f"Recovered {recovered} interrupted content automation item(s).")
+      synced_guides = sync_guide_inventory(connection)
+      print(f"Synchronized {synced_guides} public guides into the Agent inventory.")
       backfill_agent_post_drafts(connection, state_dir)
       notification_results = deliver_pending_draft_notifications(connection, state_dir)
       reddit_permission = env_true("RAIDBENCH_REDDIT_COMMERCIAL_PERMISSION_CONFIRMED")
@@ -1141,6 +1233,11 @@ def execute(args: argparse.Namespace) -> int:
           "score": int(candidate["pain_score"]) + int(candidate["commercial_score"]),
           "reddit_permission_confirmed": reddit_permission,
         }, indent=2))
+        return 0
+      if hourly_limit_reached(connection):
+        print("Hourly automatic guide limit reached; no Codex run started.")
+        if notification_results:
+          print(json.dumps({"draft_notifications": notification_results}, indent=2))
         return 0
       if daily_limit_reached(connection):
         print("Daily automatic guide limit reached; no Codex run started.")

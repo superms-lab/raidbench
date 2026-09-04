@@ -1,23 +1,24 @@
 {
-  "effectiveFrom": "2026-09-03",
+  "effectiveFrom": "2026-09-04",
   "timezone": "Asia/Shanghai",
   "qualityPolicy": "Targets are ceilings. Missing evidence or failed QA produces no public output.",
   "publicGuides": {
-    "dailyMaximum": 2,
+    "dailyMaximum": 24,
     "weekly": {
-      "Rust": 9,
-      "POE2": 3,
-      "Palworld": 0,
-      "Project Zomboid": 0,
-      "Escape from Tarkov": 0,
-      "ARK: Survival Ascended": 0,
-      "Warframe": 0,
-      "Once Human": 0,
-      "Counter-Strike 2": 0,
-      "Dota 2": 0,
-      "PUBG: BATTLEGROUNDS": 0,
-      "Tom Clancy's Rainbow Six Siege": 0
-    }
+      "Rust": 14,
+      "POE2": 14,
+      "Palworld": 14,
+      "Project Zomboid": 14,
+      "Escape from Tarkov": 14,
+      "ARK: Survival Ascended": 14,
+      "Warframe": 14,
+      "Once Human": 14,
+      "Counter-Strike 2": 14,
+      "Dota 2": 14,
+      "PUBG: BATTLEGROUNDS": 14,
+      "Tom Clancy's Rainbow Six Siege": 14
+    },
+    "hourlyMaximum": 1
   },
   "weeklyAssets": {
     "calculatorPresetsComparisonsOrDownloads": 3,

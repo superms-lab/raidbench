@@ -72,6 +72,7 @@ for (const source of sourceRegistry.sources) {
     steamAppId: source.steamAppId || "",
     redditCommunities: source.redditCommunities || [],
     demandOnly: source.role === "demand",
+    minuteOffsetUtc: source.minuteOffsetUtc ?? null,
     notes: source.notes,
   };
   sql += `INSERT INTO content_sources (id,game,source_type,url,cadence,active,notes)

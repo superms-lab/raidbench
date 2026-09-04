@@ -2,6 +2,7 @@ import { execFileSync } from "node:child_process";
 import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
+import { selectDueSources } from "./source-schedule.mjs";
 
 const root = process.cwd();
 const dbPath = process.env.RAIDBENCH_LOCAL_DB_PATH
@@ -13,12 +14,17 @@ const inboxDir = process.env.RAIDBENCH_SCOUT_INBOX_DIR
 const operationsDir = process.env.RAIDBENCH_SCOUT_OPERATIONS_DIR
   ? path.resolve(process.env.RAIDBENCH_SCOUT_OPERATIONS_DIR)
   : path.join(root, "operations");
-const runAt = new Date();
+const runAt = new Date(process.env.RAIDBENCH_SCOUT_RUN_AT || Date.now());
 const forceRun = process.argv.includes("--force");
-const cadenceToleranceMs = Math.max(
+const sourcePolicy = JSON.parse(fs.readFileSync(path.join(root, "content", "source-registry.json"), "utf8")).policy;
+const maxSourcesPerRun = Math.max(
+  1,
+  Number(process.env.RAIDBENCH_SCOUT_MAX_SOURCES_PER_RUN || sourcePolicy.maxFactSourcesPerRun || 2),
+);
+const retryBackoffMinutes = Math.max(
   0,
-  Number(process.env.RAIDBENCH_SCOUT_CADENCE_TOLERANCE_MINUTES || "10"),
-) * 60 * 1000;
+  Number(process.env.RAIDBENCH_SCOUT_RETRY_BACKOFF_MINUTES || "15"),
+);
 const day = new Intl.DateTimeFormat("en-CA", {
   timeZone: "Asia/Shanghai",
   year: "numeric",
@@ -98,19 +104,6 @@ async function pacedFetch(source) {
     }
   }
   throw lastError || new Error(`Fetch failed for ${source.id}`);
-}
-
-function cadenceMilliseconds(cadence) {
-  const match = String(cadence || "").match(/^(\d+)h$/i);
-  return match ? Number(match[1]) * 60 * 60 * 1000 : 24 * 60 * 60 * 1000;
-}
-
-function sourceIsDue(source) {
-  if (forceRun || !source.lastFetchedAt) return true;
-  const lastFetchedAt = Date.parse(source.lastFetchedAt);
-  const cadenceMs = cadenceMilliseconds(source.cadence);
-  const toleranceMs = Math.min(cadenceToleranceMs, Math.floor(cadenceMs / 4));
-  return !Number.isFinite(lastFetchedAt) || runAt.getTime() - lastFetchedAt >= cadenceMs - toleranceMs;
 }
 
 function titleFromHtml(html) {
@@ -207,7 +200,9 @@ const sources = JSON.parse(querySql(`
     profile.game_id as gameId,
     profile.freshness_hours as freshnessHours,
     profile.generation_eligible as generationEligible,
-    (select max(snapshot.fetched_at) from source_snapshots snapshot where snapshot.source_id = source.id) as lastFetchedAt,
+    CAST(json_extract(profile.policy_json, '$.minuteOffsetUtc') AS INTEGER) as minuteOffsetUtc,
+    (select max(snapshot.fetched_at) from source_snapshots snapshot where snapshot.source_id = source.id and snapshot.ok=1) as lastSuccessfulAt,
+    (select max(snapshot.fetched_at) from source_snapshots snapshot where snapshot.source_id = source.id) as lastAttemptAt,
     (select snapshot.content_hash from source_snapshots snapshot where snapshot.source_id = source.id and snapshot.ok=1 order by snapshot.fetched_at desc limit 1) as lastContentHash
   from content_sources source
   join content_source_profiles profile on profile.source_id = source.id
@@ -216,7 +211,27 @@ const sources = JSON.parse(querySql(`
     and profile.source_role = 'fact';
 `) || "[]");
 const eligibleSources = sources;
-const dueSources = eligibleSources.filter(sourceIsDue);
+const schedule = selectDueSources(eligibleSources, runAt, {
+  forceRun,
+  maxSourcesPerRun,
+  retryBackoffMinutes,
+});
+const dueSources = schedule.selected;
+if (dueSources.length === 0) {
+  console.log(`No source is scheduled at UTC minute ${String(runAt.getUTCMinutes()).padStart(2, "0")}; no run row was created.`);
+  console.log(JSON.stringify({
+    sources: sources.length,
+    eligibleSources: eligibleSources.length,
+    dueSources: 0,
+    dueBacklogSources: schedule.due.length,
+    deferredDueSources: schedule.deferred.length,
+    maxSourcesPerRun,
+    scheduleMinuteUtc: runAt.getUTCMinutes(),
+    snapshots: 0,
+    failedSources: 0,
+  }, null, 2));
+  process.exit(0);
+}
 const startedAt = runAt.toISOString();
 runSql(`INSERT INTO agent_runs (id, run_type, status, started_at, summary_json) VALUES (${sqlValue(runId)}, 'content_sync', 'running', ${sqlValue(startedAt)}, '{}');`);
 
@@ -310,6 +325,10 @@ const summary = {
   eligibleSources: eligibleSources.length,
   platformRestrictedSources: 0,
   dueSources: dueSources.length,
+  dueBacklogSources: schedule.due.length,
+  deferredDueSources: schedule.deferred.length,
+  maxSourcesPerRun,
+  scheduleMinuteUtc: runAt.getUTCMinutes(),
   skippedSources: eligibleSources.length - dueSources.length,
   snapshots: snapshots.length,
   signals: signals.length,

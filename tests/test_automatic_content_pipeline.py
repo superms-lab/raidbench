@@ -243,6 +243,37 @@ class RaidBenchAutomaticContentTests(unittest.TestCase):
           os.environ["RAIDBENCH_MAX_NEW_GUIDES_PER_DAY"] = previous
         connection.close()
 
+  def test_hourly_limit_counts_the_cycle_start_hour(self) -> None:
+    with tempfile.TemporaryDirectory(dir=ROOT) as temporary:
+      database_path = Path(temporary) / "test.db"
+      connection = automation.sqlite3.connect(database_path)
+      connection.row_factory = automation.sqlite3.Row
+      connection.executescript((ROOT / "local" / "raidbench-local-schema.sql").read_text(encoding="utf-8"))
+      now = datetime.now(timezone.utc)
+      connection.execute(
+        """insert into content_automation_items (
+          id,signal_id,source_type,status,created_at,updated_at,published_at
+        ) values ('item','signal','official','published',?,?,?)""",
+        (now.isoformat(), now.isoformat(), now.isoformat()),
+      )
+      connection.commit()
+      previous = os.environ.get("RAIDBENCH_MAX_NEW_GUIDES_PER_HOUR")
+      os.environ["RAIDBENCH_MAX_NEW_GUIDES_PER_HOUR"] = "1"
+      try:
+        self.assertTrue(automation.hourly_limit_reached(connection))
+        connection.execute(
+          "update content_automation_items set created_at=?",
+          ((now - timedelta(hours=1)).isoformat(),),
+        )
+        connection.commit()
+        self.assertFalse(automation.hourly_limit_reached(connection))
+      finally:
+        if previous is None:
+          os.environ.pop("RAIDBENCH_MAX_NEW_GUIDES_PER_HOUR", None)
+        else:
+          os.environ["RAIDBENCH_MAX_NEW_GUIDES_PER_HOUR"] = previous
+        connection.close()
+
   def test_inventory_includes_relevant_public_copy_for_overlap_review(self) -> None:
     with tempfile.TemporaryDirectory(dir=ROOT) as temporary:
       temporary_path = Path(temporary)
@@ -287,6 +318,26 @@ class RaidBenchAutomaticContentTests(unittest.TestCase):
     self.assertNotIn("privateNoise", by_slug["poe2-boss-prep-checklist"]["content_excerpt"])
     self.assertNotIn("poe2-unpublished-note", by_slug)
     self.assertNotIn("rust-solo-raid-guide", by_slug)
+
+  def test_inventory_sync_registers_each_expanded_game_and_filters_cross_game_links(self) -> None:
+    with tempfile.TemporaryDirectory(dir=ROOT) as temporary:
+      database_path = Path(temporary) / "test.db"
+      connection = automation.sqlite3.connect(database_path)
+      connection.row_factory = automation.sqlite3.Row
+      connection.executescript((ROOT / "local" / "raidbench-local-schema.sql").read_text(encoding="utf-8"))
+      try:
+        synchronized = automation.sync_guide_inventory(connection)
+        inventory = automation.guide_inventory(
+          connection,
+          game="Once Human",
+          context_text="portable crafting search update",
+        )
+      finally:
+        connection.close()
+    self.assertGreaterEqual(synchronized, 100)
+    self.assertGreaterEqual(len(inventory), 6)
+    self.assertTrue(all(item["game"] == "Once Human" for item in inventory))
+    self.assertIn("once-human-update-migration-checklist", {item["slug"] for item in inventory})
 
   def test_materialized_guide_requires_authoritative_evidence(self) -> None:
     case = self.case_fixture("reddit-json")
