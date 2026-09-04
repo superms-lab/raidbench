@@ -14,6 +14,8 @@ assert.equal(registry.policy.communityIsDemandOnly, true);
 assert.equal(registry.policy.redditDataApiAllowed, false);
 assert.equal(registry.policy.bulkCommunityScrapingAllowed, false);
 assert.equal(registry.policy.automaticExternalPostingAllowed, false);
+assert.equal(registry.policy.factCadence, "1h");
+assert.equal(registry.policy.demandCadence, "24h");
 assert.equal(registry.sources.some((source) => source.sourceType === "reddit-json"), false);
 
 for (const gameId of gameIds) {
@@ -23,13 +25,17 @@ for (const gameId of gameIds) {
   assert.ok(facts.length >= 2, `${gameId} needs at least two factual sources`);
   assert.equal(demand.length, 1, `${gameId} needs one demand profile`);
   assert.equal(demand[0].fetchMode, "search-only");
+  assert.equal(demand[0].cadence, registry.policy.demandCadence);
   assert.equal(demand[0].generationEligible, false);
   assert.ok(demand[0].redditCommunities.length >= 1);
   assert.match(demand[0].steamAppId, /^[0-9]+$/);
   assert.ok(demand[0].topics.length >= 5);
   for (const source of sources) {
     assert.ok(source.url.startsWith("https://"));
-    if (source.role === "fact") assert.notEqual(source.authority, "community");
+    if (source.role === "fact") {
+      assert.notEqual(source.authority, "community");
+      assert.equal(source.cadence, registry.policy.factCadence, `${source.id} must match the Rust hourly fact cadence`);
+    }
   }
 }
 

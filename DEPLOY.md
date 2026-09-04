@@ -153,7 +153,7 @@ systemctl status raidbench-multigame-demand.timer
 journalctl -u raidbench-multigame-demand.service -n 100 --no-pager
 ```
 
-The source scout monitors 25 direct publisher-controlled sources across twelve games while honoring per-source cadence and freshness rules. The multi-game demand service rotates three games every six hours and stores at most one exact recent community question per game in the private backlog. It does not use the Reddit Data API, bulk-crawl community listings, or publish externally. The legacy standalone POE2 demand timer is disabled after this shared rotation is installed.
+The source scout checks 25 direct publisher-controlled sources across all twelve games every hour, matching the Rust factual-source cadence. Community demand remains a separate daily-per-game lane: the multi-game service rotates three games every six hours and attempts each game at most once per UTC day. It stores at most one exact recent community question per game in the private backlog, does not use the Reddit Data API, bulk-crawl community listings, or publish externally. The legacy standalone POE2 demand timer is disabled after this shared rotation is installed.
 
 ## Multi-Game Shadow Answer QA
 

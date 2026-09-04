@@ -16,7 +16,7 @@ Environment=RAIDBENCH_SCOUT_INBOX_DIR=/opt/raidbench-agent/artifacts/inbox
 Environment=RAIDBENCH_SCOUT_OPERATIONS_DIR=/opt/raidbench-agent/artifacts/operations
 EnvironmentFile=-/opt/raidbench-agent/secrets/source-scout.env
 ExecStart=/usr/bin/node scripts/run-content-agents.mjs
-TimeoutStartSec=5min
+TimeoutStartSec=12min
 Restart=on-failure
 RestartSec=15min
 NoNewPrivileges=true

@@ -208,7 +208,8 @@ sudo -u raidbench-agent sqlite3 /opt/raidbench-agent/data/raidbench.local.db \
   "select id, status, summary_json from agent_runs order by started_at desc limit 5;"
 ```
 
-定时器每小时唤醒一次，所有已批准来源也使用 1 小时采集节奏。它只访问公开页面与
+定时器每小时唤醒一次，25 个官方、发行商和 Steam 公告源全部使用与 Rust 相同的 1 小时
+采集节奏。12 个社区需求配置则全部与 Rust 相同，每个游戏每天最多尝试一次；它只访问公开页面与
 公开 JSON/RSS；失败来源会进入日志，不尝试绕过登录、验证码或站点限制。Reddit 来源
 仍受单独的商业平台许可开关控制，关闭时不会抓取。扫描结果进入私有内容队列；独立帖子、
 带链接内容和私信始终需要业主审核，不能由采集器直接发布。
