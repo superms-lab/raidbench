@@ -1,7 +1,7 @@
 # RaidBench Multi-Game Product Economics
 
-Generated: 2026-09-04T01:09:37.723Z
-Model as of: 2026-09-03
+Generated: 2026-09-06T17:39:05.689Z
+Model as of: 2026-09-06
 Provider: PayPal China cross-border
 Scenario: US and Canada organic launch
 

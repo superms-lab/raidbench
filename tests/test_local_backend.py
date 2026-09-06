@@ -4,6 +4,7 @@ import json
 import hashlib
 import tempfile
 import threading
+import time
 import unittest
 import urllib.request
 from contextlib import closing
@@ -17,6 +18,7 @@ from urllib.error import HTTPError
 ROOT = Path(__file__).resolve().parents[1]
 
 from backend.answer_engine import UnsupportedScopeError, build_raid_answer, load_raid_data
+from backend.digital_products import build_staging_pack
 from backend.email_delivery import ResendEmailDelivery, Smtp2GoEmailDelivery
 from backend.paypal import PayPalWebhookSignatureError
 from backend.server import create_server
@@ -25,18 +27,24 @@ from backend.store import (
     catalog,
     claim_owner_notification,
     complete_paypal_capture_event,
+    complete_paypal_order,
     connect,
+    create_demo_digital_delivery,
     create_deferred_question,
+    create_pending_digital_delivery,
     create_pending_paypal_order,
     create_verified_question,
+    digital_delivery_for_access,
     get_or_create_demo_customer,
     grant_demo_order,
     finish_owner_notification,
     init_database,
     list_questions,
     mark_payment_event,
+    public_digital_delivery,
     record_payment_event,
     reverse_paypal_credits,
+    sync_digital_delivery_status,
 )
 
 
@@ -63,6 +71,182 @@ class StoreFlowTests(unittest.TestCase):
         self.assertEqual(packs[0]["sku"], "credits-starter-20")
         self.assertEqual(packs[0]["credits"], 20)
         self.assertEqual(packs[0]["price_usd"], 5)
+
+    def test_digital_report_is_private_until_payment_and_revoked_after_refund(self) -> None:
+        self.data["verifiedAt"] = "2026-09-06"
+        inputs = {
+            "serverType": "vanilla",
+            "targets": [{"targetId": "garage-door", "quantity": 1, "method": "rockets"}],
+            "bufferPercent": 10,
+            "availableSulfur": 5000,
+            "teamSize": 1,
+            "routePreference": "lowest_sulfur",
+        }
+        preview, report = build_staging_pack(
+            inputs,
+            self.data,
+            now=datetime(2026, 9, 6, 12, tzinfo=timezone.utc),
+        )
+        access_token = "private_access_token_abcdefghijklmnopqrstuvwxyz123456"
+        with closing(connect(self.db_path)) as connection:
+            order = create_pending_digital_delivery(
+                connection,
+                sku="rust-staging-pack-v1",
+                paypal_order_id="PAYPAL-DIGITAL-1",
+                paypal_payload={"id": "PAYPAL-DIGITAL-1", "status": "CREATED"},
+                local_order_id="ord_digital_1",
+                access_token=access_token,
+                inputs=report["inputs"],
+                preview=preview,
+                report=report,
+                consent={
+                    "termsVersion": "2026-09-06",
+                    "refundPolicyVersion": "2026-09-06",
+                    "consentedAt": "2026-09-06T12:00:00+00:00",
+                },
+            )
+            stored = connection.execute(
+                "SELECT access_token_hash, report_json FROM digital_deliveries WHERE order_id = ?",
+                (order["id"],),
+            ).fetchone()
+            self.assertNotEqual(stored["access_token_hash"], access_token)
+            self.assertNotIn(access_token, stored["report_json"])
+
+            pending = digital_delivery_for_access(connection, access_token)
+            public_pending = public_digital_delivery(pending, include_report=True)
+            self.assertFalse(public_pending["ready"])
+            self.assertNotIn("report", public_pending)
+
+            result = complete_paypal_order(
+                connection,
+                order["customer_id"],
+                "PAYPAL-DIGITAL-1",
+                {
+                    "status": "COMPLETED",
+                    "purchase_units": [{
+                        "payments": {"captures": [{
+                            "id": "CAPTURE-DIGITAL-1",
+                            "status": "COMPLETED",
+                            "amount": {"currency_code": "USD", "value": "4.99"},
+                        }]},
+                    }],
+                },
+            )
+            sync_digital_delivery_status(connection, result["order"])
+            ready = digital_delivery_for_access(connection, access_token, record_access=True)
+            public_ready = public_digital_delivery(ready, include_report=True)
+            self.assertTrue(public_ready["ready"])
+            self.assertEqual(public_ready["report"]["totals"]["sulfur"], 4200)
+            self.assertEqual(
+                connection.execute(
+                    "SELECT COUNT(*) AS count FROM credit_ledger WHERE order_id = ?",
+                    (order["id"],),
+                ).fetchone()["count"],
+                0,
+            )
+
+            refunded = reverse_paypal_credits(
+                connection,
+                provider_event_id="WH-DIGITAL-REFUND-1",
+                capture_id="CAPTURE-DIGITAL-1",
+                amount=4.99,
+                currency="USD",
+                status="refunded",
+                raw_event={"id": "WH-DIGITAL-REFUND-1"},
+            )
+            sync_digital_delivery_status(connection, refunded["order"])
+            revoked = digital_delivery_for_access(connection, access_token)
+            public_revoked = public_digital_delivery(revoked, include_report=True)
+            self.assertEqual(public_revoked["deliveryStatus"], "revoked")
+            self.assertFalse(public_revoked["ready"])
+            self.assertNotIn("report", public_revoked)
+
+    def test_partial_digital_refund_enters_payment_review(self) -> None:
+        self.data["verifiedAt"] = "2026-09-06"
+        inputs = {
+            "targetId": "sheet-door",
+            "quantity": 1,
+            "method": "c4",
+            "serverType": "vanilla",
+            "bufferPercent": 0,
+        }
+        preview, report = build_staging_pack(
+            inputs,
+            self.data,
+            now=datetime(2026, 9, 6, 12, tzinfo=timezone.utc),
+        )
+        access_token = "partial_refund_token_abcdefghijklmnopqrstuvwxyz12345"
+        with closing(connect(self.db_path)) as connection:
+            order = create_pending_digital_delivery(
+                connection,
+                sku="rust-staging-pack-v1",
+                paypal_order_id="PAYPAL-PARTIAL-REFUND-1",
+                paypal_payload={"id": "PAYPAL-PARTIAL-REFUND-1", "status": "CREATED"},
+                local_order_id="ord_partial_refund_1",
+                access_token=access_token,
+                inputs=report["inputs"],
+                preview=preview,
+                report=report,
+                consent={},
+            )
+            completed = complete_paypal_order(
+                connection,
+                order["customer_id"],
+                "PAYPAL-PARTIAL-REFUND-1",
+                {
+                    "status": "COMPLETED",
+                    "purchase_units": [{"payments": {"captures": [{
+                        "id": "CAPTURE-PARTIAL-REFUND-1",
+                        "status": "COMPLETED",
+                        "amount": {"currency_code": "USD", "value": "4.99"},
+                    }]}}],
+                },
+            )
+            sync_digital_delivery_status(connection, completed["order"])
+            reviewed = reverse_paypal_credits(
+                connection,
+                provider_event_id="WH-PARTIAL-REFUND-1",
+                capture_id="CAPTURE-PARTIAL-REFUND-1",
+                amount=1.00,
+                currency="USD",
+                status="refunded",
+                raw_event={"id": "WH-PARTIAL-REFUND-1"},
+            )
+            self.assertTrue(reviewed["manualReview"])
+            sync_digital_delivery_status(connection, reviewed["order"])
+            delivery = digital_delivery_for_access(connection, access_token)
+            public = public_digital_delivery(delivery, include_report=True)
+            self.assertEqual(public["paymentStatus"], "refund_review")
+            self.assertEqual(public["deliveryStatus"], "payment_review")
+            self.assertFalse(public["ready"])
+            self.assertNotIn("report", public)
+
+    def test_demo_digital_report_is_immediately_ready(self) -> None:
+        self.data["verifiedAt"] = "2026-09-06"
+        inputs = {
+            "targetId": "sheet-door",
+            "quantity": 1,
+            "method": "c4",
+            "serverType": "vanilla",
+            "bufferPercent": 0,
+        }
+        preview, report = build_staging_pack(
+            inputs,
+            self.data,
+            now=datetime(2026, 9, 6, 12, tzinfo=timezone.utc),
+        )
+        access_token = "demo_access_token_abcdefghijklmnopqrstuvwxyz123456789"
+        with closing(connect(self.db_path)) as connection:
+            create_demo_digital_delivery(
+                connection,
+                sku="rust-staging-pack-v1",
+                access_token=access_token,
+                inputs=report["inputs"],
+                preview=preview,
+                report=report,
+            )
+            delivery = digital_delivery_for_access(connection, access_token)
+            self.assertTrue(public_digital_delivery(delivery, include_report=True)["ready"])
 
     def test_purchase_and_in_account_answer_are_persistent_and_idempotent(self) -> None:
         connection = connect(self.db_path)
@@ -523,6 +707,175 @@ class HttpFlowTests(unittest.TestCase):
         self.assertEqual(status, 200)
         self.assertIn(b"Player account", customer_html)
 
+        clean_status, clean_html = self.request("/rust-raid-staging-pack")
+        self.assertEqual(clean_status, 200)
+        self.assertIn(b"Rust Full Raid Staging Pack", clean_html)
+
+    def test_accountless_digital_report_demo_journey(self) -> None:
+        product_status, product = self.request("/api/guest/raid-pack/product")
+        self.assertEqual(product_status, 200)
+        self.assertTrue(product["product"]["available"])
+        self.assertFalse(product["product"]["accountRequired"])
+
+        payload = {
+            "serverType": "vanilla",
+            "targets": [
+                {"targetId": "sheet-door", "quantity": 2, "method": "satchels"},
+                {"targetId": "stone-wall", "quantity": 1, "method": "rockets"},
+            ],
+            "bufferPercent": 15,
+            "availableSulfur": 9000,
+            "teamSize": 2,
+            "routePreference": "lowest_sulfur",
+            "ownedInventory": {"rockets": 2, "c4": 0, "satchels": 4, "explosiveAmmo": 0},
+        }
+        preview_status, preview = self.request(
+            "/api/guest/raid-pack/preview",
+            method="POST",
+            body=payload,
+        )
+        self.assertEqual(preview_status, 200)
+        self.assertEqual(preview["preview"]["selected"]["sulfur"], 9440)
+        self.assertNotIn("report", preview)
+
+        complete_status, completed = self.request(
+            "/api/guest/raid-pack/demo-complete",
+            method="POST",
+            body=payload,
+        )
+        self.assertEqual(complete_status, 201)
+        self.assertTrue(completed["delivery"]["ready"])
+        self.assertEqual(completed["delivery"]["report"]["qa"]["status"], "approved")
+
+        access_status, accessed = self.request(
+            "/api/guest/raid-pack/access",
+            method="POST",
+            body={"accessToken": completed["accessToken"]},
+        )
+        self.assertEqual(access_status, 200)
+        self.assertEqual(accessed["delivery"]["reportSha256"], completed["delivery"]["reportSha256"])
+
+        missing_status, missing = self.request(
+            "/api/guest/raid-pack/access",
+            method="POST",
+            body={"accessToken": "wrong_access_token_abcdefghijklmnopqrstuvwxyz12345"},
+        )
+        self.assertEqual(missing_status, 404)
+        self.assertEqual(missing["error"]["code"], "report_not_found")
+
+    def test_accountless_paypal_checkout_captures_once_and_delivers_report(self) -> None:
+        class FakePayPal:
+            configured = True
+            webhook_configured = True
+            environment = "live"
+
+            def __init__(self):
+                self.capture_calls = 0
+                self.return_url = ""
+
+            def create_order(self, **kwargs):
+                self.return_url = kwargs["return_url"]
+                self.asserted_amount = kwargs["amount"]
+                return {
+                    "id": "PAYPAL-GUEST-CHECKOUT-1",
+                    "status": "CREATED",
+                    "links": [{
+                        "rel": "approve",
+                        "href": "https://www.paypal.com/checkoutnow?token=PAYPAL-GUEST-CHECKOUT-1",
+                    }],
+                }
+
+            def capture_order(self, paypal_order_id):
+                self.capture_calls += 1
+                return {
+                    "id": paypal_order_id,
+                    "status": "COMPLETED",
+                    "purchase_units": [{
+                        "payments": {"captures": [{
+                            "id": "CAPTURE-GUEST-CHECKOUT-1",
+                            "status": "COMPLETED",
+                            "amount": {"currency_code": "USD", "value": "4.99"},
+                        }]},
+                    }],
+                }
+
+            @staticmethod
+            def show_order(paypal_order_id):
+                raise AssertionError(f"Unexpected reconciliation for {paypal_order_id}")
+
+        fake_paypal = FakePayPal()
+        self.server.mode = "production"
+        self.server.paypal = fake_paypal
+        self.server.checkout_enabled = True
+        self.server.paid_data_status = lambda: {"ready": True, "status": "verified"}
+        payload = {
+            "serverType": "vanilla",
+            "targets": [{"targetId": "garage-door", "quantity": 1, "method": "rockets"}],
+            "bufferPercent": 10,
+            "availableSulfur": 5000,
+            "teamSize": 1,
+            "routePreference": "lowest_sulfur",
+            "ownedInventory": {"rockets": 3, "c4": 0, "satchels": 0, "explosiveAmmo": 0},
+            "acceptedTerms": True,
+            "acceptedRefundPolicy": True,
+            "acknowledgedDigitalDelivery": True,
+            "legalVersion": "2026-09-06",
+        }
+        checkout_status, checkout = self.request(
+            "/api/guest/raid-pack/checkout",
+            method="POST",
+            body=payload,
+        )
+        self.assertEqual(checkout_status, 201)
+        self.assertEqual(fake_paypal.asserted_amount, 4.99)
+        self.assertIn("paypal=return", fake_paypal.return_url)
+        self.assertIn("access=", fake_paypal.return_url)
+        self.assertEqual(checkout["paypalOrderId"], "PAYPAL-GUEST-CHECKOUT-1")
+
+        with closing(connect(self.db_path)) as connection:
+            stored = connection.execute(
+                "SELECT access_token_hash, status FROM digital_deliveries"
+            ).fetchone()
+            self.assertNotEqual(stored["access_token_hash"], checkout["accessToken"])
+            self.assertEqual(stored["status"], "awaiting_payment")
+
+        capture_body = {
+            "accessToken": checkout["accessToken"],
+            "paypalOrderId": checkout["paypalOrderId"],
+        }
+        capture_status, captured = self.request(
+            "/api/guest/raid-pack/capture",
+            method="POST",
+            body=capture_body,
+        )
+        repeated_status, repeated = self.request(
+            "/api/guest/raid-pack/capture",
+            method="POST",
+            body=capture_body,
+        )
+        self.assertEqual(capture_status, 200)
+        self.assertEqual(repeated_status, 200)
+        self.assertTrue(captured["delivery"]["ready"])
+        self.assertEqual(captured["delivery"]["report"]["totals"]["sulfur"], 4200)
+        self.assertEqual(repeated["delivery"]["reportSha256"], captured["delivery"]["reportSha256"])
+        self.assertEqual(fake_paypal.capture_calls, 1)
+
+        with closing(connect(self.db_path)) as connection:
+            connection.execute(
+                "UPDATE orders SET status = 'refund_review' WHERE provider_transaction_id = ?",
+                (checkout["paypalOrderId"],),
+            )
+        review_status, review = self.request(
+            "/api/guest/raid-pack/capture",
+            method="POST",
+            body=capture_body,
+        )
+        self.assertEqual(review_status, 200)
+        self.assertEqual(review["delivery"]["deliveryStatus"], "payment_review")
+        self.assertFalse(review["delivery"]["ready"])
+        self.assertNotIn("report", review["delivery"])
+        self.assertEqual(fake_paypal.capture_calls, 1)
+
     def test_blocked_paid_data_hides_rust_catalog_and_holds_answer_without_charge(self) -> None:
         status_path = Path(self.temp_dir.name) / "rust-paid-data-status.json"
         data_hash = hashlib.sha256(self.server.raid_data_path.read_bytes()).hexdigest()
@@ -643,13 +996,20 @@ class HttpFlowTests(unittest.TestCase):
         self.assertTrue(notifier.sent_event.wait(timeout=2))
         self.assertEqual(len(notifier.sent), 1)
         self.assertEqual(notifier.sent[0][1], "PAYMENT.CAPTURE.COMPLETED")
+        notification = None
+        deadline = time.time() + 2
+        while time.time() < deadline:
+            with closing(connect(self.db_path)) as connection:
+                notification = connection.execute(
+                    "SELECT status, attempts FROM owner_notifications WHERE order_id = ?",
+                    ("ord_http_webhook",),
+                ).fetchone()
+            if notification and notification["status"] == "sent":
+                break
+            time.sleep(0.02)
         with closing(connect(self.db_path)) as connection:
             customer = get_or_create_demo_customer(connection)
             self.assertEqual(account_summary(connection, customer["id"])["creditBalance"], 120)
-            notification = connection.execute(
-                "SELECT status, attempts FROM owner_notifications WHERE order_id = ?",
-                ("ord_http_webhook",),
-            ).fetchone()
             self.assertEqual(notification["status"], "sent")
             self.assertEqual(notification["attempts"], 1)
 

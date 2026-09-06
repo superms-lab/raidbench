@@ -56,8 +56,11 @@ SELECT
   COALESCE(SUM(CASE WHEN event_name = 'raid_plan_share_copy' THEN events ELSE 0 END), 0) AS share_copies,
   COALESCE(SUM(CASE WHEN event_name = 'raid_shared_route_open' THEN events ELSE 0 END), 0) AS shared_route_opens,
   COALESCE(SUM(CASE WHEN event_name = 'live_account_cta_click' THEN events ELSE 0 END), 0) AS account_entries,
-  COALESCE(SUM(CASE WHEN event_name = 'checkout_start' THEN events ELSE 0 END), 0) AS checkout_starts,
-  COALESCE(SUM(CASE WHEN event_name = 'payment_capture_success' THEN events ELSE 0 END), 0) AS payment_successes,
+  COALESCE(SUM(CASE WHEN event_name IN ('checkout_start', 'staging_pack_checkout_start') THEN events ELSE 0 END), 0) AS checkout_starts,
+  COALESCE(SUM(CASE WHEN event_name IN ('payment_capture_success', 'staging_pack_report_ready') THEN events ELSE 0 END), 0) AS payment_successes,
+  COALESCE(SUM(CASE WHEN event_name = 'staging_pack_preview' THEN events ELSE 0 END), 0) AS staging_pack_previews,
+  COALESCE(SUM(CASE WHEN event_name = 'staging_pack_checkout_start' THEN events ELSE 0 END), 0) AS staging_pack_checkouts,
+  COALESCE(SUM(CASE WHEN event_name = 'staging_pack_report_ready' THEN events ELSE 0 END), 0) AS staging_pack_reports,
   COALESCE(SUM(CASE WHEN event_name = 'answer_ready' THEN events ELSE 0 END), 0) AS answers_ready,
   COALESCE(SUM(events), 0) AS tracked_events
 FROM conversion_events
@@ -133,6 +136,9 @@ const dashboard = {
     accountEntries: Number(funnel.account_entries || 0),
     checkoutStarts: Number(funnel.checkout_starts || 0),
     paymentSuccesses: Number(funnel.payment_successes || 0),
+    stagingPackPreviews: Number(funnel.staging_pack_previews || 0),
+    stagingPackCheckouts: Number(funnel.staging_pack_checkouts || 0),
+    stagingPackReports: Number(funnel.staging_pack_reports || 0),
     answersReady: Number(funnel.answers_ready || 0),
     trackedEvents: Number(funnel.tracked_events || 0),
   },

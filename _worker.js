@@ -29,6 +29,14 @@ const ALLOWED_EVENTS = new Set([
   "raid_remove_target",
   "raid_reset",
   "raid_shared_route_open",
+  "staging_pack_checkout_start",
+  "staging_pack_json_download",
+  "staging_pack_payment_return",
+  "staging_pack_preview",
+  "staging_pack_print",
+  "staging_pack_private_link_copy",
+  "staging_pack_report_ready",
+  "staging_pack_share",
   "upkeep_input_change",
   "widget_embed_code_copy",
 ]);
@@ -130,8 +138,11 @@ async function readAnalyticsSummary(request, env) {
     env.ANALYTICS_DB.prepare(
       `SELECT
         COALESCE(SUM(CASE WHEN event_name = 'live_account_cta_click' THEN events ELSE 0 END), 0) AS account_entries,
-        COALESCE(SUM(CASE WHEN event_name = 'checkout_start' THEN events ELSE 0 END), 0) AS checkout_starts,
-        COALESCE(SUM(CASE WHEN event_name = 'payment_capture_success' THEN events ELSE 0 END), 0) AS payment_successes,
+        COALESCE(SUM(CASE WHEN event_name IN ('checkout_start', 'staging_pack_checkout_start') THEN events ELSE 0 END), 0) AS checkout_starts,
+        COALESCE(SUM(CASE WHEN event_name IN ('payment_capture_success', 'staging_pack_report_ready') THEN events ELSE 0 END), 0) AS payment_successes,
+        COALESCE(SUM(CASE WHEN event_name = 'staging_pack_preview' THEN events ELSE 0 END), 0) AS staging_pack_previews,
+        COALESCE(SUM(CASE WHEN event_name = 'staging_pack_checkout_start' THEN events ELSE 0 END), 0) AS staging_pack_checkouts,
+        COALESCE(SUM(CASE WHEN event_name = 'staging_pack_report_ready' THEN events ELSE 0 END), 0) AS staging_pack_reports,
         COALESCE(SUM(events), 0) AS tracked_events
       FROM conversion_events
       WHERE day >= date('now', '-29 days') AND source <> 'qa'`,
@@ -157,6 +168,9 @@ async function readAnalyticsSummary(request, env) {
       accountEntries: Number(funnel.account_entries || 0),
       checkoutStarts: Number(funnel.checkout_starts || 0),
       paymentSuccesses: Number(funnel.payment_successes || 0),
+      stagingPackPreviews: Number(funnel.staging_pack_previews || 0),
+      stagingPackCheckouts: Number(funnel.staging_pack_checkouts || 0),
+      stagingPackReports: Number(funnel.staging_pack_reports || 0),
       trackedEvents: Number(funnel.tracked_events || 0),
     },
   });

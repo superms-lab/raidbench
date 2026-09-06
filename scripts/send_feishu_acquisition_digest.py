@@ -178,6 +178,8 @@ def traffic_card_elements(traffic: dict[str, Any] | None, error: str = "") -> li
     f"近 7 日 **{int(metrics.get('last7Days') or 0)}** · 近 30 日 **{int(metrics.get('last30Days') or 0)}**\n"
     f"近 30 日转化：进入账户 **{int(funnel.get('accountEntries') or 0)}** · "
     f"发起结账 **{int(funnel.get('checkoutStarts') or 0)}** · 支付成功 **{int(funnel.get('paymentSuccesses') or 0)}**\n"
+    f"新商品：免费预览 **{int(funnel.get('stagingPackPreviews') or 0)}** · "
+    f"开始结账 **{int(funnel.get('stagingPackCheckouts') or 0)}** · 报告交付 **{int(funnel.get('stagingPackReports') or 0)}**\n"
     f"热门页面：{page_summary}"
   )
   return [

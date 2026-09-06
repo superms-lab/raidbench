@@ -54,6 +54,20 @@ class PaymentNotificationTests(unittest.TestCase):
         self.assertNotIn("private-player@example.com", serialized)
         self.assertEqual(payment_notification_type(self.order), "payment_completed")
 
+    def test_digital_report_card_describes_automatic_delivery(self) -> None:
+        order = {
+            **self.order,
+            "sku": "rust-staging-pack-v1",
+            "amount": 4.99,
+            "credits_granted": 0,
+        }
+        serialized = json.dumps(
+            build_payment_card(order, "PAYMENT.CAPTURE.COMPLETED"),
+            ensure_ascii=False,
+        )
+        self.assertIn("交付：自动数字报告", serialized)
+        self.assertNotIn("点数：0", serialized)
+
     def test_rejects_non_feishu_webhook(self) -> None:
         with self.assertRaisesRegex(PaymentNotificationError, "official Feishu"):
             validate_webhook_url("https://example.com/open-apis/bot/v2/hook/test")

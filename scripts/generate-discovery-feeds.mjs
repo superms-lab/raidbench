@@ -58,7 +58,7 @@ ${multigameTools.map((tool) => `- [${tool.title}](https://raidbench.com/tools/${
 - [Rust raid-cost dataset (JSON)](https://raidbench.com/rust-raid-costs.json): Verified vanilla Rust PC target counts, sulfur roll-ups, source links, and freshness metadata.
 - [Rust raid-cost table (CSV)](https://raidbench.com/rust-raid-costs.csv): Reusable raid-cost rows for spreadsheets, tools, and independent analysis.
 - [Free Rust raid-cost widget](https://raidbench.com/rust-raid-calculator-widget): A compact calculator that community and guide sites can embed without an account or API key.
-- [Verified Rust Answer Offer](https://raidbench.com/rust-raid-plan): One verified target answer starts at $5; a complete multi-layer raid plan is $19. Unsupported or stale requests are held without a credit charge.
+- [Rust Full Raid Staging Pack](https://raidbench.com/rust-raid-staging-pack): Preview the sulfur gap free, then unlock one complete route, inventory, crafting, execution, evidence, and QA report for $4.99 without an account.
 
 ## High-intent Rust guides
 

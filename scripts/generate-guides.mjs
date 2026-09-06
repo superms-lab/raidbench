@@ -140,11 +140,10 @@ function pageHtml(guide) {
   const publishedAt = guide.publishedAt || defaultPublishedAt;
   const reviewedAt = guide.reviewedAt || defaultReviewedAt;
   const route = targetGuideRoutes[guide.slug] || "";
-  const routeQuery = route ? `&amp;route=${encodeURIComponent(route)}` : "";
   const calculatorHref = route
     ? `../?route=${encodeURIComponent(route)}&amp;utm_source=guide&amp;utm_medium=internal&amp;utm_campaign=${escapeHtml(guide.slug)}#raid-calculator`
     : "../index.html#raid-calculator";
-  const purchaseHref = `../customer?intent=instant${routeQuery}&amp;utm_source=guide&amp;utm_medium=internal&amp;utm_campaign=${escapeHtml(guide.slug)}`;
+  const purchaseHref = `../rust-raid-staging-pack?${route ? `route=${encodeURIComponent(route)}&amp;` : ""}utm_source=guide&amp;utm_medium=internal&amp;utm_campaign=${escapeHtml(guide.slug)}`;
   const citations = [...new Set((guide.sources || [])
     .filter((source) => !/community|question pattern/i.test(typeof source === "object" ? source.label : source))
     .map(sourceUrl)
@@ -245,11 +244,11 @@ ${sectionsHtml(guide.sections)}
         </article>
 ${faqHtml(guide.faqs)}
 ${relatedHtml(guide.related, calculatorHref)}
-        <article class="article-card conversion-card" data-live-commerce hidden>
-          <p class="eyebrow">Verified Rust answers from $5</p>
-          <h2>Check one target now, or build the complete raid route.</h2>
-          <p>The $5 starter pack covers two personalized route checks. A $19 pack covers a complete multi-layer raid plan with resource buffer, evidence, and calculation checks. Unsupported requests are not charged.</p>
-          <div class="article-cta"><a class="primary-action" href="${purchaseHref}" data-commerce-cta>Get a verified answer</a><a class="secondary-action" href="../rust-raid-plan">Compare both options</a></div>
+        <article class="article-card conversion-card" data-live-commerce data-rust-staging-commerce hidden>
+          <p class="eyebrow">Complete Rust staging report · $4.99</p>
+          <h2>Turn this decision into a route you can stage.</h2>
+          <p>Check the sulfur gap free, then unlock the three-route comparison, exact inventory shortfalls, crafting queue, team roles, evidence, and calculation QA. No account required.</p>
+          <div class="article-cta"><a class="primary-action" href="${purchaseHref}" data-commerce-cta>Build my staging report</a><a class="secondary-action" href="../rust-raid-staging-pack">See the full output</a></div>
         </article>
         <article class="article-card source-list">
           <h2>Sources and review notes</h2>

@@ -131,11 +131,12 @@ function gameHub(game) {
   const guides = guidesFor(game);
   const gameTool = toolsByGame.get(game.id);
   const liveProduct = liveProductByGame.get(game.id);
+  const isRust = game.id === "rust";
   const robots = game.indexable ? "index,follow" : "noindex,follow";
-  const primaryHref = liveProduct ? "/customer.html?intent=palworld" : game.featuredLinks[0]?.href || (gameTool ? `/tools/${gameTool.slug}/` : "/games");
-  const primaryLabel = liveProduct ? "Get an independent review" : game.featuredLinks[0]?.label || (gameTool ? `Open ${gameTool.title}` : "Browse all games");
-  const headerActionHref = liveProduct ? "../../customer.html?intent=palworld" : guides.length ? `../../guides.html?game=${game.id}` : "../../games.html";
-  const headerActionLabel = liveProduct ? "Review my bottleneck" : guides.length ? "Browse guides" : "Browse games";
+  const primaryHref = isRust ? "/rust-raid-staging-pack" : liveProduct ? "/customer.html?intent=palworld" : game.featuredLinks[0]?.href || (gameTool ? `/tools/${gameTool.slug}/` : "/games");
+  const primaryLabel = isRust ? "Build my staging report" : liveProduct ? "Get an independent review" : game.featuredLinks[0]?.label || (gameTool ? `Open ${gameTool.title}` : "Browse all games");
+  const headerActionHref = isRust ? "../../rust-raid-staging-pack" : liveProduct ? "../../customer.html?intent=palworld" : guides.length ? `../../guides.html?game=${game.id}` : "../../games.html";
+  const headerActionLabel = isRust ? "Stage a route" : liveProduct ? "Review my bottleneck" : guides.length ? "Browse guides" : "Browse games";
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
@@ -178,7 +179,7 @@ function gameHub(game) {
           <p>${escapeHtml(game.summary)}</p>
           <div class="lab-actions">
             <a class="primary-action" href="../..${escapeHtml(primaryHref)}"${liveProduct ? ' data-commerce-cta data-track-event="palworld_review_open"' : ""}>${escapeHtml(primaryLabel)}</a>
-            <a class="secondary-action" href="${liveProduct ? "../../pages/palworld-base-automation-scorecard" : "../../about.html"}">${liveProduct ? "Start with the free scorecard" : "Review standards"}</a>
+            <a class="secondary-action" href="${isRust ? "../../#raid-calculator" : liveProduct ? "../../pages/palworld-base-automation-scorecard" : "../../about.html"}">${isRust ? "Use the free calculator" : liveProduct ? "Start with the free scorecard" : "Review standards"}</a>
           </div>
         </div>
       </section>
@@ -195,6 +196,20 @@ function gameHub(game) {
           <strong>${escapeHtml(liveProduct.credits)} credits</strong>
           <small>Reserved when submitted. Charged only after QA approval; otherwise 0 credits.</small>
           <a class="primary-action" href="../../customer.html?intent=palworld" data-commerce-cta data-track-event="palworld_review_open">Start my review</a>
+        </div>
+      </section>` : ""}${isRust ? `
+      <section class="game-paid-review-band" aria-labelledby="paid-review-rust">
+        <div>
+          <p class="eyebrow">One route, one complete staging decision</p>
+          <h2 id="paid-review-rust">The arithmetic should be settled before the first rocket leaves base.</h2>
+          <p>Enter up to 12 visible layers, the explosives already in base, your sulfur stock, team size, and route priority. Preview the largest resource gap free, then unlock the full deterministic report without creating an account.</p>
+          <ul><li>Selected, lowest-sulfur, and fewest-placement routes</li><li>Exact inventory shortfalls and workbench crafting queue</li><li>Team roles, stop conditions, current evidence, and independent recalculation</li></ul>
+        </div>
+        <div class="paid-review-action">
+          <span>Account-free launch price</span>
+          <strong>$4.99 USD</strong>
+          <small>One-time purchase. Immediate private-link delivery after confirmed PayPal payment.</small>
+          <a class="primary-action" href="../../rust-raid-staging-pack?utm_source=rust_hub&amp;utm_medium=internal&amp;utm_campaign=rust_staging_pack">Check my route free</a>
         </div>
       </section>` : ""}
 

@@ -54,3 +54,17 @@
 
 /customer.css
   Cache-Control: public, max-age=0, must-revalidate
+
+/rust-raid-staging-pack
+  Cache-Control: private, no-store
+  Referrer-Policy: no-referrer
+
+/rust-raid-staging-pack.html
+  Cache-Control: private, no-store
+  Referrer-Policy: no-referrer
+
+/staging-pack.js
+  Cache-Control: public, max-age=0, must-revalidate
+
+/staging-pack.css
+  Cache-Control: public, max-age=0, must-revalidate

@@ -17,7 +17,10 @@
       if (!response.ok) return;
       const apiConfig = await response.json();
       if (!window.RAIDBENCH_CONFIG?.isLiveCommerceReady?.(apiConfig)) return;
-      nodes.forEach((node) => { node.hidden = false; });
+      nodes.forEach((node) => {
+        const needsRustPack = node.hasAttribute("data-rust-staging-commerce");
+        if (!needsRustPack || apiConfig.guestStagingPackReady === true) node.hidden = false;
+      });
     } catch {
       // Paid entry points remain hidden if readiness cannot be verified.
     }

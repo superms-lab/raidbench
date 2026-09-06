@@ -73,11 +73,16 @@ def build_payment_card(
     if not occurred_at:
         occurred_at = datetime.now(timezone.utc).isoformat(timespec="seconds")
 
+    fulfilment = (
+        "交付：自动数字报告"
+        if str(order.get("sku") or "") == "rust-staging-pack-v1"
+        else f"点数：{credits}"
+    )
     rows = [
         f"订单号：{str(order.get('id') or 'configuration-test')}",
         f"SKU: {str(order.get('sku') or 'n/a')}",
         f"金额：{currency} {amount:.2f}",
-        f"点数：{credits}",
+        fulfilment,
         f"状态：{status}",
         f"PayPal 事件：{event_type}",
         f"时间：{occurred_at}",

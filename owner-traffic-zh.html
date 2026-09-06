@@ -179,6 +179,9 @@
           <article class="metric"><div class="metric-label">开始结账</div><div class="metric-value" id="funnel-checkout">--</div></article>
           <article class="metric"><div class="metric-label">支付确认</div><div class="metric-value" id="funnel-payment">--</div></article>
           <article class="metric"><div class="metric-label">答案交付</div><div class="metric-value" id="funnel-answer">--</div></article>
+          <article class="metric"><div class="metric-label">新商品免费预览</div><div class="metric-value" id="funnel-staging-preview">--</div></article>
+          <article class="metric"><div class="metric-label">新商品开始结账</div><div class="metric-value" id="funnel-staging-checkout">--</div></article>
+          <article class="metric"><div class="metric-label">新商品报告交付</div><div class="metric-value" id="funnel-staging-report">--</div></article>
         </div>
         <div class="tables conversion-tables">
           <div class="table-block"><h3>页面访问渠道</h3><div id="traffic-sources-table"></div></div>
@@ -214,6 +217,14 @@
           answer_ready: "答案交付",
           answer_held: "问题暂缓且未扣点",
           account_auth_success: "登录或注册成功",
+          staging_pack_preview: "新商品免费预览",
+          staging_pack_checkout_start: "新商品开始结账",
+          staging_pack_payment_return: "PayPal 返回网站",
+          staging_pack_report_ready: "新商品报告交付",
+          staging_pack_json_download: "下载付费报告 JSON",
+          staging_pack_print: "打印或保存报告 PDF",
+          staging_pack_private_link_copy: "复制私密报告链接",
+          staging_pack_share: "分享免费路线",
         };
         const body = rows.map((row) => `<tr><td>${escapeHtml(labels[row.name] || row.name)}</td><td>${number.format(row.events)}</td></tr>`).join("");
         return `<table><thead><tr><th>事件</th><th>次数</th></tr></thead><tbody>${body}</tbody></table>`;
@@ -268,6 +279,9 @@
         document.getElementById("funnel-checkout").textContent = number.format(funnel.checkoutStarts || 0);
         document.getElementById("funnel-payment").textContent = number.format(funnel.paymentSuccesses || 0);
         document.getElementById("funnel-answer").textContent = number.format(funnel.answersReady || 0);
+        document.getElementById("funnel-staging-preview").textContent = number.format(funnel.stagingPackPreviews || 0);
+        document.getElementById("funnel-staging-checkout").textContent = number.format(funnel.stagingPackCheckouts || 0);
+        document.getElementById("funnel-staging-report").textContent = number.format(funnel.stagingPackReports || 0);
         document.getElementById("traffic-sources-table").innerHTML = sourceTable(data.acquisitionSources || []);
         document.getElementById("events-table").innerHTML = eventTable(data.topEvents || []);
         document.getElementById("campaigns-table").innerHTML = campaignTable(data.campaigns || []);

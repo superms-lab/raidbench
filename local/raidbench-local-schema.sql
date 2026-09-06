@@ -244,6 +244,23 @@ CREATE TABLE IF NOT EXISTS orders (
   FOREIGN KEY (sku) REFERENCES sku_packs(sku)
 );
 
+CREATE TABLE IF NOT EXISTS digital_deliveries (
+  order_id TEXT PRIMARY KEY,
+  product_id TEXT NOT NULL,
+  access_token_hash TEXT NOT NULL UNIQUE,
+  input_json TEXT NOT NULL,
+  preview_json TEXT NOT NULL,
+  report_json TEXT NOT NULL,
+  report_sha256 TEXT NOT NULL,
+  status TEXT NOT NULL DEFAULT 'awaiting_payment',
+  access_count INTEGER NOT NULL DEFAULT 0,
+  created_at TEXT NOT NULL,
+  updated_at TEXT NOT NULL,
+  completed_at TEXT NOT NULL DEFAULT '',
+  last_accessed_at TEXT NOT NULL DEFAULT '',
+  FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE
+);
+
 CREATE TABLE IF NOT EXISTS credit_ledger (
   id TEXT PRIMARY KEY,
   customer_id TEXT NOT NULL,
@@ -380,6 +397,9 @@ CREATE INDEX IF NOT EXISTS idx_ledger_customer_created
 
 CREATE INDEX IF NOT EXISTS idx_sessions_token
   ON sessions(token_hash, expires_at);
+
+CREATE INDEX IF NOT EXISTS idx_digital_deliveries_token
+  ON digital_deliveries(access_token_hash, status);
 
 CREATE INDEX IF NOT EXISTS idx_password_reset_tokens_customer
   ON password_reset_tokens(customer_id, created_at DESC);

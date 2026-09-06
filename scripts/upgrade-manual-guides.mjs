@@ -38,15 +38,19 @@ function gameDetails(game) {
 
 function addRustRevenuePath(html, guide) {
   if (guide.game !== "Rust") return html;
-  const revenueMarker = 'data-revenue-path="rust-v1"';
-  if (!html.includes(revenueMarker)) {
-    const card = `        <article class="article-card conversion-card" data-live-commerce hidden ${revenueMarker}>
-          <p class="eyebrow">Verified Rust answers from $5</p>
-          <h2>Need this checked for your exact target and method?</h2>
-          <p>The $5 starter pack covers two personalized route checks. Choose the full raid plan when you need multiple layers, a resource buffer, and a clear stop condition. Unsupported requests are not charged.</p>
-          <div class="article-cta"><a class="primary-action" href="../customer?intent=instant&amp;utm_source=manual_guide&amp;utm_medium=internal&amp;utm_campaign=${escapeHtml(guide.slug)}" data-commerce-cta>Get a verified answer</a><a class="secondary-action" href="../rust-raid-plan">See prices and sample output</a></div>
+  const revenueMarker = 'data-revenue-path="rust-staging-v1"';
+  const card = `        <article class="article-card conversion-card" data-live-commerce data-rust-staging-commerce hidden ${revenueMarker}>
+          <p class="eyebrow">Complete Rust staging report · $4.99</p>
+          <h2>Turn this target into a route you can stage.</h2>
+          <p>Check the sulfur gap free, then unlock route alternatives, inventory shortfalls, crafting totals, execution roles, evidence, and independent QA. No account required.</p>
+          <div class="article-cta"><a class="primary-action" href="../rust-raid-staging-pack?utm_source=manual_guide&amp;utm_medium=internal&amp;utm_campaign=${escapeHtml(guide.slug)}" data-commerce-cta>Build my staging report</a><a class="secondary-action" href="../rust-raid-staging-pack">See the full output</a></div>
         </article>
 `;
+  html = html.replace(
+    /\s*<article class="article-card conversion-card"[^>]*data-revenue-path="rust-v1"[^>]*>[\s\S]*?<\/article>\s*/,
+    `\n${card}`,
+  );
+  if (!html.includes(revenueMarker)) {
     html = html.replace(/(\s*<article class="article-card source-list">)/, `\n${card}$1`);
   }
   if (!html.includes("../guide-tools.js")) {

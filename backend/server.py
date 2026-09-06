@@ -20,7 +20,7 @@ from http.cookies import SimpleCookie
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from typing import Any
-from urllib.parse import unquote, urlparse
+from urllib.parse import quote, unquote, urlparse
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -33,6 +33,12 @@ from backend.answer_engine import (  # noqa: E402
     UnsupportedScopeError,
     build_raid_answer,
     load_raid_data,
+)
+from backend.digital_products import (  # noqa: E402
+    STAGING_PACK_PRICE_USD,
+    STAGING_PACK_SKU,
+    build_staging_pack,
+    staging_pack_product,
 )
 from backend.email_delivery import EmailDeliveryError, email_delivery_from_environment  # noqa: E402
 from backend.multigame_products import (  # noqa: E402
@@ -69,6 +75,8 @@ from backend.store import (  # noqa: E402
     consume_password_reset_token,
     create_customer,
     create_deferred_question,
+    create_demo_digital_delivery,
+    create_pending_digital_delivery,
     create_queued_question,
     create_pending_paypal_order,
     create_password_reset_token,
@@ -76,6 +84,7 @@ from backend.store import (  # noqa: E402
     create_verified_question,
     customer_for_session,
     delete_session,
+    digital_delivery_for_access,
     get_customer_auth,
     get_or_create_demo_customer,
     get_question,
@@ -92,8 +101,10 @@ from backend.store import (  # noqa: E402
     paypal_order_by_capture,
     paypal_order_by_provider,
     password_reset_request_allowed,
+    public_digital_delivery,
     record_payment_event,
     reverse_paypal_credits,
+    sync_digital_delivery_status,
     update_paypal_order_status,
 )
 
@@ -127,7 +138,7 @@ ALLOWED_STATIC_SUFFIXES = {
     ".webmanifest",
     ".xml",
 }
-LEGAL_VERSION = "2026-08-01"
+LEGAL_VERSION = "2026-09-06"
 
 
 class ApiError(RuntimeError):
@@ -365,6 +376,11 @@ class RaidBenchHTTPServer(ThreadingHTTPServer):
             self.paid_data_status()["ready"] or self.live_multigame_available()
         )
 
+    def staging_pack_available(self) -> bool:
+        return self.mode == "demo" or bool(
+            self.checkout_enabled and self.paid_data_status()["ready"]
+        )
+
     def live_multigame_available(self) -> bool:
         if not self.multigame_queue_ready:
             return False
@@ -405,7 +421,12 @@ class RaidBenchHandler(BaseHTTPRequestHandler):
             self.send_header("Content-Security-Policy", "frame-ancestors *")
         else:
             self.send_header("X-Frame-Options", "DENY")
-        self.send_header("Referrer-Policy", "strict-origin-when-cross-origin")
+        referrer_policy = (
+            "no-referrer"
+            if urlparse(self.path).path in {"/rust-raid-staging-pack", "/rust-raid-staging-pack.html"}
+            else "strict-origin-when-cross-origin"
+        )
+        self.send_header("Referrer-Policy", referrer_policy)
         self.send_header("Permissions-Policy", "camera=(), microphone=(), geolocation=()")
         super().end_headers()
 
@@ -523,7 +544,7 @@ class RaidBenchHandler(BaseHTTPRequestHandler):
                 "status": "ok",
                 "mode": self.server.mode,
                 "database": "sqlite",
-                "delivery": "in_account",
+                "delivery": "account_and_private_link",
                 "checkoutEnabled": self.server.checkout_available(),
                 "paidDataVerifiedAt": raid_data["verifiedAt"],
                 "paidDataStatus": paid_data_status["status"],
@@ -537,6 +558,7 @@ class RaidBenchHandler(BaseHTTPRequestHandler):
                 "mode": self.server.mode,
                 "demoPaymentsEnabled": self.server.mode == "demo",
                 "checkoutEnabled": self.server.checkout_available(),
+                "guestStagingPackReady": self.server.staging_pack_available(),
                 "passwordResetEnabled": self.server.email_delivery.configured,
                 "paymentNotificationsEnabled": self.server.payment_notifier.configured,
                 "paypalEnvironment": self.server.paypal.environment if self.server.paypal.configured else None,
@@ -571,6 +593,16 @@ class RaidBenchHandler(BaseHTTPRequestHandler):
                     "multigameHardStopMinutes": 30,
                     "unsupportedRequest": "held_without_charge",
                 },
+            })
+            return
+        if path == "/api/guest/raid-pack/product":
+            self._json(200, {
+                "product": staging_pack_product(
+                    available=self.server.staging_pack_available(),
+                    demo=self.server.mode == "demo",
+                ),
+                "legalVersion": LEGAL_VERSION,
+                "paidDataStatus": self.server.paid_data_status()["status"],
             })
             return
         if path == "/api/targets":
@@ -630,6 +662,171 @@ class RaidBenchHandler(BaseHTTPRequestHandler):
     def _api_post(self, path: str) -> None:
         if path == "/api/payments/paypal/webhook":
             self._paypal_webhook()
+            return
+
+        if path == "/api/guest/raid-pack/preview":
+            payload = self._body()
+            preview, _ = build_staging_pack(
+                payload,
+                self.server.current_raid_data(require_paid_ready=True),
+            )
+            self._json(200, {
+                "product": staging_pack_product(
+                    available=self.server.staging_pack_available(),
+                    demo=self.server.mode == "demo",
+                ),
+                "preview": preview,
+            })
+            return
+
+        if path == "/api/guest/raid-pack/demo-complete":
+            if self.server.mode != "demo":
+                raise ApiError(404, "not_found", "API route not found.")
+            payload = self._body()
+            preview, report = build_staging_pack(
+                payload,
+                self.server.current_raid_data(require_paid_ready=True),
+            )
+            access_token = secrets.token_urlsafe(32)
+            with closing(self._connection()) as connection:
+                create_demo_digital_delivery(
+                    connection,
+                    sku=STAGING_PACK_SKU,
+                    access_token=access_token,
+                    inputs=report["inputs"],
+                    preview=preview,
+                    report=report,
+                )
+                delivery = digital_delivery_for_access(connection, access_token, record_access=True)
+            self._json(201, {
+                "accessToken": access_token,
+                "delivery": public_digital_delivery(delivery, include_report=True),
+            })
+            return
+
+        if path == "/api/guest/raid-pack/checkout":
+            if not self.server.staging_pack_available() or self.server.mode == "demo":
+                raise ApiError(503, "checkout_unavailable", "PayPal checkout is not available for this product.")
+            payload = self._body()
+            required_consent = (
+                payload.get("acceptedTerms") is True
+                and payload.get("acceptedRefundPolicy") is True
+                and payload.get("acknowledgedDigitalDelivery") is True
+                and str(payload.get("legalVersion") or "") == LEGAL_VERSION
+            )
+            if not required_consent:
+                raise ApiError(
+                    422,
+                    "checkout_consent_required",
+                    "Review and accept the Terms, Refund Policy, and immediate digital delivery before checkout.",
+                )
+            preview, report = build_staging_pack(
+                payload,
+                self.server.current_raid_data(require_paid_ready=True),
+            )
+            local_order_id = new_id("ord")
+            access_token = secrets.token_urlsafe(32)
+            return_url = (
+                f"{self.server.public_base_url}/rust-raid-staging-pack.html"
+                f"?paypal=return&access={quote(access_token, safe='')}"
+            )
+            cancel_url = (
+                f"{self.server.public_base_url}/rust-raid-staging-pack.html"
+                f"?paypal=cancel&access={quote(access_token, safe='')}"
+            )
+            paypal_payload = self.server.paypal.create_order(
+                sku=STAGING_PACK_SKU,
+                name="Rust Full Raid Staging Pack",
+                amount=STAGING_PACK_PRICE_USD,
+                return_url=return_url,
+                cancel_url=cancel_url,
+                local_order_id=local_order_id,
+            )
+            with closing(self._connection()) as connection:
+                create_pending_digital_delivery(
+                    connection,
+                    sku=STAGING_PACK_SKU,
+                    paypal_order_id=str(paypal_payload["id"]),
+                    paypal_payload=paypal_payload,
+                    local_order_id=local_order_id,
+                    access_token=access_token,
+                    inputs=report["inputs"],
+                    preview=preview,
+                    report=report,
+                    consent={
+                        "termsVersion": LEGAL_VERSION,
+                        "refundPolicyVersion": LEGAL_VERSION,
+                        "consentedAt": datetime.now(timezone.utc).isoformat(),
+                    },
+                )
+            self._json(201, {
+                "paypalOrderId": paypal_payload["id"],
+                "approvalUrl": approval_url(paypal_payload),
+                "accessToken": access_token,
+            })
+            return
+
+        if path == "/api/guest/raid-pack/capture":
+            if not self.server.checkout_enabled:
+                raise ApiError(503, "checkout_unavailable", "PayPal checkout is not enabled.")
+            payload = self._body()
+            access_token = str(payload.get("accessToken") or "")
+            paypal_order_id = str(payload.get("paypalOrderId") or "")
+            try:
+                with closing(self._connection()) as connection:
+                    delivery = digital_delivery_for_access(
+                        connection,
+                        access_token,
+                        paypal_order_id=paypal_order_id,
+                    )
+                    if delivery["payment_status"] == "completed":
+                        sync_digital_delivery_status(connection, {
+                            "id": delivery["order_id"],
+                            "status": delivery["payment_status"],
+                        })
+                    elif delivery["payment_status"] not in {"pending_approval", "payment_pending"}:
+                        sync_digital_delivery_status(connection, {
+                            "id": delivery["order_id"],
+                            "status": delivery["payment_status"],
+                        })
+                    else:
+                        capture = self._capture_or_reconcile(paypal_order_id)
+                        result = complete_paypal_order(
+                            connection,
+                            delivery["customer_id"],
+                            paypal_order_id,
+                            capture,
+                        )
+                        sync_digital_delivery_status(connection, result["order"])
+                        self.server.enqueue_payment_notification(
+                            result["order"],
+                            "PAYMENT.CAPTURE.COMPLETED",
+                        )
+                    ready_delivery = digital_delivery_for_access(
+                        connection,
+                        access_token,
+                        paypal_order_id=paypal_order_id,
+                        record_access=True,
+                    )
+            except StoreError as error:
+                raise ApiError(404, "report_not_found", "This report link is invalid or unavailable.") from error
+            self._json(200, {
+                "accessToken": access_token,
+                "delivery": public_digital_delivery(ready_delivery, include_report=True),
+            })
+            return
+
+        if path == "/api/guest/raid-pack/access":
+            payload = self._body()
+            access_token = str(payload.get("accessToken") or "")
+            try:
+                with closing(self._connection()) as connection:
+                    delivery = digital_delivery_for_access(connection, access_token, record_access=True)
+            except StoreError as error:
+                raise ApiError(404, "report_not_found", "This report link is invalid or unavailable.") from error
+            self._json(200, {
+                "delivery": public_digital_delivery(delivery, include_report=True),
+            })
             return
 
         if path == "/api/auth/register":
@@ -1049,6 +1246,8 @@ class RaidBenchHandler(BaseHTTPRequestHandler):
                         raw_event=event,
                     )
                 processed_order = result.get("order") if isinstance(result, dict) else None
+                if processed_order:
+                    sync_digital_delivery_status(connection, processed_order)
                 mark_payment_event(
                     connection,
                     provider_event_id,
@@ -1073,6 +1272,13 @@ class RaidBenchHandler(BaseHTTPRequestHandler):
         relative = Path(relative_text)
         if relative.is_absolute() or ".." in relative.parts or any(part in DENIED_STATIC_PARTS for part in relative.parts):
             raise ApiError(404, "not_found", "File not found.")
+        if not relative.suffix:
+            html_candidate = relative.with_suffix(".html")
+            index_candidate = relative / "index.html"
+            if (self.server.root / html_candidate).is_file():
+                relative = html_candidate
+            elif (self.server.root / index_candidate).is_file():
+                relative = index_candidate
         if relative.name.startswith("owner-") and self.server.mode != "demo":
             raise ApiError(404, "not_found", "File not found.")
         if relative.suffix.lower() not in ALLOWED_STATIC_SUFFIXES:
@@ -1088,7 +1294,8 @@ class RaidBenchHandler(BaseHTTPRequestHandler):
         self.send_header("Content-Type", content_type)
         self.send_header("Content-Length", str(len(body)))
         self.send_header("Last-Modified", formatdate(path.stat().st_mtime, usegmt=True))
-        self.send_header("Cache-Control", "no-store" if relative.name == "customer.html" else "public, max-age=300")
+        private_pages = {"customer.html", "rust-raid-staging-pack.html"}
+        self.send_header("Cache-Control", "no-store" if relative.name in private_pages else "public, max-age=300")
         self.end_headers()
         if self.command != "HEAD":
             self.wfile.write(body)

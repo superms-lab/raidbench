@@ -117,7 +117,7 @@ const assets = {
     { results: [{ day: "2026-09-04", views: 9 }] },
     { results: [{ path: "/games/poe2/", views: 12 }] },
     { results: [{ referrer_host: "google.com", views: 5 }] },
-    { results: [{ account_entries: 2, checkout_starts: 1, payment_successes: 0, tracked_events: 18 }] },
+    { results: [{ account_entries: 2, checkout_starts: 1, payment_successes: 0, staging_pack_previews: 4, staging_pack_checkouts: 1, staging_pack_reports: 0, tracked_events: 18 }] },
   ]);
   const result = await worker.fetch(
     new Request("https://raidbench.com/api/analytics/summary", {
@@ -131,6 +131,7 @@ const assets = {
   assert.equal(body.metrics.yesterday, 7);
   assert.equal(body.topPages[0].path, "/games/poe2/");
   assert.equal(body.funnel.checkoutStarts, 1);
+  assert.equal(body.funnel.stagingPackPreviews, 4);
   assert.equal(db.batches.length, 1);
 }
 

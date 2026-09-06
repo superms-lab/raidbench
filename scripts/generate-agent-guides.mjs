@@ -144,11 +144,11 @@ function pageHtml(guide) {
   };
 
   const conversion = guide.game === "Rust" ? `
-        <article class="article-card conversion-card" data-live-commerce hidden>
-          <p class="eyebrow">Verified Rust answers from $5</p>
-          <h2>Need a source-checked answer for your exact route?</h2>
-          <p>Start with one current raid-cost answer, or choose a complete multi-layer plan. Unsupported requests are not charged.</p>
-          <div class="article-cta"><a class="primary-action" href="../customer?intent=instant&amp;utm_source=agent_guide&amp;utm_medium=internal&amp;utm_campaign=${escapeHtml(guide.slug)}" data-commerce-cta>Get a verified answer</a><a class="secondary-action" href="../rust-raid-plan">See prices and sample output</a></div>
+        <article class="article-card conversion-card" data-live-commerce data-rust-staging-commerce hidden>
+          <p class="eyebrow">Complete Rust staging report · $4.99</p>
+          <h2>Need a source-checked plan for the exact route?</h2>
+          <p>Check the sulfur gap free, then unlock route alternatives, inventory shortfalls, crafting totals, execution roles, evidence, and independent QA. No account required.</p>
+          <div class="article-cta"><a class="primary-action" href="../rust-raid-staging-pack?utm_source=agent_guide&amp;utm_medium=internal&amp;utm_campaign=${escapeHtml(guide.slug)}" data-commerce-cta>Build my staging report</a><a class="secondary-action" href="../rust-raid-staging-pack">See the full output</a></div>
         </article>` : "";
 
   return `<!doctype html>

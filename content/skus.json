@@ -5,6 +5,13 @@
   "publicCheckoutEnabled": false,
   "packs": [
     {
+      "sku": "rust-staging-pack-v1",
+      "name": "Rust Full Raid Staging Pack",
+      "credits": 0,
+      "prices": { "USD": 4.99 },
+      "status": "ready_after_payment_setup"
+    },
+    {
       "sku": "credits-starter-20",
       "name": "Raid Route Check Starter",
       "credits": 20,

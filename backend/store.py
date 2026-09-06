@@ -17,6 +17,10 @@ class InsufficientCreditsError(StoreError):
     pass
 
 
+DIGITAL_GUEST_CUSTOMER_ID = "cus_digital_delivery"
+DIGITAL_GUEST_EMAIL = "digital-delivery@internal.raidbench.invalid"
+
+
 def utc_now() -> str:
     return datetime.now(timezone.utc).isoformat()
 
@@ -170,6 +174,10 @@ def init_database(
             "INSERT OR IGNORE INTO schema_migrations (id, applied_at) VALUES (?, ?)",
             ("account-recovery-v1", now),
         )
+        connection.execute(
+            "INSERT OR IGNORE INTO schema_migrations (id, applied_at) VALUES (?, ?)",
+            ("digital-delivery-v1", now),
+        )
         connection.execute("COMMIT")
     except Exception:
         if connection.in_transaction:
@@ -214,6 +222,19 @@ def get_customer(connection: sqlite3.Connection, customer_id: str) -> dict[str, 
 def get_customer_auth(connection: sqlite3.Connection, email: str) -> dict[str, Any] | None:
     row = connection.execute("SELECT * FROM customers WHERE email = ?", (email.lower(),)).fetchone()
     return dict(row) if row else None
+
+
+def get_or_create_digital_guest_customer(connection: sqlite3.Connection) -> dict[str, Any]:
+    now = utc_now()
+    connection.execute(
+        """
+        INSERT OR IGNORE INTO customers (
+          id, email, display_name, password_hash, region, currency, created_at, updated_at
+        ) VALUES (?, ?, 'Anonymous digital delivery', '', 'US', 'USD', ?, ?)
+        """,
+        (DIGITAL_GUEST_CUSTOMER_ID, DIGITAL_GUEST_EMAIL, now, now),
+    )
+    return get_customer(connection, DIGITAL_GUEST_CUSTOMER_ID)
 
 
 def get_or_create_demo_customer(connection: sqlite3.Connection) -> dict[str, Any]:
@@ -450,7 +471,7 @@ def catalog(connection: sqlite3.Connection, include_demo: bool) -> dict[str, Any
         """
         SELECT sku, name, credits, price_usd, status
         FROM sku_packs
-        WHERE status = 'ready_after_payment_setup'
+        WHERE status = 'ready_after_payment_setup' AND credits > 0
         ORDER BY price_usd
         """
     ).fetchall()
@@ -1111,6 +1132,230 @@ def create_pending_paypal_order(
     return dict(connection.execute("SELECT * FROM orders WHERE id = ?", (order_id,)).fetchone())
 
 
+def _delivery_token_hash(access_token: str) -> str:
+    if not 32 <= len(access_token) <= 200 or not all(
+        character.isalnum() or character in {"-", "_"} for character in access_token
+    ):
+        raise StoreError("Digital report access token is invalid.")
+    return hashlib.sha256(access_token.encode("utf-8")).hexdigest()
+
+
+def create_pending_digital_delivery(
+    connection: sqlite3.Connection,
+    *,
+    sku: str,
+    paypal_order_id: str,
+    paypal_payload: dict[str, Any],
+    local_order_id: str,
+    access_token: str,
+    inputs: dict[str, Any],
+    preview: dict[str, Any],
+    report: dict[str, Any],
+    consent: dict[str, str],
+) -> dict[str, Any]:
+    connection.execute("BEGIN IMMEDIATE")
+    try:
+        pack = _pack(connection, sku)
+        if int(pack["credits"]) != 0:
+            raise StoreError("Digital delivery SKU must not grant account credits.")
+        guest = get_or_create_digital_guest_customer(connection)
+        order = create_pending_paypal_order(
+            connection,
+            guest["id"],
+            sku,
+            paypal_order_id,
+            paypal_payload,
+            local_order_id,
+            consent,
+        )
+        now = utc_now()
+        report_text = json_text(report)
+        connection.execute(
+            """
+            INSERT INTO digital_deliveries (
+              order_id, product_id, access_token_hash, input_json, preview_json,
+              report_json, report_sha256, status, access_count, created_at, updated_at
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, 'awaiting_payment', 0, ?, ?)
+            """,
+            (
+                order["id"],
+                sku,
+                _delivery_token_hash(access_token),
+                json_text(inputs),
+                json_text(preview),
+                report_text,
+                hashlib.sha256(report_text.encode("utf-8")).hexdigest(),
+                now,
+                now,
+            ),
+        )
+        connection.execute("COMMIT")
+        return order
+    except Exception:
+        if connection.in_transaction:
+            connection.execute("ROLLBACK")
+        raise
+
+
+def create_demo_digital_delivery(
+    connection: sqlite3.Connection,
+    *,
+    sku: str,
+    access_token: str,
+    inputs: dict[str, Any],
+    preview: dict[str, Any],
+    report: dict[str, Any],
+) -> dict[str, Any]:
+    connection.execute("BEGIN IMMEDIATE")
+    try:
+        pack = _pack(connection, sku)
+        if int(pack["credits"]) != 0:
+            raise StoreError("Digital delivery SKU must not grant account credits.")
+        guest = get_or_create_digital_guest_customer(connection)
+        now = utc_now()
+        order_id = new_id("ord")
+        transaction_id = new_id("demo_digital")
+        connection.execute(
+            """
+            INSERT INTO orders (
+              id, customer_id, provider, provider_transaction_id, sku, amount, currency,
+              credits_granted, terms_version, refund_policy_version, consented_at,
+              status, created_at, updated_at, raw_json
+            ) VALUES (?, ?, 'demo_paypal_sandbox', ?, ?, ?, 'USD', 0, 'demo', 'demo', ?,
+              'completed', ?, ?, ?)
+            """,
+            (
+                order_id,
+                guest["id"],
+                transaction_id,
+                sku,
+                float(pack["price_usd"]),
+                now,
+                now,
+                now,
+                json_text({"mode": "local_demo", "simulated": True}),
+            ),
+        )
+        report_text = json_text(report)
+        connection.execute(
+            """
+            INSERT INTO digital_deliveries (
+              order_id, product_id, access_token_hash, input_json, preview_json,
+              report_json, report_sha256, status, access_count,
+              created_at, updated_at, completed_at
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, 'ready', 0, ?, ?, ?)
+            """,
+            (
+                order_id,
+                sku,
+                _delivery_token_hash(access_token),
+                json_text(inputs),
+                json_text(preview),
+                report_text,
+                hashlib.sha256(report_text.encode("utf-8")).hexdigest(),
+                now,
+                now,
+                now,
+            ),
+        )
+        connection.execute("COMMIT")
+        return dict(connection.execute("SELECT * FROM orders WHERE id = ?", (order_id,)).fetchone())
+    except Exception:
+        if connection.in_transaction:
+            connection.execute("ROLLBACK")
+        raise
+
+
+def digital_delivery_for_access(
+    connection: sqlite3.Connection,
+    access_token: str,
+    *,
+    paypal_order_id: str = "",
+    record_access: bool = False,
+) -> dict[str, Any]:
+    row = connection.execute(
+        """
+        SELECT delivery.*, orders.customer_id, orders.provider_transaction_id, orders.provider_capture_id,
+               orders.amount, orders.currency, orders.status AS payment_status
+        FROM digital_deliveries delivery
+        JOIN orders ON orders.id = delivery.order_id
+        WHERE delivery.access_token_hash = ?
+        """,
+        (_delivery_token_hash(access_token),),
+    ).fetchone()
+    if not row or (paypal_order_id and row["provider_transaction_id"] != paypal_order_id):
+        raise StoreError("Digital report not found.")
+    result = dict(row)
+    if record_access and result["status"] == "ready" and result["payment_status"] == "completed":
+        now = utc_now()
+        connection.execute(
+            """
+            UPDATE digital_deliveries
+            SET access_count = access_count + 1, last_accessed_at = ?, updated_at = ?
+            WHERE order_id = ?
+            """,
+            (now, now, result["order_id"]),
+        )
+        result["access_count"] = int(result["access_count"]) + 1
+        result["last_accessed_at"] = now
+    return result
+
+
+def sync_digital_delivery_status(
+    connection: sqlite3.Connection,
+    order: dict[str, Any],
+) -> dict[str, Any] | None:
+    delivery = connection.execute(
+        "SELECT * FROM digital_deliveries WHERE order_id = ?",
+        (order["id"],),
+    ).fetchone()
+    if not delivery:
+        return None
+    payment_status = str(order.get("status") or "")
+    if payment_status == "completed":
+        delivery_status = "ready"
+    elif payment_status in {"refunded", "reversed"}:
+        delivery_status = "revoked"
+    elif payment_status == "refund_review":
+        delivery_status = "payment_review"
+    elif payment_status == "payment_denied":
+        delivery_status = "payment_failed"
+    else:
+        delivery_status = "awaiting_payment"
+    now = utc_now()
+    connection.execute(
+        """
+        UPDATE digital_deliveries
+        SET status = ?, updated_at = ?,
+            completed_at = CASE WHEN ? = 'ready' AND completed_at = '' THEN ? ELSE completed_at END
+        WHERE order_id = ?
+        """,
+        (delivery_status, now, delivery_status, now, order["id"]),
+    )
+    return dict(connection.execute(
+        "SELECT * FROM digital_deliveries WHERE order_id = ?",
+        (order["id"],),
+    ).fetchone())
+
+
+def public_digital_delivery(record: dict[str, Any], *, include_report: bool = False) -> dict[str, Any]:
+    ready = record["status"] == "ready" and record["payment_status"] == "completed"
+    value = {
+        "productId": record["product_id"],
+        "deliveryStatus": record["status"],
+        "paymentStatus": record["payment_status"],
+        "amount": float(record["amount"]),
+        "currency": record["currency"],
+        "ready": ready,
+        "preview": json.loads(record["preview_json"]),
+        "reportSha256": record["report_sha256"] if ready else "",
+        "completedAt": record["completed_at"],
+    }
+    if include_report and ready:
+        value["report"] = json.loads(record["report_json"])
+    return value
+
+
 def paypal_order(connection: sqlite3.Connection, customer_id: str, paypal_order_id: str) -> dict[str, Any]:
     row = connection.execute(
         "SELECT * FROM orders WHERE customer_id = ? AND provider = 'paypal' AND provider_transaction_id = ?",
@@ -1190,23 +1435,24 @@ def _complete_paypal_order_record(
         """,
         (capture_id, now, json_text(raw_payload), order["id"]),
     )
-    connection.execute(
-        """
-        INSERT INTO credit_ledger (
-          id, customer_id, order_id, entry_type, credits_delta, balance_after,
-          reason, idempotency_key, created_at
-        ) VALUES (?, ?, ?, 'purchase', ?, ?, 'PayPal credit purchase', ?, ?)
-        """,
-        (
-            new_id("led"),
-            order["customer_id"],
-            order["id"],
-            int(order["credits_granted"]),
-            balance_after,
-            f"paypal-capture:{capture_id}",
-            now,
-        ),
-    )
+    if int(order["credits_granted"]):
+        connection.execute(
+            """
+            INSERT INTO credit_ledger (
+              id, customer_id, order_id, entry_type, credits_delta, balance_after,
+              reason, idempotency_key, created_at
+            ) VALUES (?, ?, ?, 'purchase', ?, ?, 'PayPal credit purchase', ?, ?)
+            """,
+            (
+                new_id("led"),
+                order["customer_id"],
+                order["id"],
+                int(order["credits_granted"]),
+                balance_after,
+                f"paypal-capture:{capture_id}",
+                now,
+            ),
+        )
     completed = dict(connection.execute("SELECT * FROM orders WHERE id = ?", (order["id"],)).fetchone())
     return {"order": completed, "creditBalance": balance_after}
 
@@ -1445,25 +1691,26 @@ def reverse_paypal_credits(
             "UPDATE orders SET status = ?, raw_json = ?, updated_at = ? WHERE id = ?",
             (status, json_text(raw_event), now, order["id"]),
         )
-        connection.execute(
-            """
-            INSERT OR IGNORE INTO credit_ledger (
-              id, customer_id, order_id, entry_type, credits_delta, balance_after,
-              reason, idempotency_key, created_at
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-            """,
-            (
-                new_id("led"),
-                order["customer_id"],
-                order["id"],
-                "refund" if status == "refunded" else "reversal",
-                -int(order["credits_granted"]),
-                balance_after,
-                f"PayPal payment {status}",
-                f"paypal-{status}:{provider_event_id}",
-                now,
-            ),
-        )
+        if int(order["credits_granted"]):
+            connection.execute(
+                """
+                INSERT OR IGNORE INTO credit_ledger (
+                  id, customer_id, order_id, entry_type, credits_delta, balance_after,
+                  reason, idempotency_key, created_at
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    new_id("led"),
+                    order["customer_id"],
+                    order["id"],
+                    "refund" if status == "refunded" else "reversal",
+                    -int(order["credits_granted"]),
+                    balance_after,
+                    f"PayPal payment {status}",
+                    f"paypal-{status}:{provider_event_id}",
+                    now,
+                ),
+            )
         connection.execute("COMMIT")
         current = dict(connection.execute("SELECT * FROM orders WHERE id = ?", (order["id"],)).fetchone())
         return {"order": current, "creditBalance": balance_after}

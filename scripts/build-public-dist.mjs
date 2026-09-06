@@ -36,6 +36,8 @@ const staticFiles = [
   "robots.txt",
   "site.webmanifest",
   "sitemap.xml",
+  "staging-pack.css",
+  "staging-pack.js",
   "styles.css",
   "widget-page.js"
 ];

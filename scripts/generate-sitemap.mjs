@@ -50,7 +50,7 @@ function lastmodFor(relative) {
   const html = fs.readFileSync(path.join(root, relative), "utf8");
   const articleDate = html.match(/<meta\s+property="article:modified_time"\s+content="(\d{4}-\d{2}-\d{2})"/i)?.[1];
   if (articleDate) return articleDate;
-  if (["index.html", "guides.html", "games.html", "tools.html", "updates.html", "rust-raid-plan.html"].includes(relative) || relative.startsWith("games/") || relative.startsWith("tools/")) return currentSiteLastmod;
+  if (["index.html", "guides.html", "games.html", "tools.html", "updates.html", "rust-raid-staging-pack.html"].includes(relative) || relative.startsWith("games/") || relative.startsWith("tools/")) return currentSiteLastmod;
   return defaultLastmod;
 }
 

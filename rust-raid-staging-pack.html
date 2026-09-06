@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="referrer" content="no-referrer" />
+    <title>Rust Raid Staging Planner: Route, Inventory &amp; Crafting Report | RaidBench</title>
+    <meta name="description" content="Build a Rust breach route, check the sulfur gap for free, and unlock a complete $4.99 staging report with route alternatives, inventory shortfalls, crafting totals, team roles, evidence, and QA." />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://raidbench.com/rust-raid-staging-pack" />
+    <meta property="og:title" content="Rust Full Raid Staging Pack | RaidBench" />
+    <meta property="og:description" content="A complete, account-free Rust raid staging report for one route. Preview the resource gap before paying." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://raidbench.com/assets/raidbench-calculator-share.png" />
+    <meta property="og:image:alt" content="RaidBench Rust raid planning calculator and resource totals" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#101312" />
+    <link rel="stylesheet" href="./styles.css?v=20260906a" />
+    <link rel="stylesheet" href="./staging-pack.css?v=20260906a" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Rust Full Raid Staging Pack","description":"An account-free digital Rust raid staging report with route comparison, inventory shortfalls, crafting totals, team roles, evidence, and independent recalculation QA.","brand":{"@type":"Brand","name":"RaidBench"},"image":"https://raidbench.com/assets/raidbench-calculator-share.png","offers":{"@type":"Offer","price":"4.99","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://raidbench.com/rust-raid-staging-pack"}}</script>
+  </head>
+  <body class="staging-page">
+    <header class="site-header">
+      <a class="brand" href="./index.html" aria-label="RaidBench home"><span class="brand-mark">RB</span><span>RaidBench</span></a>
+      <nav class="nav" aria-label="Primary"><a href="./games.html">Games</a><a href="./guides.html">Guides</a><a href="./tools.html">Tools</a><a href="./updates.html">Patch Watch</a><a href="./about.html">About</a></nav>
+      <a class="header-action" href="#route-builder">Build My Route</a>
+    </header>
+
+    <main class="staging-main">
+      <section class="staging-masthead" aria-labelledby="staging-title">
+        <img src="./assets/survival-base.png" alt="A fortified survival base at sunset" />
+        <div class="staging-masthead-shade" aria-hidden="true"></div>
+        <div class="staging-masthead-copy">
+          <a class="staging-breadcrumb" href="./games/rust/">RaidBench / Rust</a>
+          <h1 id="staging-title">Rust Full Raid Staging Pack</h1>
+          <p>Model the breach, check the resource gap for free, then unlock one complete execution report. The base can be improvised. The budget should not be.</p>
+          <div class="staging-facts" aria-label="Product facts">
+            <span>Vanilla Rust PC</span><span>$4.99 one time</span><span>No account required</span><span id="evidence-fact">Current evidence check</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="staging-workspace" id="route-builder" aria-label="Rust raid staging planner">
+        <div class="staging-builder">
+          <div class="staging-section-heading">
+            <div><span class="staging-step">01</span><h2>Build the breach route</h2></div>
+            <button class="staging-quiet-button" id="reset-route" type="button">Reset</button>
+          </div>
+          <p class="staging-section-copy">Add the visible layers in the order you expect to breach them. Hidden layers, splash damage, misses, sealing, and counter pressure remain outside the calculation.</p>
+
+          <div class="staging-add-grid">
+            <label>Target<select id="staging-target"></select></label>
+            <label>Quantity<input id="staging-quantity" type="number" min="1" max="99" value="1" inputmode="numeric" /></label>
+            <label>Method<select id="staging-method"><option value="rockets">Rockets</option><option value="c4">Timed Explosive Charges</option><option value="satchels">Satchel Charges</option><option value="explosiveAmmo">Explosive Ammo</option></select></label>
+            <button class="staging-add-button" id="add-route-line" type="button"><span aria-hidden="true">+</span> Add layer</button>
+          </div>
+
+          <div class="staging-route-table" aria-label="Selected breach route">
+            <div class="staging-route-head"><span>Layer</span><span>Method</span><span>Placements</span><span class="sr-only">Remove</span></div>
+            <div id="route-lines" aria-live="polite"></div>
+          </div>
+
+          <div class="staging-section-heading staging-planning-heading">
+            <div><span class="staging-step">02</span><h2>Add the staging constraints</h2></div>
+          </div>
+          <div class="staging-planning-grid">
+            <fieldset class="staging-buffer-control">
+              <legend>Planning buffer</legend>
+              <div class="staging-segments">
+                <label><input type="radio" name="buffer" value="0" /><span>0%</span></label>
+                <label><input type="radio" name="buffer" value="10" /><span>10%</span></label>
+                <label><input type="radio" name="buffer" value="15" checked /><span>15%</span></label>
+                <label><input type="radio" name="buffer" value="20" /><span>20%</span></label>
+              </div>
+            </fieldset>
+            <label>Available sulfur<input id="available-sulfur" type="number" min="0" max="99999999" value="9000" inputmode="numeric" /></label>
+            <label>Team size<input id="team-size" type="number" min="1" max="20" value="2" inputmode="numeric" /></label>
+            <label>Route priority<select id="route-preference"><option value="lowest_sulfur">Lowest sulfur</option><option value="fewest_items">Fewest placements</option></select></label>
+          </div>
+
+          <fieldset class="staging-inventory">
+            <legend>Explosives already in base <span>optional, but useful</span></legend>
+            <div class="staging-inventory-grid">
+              <label>Rockets<input id="owned-rockets" type="number" min="0" max="99999" value="2" inputmode="numeric" /></label>
+              <label>C4<input id="owned-c4" type="number" min="0" max="99999" value="0" inputmode="numeric" /></label>
+              <label>Satchels<input id="owned-satchels" type="number" min="0" max="99999" value="4" inputmode="numeric" /></label>
+              <label>Explosive ammo<input id="owned-explosive-ammo" type="number" min="0" max="99999" value="0" inputmode="numeric" /></label>
+            </div>
+          </fieldset>
+
+          <label class="staging-notes">Route notes <span>optional</span><textarea id="route-notes" maxlength="1000" rows="3" placeholder="Example: west-side entry, preserve one separate seal kit"></textarea></label>
+          <button class="staging-primary-button" id="generate-preview" type="button">Check My Route Free</button>
+          <p class="staging-form-status" id="builder-status" role="status" aria-live="polite">No sign-in and no payment are required for the preview.</p>
+        </div>
+
+        <aside class="staging-preview" aria-labelledby="preview-title">
+          <div class="staging-section-heading">
+            <div><span class="staging-step">03</span><h2 id="preview-title">Free route check</h2></div>
+            <span class="staging-live-mark" id="preview-state">Ready</span>
+          </div>
+
+          <div id="preview-empty" class="staging-preview-empty">
+            <strong>See whether the route is ready before buying the report.</strong>
+            <p>The free check returns the selected sulfur total, buffered target, readiness state, and the largest immediate resource gap.</p>
+            <ol><li>Build the visible breach layers.</li><li>Add current stock and team size.</li><li>Run the free check in seconds.</li></ol>
+          </div>
+
+          <div id="preview-result" hidden>
+            <div class="staging-readiness" id="readiness-block"><span id="readiness-label">Route checked</span><strong id="readiness-reason"></strong></div>
+            <div class="staging-metrics">
+              <div><span>Placements</span><strong id="preview-items">0</strong></div>
+              <div><span>Base sulfur</span><strong id="preview-sulfur">0</strong></div>
+              <div><span>Buffered sulfur</span><strong id="preview-buffered">0</strong></div>
+              <div><span>Gunpowder</span><strong id="preview-gunpowder">0</strong></div>
+            </div>
+            <div class="staging-gap"><span>Immediate finding</span><strong id="gap-label"></strong><p id="gap-value"></p></div>
+
+            <div class="staging-locked">
+              <h3>Full report unlocks</h3>
+              <ul id="locked-sections"></ul>
+            </div>
+
+            <div class="staging-purchase" id="purchase-panel">
+              <div class="staging-price"><span>One route, complete report</span><strong>$4.99 <small>USD</small></strong></div>
+              <label class="staging-consent"><input id="accept-terms" type="checkbox" /><span>I accept the <a href="./terms.html" target="_blank" rel="noopener">Terms</a> and <a href="./refund-policy.html" target="_blank" rel="noopener">Refund Policy</a>.</span></label>
+              <label class="staging-consent"><input id="accept-delivery" type="checkbox" /><span>I request immediate digital delivery after payment and understand that the report covers the route entered above.</span></label>
+              <button class="staging-paypal-button" id="unlock-report" type="button" disabled>Pay with PayPal and Unlock</button>
+              <p id="purchase-note">Secure PayPal checkout. The report opens here immediately after confirmed payment.</p>
+            </div>
+          </div>
+
+          <div class="staging-assurance">
+            <div><strong>Deterministic math</strong><span>No model improvisation in the paid calculation.</span></div>
+            <div><strong>Independent recalculation</strong><span>Every numerical route total must pass before delivery.</span></div>
+            <div><strong>Patch gate</strong><span>Checkout pauses when Rust evidence leaves the review window.</span></div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="staging-report" id="staging-report" hidden aria-labelledby="report-title">
+        <div class="staging-report-header">
+          <div><span class="staging-report-kicker">Paid report ready</span><h2 id="report-title">Rust raid staging decision</h2><p id="report-decision"></p></div>
+          <div class="staging-report-actions"><button type="button" id="download-report">Download JSON</button><button type="button" id="print-report">Print / Save PDF</button><button type="button" id="copy-private-report">Copy Private Report Link</button><button type="button" id="share-route">Copy Free Route Link</button></div>
+        </div>
+
+        <div class="staging-report-summary" id="report-summary"></div>
+        <section class="staging-report-band"><div class="staging-band-heading"><span>01</span><div><h3>Route decision</h3><p id="route-recommendation"></p></div></div><div class="staging-table-scroll" tabindex="0"><table><thead><tr><th>Route</th><th>Placements</th><th>Sulfur</th><th>Gunpowder</th><th>Decision</th></tr></thead><tbody id="route-options"></tbody></table></div></section>
+        <section class="staging-report-band"><div class="staging-band-heading"><span>02</span><div><h3>Every layer, four methods</h3><p>Use the comparison to understand the cost of changing course, not as a promise about hidden layers.</p></div></div><div id="line-comparisons" class="staging-comparisons"></div></section>
+        <section class="staging-report-band"><div class="staging-band-heading"><span>03</span><div><h3>Inventory and crafting queue</h3><p>The selected route is reconciled against the explosives entered above.</p></div></div><div class="staging-two-column"><div><h4>Inventory shortfalls</h4><div id="inventory-table"></div></div><div><h4>Workbench crafting</h4><dl id="crafting-list"></dl></div></div></section>
+        <section class="staging-report-band"><div class="staging-band-heading"><span>04</span><div><h3>Execution plan</h3><p id="execution-readiness"></p></div></div><div class="staging-two-column"><div><h4>Team roles</h4><ol id="team-roles"></ol><h4>Checkpoints</h4><ol id="checkpoints"></ol></div><div><h4>Stop conditions</h4><ul id="stop-conditions"></ul><h4>Saved route note</h4><p id="saved-note"></p></div></div></section>
+        <section class="staging-report-band"><div class="staging-band-heading"><span>05</span><div><h3>Evidence and QA</h3><p id="report-scope"></p></div></div><div class="staging-two-column"><div><h4>Checked sources</h4><ul id="evidence-list" class="staging-evidence"></ul></div><div><h4>Delivery checks</h4><div id="qa-list"></div><p id="correction-policy" class="staging-policy"></p></div></div></section>
+      </section>
+
+      <section class="staging-boundary" aria-labelledby="boundary-title">
+        <h2 id="boundary-title">What this report does, and what it sensibly refuses to pretend</h2>
+        <div><p><strong>Included:</strong> the entered vanilla-PC breach route, full-method alternatives, sulfur and gunpowder totals, available inventory, planning buffer, crafting queue, team roles, evidence, and arithmetic QA.</p><p><strong>Not inferred:</strong> hidden layers, custom server multipliers, splash routing, misses, counters, transport, sealing cost, or loot value. Those are real decisions; fabricated certainty is not a feature.</p></div>
+      </section>
+    </main>
+
+    <footer class="footer"><p>RaidBench is independent and is not affiliated with or endorsed by Facepunch Studios.</p><p class="footer-links"><a href="./about.html">Editorial standards</a><a href="./privacy.html">Privacy</a><a href="./terms.html">Terms</a><a href="./refund-policy.html">Refunds</a><a href="mailto:support@raidbench.com">Support</a></p></footer>
+    <script src="./config.js?v=20260906a"></script>
+    <script src="./route-state.js?v=20260906a"></script>
+    <script src="./staging-pack.js?v=20260906a"></script>
+    <script src="./analytics.js?v=20260906a"></script>
+  </body>
+</html>

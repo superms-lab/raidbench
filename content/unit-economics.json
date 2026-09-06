@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-09-03",
+  "asOf": "2026-09-06",
   "currency": "USD",
   "defaultProviderId": "paypal-cn-cross-border",
   "defaultScenarioId": "north-america-organic",
@@ -114,6 +114,18 @@
   ],
   "products": [
     {
+      "sku": "rust-staging-pack-v1",
+      "name": "Rust Full Raid Staging Pack",
+      "price": 4.99,
+      "creditCost": 0,
+      "aiResearchAndDraftCost": 0,
+      "aiIndependentReviewCost": 0,
+      "reviewMinutes": 0,
+      "supportMinutes": 0.25,
+      "deliveryCost": 0.02,
+      "targetContributionMarginPercent": 5
+    },
+    {
       "sku": "credits-starter-20",
       "name": "Verified Rust Answer Starter",
       "price": 5,
@@ -170,6 +182,7 @@
     "The fixed-cost model reserves one 35 USD PayPal wire withdrawal per month. Replace this with the actual withdrawal path and frequency; eligible no-conversion Hong Kong bank withdrawals can differ.",
     "The 2.5% FX and withdrawal percentage is a planning reserve. Actual currency conversion can vary by transaction type and account path.",
     "No paid acquisition should be scaled until measured customer acquisition cost is below contribution before advertising.",
-    "The 5 USD starter is intentionally modeled as a low-margin acquisition product. It should not become the dominant paid mix at low order volume."
+    "The 4.99 USD staging pack is intentionally modeled as a low-friction validation product with deterministic delivery. Reprice it from measured conversion, support, refund, and withdrawal costs rather than treating the launch price as permanent.",
+    "The 5 USD legacy credit starter remains in the cost model for comparison but is no longer the primary public Rust conversion path."
   ]
 }

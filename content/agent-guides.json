@@ -129,6 +129,139 @@
     }
   },
   {
+    "slug": "dota-2-beginner-one-skill-practice-loop",
+    "game": "Dota 2",
+    "title": "Dota 2 beginner practice loop: learn one skill at a time",
+    "description": "Use a focused Dota 2 beginner practice loop: narrow your choices, train one observable skill, review one early mistake, and track controllable progress.",
+    "problem": "Experienced opponents can make every loss feel like evidence that you are learning too slowly. Make each match smaller: choose one skill, observe it, review it, and repeat.",
+    "shortAnswer": "Choose one role and a small hero pool that you can repeat without constantly relearning your job. Give each match one observable practice target. Afterward, review the earliest decision related to that target, write down one alternative, and carry the same focus into the next match. Measure whether you followed the process before judging the result.",
+    "publishedAt": "2026-09-04",
+    "reviewedAt": "2026-09-04",
+    "status": "Evidence-bounded Dota 2 guide; recheck after relevant patch changes",
+    "sections": [
+      {
+        "title": "Why beginners need a smaller learning problem",
+        "purpose": "Reframe the experience gap as a practice-design problem rather than a demand to master the complete game immediately.",
+        "bullets": [
+          "A match result combines many decisions, so it is a noisy measure of whether one skill improved.",
+          "A narrow target gives you something observable to attempt, review, and repeat.",
+          "Keep the target within your control, such as making a check before a decision or stating your intended job."
+        ]
+      },
+      {
+        "title": "Reduce variables before you queue",
+        "purpose": "Create enough repetition to recognize patterns without prescribing a patch-sensitive hero or role.",
+        "bullets": [
+          "Choose one role for the practice block so your responsibilities remain comparable across matches.",
+          "Use a small hero pool whose basic jobs you can describe in plain language.",
+          "If you cannot explain what your hero is trying to contribute, simplify the choice before adding another practice target."
+        ]
+      },
+      {
+        "title": "Choose one observable target",
+        "purpose": "Turn a broad goal such as getting better into a behavior that can be reviewed.",
+        "bullets": [
+          "Phrase the target as an action you can notice rather than a desired result.",
+          "Keep the same target for several matches when one attempt does not provide a clear lesson.",
+          "Separate execution from judgment: first check whether you attempted the behavior, then assess the decision."
+        ]
+      },
+      {
+        "title": "Review the first useful mistake",
+        "purpose": "Keep review short and actionable while distinguishing this learning loop from the existing full replay-diagnosis guide.",
+        "bullets": [
+          "Find the earliest moment connected to the chosen target where another decision was available.",
+          "Record what you noticed, what you chose, and one alternative to test.",
+          "Stop after identifying one repeatable adjustment; additional replay diagnosis belongs in a deeper match review."
+        ]
+      },
+      {
+        "title": "Track progress without relying on wins",
+        "purpose": "Provide a lightweight feedback system based on controllable practice.",
+        "bullets": [
+          "After each match, mark whether you remembered the target, attempted it, and understood one consequence.",
+          "Keep a target when you still forget it or cannot explain the decision afterward.",
+          "Move to another target when the behavior is familiar enough that it no longer consumes most of your attention."
+        ]
+      },
+      {
+        "title": "Reset the loop when practice becomes noisy",
+        "purpose": "Help beginners respond when a target, role, or hero pool is too broad.",
+        "bullets": [
+          "Narrow the target if your notes contain several unrelated problems.",
+          "Return to a familiar choice when changing heroes prevents you from observing the intended skill.",
+          "Treat an unusual match as context, then look for a repeatable pattern before changing the complete routine."
+        ]
+      }
+    ],
+    "checklist": [
+      "Choose one role for the practice block.",
+      "Select a small hero pool whose jobs you can explain.",
+      "Write one observable target before queueing.",
+      "After the match, find the earliest decision connected to that target.",
+      "Record one alternative decision to test next time.",
+      "Repeat the target until it becomes familiar, then choose the next skill."
+    ],
+    "example": "A beginner writes this target before queueing: “Before I join a fight, I will state my job in one sentence.” After the match, the player reviews the first fight where that check was forgotten. The note reads: “I entered without deciding whom I was helping or threatening. Next match, I will name my job before moving toward the fight.” The next session keeps the same role, hero pool, and target. The player records whether the check happened, regardless of the match result.",
+    "mistakes": [
+      "Trying to improve laning, map awareness, fighting, drafting, and item decisions in the same match.",
+      "Changing role or hero after every difficult result and losing the benefit of repetition.",
+      "Using only wins and losses to judge whether the chosen behavior improved.",
+      "Reviewing the final dramatic fight while ignoring an earlier repeatable decision.",
+      "Writing vague notes such as “play better” that do not define a testable action.",
+      "Replacing the practice target after one unusual match without identifying a repeatable pattern."
+    ],
+    "faqs": [
+      {
+        "question": "How many skills should a beginner practice in one match?",
+        "answer": "Start with one observable skill. If the target contains several actions, split it until you can clearly tell whether you attempted it."
+      },
+      {
+        "question": "Should I change my hero after every loss?",
+        "answer": "Do not let the result alone decide. Keep the choice when repetition is helping you understand your job; simplify or change it when the choice itself prevents you from observing the practice target."
+      },
+      {
+        "question": "How long should I keep the same practice target?",
+        "answer": "Keep it while you regularly forget the behavior or cannot explain the decision afterward. Move on when the check feels familiar enough to leave attention for another skill."
+      },
+      {
+        "question": "Do I need to review the complete replay?",
+        "answer": "Not for this routine. Review enough to find the earliest useful moment connected to the target and write one alternative. Use a deeper replay review when you need to diagnose the match more broadly."
+      },
+      {
+        "question": "What if experienced players still overwhelm me?",
+        "answer": "Return to the smallest controllable step: one familiar role, a limited hero pool, and one behavior to observe. Their experience changes the difficulty of the match, but your practice note can still show whether you attempted the chosen skill."
+      }
+    ],
+    "related": [
+      "dota-2-replay-first-mistake-review",
+      "dota-2-draft-role-fit-check",
+      "dota-2-lane-recovery-plan"
+    ],
+    "sources": [
+      {
+        "label": "Dota 2 Steam news feed",
+        "url": "https://store.steampowered.com/feeds/news/app/570",
+        "note": "Primary patch, product, or publisher evidence; stay within the captured text."
+      },
+      {
+        "label": "Dota 2 official or publisher source",
+        "url": "https://www.dota2.com/patches",
+        "note": "Primary patch, product, or publisher evidence; stay within the captured text."
+      }
+    ],
+    "sourceNote": "E-01 supports the existence and framing of the beginner learning problem but is demand context rather than factual gameplay authority. The advice is an original, conditional practice framework. The page differs from the existing replay guide by covering the complete beginner loop—reducing variables, selecting one pre-match target, conducting a short review, and tracking repetition—while referring broader match diagnosis to the related replay page.",
+    "patchNote": "The patch sentinel found no supported refresh trigger. E-02 contains tournament news, while E-03 contains no usable patch detail. The draft therefore avoids hero rankings, build prescriptions, mechanic values, and claims about the present game version. Any later gameplay-specific additions require usable authoritative evidence.",
+    "communityAnswer": "Make the game smaller. Stay with one role and a small group of heroes whose jobs you can explain, then choose one observable skill to practice before each match. Afterward, find the earliest decision connected to that skill, write one better option, and repeat the same focus next game. Judge the session by whether you noticed and practiced the target, not only by the match result. When the target becomes familiar, replace it with the next specific skill instead of trying to improve everything at once.",
+    "automation": {
+      "caseId": "auto-dota 2-2026-09-04-d657aa2a76",
+      "draftId": "draft_dota2_beginner_one_skill_loop",
+      "signalId": "sig_5609955d6b276f5574",
+      "qa": "passed",
+      "generatedAt": "2026-09-04T13:59:37+00:00"
+    }
+  },
+  {
     "slug": "once-human-3-0-4-issue-status-check",
     "game": "Once Human",
     "title": "Once Human 3.0.4 Issue Status Check: Fixed, Unresolved, or Intended?",
@@ -370,6 +503,136 @@
       "signalId": "sig_0a93033c4b5dde5cce",
       "qa": "passed",
       "generatedAt": "2026-09-04T10:09:59+00:00"
+    }
+  },
+  {
+    "slug": "once-human-first-base-keep-expand-relocate-checklist",
+    "game": "Once Human",
+    "title": "Once Human First Base Checklist: Keep, Expand, or Relocate?",
+    "description": "Use a source-bounded checklist to decide whether to keep, expand, or relocate a first Once Human base without assuming unsupported console mechanics.",
+    "problem": "Treat your first base as a working draft: define its next job, measure the inconvenience, and commit more building effort only when the evidence points one way.",
+    "shortAnswer": "For a first console base, keep the setup limited to the job it already performs until you can name a recurring problem or a new requirement. Compare keeping, expanding, and relocating using evidence from your own play: repeated trips, access to activities you use, space for the intended workflow, and the effort required to reproduce the setup. Expand when the current site supports the next defined need but the setup does not. Consider relocating when the location itself causes a repeated problem that outweighs the disruption under the rules shown in your current version. The supplied official evidence does not establish relocation costs, limits, or preferred locations, so confirm those details before committing.",
+    "publishedAt": "2026-09-06",
+    "reviewedAt": "2026-09-06",
+    "status": "Evidence-bounded Once Human guide; recheck after relevant patch changes",
+    "sections": [
+      {
+        "title": "Define the base's next job",
+        "purpose": "Replace vague dissatisfaction with a concrete near-term requirement.",
+        "bullets": [
+          "Name the activity or output the base must support next.",
+          "List only the facilities, storage, access, and player attention that requirement depends on.",
+          "Separate a current need from features that might become useful later."
+        ]
+      },
+      {
+        "title": "Identify the repeated inconvenience",
+        "purpose": "Determine whether the problem comes from the location, the setup, or an undefined goal.",
+        "bullets": [
+          "Record the trips, access delays, layout conflicts, or repeated manual work that interrupt the intended routine.",
+          "Note when and where each problem occurs instead of relying on a general impression.",
+          "Treat an inconvenience as meaningful when it repeats under comparable conditions."
+        ]
+      },
+      {
+        "title": "Compare keeping, expanding, and relocating",
+        "purpose": "Give each option a clear decision condition without claiming a universal location.",
+        "bullets": [
+          "Keep the base when it supports the next goal and no repeated location problem is established.",
+          "Test a limited expansion or layout change when the site works but the current setup does not.",
+          "Keep relocation as a candidate when the location itself creates the verified problem."
+        ]
+      },
+      {
+        "title": "Check the commitment before acting",
+        "purpose": "Prevent unsupported assumptions about current console rules from driving the decision.",
+        "bullets": [
+          "Review the relocation, placement, and rebuilding information displayed in the current game version.",
+          "Check current official notices when the decision depends on a rule that may have changed.",
+          "Delay a large commitment when costs, limits, or retained structures remain unclear."
+        ]
+      },
+      {
+        "title": "Run a limited test",
+        "purpose": "Learn whether a smaller adjustment resolves the problem before changing the whole base.",
+        "bullets": [
+          "Change the smallest area connected to the documented inconvenience.",
+          "Repeat the same routine under comparable conditions.",
+          "Keep the change only when it improves the intended workflow without creating a larger problem elsewhere."
+        ]
+      },
+      {
+        "title": "Separate placement from production troubleshooting",
+        "purpose": "Differentiate this guide from the existing production-bottleneck page.",
+        "bullets": [
+          "Use this checklist to decide whether the site's role or location warrants a larger commitment.",
+          "Use the production-bottleneck guide when an established production loop underperforms.",
+          "Do not treat low output by itself as proof that relocation is necessary."
+        ]
+      }
+    ],
+    "checklist": [
+      "Write down the base's next concrete job.",
+      "List the activities and routes used repeatedly.",
+      "Record the inconvenience that currently repeats.",
+      "Classify the problem as goal, setup, or location related.",
+      "Compare keep, limited expansion, and relocation using the same criteria.",
+      "Confirm current relocation rules, limits, and displayed costs before committing.",
+      "Test the smallest relevant change first.",
+      "Reassess after repeating the intended routine."
+    ],
+    "example": "A console beginner has a compact setup that covers current needs but dislikes the location after several sessions. Instead of moving on instinct, they name the next goal, record which trips or access problems actually repeat, and compare the current site with a candidate using the same criteria. The review shows that the location still supports the near-term goal and that the main problem is an untidy layout. They reorganize only the affected area, keep the rest unchanged, and revisit relocation after checking the current rules. If the repeated problem had been tied to the location itself, a move would remain a candidate rather than an automatic answer.",
+    "mistakes": [
+      "Expanding before defining what the added space must support.",
+      "Treating an untidy layout as proof that the location is wrong.",
+      "Moving because of a single inconvenient trip.",
+      "Comparing locations with different criteria.",
+      "Assuming relocation rules or costs from an older version.",
+      "Changing the location and production setup at the same time."
+    ],
+    "faqs": [
+      {
+        "question": "Should I relocate my first Once Human base immediately?",
+        "answer": "Relocate only after identifying a repeated location problem and confirming the current rules shown for your platform and version. If the existing site supports the next goal, keeping it compact preserves flexibility while you gather better evidence."
+      },
+      {
+        "question": "What if the base feels too small?",
+        "answer": "First decide whether the constraint is the site's location or the current layout. If the location supports the intended activities, test a limited layout change or expansion under the rules available in your game before considering a move."
+      },
+      {
+        "question": "How can I compare candidate locations without an exact ranking?",
+        "answer": "Use criteria you can verify in your own play, such as repeated access needs, the intended base role, observed interruptions, and the effort required to reproduce the necessary setup. Apply the same criteria to every candidate."
+      },
+      {
+        "question": "Does version 3.0.5 change base placement or relocation?",
+        "answer": "The supplied version 3.0.5 evidence records update and bug-fix activity but does not establish a change to base placement, expansion, relocation, costs, or limits. Check the current official notice and in-game information before relying on a version-specific rule."
+      },
+      {
+        "question": "When should I use the base production bottleneck guide instead?",
+        "answer": "Use it when the location decision is settled but an established production loop produces less than expected. This first-base checklist addresses commitment, placement, and expansion timing rather than diagnosing throughput."
+      }
+    ],
+    "related": [
+      "once-human-base-production-bottleneck",
+      "once-human-resource-priority-plan",
+      "once-human-update-migration-checklist"
+    ],
+    "sources": [
+      {
+        "label": "Once Human Steam news feed",
+        "url": "https://store.steampowered.com/feeds/news/app/2139460",
+        "note": "Primary patch, product, or publisher evidence; stay within the captured text."
+      }
+    ],
+    "sourceNote": "E-01 establishes the beginner console placement question as demand context only. E-02 supports the bounded patch note but not base mechanics. Existing inventory excerpts were used solely to distinguish this first-base commitment checklist from the published production-bottleneck guide.",
+    "patchNote": "The closed official evidence records version 3.0.5 update and hotfix activity but supplies no base-placement, expansion, relocation, cost, or limit change. Keep the page patch-sensitive and recheck official rules before adding mechanic-specific instructions.",
+    "communityAnswer": "Keep your first base small and functional until you can name what is actually inconvenient. Write down what the base must do next, which trips repeat, and which parts of the current location slow that plan. If the current site handles the next goal, keep it. If the location works but the setup does not, test a limited expansion or layout change. If the location itself repeatedly causes the problem, compare a move. Before committing, check the relocation rules and any costs shown in your current console version. Change one part at a time so you can tell whether it helped.",
+    "automation": {
+      "caseId": "auto-once human-2026-09-06-ecc64925cf",
+      "draftId": "GW-01",
+      "signalId": "sig_c16f8ab44b276e9101",
+      "qa": "passed",
+      "generatedAt": "2026-09-06T01:00:45+00:00"
     }
   },
   {
@@ -756,6 +1019,133 @@
       "signalId": "sig_5489d7cf1477d875b6",
       "qa": "passed",
       "generatedAt": "2026-09-03T03:24:57+00:00"
+    }
+  },
+  {
+    "slug": "pubg-mortar-targeting-estimation-loop",
+    "game": "PUBG",
+    "title": "PUBG mortar targeting: estimate, observe, and adjust",
+    "description": "Use a patch-aware PUBG mortar workflow to define the target, estimate distance, review the first result, and adjust without relying on unsupported values.",
+    "problem": "Turn an uncertain mortar attempt into a repeatable estimation and review process.",
+    "shortAnswer": "Treat mortar targeting as a controlled estimation loop. Confirm what the current build shows, mark the firing position and target, record the basis for your distance estimate, and preserve that starting value. If the result can be observed, classify the error and change one input at a time. Do not rely on an exact grid conversion, range limit, control, or aiming rule unless it has been verified for the current build.",
+    "publishedAt": "2026-09-06",
+    "reviewedAt": "2026-09-06",
+    "status": "Evidence-bounded PUBG guide; recheck after relevant patch changes",
+    "sections": [
+      {
+        "title": "Start with a current-build verification gate",
+        "purpose": "Prevent an estimation workflow from depending on unsupported or outdated mechanics.",
+        "bullets": [
+          "Check the current game interface and captured official guidance before using any exact control, range, or map-scale value.",
+          "Separate confirmed information from remembered values and community suggestions.",
+          "Pause the attempt when its required mechanic cannot be verified."
+        ]
+      },
+      {
+        "title": "Define the target and record the starting estimate",
+        "purpose": "Create a baseline that the squad can review after the first attempt.",
+        "bullets": [
+          "Mark the firing position and intended target clearly.",
+          "Record where the distance estimate came from and how uncertain it is.",
+          "Preserve the initial direction and distance inputs before making a correction."
+        ]
+      },
+      {
+        "title": "Handle diagonal positioning without inventing a grid scale",
+        "purpose": "Explain the geometry decision while keeping game-specific dimensions conditional.",
+        "bullets": [
+          "Consider both horizontal and vertical separation when the positions are diagonal.",
+          "Apply diagonal geometry only when the current map scale has been verified.",
+          "Use a rough label rather than presenting an unsupported estimate as exact."
+        ]
+      },
+      {
+        "title": "Use the first observable result as calibration",
+        "purpose": "Turn the initial attempt into evidence for one bounded correction.",
+        "bullets": [
+          "Arrange observation before committing to the attempt.",
+          "Classify the result as short, long, off-line, or uncertain only when the landing information is visible enough to support that label.",
+          "Change one relevant input while holding the others constant."
+        ]
+      },
+      {
+        "title": "Review the correction loop",
+        "purpose": "Help players distinguish a useful adjustment from an unrepeatable guess.",
+        "bullets": [
+          "Compare the new result with the recorded baseline.",
+          "Reverse the change when the evidence becomes less clear.",
+          "Stop when observation, target information, or current-build verification is insufficient."
+        ]
+      },
+      {
+        "title": "Recheck after PUBG updates",
+        "purpose": "Keep the page useful without asserting that a listed update changed mortar behavior.",
+        "bullets": [
+          "Review authoritative patch information before retaining precise mortar notes.",
+          "Retest only the assumptions affected by documented changes.",
+          "Keep the estimation framework while removing values that can no longer be verified."
+        ]
+      }
+    ],
+    "checklist": [
+      "Verify current-build controls and any displayed range information.",
+      "Mark the firing position and intended target.",
+      "Record the source and uncertainty of the distance estimate.",
+      "Account for both axes when using a verified map scale for a diagonal estimate.",
+      "Save the initial direction and distance inputs.",
+      "Change only one input after an observable result."
+    ],
+    "example": "A squad marks a target that is separated from the firing position along both map axes. Because the closed evidence supplies no verified grid dimension or mortar range, the squad does not insert a copied conversion. It first checks whether the current build provides a usable scale, then includes both axes in a diagonal estimate and records that estimate as the baseline. One teammate watches the result. If the result is clearly short while its direction remains suitable, the next attempt changes only the distance input. If the result cannot be observed, the squad makes no numerical correction from that attempt.",
+    "mistakes": [
+      "Copying a precise grid conversion without current verification.",
+      "Treating one axis as the complete distance to a diagonal target.",
+      "Changing direction and distance in the same correction.",
+      "Using an unobserved result as evidence for an adjustment.",
+      "Turning one successful attempt into a universal recommendation."
+    ],
+    "faqs": [
+      {
+        "question": "What exact map-grid conversion should I use?",
+        "answer": "The supplied evidence does not establish an exact grid dimension or conversion. Use only a scale verified in the current build or authoritative current guidance. If no scale is available, keep the estimate explicitly approximate."
+      },
+      {
+        "question": "How should I estimate a diagonal target?",
+        "answer": "When a verified scale is available, account for separation on both map axes and apply ordinary diagonal geometry. Do not use either axis alone as the full diagonal distance."
+      },
+      {
+        "question": "What should I do if nobody can see the first result?",
+        "answer": "Do not make a confident correction from missing information. Improve the observation plan, choose a target whose result can be reviewed, or stop the sequence."
+      },
+      {
+        "question": "Did Update 42.3 change mortar behavior?",
+        "answer": "The supplied official listing identifies Update 42.3 but does not document mortar mechanics or a mortar change. No conclusion about mortar behavior can be drawn from that listing."
+      },
+      {
+        "question": "Can an older video supply the values?",
+        "answer": "It may suggest a process to test, but its precise controls, ranges, scales, and aiming behavior should be rechecked in the current build before use."
+      }
+    ],
+    "related": [
+      "pubg-battlegrounds-patch-weapon-map-recheck",
+      "pubg-battlegrounds-weapon-attachment-choice",
+      "pubg-battlegrounds-position-death-review"
+    ],
+    "sources": [
+      {
+        "label": "NEWS - PUBG: BATTLEGROUNDS",
+        "url": "https://pubg.com/en/news?category=patch_notes",
+        "note": "Primary patch, product, or publisher evidence; stay within the captured text."
+      }
+    ],
+    "sourceNote": "E-01 establishes the player problem as demand context only. E-03 establishes the presence of an official update listing but does not support mortar-specific mechanics. The draft therefore uses a conditional estimation and review framework and does not reproduce community wording.",
+    "patchNote": "Treat this guide as patch-sensitive. The supplied official page lists Update 42.3 but contains no mortar-specific mechanics, so exact distances, grid dimensions, controls, and aiming behavior remain intentionally omitted pending authoritative captured evidence.",
+    "communityAnswer": "Treat it as a one-variable-at-a-time estimation problem. First confirm what the current match and interface actually show for range and aiming. Mark the target, note your firing position, and record the estimate you used. If you derive distance from a map, account for separation on both axes; a diagonal is longer than either axis alone. Make the initial attempt only when someone can observe the result. Then classify it as short, long, off-line, or uncertain and change only the relevant input. Keep the original value so you can reverse an unhelpful correction. Check exact grid conversions, range limits, and controls in the current build instead of copying precise values from older material.",
+    "automation": {
+      "caseId": "auto-pubg-2026-09-06-108b8847f1",
+      "draftId": "draft_pubg_mortar_estimation_loop",
+      "signalId": "sig_b5b07a8e972b5fbcf1",
+      "qa": "passed",
+      "generatedAt": "2026-09-06T07:00:34+00:00"
     }
   },
   {
@@ -1278,6 +1668,140 @@
     }
   },
   {
+    "slug": "project-zomboid-low-pressure-building-sandbox-plan",
+    "game": "Project Zomboid",
+    "title": "Project Zomboid low-pressure sandbox plan for builders",
+    "description": "Plan a lower-pressure Project Zomboid sandbox for a build-focused first save using a patch-aware framework for danger, resources, recovery, and testing.",
+    "problem": "A calmer first save starts with deciding which pressures add tension and which ones only interrupt the building experience you want.",
+    "shortAnswer": "Plan the save around your tolerance for danger, resource pressure, recovery work, and repeated restarts. Change the categories that conflict with your preferred building pace, record the choices, and test them in a disposable world before committing. Do not assume a general difficulty label changes post-death XP or skill behavior; verify that separately on your current build. There is no universally suitable preset, so adjust one category at a time based on the friction you actually experience.",
+    "publishedAt": "2026-09-04",
+    "reviewedAt": "2026-09-04",
+    "status": "Evidence-bounded Project Zomboid guide; recheck after relevant patch changes",
+    "sections": [
+      {
+        "title": "Define what a low-pressure run means to you",
+        "purpose": "Turn a vague request for easier settings into explicit priorities before selecting a preset or changing options.",
+        "bullets": [
+          "Rank building time, exploration tension, resource pressure, and recovery effort by importance.",
+          "Decide which setbacks are enjoyable and which would make you abandon the save.",
+          "Separate concern about character progression from concern about the world and building project; verify each behavior independently."
+        ]
+      },
+      {
+        "title": "Translate each frustration into a setting category",
+        "purpose": "Connect player preferences to broad sandbox categories without asserting unsupported toggle names or effects.",
+        "bullets": [
+          "Reduce the category responsible for unwanted interruptions rather than lowering everything indiscriminately.",
+          "Keep pressure that supports the intended survival atmosphere.",
+          "Treat displayed option descriptions as version-specific and confirm them in the build being played."
+        ]
+      },
+      {
+        "title": "Create a controlled first-save plan",
+        "purpose": "Make the initial setup understandable and reversible before investing heavily in it.",
+        "bullets": [
+          "Record the selected preset, build, and every deliberate change.",
+          "Begin with the smallest set of changes that addresses the stated problem.",
+          "Use a disposable world to test the routine before adopting the setup for a longer project."
+        ]
+      },
+      {
+        "title": "Test loss and recovery separately",
+        "purpose": "Prevent an easier-feeling sandbox from being mistaken for verified XP, skill, or progression retention behavior.",
+        "bullets": [
+          "Use a throwaway character and world state for the test.",
+          "Observe what the current build retains and removes instead of relying on a remembered rule.",
+          "Revise the plan if the verified recovery cost still exceeds the player's tolerance."
+        ]
+      },
+      {
+        "title": "Adjust one pressure category at a time",
+        "purpose": "Create a repeatable tuning loop that reveals which change improved or weakened the experience.",
+        "bullets": [
+          "Identify the specific event that made the test feel tedious or empty.",
+          "Change only the category associated with that event.",
+          "Repeat the same short activity loop before committing to another adjustment."
+        ]
+      },
+      {
+        "title": "Keep fresh-save planning separate from migration",
+        "purpose": "Differentiate this guide from the existing page about changing settings in an established world.",
+        "bullets": [
+          "Use this framework when planning a new build-focused save.",
+          "Treat changes to an established world as a separate save-safety decision.",
+          "Review build and mod compatibility independently when either changes."
+        ]
+      }
+    ],
+    "checklist": [
+      "Write down the parts of the game experience you most want to preserve.",
+      "Rank danger, resource pressure, recovery effort, and restart tolerance.",
+      "Choose a fresh sandbox as the controlled test environment.",
+      "Record the current game build, preset, and deliberate changes.",
+      "Change only the categories tied to your stated frustrations.",
+      "Test both the normal building routine and a disposable character-loss scenario.",
+      "Record observed XP, skill, and world behavior without generalizing beyond the test.",
+      "Adjust one category at a time until the pressure matches your preferred pace."
+    ],
+    "example": "A player wants long building sessions, accepts some resource scarcity, and dislikes repeating character progression. They rank uninterrupted building time first, keep the amount of resource pressure they enjoy, and reduce only the broad pressure categories that repeatedly disrupt construction. Before beginning the main project, they create a disposable sandbox, record its build and selections, test a short gather-and-build routine, and use a throwaway character to observe current loss behavior. If the verified progression loss remains unacceptable, they revise the plan instead of assuming another difficulty label will preserve it. If the world lacks tension, they restore one pressure category and repeat the same test.",
+    "mistakes": [
+      "Copying another player's preset without defining the desired building pace.",
+      "Assuming a lower-pressure preset changes every form of progress loss.",
+      "Treating the current build number as proof of a specific sandbox or death mechanic.",
+      "Changing several pressure categories before identifying the source of frustration.",
+      "Using a fresh-save framework as permission to edit an established world without a separate safety review."
+    ],
+    "faqs": [
+      {
+        "question": "Which exact sandbox settings should a build-focused beginner change?",
+        "answer": "Choose settings by pressure category rather than copying a fixed list: danger, resource availability, recovery effort, and interruption frequency. The supplied official material does not document exact option names or effects, so confirm the descriptions presented by the current build and test the result before committing."
+      },
+      {
+        "question": "Can sandbox settings preserve XP or skills after character death?",
+        "answer": "Do not rely on that assumption. The official Build 42 excerpts available for this guide do not document death, XP, skill-retention, or inheritance rules. Verify the behavior with a disposable character and treat the observation as specific to the tested build and setup."
+      },
+      {
+        "question": "Is this plan suitable for changing an existing save?",
+        "answer": "This guide is for planning a fresh save. An established world introduces a different migration and save-safety problem; duplicate and test that world through the separate mid-save settings checklist before trusting a change."
+      },
+      {
+        "question": "Should the first test include mods?",
+        "answer": "Keep compatibility separate from sandbox tuning when possible. The official 42.20.4 hotfix material says mods using the removed loadstring or loadstream methods require updates, so affected mods need their own compatibility review before their behavior is attributed to the sandbox plan."
+      },
+      {
+        "question": "How do I know when the setup is ready for a longer building project?",
+        "answer": "Commit when the test routine matches your preferred pace, the observed loss behavior is acceptable, and you can identify which deliberate choices produced the result. Keep the record so later build or mod changes can be evaluated separately."
+      }
+    ],
+    "related": [
+      "project-zomboid-change-sandbox-settings-mid-save",
+      "project-zomboid-trait-plan-by-playstyle",
+      "project-zomboid-build-update-save-checklist"
+    ],
+    "sources": [
+      {
+        "label": "Project Zomboid Steam news feed",
+        "url": "https://store.steampowered.com/feeds/news/app/108600",
+        "note": "Primary patch, product, or publisher evidence; stay within the captured text."
+      },
+      {
+        "label": "News - Project Zomboid",
+        "url": "https://projectzomboid.com/blog/news/",
+        "note": "Primary patch, product, or publisher evidence; stay within the captured text."
+      }
+    ],
+    "sourceNote": "E-01 supports the player problem and topic selection only. E-02 and E-03 support the Build 42.20-series context; E-02 additionally supports the narrow mod-compatibility warning concerning removal of loadstring and loadstream. Existing guide excerpts were used only to prevent duplication and distinguish fresh-save planning from mid-save migration, trait selection, mod isolation, and update safety.",
+    "patchNote": "Prepared against the official Build 42.20.4 stable context captured in E-02 and E-03. Those sources do not establish changes to sandbox settings, death behavior, XP, skill retention, or progression inheritance, so the draft omits mechanics-specific prescriptions and requires controlled verification. REF-01 remains an urgent review item for the existing mod-conflict and build-update save-safety pages; this new guide does not replace either page.",
+    "communityAnswer": "If your goal is building and long-term progression, start by ranking four things: how much danger you enjoy, how scarce you want resources to feel, how much rebuilding you will tolerate, and how often you are willing to restart. Make a disposable sandbox, reduce only the pressure categories that conflict with those preferences, and keep a note of what you changed. Test the building loop and deliberately check what happens to XP and skills after a throwaway character dies; do not assume a difficulty label changes that behavior. If the test feels empty, restore pressure one category at a time. If it feels punishing, reduce the category causing repeated restarts. This produces a calmer first-save plan without pretending one setup suits every player.",
+    "automation": {
+      "caseId": "auto-project zomboid-2026-09-04-b2d4eda189",
+      "draftId": "DRAFT-01",
+      "signalId": "sig_f579ea8212d2cf446f",
+      "qa": "passed",
+      "generatedAt": "2026-09-04T13:51:00+00:00"
+    }
+  },
+  {
     "slug": "rainbow-six-siege-game-sense-training-loop",
     "game": "Rainbow Six Siege",
     "title": "Rainbow Six Siege game sense training loop",
@@ -1527,6 +2051,279 @@
     }
   },
   {
+    "slug": "escape-from-tarkov-beginner-learning-loop",
+    "game": "Tarkov",
+    "title": "Escape from Tarkov beginner learning loop for early raids",
+    "description": "Use a manageable Tarkov beginner learning loop to study one map, verify extraction assumptions, prepare a replaceable kit, and review each early raid.",
+    "problem": "Your first goal is not to master every Tarkov system. Build a repeatable loop that turns each early raid into one clear lesson.",
+    "shortAnswer": "Choose one map and one learning objective for each attempt. Before entering, verify the current mode, map, extraction conditions, and any loadout assumptions that matter to the plan. Prepare equipment you can replace, define a simple route with a fallback, and decide what will end the attempt. Afterward, record one useful observation and change only the part of the plan that evidence showed was weak.",
+    "publishedAt": "2026-09-05",
+    "reviewedAt": "2026-09-05",
+    "status": "Evidence-bounded Tarkov guide; recheck after relevant patch changes",
+    "sections": [
+      {
+        "title": "Set one learning objective",
+        "purpose": "Keep early attempts manageable and make the result reviewable.",
+        "bullets": [
+          "Choose orientation, route rehearsal, extraction verification, or equipment handling as the primary lesson.",
+          "Treat loot, tasks, and combat as optional unless they are the selected lesson.",
+          "Write a simple success condition based on completing the learning step, not on an assumed raid outcome."
+        ]
+      },
+      {
+        "title": "Verify the current context",
+        "purpose": "Prevent patch-sensitive assumptions from becoming the foundation of the plan.",
+        "bullets": [
+          "Confirm the active mode and current version context before using outside advice.",
+          "Check current map and extraction information against detailed authoritative information or the game.",
+          "Mark unresolved requirements, access conditions, or route details for review instead of guessing.",
+          "Do not infer a specific gameplay change from generic patch or hotfix activity."
+        ]
+      },
+      {
+        "title": "Build a replaceable preparation loop",
+        "purpose": "Limit decision overload while preserving the ability to repeat the lesson.",
+        "bullets": [
+          "Select equipment according to current access, intended use, and acceptable replacement burden.",
+          "Avoid making the lesson depend on an unverified ammunition, armor, trader, or economy assumption.",
+          "Keep preparation consistent enough that equipment changes do not obscure the lesson.",
+          "Use the focused budget-weapon and ammunition-assumption guides when those decisions need deeper review."
+        ]
+      },
+      {
+        "title": "Plan a route with a fallback",
+        "purpose": "Give the attempt structure without duplicating the dedicated extraction and quest-route guides.",
+        "bullets": [
+          "Identify the starting landmark you intend to recognize.",
+          "Choose a short primary route connected to the learning objective.",
+          "Verify the relevant extraction and any conditions attached to it.",
+          "Name a fallback decision for an uncertain route, unfavorable start, or unresolved extraction assumption."
+        ]
+      },
+      {
+        "title": "Define a stop rule",
+        "purpose": "Prevent optional decisions from replacing the original learning goal.",
+        "bullets": [
+          "Decide before entering when the lesson is complete.",
+          "End or simplify the plan when a critical route or extraction assumption cannot be verified.",
+          "Drop optional objectives when they make the result harder to interpret.",
+          "Use the extraction-readiness guide for a fuller exit decision checklist."
+        ]
+      },
+      {
+        "title": "Review and change one variable",
+        "purpose": "Convert confusion into a focused next attempt.",
+        "bullets": [
+          "Record the point where orientation, routing, preparation, or decision-making broke down.",
+          "Separate missing knowledge from a plan that depended on unverified current information.",
+          "Keep the parts that worked and revise the smallest relevant dependency.",
+          "Choose the next learning objective from the observed problem rather than expanding the entire plan."
+        ]
+      }
+    ],
+    "checklist": [
+      "Select one map for the learning session.",
+      "Choose one primary lesson for the next attempt.",
+      "Confirm the active mode and current version context.",
+      "Verify the route and relevant extraction information.",
+      "Mark every unresolved condition instead of guessing.",
+      "Prepare equipment you are willing and able to replace.",
+      "Choose a primary route and a fallback decision.",
+      "Set a stop rule before entering the raid that tells you when to end or simplify the attempt after the learning objective is complete or a critical assumption becomes uncertain, then record one observation afterward and change only the relevant part of the next plan."
+    ],
+    "example": "A new player chooses orientation as the lesson for a selected map. Before entering, they verify the current mode, review current map information, and confirm the extraction they intend to use. They prepare a replaceable kit, select a short route between recognizable landmarks, and decide to abandon the route if their starting position or extraction assumption remains unclear. After the attempt, they note that the first landmark was easy to identify but the turn toward the extraction was uncertain. The next attempt keeps the same preparation and changes only that route segment.",
+    "mistakes": [
+      "Trying to learn maps, equipment, tasks, loot, and combat in the same attempt.",
+      "Following an old route without verifying its current map and extraction assumptions.",
+      "Changing the route and equipment together, then being unable to identify what caused confusion.",
+      "Treating optional loot or objectives as more important than the selected lesson.",
+      "Repeating an unclear plan without recording where the uncertainty began."
+    ],
+    "faqs": [
+      {
+        "question": "Which Tarkov map should a beginner learn first?",
+        "answer": "The supplied evidence does not support a universal map choice. Select a map that matches your current objective and available authoritative information, then stay with it long enough to review repeated route and orientation decisions."
+      },
+      {
+        "question": "Should I memorize every extraction before entering?",
+        "answer": "Start with the extraction relevant to the planned route and a verified fallback. Confirm current availability and requirements rather than assuming an older map or video remains accurate."
+      },
+      {
+        "question": "What equipment should I bring while learning?",
+        "answer": "Use a kit selected around current access, intended use, and a replacement burden you accept. Verify any ammunition, armor, trader, or price assumptions separately because the closed evidence does not establish current values or a universally suitable configuration."
+      },
+      {
+        "question": "How many objectives should I combine in an early raid?",
+        "answer": "Use one primary learning objective. Add an optional objective only when it does not obscure the lesson or make the route depend on unverified conditions."
+      },
+      {
+        "question": "Do recent publisher updates make older beginner advice obsolete?",
+        "answer": "Not automatically. The supplied publisher evidence establishes season, patch, and hotfix activity but does not identify a specific change to beginner mechanics, maps, extractions, balance, access, progression, or economy. Recheck the particular dependency before keeping or rejecting older advice."
+      }
+    ],
+    "related": [
+      "escape-from-tarkov-extraction-readiness",
+      "escape-from-tarkov-budget-weapon-choice",
+      "escape-from-tarkov-post-patch-assumption-triage"
+    ],
+    "sources": [
+      {
+        "label": "Tarkov Steam news feed",
+        "url": "https://store.steampowered.com/feeds/news/app/3932890",
+        "note": "Primary patch, product, or publisher evidence; stay within the captured text."
+      },
+      {
+        "label": "Project news - Escape from Tarkov Forum",
+        "url": "https://forum.escapefromtarkov.com/forum/4-project-news/",
+        "note": "Primary patch, product, or publisher evidence; stay within the captured text."
+      }
+    ],
+    "sourceNote": "E-01 supports the existence and framing of the beginner problem only. E-02 and E-03 establish publisher update activity and limited season context; they do not substantiate specific gameplay mechanics. The guide therefore uses a conditional learning framework and routes focused decisions to existing inventory pages. It differs from the extraction, quest-route, loadout, progression, stash, and patch-triage pages by organizing those checks into an early-raid learning sequence rather than repeating their category advice.",
+    "patchNote": "The captured publisher sources establish ongoing season, patch, and hotfix activity without documenting a specific change to beginner mechanics, maps, extraction conditions, balance, access, progression, or economy. Review route, extraction, and progression dependencies against detailed authoritative information; monitor loadout and stash dependencies without declaring them changed.",
+    "communityAnswer": "Start small: choose one map and give each attempt a single learning goal, such as recognizing landmarks, reaching a verified extraction, or following a short route. Before entering, check the current mode and extraction conditions instead of relying on an old video or map. Use equipment you are comfortable replacing, choose a fallback route, and set a point where you will stop adding optional objectives. After the attempt, write down where you became uncertain and adjust only that part of the plan. If your current mode provides a suitable practice option, use it to rehearse orientation and route decisions before adding more objectives.",
+    "automation": {
+      "caseId": "auto-tarkov-2026-09-05-6e435472ef",
+      "draftId": "draft_tarkov_beginner_learning_loop",
+      "signalId": "sig_ee56b3ddadd957ad48",
+      "qa": "passed",
+      "generatedAt": "2026-09-05T04:02:30+00:00"
+    }
+  },
+  {
+    "slug": "escape-from-tarkov-beginner-weapon-stash-scorecard",
+    "game": "Tarkov",
+    "title": "Escape from Tarkov beginner weapon and stash scorecard",
+    "description": "Classify each Tarkov weapon as standardize, retain, or sell using current ammunition access, magazines, replacement burden, task fit, and stash pressure.",
+    "problem": "Choose a default platform that simplifies your next preparations instead of filling the stash with weapons you cannot consistently support.",
+    "shortAnswer": "List the weapon platforms already available to you, then check each one against five inputs: repeatable ammunition and magazine access, complete replacement burden, intended near-term use, handling comfort, and stash pressure. Standardize on a platform only when those inputs support repeated use. Retain another weapon when it has a verified near-term purpose, and sell excess platforms that lack both sustainable support and a defined use. Verify current access for your active mode before committing because the supplied official evidence establishes season and patch activity without resolving specific weapon, trader, or economy details.",
+    "publishedAt": "2026-09-06",
+    "reviewedAt": "2026-09-06",
+    "status": "Evidence-bounded Tarkov guide; recheck after relevant patch changes",
+    "sections": [
+      {
+        "title": "What this scorecard decides",
+        "purpose": "Define a narrow classification tool that complements the existing weapon and stash guides.",
+        "bullets": [
+          "Classify each candidate platform as standardize, retain for a verified near-term use, or sell.",
+          "Treat the result as a preparation policy rather than a weapon ranking.",
+          "Do not infer current weapon, ammunition, magazine, trader, task, or economy details from general patch activity."
+        ]
+      },
+      {
+        "title": "Record the current inputs",
+        "purpose": "Make every classification depend on information the player can verify for the active mode.",
+        "bullets": [
+          "Confirm whether suitable ammunition and magazines are repeatedly accessible under the player's current conditions.",
+          "Estimate the burden of replacing the complete setup rather than considering the weapon alone.",
+          "Name the specific near-term task or intended use the platform must support.",
+          "Record whether the player can handle the configured platform comfortably.",
+          "Note whether keeping the platform prevents normal kit assembly or creates meaningful stash pressure."
+        ]
+      },
+      {
+        "title": "Choose the classification",
+        "purpose": "Turn the verified inputs into a practical stash decision.",
+        "bullets": [
+          "Standardize when the supporting supplies are repeatable, the complete setup is replaceable within the player's limit, and the platform fits its intended use.",
+          "Retain for a verified near-term use when a platform is not suitable as the default but has a specific upcoming purpose and adequate support.",
+          "Sell excess when a platform lacks sustainable support, has no defined near-term use, and competes with more functional preparation needs.",
+          "Mark the decision needs review when a critical access or replacement input remains unresolved."
+        ]
+      },
+      {
+        "title": "Resolve close decisions",
+        "purpose": "Provide a conditional tie-breaker without claiming a universal weapon choice.",
+        "bullets": [
+          "Prefer the candidate with fewer unresolved dependencies when several platforms meet the intended use.",
+          "Use handling comfort as a tie-breaker only after access and replacement burden are acceptable.",
+          "Reduce the retained quantity when storage pressure is the main constraint.",
+          "Avoid committing several future setups to supplies that cannot yet be replenished consistently."
+        ]
+      },
+      {
+        "title": "Use the focused guides for deeper checks",
+        "purpose": "Differentiate this scorecard from existing RaidBench inventory and prevent duplicated advice.",
+        "bullets": [
+          "Use the budget-weapon guide to examine intended range, complete kit burden, access, and handling in more detail.",
+          "Use the stash-triage guide to evaluate storage pressure, confirmed future uses, and replacement access.",
+          "Use the ammunition-and-armor assumption guide when the decision depends on target or protection assumptions.",
+          "Return to this scorecard only to assign the final standardize, retain, or sell status."
+        ]
+      },
+      {
+        "title": "Recheck after relevant official activity",
+        "purpose": "Keep the classification patch-aware while respecting the closed evidence boundary.",
+        "bullets": [
+          "The supplied official evidence establishes a new season and ongoing patch or hotfix activity.",
+          "It does not establish a specific change to the scorecard's weapon, ammunition, magazine, trader, task, or economy inputs.",
+          "Reverify only the dependencies used by the selected platform before changing the classification.",
+          "Do not describe an existing guide or prior decision as outdated without detailed authoritative evidence."
+        ]
+      }
+    ],
+    "checklist": [
+      "Write down every weapon platform currently competing for stash space or preparation budget.",
+      "Confirm current ammunition access for each candidate in the active mode.",
+      "Confirm current magazine access for each candidate in the active mode.",
+      "Compare the burden of replacing each complete setup.",
+      "Assign one verified near-term purpose to every platform you intend to retain.",
+      "Label each candidate standardize, retain, sell, or needs review."
+    ],
+    "example": "A beginner compares three unnamed platforms. Platform A has ammunition and magazines the player can replenish, its complete setup fits the player's replacement limit, and the configured weapon feels manageable, so it becomes the default. Platform B has no verified near-term use and depends on supplies the player cannot currently replenish, so the excess setup is sold. Platform C has a defined upcoming use and adequate supporting supplies but is unsuitable for repeated replacement, so one setup is retained for that purpose rather than becoming the default. If any access assumption cannot be verified for the active mode, that classification remains needs review.",
+    "mistakes": [
+      "Choosing from an isolated weapon statistic without checking supporting ammunition and magazines.",
+      "Comparing weapon prices while ignoring the complete replacement burden.",
+      "Keeping unsupported platforms for unspecified future plans.",
+      "Treating general season or patch activity as proof of a particular gameplay change."
+    ],
+    "faqs": [
+      {
+        "question": "Which weapon should a beginner standardize on?",
+        "answer": "The closed evidence does not support naming a specific platform. Choose among your current candidates using verified ammunition and magazine access, complete replacement burden, intended use, and handling comfort."
+      },
+      {
+        "question": "How many copies of the default platform should I keep?",
+        "answer": "No supported fixed quantity is available. Set a limit from your near-term preparation needs, acceptable replacement burden, and available stash space."
+      },
+      {
+        "question": "Should I keep a valuable weapon for later?",
+        "answer": "Keep it when you can name a verified near-term use and support the required setup. Otherwise, compare that uncertain future use with current storage pressure and preparation needs."
+      },
+      {
+        "question": "Does recent official activity invalidate my current choice?",
+        "answer": "Not by itself. The supplied evidence establishes season and patch activity but identifies no specific change to the inputs used here. Recheck those inputs before revising the choice."
+      }
+    ],
+    "related": [
+      "escape-from-tarkov-budget-weapon-choice",
+      "escape-from-tarkov-stash-keep-sell-triage",
+      "escape-from-tarkov-ammo-armor-assumption-check",
+      "escape-from-tarkov-beginner-learning-loop"
+    ],
+    "sources": [
+      {
+        "label": "Tarkov Steam news feed",
+        "url": "https://store.steampowered.com/feeds/news/app/3932890",
+        "note": "Primary patch, product, or publisher evidence; stay within the captured text."
+      },
+      {
+        "label": "Project news - Escape from Tarkov Forum",
+        "url": "https://forum.escapefromtarkov.com/forum/4-project-news/",
+        "note": "Primary patch, product, or publisher evidence; stay within the captured text."
+      }
+    ],
+    "sourceNote": "E-01 supports the existence and framing of the player problem only; it is not factual authority. E-02 and E-03 support the limited statement that season, patch, and hotfix activity exists. No supplied evidence supports specific current weapon, ammunition, magazine, trader, task, economy, or market claims.",
+    "patchNote": "Treat ammunition, magazine, trader, replacement, task, and economy inputs as needs review before applying the scorecard. E-02 and E-03 establish season and patch activity but do not identify a concrete change to those inputs. The overlapping inventory excerpts were reviewed after the dated season signal and are not shown to require factual rewrites.",
+    "communityAnswer": "Pick one default weapon platform from what you can replenish now, not from an isolated weapon statistic. Check whether you can repeatedly obtain its ammunition and magazines, rebuild the complete setup within your acceptable budget, use it for a near-term task, and handle it comfortably. Keep a supported platform as your default, retain another only when it has a verified near-term use, and sell excess weapons that have neither reliable support nor a defined purpose. Verify current access for your active mode before committing, since those inputs can be patch-sensitive.",
+    "automation": {
+      "caseId": "auto-tarkov-2026-09-06-8986030396",
+      "draftId": "draft_tarkov_beginner_weapon_stash_scorecard",
+      "signalId": "sig_42e68ea7004098e891",
+      "qa": "passed",
+      "generatedAt": "2026-09-06T05:01:10+00:00"
+    }
+  },
+  {
     "slug": "escape-from-tarkov-post-patch-assumption-triage",
     "game": "Tarkov",
     "title": "Escape from Tarkov post-patch assumption triage",
@@ -1658,6 +2455,134 @@
       "signalId": "sig_96d22f10d314c1ed94",
       "qa": "passed",
       "generatedAt": "2026-09-04T10:49:15+00:00"
+    }
+  },
+  {
+    "slug": "warframe-what-to-do-next-session-triage",
+    "game": "Warframe",
+    "title": "What to Do Next in Warframe: A One-Session Triage Plan",
+    "description": "Choose your next Warframe goal by checking account access, diagnosing one recurring failure, and testing one focused repair, unlock, or farm per session.",
+    "problem": "Turn a crowded list of Warframe goals into one testable decision for your next session.",
+    "shortAnswer": "Choose one result for the next session, use a familiar loadout as your baseline, and identify the earliest failure that repeatedly blocks that result. Then select one repair, unlock, or farm that directly addresses the blocker. Retest under comparable conditions and defer unrelated investments. Verify patch-dependent prerequisites and rewards through current publisher information before committing scarce resources.",
+    "publishedAt": "2026-09-05",
+    "reviewedAt": "2026-09-05",
+    "status": "Evidence-bounded Warframe guide; recheck after relevant patch changes",
+    "sections": [
+      {
+        "title": "Set a finish line for the session",
+        "purpose": "Convert an open-ended progression question into a bounded result that can be evaluated.",
+        "bullets": [
+          "Describe one result the session should produce.",
+          "Exclude goals that do not support that result.",
+          "Use a stopping point so one activity does not consume the entire plan."
+        ]
+      },
+      {
+        "title": "Record the usable account baseline",
+        "purpose": "Limit the decision to activities and equipment the player can presently use.",
+        "bullets": [
+          "List relevant activities that are already accessible.",
+          "Choose a familiar loadout rather than rebuilding several configurations.",
+          "Mark any uncertain prerequisite for publisher-source verification."
+        ]
+      },
+      {
+        "title": "Find the earliest recurring blocker",
+        "purpose": "Separate the reason progress stops from the large number of possible upgrades.",
+        "bullets": [
+          "Observe whether the first recurring issue concerns survival, damage delivery, resources, objectives, or execution.",
+          "Describe the blocker without assuming that a complete replacement is required.",
+          "Keep later problems out of scope until the earliest blocker is addressed."
+        ]
+      },
+      {
+        "title": "Choose between a repair, unlock, or farm",
+        "purpose": "Match the next action to the diagnosed blocker instead of following general popularity.",
+        "bullets": [
+          "Select a repair when the current loadout has one identifiable weakness.",
+          "Select an unlock when access is the immediate constraint.",
+          "Select a farm only when its expected result directly supports the chosen repair or unlock."
+        ]
+      },
+      {
+        "title": "Retest and decide what to keep",
+        "purpose": "Use comparable play conditions to determine whether the selected action helped.",
+        "bullets": [
+          "Preserve the original configuration as a baseline.",
+          "Change one decision layer before repeating the test.",
+          "Keep the change only when the observed mission result improves consistently enough for the player's goal."
+        ]
+      },
+      {
+        "title": "Apply the patch-sensitive stop rule",
+        "purpose": "Prevent outdated prerequisites, rewards, or announced content from becoming unsupported instructions.",
+        "bullets": [
+          "Check current publisher information before relying on a specific requirement or reward.",
+          "Treat announced content as a watch item until its current implementation is documented.",
+          "Pause the plan when a required detail cannot be verified from the available source."
+        ]
+      }
+    ],
+    "checklist": [
+      "Write one result for the next play session.",
+      "List the accessible activities that could produce that result.",
+      "Choose one familiar loadout as the testing baseline.",
+      "Record the earliest blocker that recurs during the activity.",
+      "Select one repair, unlock, or farm tied directly to that blocker.",
+      "Retest under comparable conditions before making another investment."
+    ],
+    "example": "A player has several possible goals but notices that a familiar loadout repeatedly fails to maintain survival during the activity they want to complete. They keep that activity and loadout as the baseline, make one bounded defensive repair, and repeat a comparable test. If the result improves reliably, they retain the repair and choose a directly supporting progression step. If it does not, they restore the baseline and diagnose the next plausible cause instead of starting several unrelated farms.",
+    "mistakes": [
+      "Choosing an activity because it is popular without linking it to the session goal.",
+      "Changing several loadout layers before identifying which one affected the result.",
+      "Investing scarce resources before confirming that the target solves the observed blocker.",
+      "Treating a pre-release announcement as current progression instructions."
+    ],
+    "faqs": [
+      {
+        "question": "Should I begin with a new build or a progression goal?",
+        "answer": "Begin with the blocker. Repair the current loadout when one identifiable weakness prevents progress; pursue an unlock when access is the constraint; choose a farm when its result directly supports either decision."
+      },
+      {
+        "question": "How do I choose when several activities seem useful?",
+        "answer": "Prefer the activity most directly connected to the session result and currently accessible to the account. Defer the rest until the first result has been tested."
+      },
+      {
+        "question": "When should I stop investing in a proposed fix?",
+        "answer": "Stop when comparable tests do not improve the targeted mission result, when a different blocker appears first, or when the plan depends on an unverified patch-sensitive detail."
+      },
+      {
+        "question": "Does an upcoming update change what I should do now?",
+        "answer": "An announcement can justify monitoring future choices, but it does not by itself establish that a current plan is outdated. Keep present advice bounded to documented current conditions."
+      }
+    ],
+    "related": [
+      "warframe-returning-player-priority-plan",
+      "warframe-build-bottleneck-check",
+      "warframe-farming-priority-route",
+      "warframe-mod-upgrade-spending-plan"
+    ],
+    "sources": [
+      {
+        "label": "Warframe Steam news feed",
+        "url": "https://store.steampowered.com/feeds/news/app/230410",
+        "note": "Primary patch, product, or publisher evidence; stay within the captured text."
+      },
+      {
+        "label": "Warframe: Patch Notes",
+        "url": "https://www.warframe.com/en/patch-notes",
+        "note": "Primary patch, product, or publisher evidence; stay within the captured text."
+      }
+    ],
+    "sourceNote": "E-01 establishes demand for a next-step answer but is not used as authority for mechanics. E-02 supports only the stated announcement and launch-watch context. E-03 supports the existence of the documented update cycle, not specific prerequisites or rewards. The new page is differentiated from the existing returning-player priority plan by focusing on a repeatable one-session triage and stop-rule workflow rather than a broad catch-up sequence.",
+    "patchNote": "The official patch index shows an active update and hotfix cycle, supporting a review of patch-sensitive guidance without proving that an existing claim is outdated. The publisher announcement schedules Iceblade of Narin for September 23; this draft treats that release as a watch item and does not convert its pre-release details into current progression advice.",
+    "communityAnswer": "Set one result for your next session instead of trying to catch up with everything. Start with an activity you can already access and a loadout you understand. Note the earliest problem that keeps recurring: survival, damage delivery, resource uptime, objective handling, or execution. Choose one change or progression step tied directly to that problem, then repeat a comparable test. Keep it if the mission result becomes more reliable; otherwise restore the baseline and reassess. Check current publisher information before relying on a specific prerequisite or reward, because those details can change.",
+    "automation": {
+      "caseId": "auto-warframe-2026-09-05-60b17e69a2",
+      "draftId": "draft_warframe_next_session_triage_01",
+      "signalId": "sig_652cdfbee17375b591",
+      "qa": "passed",
+      "generatedAt": "2026-09-05T03:40:50+00:00"
     }
   }
 ]

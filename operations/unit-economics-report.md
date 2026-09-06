@@ -1,18 +1,19 @@
 # RaidBench Unit Economics
 
-Generated: 2026-09-04T00:32:16.810Z
-Model as of: 2026-09-03
+Generated: 2026-09-06T15:31:23.844Z
+Model as of: 2026-09-06
 Provider: PayPal China cross-border
 Scenario: US and Canada organic launch
 
 ## Decision
 
-The North America credit packs pass the modeled cost floor for both launch-ready Rust actions. POE2 actions remain blocked until their evidence QA is complete. Paid acquisition remains a separate scenario and must not be scaled from this organic-launch result.
+The account-free Rust staging pack and the legacy North America credit products pass their modeled organic-launch cost floors. The staging pack is the primary public Rust conversion path. Paid acquisition remains a separate scenario and must not be scaled until measured acquisition cost fits inside contribution.
 
 ## Product Economics
 
 | Product | Price | Variable cost before ads | CAC | Net per order after fixed allocation | Net margin | Decision |
 |---|---:|---:|---:|---:|---:|---|
+| Rust Full Raid Staging Pack | $4.99 | $1.90 | $0.00 | $0.48 | 9.6% | VIABLE |
 | Verified Rust Answer Starter | $5.00 | $1.91 | $0.00 | $0.48 | 9.5% | VIABLE |
 | Rust Raid Plan Standard | $19.00 | $9.21 | $0.00 | $7.17 | 37.7% | VIABLE |
 | POE2 Build Audit Standard | $39.00 | $18.16 | $0.00 | $18.22 | 46.7% | VIABLE |
@@ -22,7 +23,7 @@ Monthly fixed-cost planning reserve: $78.50. Monthly order assumption: 30.
 
 ## Credit Action Audit
 
-Each ready action is tested against the least profitable pack allocation, including allocated payment fees, withdrawal reserve, tax reserve, refund reserve, chargeback reserve, and its own delivery profile. Blocked products are not treated as sellable revenue.
+Each ready credit action is tested against the least profitable positive-credit pack allocation, including allocated payment fees, withdrawal reserve, tax reserve, refund reserve, chargeback reserve, and its own delivery profile. The account-free staging product is modeled separately above. Blocked products are not treated as sellable revenue.
 
 | Action | Credits | Conservative gross | Modeled variable cost | Contribution | Margin | Decision |
 |---|---:|---:|---:|---:|---:|---|
@@ -37,6 +38,7 @@ Each ready action is tested against the least profitable pack allocation, includ
 
 | Product | $2,000 net | $5,000 net | $20,000 net |
 |---|---:|---:|---:|
+| Rust Full Raid Staging Pack | 672 | 1642 | 6491 |
 | Verified Rust Answer Starter | 673 | 1643 | 6495 |
 | Rust Raid Plan Standard | 213 | 519 | 2052 |
 | POE2 Build Audit Standard | 100 | 244 | 964 |
@@ -53,4 +55,5 @@ Each ready action is tested against the least profitable pack allocation, includ
 - The fixed-cost model reserves one 35 USD PayPal wire withdrawal per month. Replace this with the actual withdrawal path and frequency; eligible no-conversion Hong Kong bank withdrawals can differ.
 - The 2.5% FX and withdrawal percentage is a planning reserve. Actual currency conversion can vary by transaction type and account path.
 - No paid acquisition should be scaled until measured customer acquisition cost is below contribution before advertising.
-- The 5 USD starter is intentionally modeled as a low-margin acquisition product. It should not become the dominant paid mix at low order volume.
+- The 4.99 USD staging pack is intentionally modeled as a low-friction validation product with deterministic delivery. Reprice it from measured conversion, support, refund, and withdrawal costs rather than treating the launch price as permanent.
+- The 5 USD legacy credit starter remains in the cost model for comparison but is no longer the primary public Rust conversion path.

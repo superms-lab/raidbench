@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-04T01:09:37.723Z",
+  "generatedAt": "2026-09-06T17:39:05.689Z",
   "catalogAsOf": "2026-09-04",
-  "modelAsOf": "2026-09-03",
+  "modelAsOf": "2026-09-06",
   "provider": {
     "id": "paypal-cn-cross-border",
     "name": "PayPal China cross-border",

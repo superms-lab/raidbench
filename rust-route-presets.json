@@ -1,9 +1,9 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-04T05:58:21.999Z",
+  "generatedAt": "2026-09-06T16:34:02.190Z",
   "reviewedDataDate": "2026-09-03",
   "scope": "Vanilla Rust PC planning examples. Recheck after relevant patches and custom-server changes.",
-  "count": 3,
+  "count": 6,
   "presets": [
     {
       "slug": "starter-door-corridor",
@@ -59,6 +59,56 @@
         }
       ],
       "calculatorUrl": "https://raidbench.com/?route=garage-door~3~rockets&utm_source=preset_library&utm_medium=owned_tool&utm_campaign=three-garage-door-core#raid-calculator"
+    },
+    {
+      "slug": "armored-core-door-route",
+      "availableFrom": "2026-09-07",
+      "title": "Armored core door route",
+      "description": "Two garage doors leading into one armored door for a deeper core-route estimate.",
+      "priority": "Preserve a stop condition before the armored layer",
+      "targets": [
+        {
+          "targetId": "garage-door",
+          "quantity": 2,
+          "method": "rockets"
+        },
+        {
+          "targetId": "armored-door",
+          "quantity": 1,
+          "method": "c4"
+        }
+      ],
+      "calculatorUrl": "https://raidbench.com/?route=garage-door~2~rockets%2Carmored-door~1~c4&utm_source=preset_library&utm_medium=owned_tool&utm_campaign=armored-core-door-route#raid-calculator"
+    },
+    {
+      "slug": "sheet-wall-contingency",
+      "availableFrom": "2026-09-07",
+      "title": "Sheet-wall contingency",
+      "description": "One sheet-metal wall recorded as a fallback when the scouted door path becomes uncertain.",
+      "priority": "Compare concentrated damage and sulfur",
+      "targets": [
+        {
+          "targetId": "sheet-wall",
+          "quantity": 1,
+          "method": "c4"
+        }
+      ],
+      "calculatorUrl": "https://raidbench.com/?route=sheet-wall~1~c4&utm_source=preset_library&utm_medium=owned_tool&utm_campaign=sheet-wall-contingency#raid-calculator"
+    },
+    {
+      "slug": "quiet-sheet-door-entry",
+      "availableFrom": "2026-09-07",
+      "title": "Quiet sheet-door entry",
+      "description": "A two-door explosive-ammo route for comparing noise, time, and inventory requirements.",
+      "priority": "Check inventory shortfalls before choosing the quieter method",
+      "targets": [
+        {
+          "targetId": "sheet-door",
+          "quantity": 2,
+          "method": "explosiveAmmo"
+        }
+      ],
+      "calculatorUrl": "https://raidbench.com/?route=sheet-door~2~explosiveAmmo&utm_source=preset_library&utm_medium=owned_tool&utm_campaign=quiet-sheet-door-entry#raid-calculator"
     }
   ]
 }

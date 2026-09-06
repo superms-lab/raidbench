@@ -45,7 +45,7 @@ async function revealLiveCommerce() {
     if (!response.ok) return;
 
     const apiConfig = await response.json();
-    if (!window.RAIDBENCH_CONFIG?.isLiveCommerceReady?.(apiConfig)) return;
+    if (!window.RAIDBENCH_CONFIG?.isLiveCommerceReady?.(apiConfig) || apiConfig.guestStagingPackReady !== true) return;
 
     commerceNodes.forEach((node) => {
       node.hidden = false;
@@ -90,21 +90,17 @@ function updateConversionRoute() {
   copyRaidLink.disabled = rowCount === 0;
   if (!rowCount) return;
 
-  const intent = rowCount === 1 ? "instant" : "plan";
-  const customerUrl = new URL("/customer", window.location.origin);
-  customerUrl.searchParams.set("intent", intent);
-  customerUrl.searchParams.set("route", encodedRoute());
-  customerUrl.searchParams.set("utm_source", "calculator");
-  customerUrl.searchParams.set("utm_medium", "internal");
-  customerUrl.searchParams.set("utm_campaign", intent === "instant" ? "rust_route_check" : "rust_raid_plan");
-  verifyRaid.href = `${customerUrl.pathname}${customerUrl.search}`;
-  verifyRaid.textContent = rowCount === 1 ? "Compare this target" : "Review this route";
+  const productUrl = new URL("/rust-raid-staging-pack", window.location.origin);
+  productUrl.searchParams.set("route", encodedRoute());
+  productUrl.searchParams.set("utm_source", "calculator");
+  productUrl.searchParams.set("utm_medium", "internal");
+  productUrl.searchParams.set("utm_campaign", "rust_staging_pack");
+  verifyRaid.href = `${productUrl.pathname}${productUrl.search}`;
+  verifyRaid.textContent = "Stage this route";
   verificationTitle.textContent = rowCount === 1
-    ? "Want all four methods compared against the boom already in base?"
-    : "Want this complete route reviewed before you craft?";
-  verificationCopy.textContent = rowCount === 1
-    ? "The $5 starter includes two route checks. Each applies your sulfur or placement priority, shows exact shortfalls, and is not charged when current evidence is unsupported."
-    : "A $19 plan compares the selected, lower-sulfur, and fewer-placement routes, then adds the buffer and execution checks.";
+    ? "Want this target compared against all four methods and current stock?"
+    : "Want this route turned into a staging decision before you craft?";
+  verificationCopy.textContent = "Preview the sulfur gap free, then unlock one complete route, inventory, crafting, and execution report for $4.99. No account required.";
 }
 
 function populateTargets() {

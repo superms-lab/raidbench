@@ -6,10 +6,11 @@ RaidBench 已于 2026-08-01 独立部署到 VPS，并通过 Cloudflare Pages 的
 接口对外服务。PayPal Live 凭据、Webhook、精确商户身份和税务经营策略均已配置，
 公开购买入口已经打开。
 
-当前应用版本：`/opt/raidbench/releases/20260904T013111Z-phase8-palworld-live-v11`，运行镜像为
-`local/raidbench-runtime:2026-09-04-phase8-palworld-live-v11`。该版本已启用 SMTP2GO 安全密码
-重置、PayPal Live 独立 Webhook、飞书收款/退款提醒，以及付费 Raid Plan 的制作队列；
-购买入口仍由独立的商户身份、税务、PayPal 凭据和 Webhook 闸门动态控制。
+当前应用版本：`/opt/raidbench/releases/20260906T173122Z-rust-staging-v13`，运行镜像为
+`local/raidbench-runtime:2026-09-07-rust-staging-v13`。该版本已启用无需账号的 Rust Full Raid
+Staging Pack：玩家先获得免费路线预览，以 4.99 美元通过 PayPal 购买后立即得到私密链接报告、
+JSON 下载和打印版。正常订单不经过 Codex 或人工制作；购买入口仍由商户身份、税务、PayPal
+凭据、Webhook 和 Rust 资料时效闸门动态控制。
 
 多游戏付费目录已进入生产数据库。Palworld 的 80 点基地与进度复核已处于 `ready_live`，并有
 正好 80 点、13 美元的单次点数包；其余十项非 Rust 服务仍为 `hidden_pending_qa`。资料不足、
@@ -82,7 +83,7 @@ curl -fsS https://raidbench.com/api/session
 ```text
 mode=production
 database=sqlite
-delivery=in_account
+delivery=account_and_private_link
 paypalEnvironment=live
 paypalWebhookReady=true
 checkoutEnabled=true
@@ -134,7 +135,7 @@ RAIDBENCH_EMAIL_FROM=RaidBench <account@notify.raidbench.com>
 ## 收款与退款提醒
 
 PayPal Capture 完成、付款待处理/拒绝、退款和撤销后，后端会异步发送飞书卡片。通知只包含
-本地订单号、SKU、金额、币种、点数和状态，不发送玩家邮箱。买家回跳与 PayPal Webhook
+本地订单号、SKU、金额、币种、交付类型或点数和状态，不发送玩家邮箱。买家回跳与 PayPal Webhook
 可能同时到达，`owner_notifications` 发件箱会按订单和状态去重；飞书故障不会阻断付款或加点。
 
 VPS 私密变量：
@@ -243,10 +244,11 @@ IndexNow 返回 200，Sitemap 增至 60 个 URL。
 /opt/raidbench-agent/artifacts/content-automation
 ```
 
-它不在玩家请求链路内运行，也不读取 PayPal、订单或客户数据库。systemd 每小时启动一次
-一次性非 root 容器，固定在 UTC 每小时 `55:30`；每小时最多发布 1 个、每天最多 24 个、
-每款游戏每周最多 14 个新攻略。12 款游戏各有 2 个可进入发布 QA 的正式来源，不再设置偏好
-游戏加分。选择逻辑只接受近期、可追溯的官方来源。Codex 的五个阶段均使用只读 Landlock 沙箱，最终
+它不在玩家请求链路内运行，也不读取 PayPal、订单或客户数据库。systemd 在 UTC 每小时
+`05、15、25、35、45、55` 分的第 30 秒启动一次性非 root 容器；每次最多发布 1 篇。每小时
+1 篇、每天 24 篇、每款游戏每周 14 篇均为最低目标，不是硬上限；实际发布仍取决于是否存在
+新的合格来源信号以及五阶段 QA 是否通过。12 款游戏各有 2 个可进入发布 QA 的正式来源，不再
+设置偏好游戏加分。选择逻辑只接受近期、可追溯的官方来源。Codex 的五个阶段均使用只读 Landlock 沙箱，最终
 发布必须同时通过 JSON 合同、证据引用、内容政策、中文对齐和独立 QA。
 
 ```bash
@@ -319,10 +321,10 @@ journalctl -u raidbench-content-agent.service -n 100 --no-pager
 1. PayPal Developer Dashboard 使用 RaidBench 的 Live REST App 与独立 Live Webhook。
 2. Live Client ID、Client Secret 和 Webhook ID 只保存在 VPS 私密环境文件。
 3. 使用 PayPal 后台登记的精确法定名称、国家，并记录税务经营策略。
-4. 用最低价 SKU 创建一笔不付款的 Live 订单，核对金额、币种、审批域名和零点数状态。
+4. 如需支付平台排障，才用最低价 SKU 创建一笔不付款的 Live 订单；日常部署不制造测试订单。
 5. 公开购买入口，等待真实客户支付；不使用自买自付或虚构买家制造交易记录。
-6. 首单发生后核对 Capture、签名 Webhook、120 点只入账一次和站内答案交付。
-7. 重复回跳或 Webhook 不得重复加点；退款事件必须撤销未消费点数或进入人工复核。
+6. Rust staging 首单发生后核对 Capture、签名 Webhook、零点数、`digital_deliveries=ready` 和私密报告访问；其他点数商品仍按各自点数核对。
+7. 重复回跳或 Webhook 不得重复交付或加点；staging 退款或撤销必须把报告改为 `revoked`，点数商品按原有规则处理。
 8. 首单对账无误后再扩大自然流量；付费广告必须等实际 CAC 和退款率可测后再启用。
 
 不要把 Sandbox 凭据复制到 Live 配置，也不要在聊天、Git 或截图中显示 Client Secret。
