@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RaidBench 零人工介入竞品与首单策略</title>
+  <style>
+    :root{color-scheme:light;--ink:#17212a;--muted:#66727d;--line:#d7dee3;--paper:#fff;--canvas:#f3f5f6;--green:#187a4d;--blue:#216498;--red:#a33b32;--gold:#94620b}
+    *{box-sizing:border-box}body{margin:0;background:var(--canvas);color:var(--ink);font-family:Inter,"PingFang SC","Microsoft YaHei",system-ui,sans-serif;letter-spacing:0;line-height:1.55}
+    header{border-bottom:1px solid var(--line);background:var(--paper)}.top{width:min(1160px,calc(100% - 40px));margin:auto;padding:28px 0 24px}.eyebrow{margin:0 0 7px;color:var(--blue);font-size:12px;font-weight:750;text-transform:uppercase}.top h1{margin:0;font-size:30px}.top p{max-width:820px;margin:10px 0 0;color:var(--muted)}.brief-nav{display:flex;flex-wrap:wrap;gap:16px;margin-top:18px}.brief-nav a{font-size:13px;font-weight:700;text-decoration:none}
+    main{width:min(1160px,calc(100% - 40px));margin:auto;padding:24px 0 54px}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.metric,.panel,.competitor{border:1px solid var(--line);border-radius:7px;background:var(--paper)}.metric{padding:15px}.metric span{display:block;color:var(--muted);font-size:12px}.metric strong{display:block;margin-top:6px;font-size:24px}.metric small{color:var(--muted)}
+    section{margin-top:28px}h2{margin:0 0 12px;font-size:20px}h3{margin:0 0 7px;font-size:16px}.panel{padding:20px}.verdict{border-left:4px solid var(--red)}.verdict strong{color:var(--red)}p{margin:8px 0}ul,ol{margin:9px 0 0;padding-left:21px}li+li{margin-top:5px}
+    .flow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}.step{padding:14px;border:1px solid var(--line);border-radius:6px;background:var(--paper)}.step b{display:block;font-size:13px}.step span{display:block;margin-top:5px;color:var(--muted);font-size:12px}
+    table{width:100%;border-collapse:collapse;background:var(--paper);font-size:13px}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:7px}th,td{padding:12px 13px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:#f7f9fa;font-size:12px}tr:last-child td{border-bottom:0}.tag{display:inline-block;padding:2px 6px;border-radius:4px;background:#e9f2f8;color:var(--blue);font-size:11px;font-weight:700}.good{color:var(--green)}.warn{color:var(--gold)}
+    .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}.offer{border-top:4px solid var(--green)}.offer .price{font-size:26px;font-weight:800}.muted{color:var(--muted)}a{color:var(--blue)}.sources a{display:block;margin:7px 0}.note{padding:12px 14px;border:1px solid #ead7ad;border-radius:6px;background:#fffaf0;color:#6c5018;font-size:13px}
+    @media(max-width:860px){.grid,.flow,.two{grid-template-columns:1fr 1fr}}@media(max-width:560px){.top,main{width:calc(100% - 24px)}.grid,.flow,.two{grid-template-columns:1fr}.top h1{font-size:25px}}
+  </style>
+</head>
+<body>
+  <header><div class="top"><p class="eyebrow">Competitive Brief · 2026-09-06</p><h1>RaidBench 零人工介入竞品与首单策略</h1><p>范围限定为自动数据分析、自动报告、软件订阅、付费工具与联盟佣金。人工答题、语音陪练、直播和一对一 coaching 不纳入目标模式。</p><nav class="brief-nav" aria-label="简报导航"><a href="#overview">概览 Overview</a><a href="#competitors">竞品 Competitors</a><a href="#guidance">策略 Guidance</a><a href="#sources">来源 Sources</a></nav></div></header>
+  <main>
+    <div class="grid">
+      <article class="metric"><span>近 30 日页面浏览</span><strong>481</strong><small>浏览次数，不是独立访客</small></article>
+      <article class="metric"><span>Reddit 可归因访问</span><strong>1</strong><small>当前转化桥几乎没有形成</small></article>
+      <article class="metric"><span>结账 / 支付</span><strong>0 / 0</strong><small>尚未验证付费需求</small></article>
+      <article class="metric"><span>公开攻略</span><strong>116</strong><small>内容数量已不是主要缺口</small></article>
+    </div>
+
+    <section id="overview"><h2>核心判断</h2><article class="panel verdict"><p><strong>停止把“付费回答”当核心商品。</strong> 零人工介入产品需要可解析输入、稳定算法、即时预览和自动交付。最接近 RaidBench 当前能力的首单商品，是确定性的 Rust 路线报告，而不是开放式游戏问答。</p><p>客户愿意为自动工具付费，但付费对象通常是持续数据、个性化分析、历史比较、提醒、导出和节省时间。竞品很少把“再给你一段文字答案”作为唯一收费点。</p></article></section>
+
+    <section><h2>当前漏斗断点</h2><div class="flow">
+      <div class="step"><b>社区回复</b><span>有互动，但多数无链接且跨 12 款游戏</span></div>
+      <div class="step"><b>个人主页</b><span>唯一主链接仍偏 Rust，归因访问仅 1</span></div>
+      <div class="step"><b>免费工具</b><span>已经解决大部分基础计算</span></div>
+      <div class="step"><b>账户与积分</b><span>用户先注册并理解 credits，摩擦偏高</span></div>
+      <div class="step"><b>PayPal</b><span>没有结账启动，支付环节尚未真正被测试</span></div>
+    </div></section>
+
+    <section id="competitors"><h2>零介入竞品矩阵</h2><div class="table-wrap"><table>
+      <thead><tr><th>产品</th><th>用户交什么</th><th>系统自动给什么</th><th>已公开价格</th><th>值得借鉴</th></tr></thead>
+      <tbody>
+        <tr><td><a href="https://www.refocus.gg/">Refocus</a><br><span class="tag">Valorant</span></td><td>连接 Riot 账号后的比赛数据</td><td>免费指出首要问题；付费解锁证据、完整排序、计划、历史与 AI 对话</td><td>Free；Elite €9.99/月</td><td class="good">免费先给真实结论，付费卖“为什么、证据和持续记忆”</td></tr>
+        <tr><td><a href="https://www.matchvision.app/">MatchVision</a><br><span class="tag">比赛视频</span></td><td>上传一段比赛视频</td><td>约两分钟生成球员卡、评分、战术分析和成长时间线</td><td>€5.99/周；€14.99/月；€119.99/年</td><td class="good">首次结果无需账号，先体验再收费</td></tr>
+        <tr><td><a href="https://www.dotabuff.com/plus">DOTABUFF Plus</a><br><span class="tag">Dota 2</span></td><td>公开比赛与 replay 数据</td><td>TrueSight 自动分析、英雄排名、视野图、经济曲线、死亡记录与长期历史</td><td>$6/月；$56/年</td><td class="good">结构化数据和长期比较天然适合订阅</td></tr>
+        <tr><td><a href="https://mobalytics.gg/lol/glp/plus">Mobalytics Plus</a><br><span class="tag">多游戏</span></td><td>账号和比赛数据</td><td>赛前建议、对局分析、进度追踪、自动导入和跨游戏高级功能</td><td>$7.99/月；年付折合 $5.83/月；7 天试用</td><td class="good">一个订阅覆盖多游戏，但每款游戏都依赖真实数据能力</td></tr>
+        <tr><td><a href="https://bot.rustplus.io/help/documentation.html">RustPlusBot</a><br><span class="tag">Rust</span></td><td>Rust+ 与 Discord 配对</td><td>设备控制、警报、队伍与服务器信息、自动提醒</td><td>$5 / 30 天 bot 运行</td><td class="good">用户为持续运行和提醒付费，不是为静态攻略付费</td></tr>
+      </tbody>
+    </table></div></section>
+
+    <section><h2>直接相邻信号</h2><div class="two">
+      <article class="panel"><h3>Path of Codex</h3><p>这是 POE2 上最接近目标形态的参照：连接 GGG 账号、运行 PoB 计算、输出 Oracle Score、Verdict、四维压力和 Build Compare。当前公开页主要以免费产品和 Ko-fi 支持呈现，说明产品形态成立，但付费模式仍需单独验证。</p><p><a href="https://pathofcodex.com/">查看产品</a></p></article>
+      <article class="panel"><h3>联盟佣金</h3><p>服务器托管是更接近零履约的第二收入线。4Netplayers 公布首月 50% 佣金并接受少于 50 粉丝的申请；GameServerKings 公布游戏服务器订单 15% 持续佣金且无需等待审批。必须使用真实比较、清晰披露联盟关系，不能伪装成中立推荐。</p><p><a href="https://www.4netplayers.com/en/4partner/">4Netplayers</a> · <a href="https://www.gameserverkings.com/affiliate-program/">GameServerKings</a></p></article>
+    </div></section>
+
+    <section id="guidance"><h2>建议首单产品</h2><article class="panel offer"><p class="eyebrow">First Revenue SKU</p><h3>Rust Full Raid Staging Pack</h3><div class="price">$4.99 一次性</div><p class="muted">客户在免费计算器中建立路线，系统立即生成预览；PayPal 成功后自动下载完整报告，不需要站长处理问题。</p><div class="two">
+      <div><h3>免费预览</h3><ul><li>路线总层数与用户当前方案</li><li>最明显的一项资源缺口</li><li>一项可验证的替代路径提示</li><li>无需登录即可看到</li></ul></div>
+      <div><h3>付款后自动解锁</h3><ul><li>四种方法完整对比与精确资源表</li><li>库存缺口、制作顺序和建议缓冲</li><li>路线替代方案与停止条件</li><li>PDF、JSON、分享链接与补丁版本记录</li></ul></div>
+    </div><p class="note">先保留一次性购买。只有用户开始反复保存路线后，再测试 $5.99/月的 Patch Watch、历史比较和更新提醒。后台可以继续使用 credits，但首屏不向客户解释积分。</p></article></section>
+
+    <section><h2>为何它比“付费回答”更适合</h2><div class="table-wrap"><table>
+      <thead><tr><th>判断项</th><th>开放式 AI 回答</th><th>确定性路线报告</th></tr></thead>
+      <tbody>
+        <tr><td>站长介入</td><td class="warn">边界问题和失败答案需要处理</td><td class="good">正常订单完全自动</td></tr>
+        <tr><td>准确性</td><td class="warn">依赖语境、版本和模型判断</td><td class="good">由已验证数据和计算引擎生成</td></tr>
+        <tr><td>客户理解</td><td class="warn">不知道会收到什么</td><td class="good">付款前已经看到自己的预览</td></tr>
+        <tr><td>交付</td><td class="warn">等待 Agent 与 QA</td><td class="good">PayPal 回调后立即解锁</td></tr>
+        <tr><td>分享增长</td><td class="warn">一段私有文字难传播</td><td class="good">分享卡片和路线链接可带来新用户</td></tr>
+      </tbody>
+    </table></div></section>
+
+    <section><h2>七天首单实验</h2><ol>
+      <li>建立无需登录的路线预览页，价格直接显示为 $4.99，不先展示 credits。</li>
+      <li>生成一份真实、完整、可下载的样例报告，所有数字来自现有 Rust 数据引擎。</li>
+      <li>PayPal 付款后自动签发下载链接和可恢复订单令牌，账户改为付款后的可选步骤。</li>
+      <li>在 Rust 高意图页面加入同一预览入口，其他 11 款游戏不展示不匹配的收费 CTA。</li>
+      <li>将 Reddit 主页链接改为免费路线预览，不在普通评论中硬塞链接。</li>
+      <li>增加分享结果卡，让免费用户自然带来 Discord、Reddit 和队友访问。</li>
+      <li>以 100 次带 UTM 的路线预览访问或 20 次实际生成预览为决策门槛；结账为零时再改商品，不买广告。</li>
+    </ol></section>
+
+    <section><h2>响应策略</h2><div class="two">
+      <article class="panel"><h3>应该说</h3><p>“先免费计算你的路线。需要完整制作清单、库存缺口、备选路径和补丁记录时，一次性解锁。”</p><h3>需要证明</h3><p>真实输入、真实输出、生成时间、数据版本、退款与无法交付时的处理方式。</p></article>
+      <article class="panel"><h3>不要再说</h3><p>“购买积分后向 AI 提问”“覆盖十二款游戏的专家答案”“独立 QA 一定能解决问题”。这些承诺要么抽象，要么超过当前证据。</p><h3>风险边界</h3><p>履约可以接近零介入，但退款、争议、支付风控和法律义务不可能绝对为零。</p></article>
+    </div></section>
+
+    <section class="sources" id="sources"><h2>来源与证据边界</h2><article class="panel">
+      <a href="https://www.refocus.gg/">Refocus 官方产品与定价页</a>
+      <a href="https://www.matchvision.app/">MatchVision 官方产品与定价页</a>
+      <a href="https://www.dotabuff.com/plus">DOTABUFF Plus 官方产品与定价页</a>
+      <a href="https://mobalytics.gg/lol/glp/plus">Mobalytics Plus 官方产品与定价页</a>
+      <a href="https://bot.rustplus.io/help/documentation.html">RustPlusBot 官方文档与 credits 价格</a>
+      <a href="https://pathofcodex.com/">Path of Codex 官方产品页</a>
+      <a href="https://www.4netplayers.com/en/4partner/">4Netplayers 官方合作伙伴计划</a>
+      <a href="https://www.gameserverkings.com/affiliate-program/">GameServerKings 官方联盟计划</a>
+      <a href="https://developers.google.com/search/docs/fundamentals/using-gen-ai-content">Google Search 关于生成式 AI 内容的官方指南</a>
+      <a href="https://support.reddithelp.com/hc/en-us/articles/360043504051-Spam">Reddit 官方 Spam Policy</a>
+      <p class="muted">RaidBench 指标来自 2026-09-06 的私有 Cloudflare D1 聚合数据和生产数据库。公开竞品价格可能变化，正式采用前需再次核对。没有竞品收入数据，因此本简报证明的是产品与收费结构存在，不证明 RaidBench 必然成交。</p>
+    </article></section>
+  </main>
+</body>
+</html>
