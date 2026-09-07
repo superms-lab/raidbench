@@ -157,6 +157,25 @@ class RaidBenchAcquisitionDigestTests(unittest.TestCase):
       digest.local_day = original_local_day
     self.assertEqual([draft["draft_id"] for draft in selected], ["reply_2", "reply_3", "reply_4"])
 
+  def test_current_profile_post_keeps_one_daily_digest_slot(self) -> None:
+    drafts = [
+      {"draft_id": f"reply_{index}", "draft_type": "reply", "created_at": "2026-08-24T12:00:00+00:00"}
+      for index in range(1, 7)
+    ] + [{
+      "draft_id": "profile_today",
+      "draft_type": "profile_post",
+      "created_at": "2026-08-24T01:00:00+00:00",
+    }]
+    original_local_day = digest.local_day
+    digest.local_day = lambda: "2026-08-24"
+    try:
+      selected = digest.select_unnotified_drafts(drafts, {}, limit=6)
+    finally:
+      digest.local_day = original_local_day
+    self.assertEqual([item["draft_id"] for item in selected], [
+      "reply_1", "reply_2", "reply_3", "reply_4", "reply_5", "profile_today",
+    ])
+
   def test_builds_three_draft_card_and_email(self) -> None:
     drafts = [{
       "draft_id": f"reply_{index}",

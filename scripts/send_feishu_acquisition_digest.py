@@ -95,7 +95,7 @@ def select_unnotified_drafts(
   if previous:
     notified.add(previous)
   today = local_day()
-  selected: list[dict[str, Any]] = []
+  eligible: list[dict[str, Any]] = []
   for draft in drafts:
     if str(draft["draft_id"]) in notified:
       continue
@@ -107,10 +107,13 @@ def select_unnotified_drafts(
     except ValueError:
       continue
     if created.astimezone(LOCAL_TIMEZONE).date().isoformat() == today:
-      selected.append(draft)
-      if len(selected) >= max(1, limit):
-        break
-  return selected
+      eligible.append(draft)
+  maximum = max(1, limit)
+  replies = [draft for draft in eligible if str(draft.get("draft_type") or "reply") == "reply"]
+  standalone = [draft for draft in eligible if str(draft.get("draft_type") or "reply") != "reply"]
+  if standalone and maximum > 1:
+    return [*replies[:maximum - 1], standalone[0]]
+  return eligible[:maximum]
 
 
 def select_unnotified_draft(drafts: list[dict[str, Any]], state: dict[str, Any]) -> dict[str, Any] | None:
