@@ -32,6 +32,10 @@ class WeeklyPartnerOutreachTests(unittest.TestCase):
     html = '<a href="mailto:partners@example.com">Mail</a><span data-cfemail="52212722223d20261220272126303321373637213b353c217c313d3f"></span>'
     self.assertEqual(partners.visible_emails(html), {"partners@example.com", "support@rustbasedesigns.com"})
 
+  def test_prompt_and_validator_require_a_traceable_subject_marker(self) -> None:
+    prompt = partners.build_prompt(set(), set(), 1)
+    self.assertIn("RaidBench collaboration:", prompt)
+
 
 if __name__ == "__main__":
   unittest.main()

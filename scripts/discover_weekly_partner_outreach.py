@@ -99,7 +99,7 @@ def build_prompt(contacted_recipients: set[str], contacted_domains: set[str], li
 
 Use live web search and official company/community websites only. Each candidate must operate a Rust game server community, Rust guide/resource site, Rust hosting service, or relevant server-owner tool, and its official page must visibly publish a business, partnership, collaboration, press, editorial, or general contact email. Exclude personal contact discovery, scraped directories, gambling, skin betting/trading, cheats, boosting, real-money trading, and any recipient or domain in this exclusion list: {exclusions}.
 
-Prepare one original 120-220 word English email per candidate. Offer the free RaidBench route presets, embeddable calculator, or reviewed data as a useful resource. Do not claim an existing audience, endorsement, guaranteed benefit, or prior relationship. Include exactly one RaidBench URL using a candidate-specific UTM source and disclose that the sender operates RaidBench. Do not propose a paid sponsorship in the first message and do not request personal data.
+Prepare one original 120-220 word English email per candidate. The subject must begin exactly with `RaidBench collaboration:` so legitimate replies can be separated from automated support mail. Offer the free RaidBench staging preview, route card, route presets, embeddable calculator, or reviewed data as a useful resource. Do not claim an existing audience, endorsement, guaranteed benefit, or prior relationship. Include exactly one RaidBench URL using a candidate-specific UTM source and disclose that the sender operates RaidBench. Do not propose a paid sponsorship in the first message and do not request personal data.
 
 Return the exact public email, exact official source URL where it appears, a short evidence note, subject, and body. Return fewer than {limit} or status `none` if the requirements cannot be verified. Do not send anything."""
 
@@ -137,7 +137,7 @@ def validate_candidate(candidate: dict[str, Any], contacted_recipients: set[str]
   if source.scheme != "https" or not source.hostname or PROHIBITED_PATTERN.search(f"{source.hostname} {fields['company']} {fields['text_body']}"):
     return None
   words = len(fields["text_body"].split())
-  if not 100 <= words <= 260 or len(fields["subject"]) > 180:
+  if not 100 <= words <= 260 or len(fields["subject"]) > 180 or not fields["subject"].lower().startswith("raidbench collaboration:"):
     return None
   urls = URL_PATTERN.findall(fields["text_body"])
   if len(urls) != 1 or not urls[0].startswith("https://raidbench.com/") or "utm_source=" not in urls[0]:

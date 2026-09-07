@@ -103,7 +103,7 @@ support@raidbench.com
 - AxentHost: sent 2026-08-28 15:25 UTC through the verified SMTP2GO sender; provider message id retained in the private VPS state.
 - Pillar Of Gaming: sent 2026-08-28 15:25 UTC through the verified SMTP2GO sender; provider message id retained in the private VPS state.
 - Reply-To for both messages: `support@raidbench.com`.
-- Incoming replies continue to the owner Gmail inbox. The temporary email-to-Feishu alert was disabled on 2026-08-30 at the owner's request.
+- Incoming replies continue to the owner Gmail inbox. On 2026-09-07, selective partnership-reply alerts were re-enabled in Feishu; ordinary support mail and RaidBench system notifications remain silent.
 
 ## Evidence Gaps
 

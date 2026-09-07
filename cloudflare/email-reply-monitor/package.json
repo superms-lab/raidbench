@@ -4,7 +4,8 @@
   "type": "module",
   "scripts": {
     "check": "wrangler deploy --dry-run",
-    "deploy": "wrangler deploy"
+    "deploy": "wrangler deploy",
+    "test": "node test.mjs"
   },
   "dependencies": {
     "postal-mime": "^2.6.0"

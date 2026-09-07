@@ -1,10 +1,12 @@
 # Support Email Routing
 
-Last updated: 2026-08-30
+Last updated: 2026-09-07
 
 ## Current Setup
 
-`support@raidbench.com` is configured with direct Cloudflare Email Routing.
+`support@raidbench.com` is routed through the `raidbench-email-reply-monitor` Cloudflare Email Worker. The
+Worker forwards every message to the existing verified Gmail destination, then independently decides whether
+the message is a partnership reply that merits a Feishu alert.
 
 Incoming mail is forwarded to:
 
@@ -18,8 +20,9 @@ superms123@gmail.com
 - Email Routing status: `ready`
 - Destination address: `superms123@gmail.com`
 - Destination verification: verified
-- Route rule: `support@raidbench.com` forwards directly to `superms123@gmail.com`
-- Automatic Feishu alerts for incoming email are disabled.
+- Route rule: `support@raidbench.com` sends to `raidbench-email-reply-monitor`
+- Worker forwarding destination: the existing verified owner Gmail
+- Automatic Feishu alerts: enabled only for verified partnership replies
 
 ## Reply Notification Verification
 
@@ -37,12 +40,20 @@ The D1 audit table stores only timestamps, delivery flags, and truncated SHA-256
 sender addresses, subjects, bodies, or attachments. Feishu alerts contain a bounded excerpt and a Gmail
 search button; the original message remains in Gmail.
 
-## Notification Disabled
+## Selective Notification
 
-On 2026-08-30, the owner asked to remove the Feishu email-reminder card. The production routing rule was
-restored to direct Gmail forwarding. The `raidbench-email-reply-monitor` Worker remains deployed but has no
-Email Routing rule and therefore receives no `support@raidbench.com` mail. It must not be reattached unless
-the owner explicitly requests email-to-Feishu alerts again.
+The broad “all new mail” Feishu alert was disabled on 2026-08-30 because it surfaced RaidBench's own system
+notifications. On 2026-09-07 the owner explicitly requested continuous partnership-reply monitoring, so the
+Worker was reattached with a fail-closed filter.
+
+An alert is allowed only when the sender is a previously contacted partner, belongs to a previously contacted
+non-shared partner domain, or replies to a future subject beginning `RaidBench collaboration:`. RaidBench-owned
+senders, no-reply addresses, bounces, bulk/list messages, password-reset mail, Reddit notifications, and ordinary
+support mail remain silent in Feishu while still reaching Gmail.
+
+Production verification sent one internal configuration message through the live routing rule. D1 recorded
+`forwarded=1` and `feishu_status=skipped_non_partner`. The Worker keeps no readable sender, subject, body, or
+attachment in D1.
 
 ## DNS Records Checked
 
