@@ -113,11 +113,11 @@ const assets = {
 
 {
   const db = new FakeDatabase([
-    { results: [{ today: 9, yesterday: 7, last_7_days: 44, last_30_days: 180, measured_pages: 31 }] },
+    { results: [{ today: 9, yesterday: 7, last_7_days: 44, last_30_days: 180, measured_pages: 31, staging_pack_page_views: 7 }] },
     { results: [{ day: "2026-09-04", views: 9 }] },
     { results: [{ path: "/games/poe2/", views: 12 }] },
     { results: [{ referrer_host: "google.com", views: 5 }] },
-    { results: [{ account_entries: 2, checkout_starts: 1, payment_successes: 0, staging_pack_previews: 4, staging_pack_checkouts: 1, staging_pack_reports: 0, tracked_events: 18 }] },
+    { results: [{ account_entries: 2, checkout_starts: 1, payment_successes: 0, staging_pack_previews: 4, staging_pack_samples: 3, staging_pack_presets: 2, staging_pack_cards: 1, staging_pack_checkouts: 1, staging_pack_reports: 0, tracked_events: 18 }] },
   ]);
   const result = await worker.fetch(
     new Request("https://raidbench.com/api/analytics/summary", {
@@ -131,8 +131,22 @@ const assets = {
   assert.equal(body.metrics.yesterday, 7);
   assert.equal(body.topPages[0].path, "/games/poe2/");
   assert.equal(body.funnel.checkoutStarts, 1);
+  assert.equal(body.funnel.stagingPackPageViews, 7);
   assert.equal(body.funnel.stagingPackPreviews, 4);
+  assert.equal(body.funnel.stagingPackSamples, 3);
+  assert.equal(body.funnel.stagingPackCards, 1);
   assert.equal(db.batches.length, 1);
+}
+
+{
+  const db = new FakeDatabase();
+  const request = new Request("https://raidbench.com/api/analytics/event", {
+    method: "POST",
+    headers: { Origin: "https://raidbench.com" },
+    body: JSON.stringify({ eventName: "staging_pack_card_download", pagePath: "/rust-raid-staging-pack" }),
+  });
+  const result = await worker.fetch(request, { ANALYTICS_DB: db, ASSETS: assets });
+  assert.equal(result.status, 204);
 }
 
 {

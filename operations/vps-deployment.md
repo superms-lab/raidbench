@@ -6,11 +6,15 @@ RaidBench 已于 2026-08-01 独立部署到 VPS，并通过 Cloudflare Pages 的
 接口对外服务。PayPal Live 凭据、Webhook、精确商户身份和税务经营策略均已配置，
 公开购买入口已经打开。
 
-当前应用版本：`/opt/raidbench/releases/20260906T173122Z-rust-staging-v13`，运行镜像为
-`local/raidbench-runtime:2026-09-07-rust-staging-v13`。该版本已启用无需账号的 Rust Full Raid
+当前应用版本：`/opt/raidbench/releases/20260906T235127Z-first-sale-v14`，运行镜像为
+`local/raidbench-runtime:2026-09-07-first-sale-v14`。该版本已启用无需账号的 Rust Full Raid
 Staging Pack：玩家先获得免费路线预览，以 4.99 美元通过 PayPal 购买后立即得到私密链接报告、
 JSON 下载和打印版。正常订单不经过 Codex 或人工制作；购买入口仍由商户身份、税务、PayPal
 凭据、Webhook 和 Rust 资料时效闸门动态控制。
+
+首单实验同时提供由同一确定性引擎生成的公开完整样例、三条常见路线预设、1200 x 630 免费
+路线卡，以及商品页访问、样例、预览、预设、路线卡、结账和交付的独立漏斗。飞书日报按
+100 次非 QA 商品页访问或 20 次非 QA 预览自动判断下一步，不把验收流量算作客户信号。
 
 多游戏付费目录已进入生产数据库。Palworld 的 80 点基地与进度复核已处于 `ready_live`，并有
 正好 80 点、13 美元的单次点数包；其余十项非 Rust 服务仍为 `hidden_pending_qa`。资料不足、

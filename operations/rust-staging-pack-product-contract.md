@@ -68,9 +68,9 @@ The preview must be useful without disclosing the complete alternative-route and
 
 ## Production Evidence
 
-- Backend release: `/opt/raidbench/releases/20260906T173122Z-rust-staging-v13`.
-- Runtime image: `local/raidbench-runtime:2026-09-07-rust-staging-v13`.
-- Cloudflare Pages deployment: `https://85c28d6c.raidbench.pages.dev`.
+- Backend release: `/opt/raidbench/releases/20260906T235127Z-first-sale-v14`.
+- Runtime image: `local/raidbench-runtime:2026-09-07-first-sale-v14`.
+- Cloudflare Pages deployment: `https://68f0e231.raidbench.pages.dev`.
 - Public product: `https://raidbench.com/rust-raid-staging-pack`.
 - Production health: PayPal Live and webhook ready, paid Rust data verified at 2026-09-06, checkout ready.
 - Production smoke test: anonymous preview passed; no PayPal test order or charge was created during deployment.

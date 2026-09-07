@@ -38,6 +38,7 @@ from backend.digital_products import (  # noqa: E402
     STAGING_PACK_PRICE_USD,
     STAGING_PACK_SKU,
     build_staging_pack,
+    build_staging_pack_sample,
     staging_pack_product,
 )
 from backend.email_delivery import EmailDeliveryError, email_delivery_from_environment  # noqa: E402
@@ -603,6 +604,23 @@ class RaidBenchHandler(BaseHTTPRequestHandler):
                 ),
                 "legalVersion": LEGAL_VERSION,
                 "paidDataStatus": self.server.paid_data_status()["status"],
+            })
+            return
+        if path == "/api/guest/raid-pack/sample":
+            try:
+                preview, report = build_staging_pack_sample(
+                    self.server.current_raid_data(require_paid_ready=True)
+                )
+            except (UnsupportedScopeError, StaleEvidenceError) as error:
+                raise ApiError(503, "sample_unavailable", str(error)) from error
+            report_text = json.dumps(report, ensure_ascii=True, separators=(",", ":"))
+            self._json(200, {
+                "sample": {
+                    "label": report["sampleLabel"],
+                    "preview": preview,
+                    "report": report,
+                    "reportSha256": hashlib.sha256(report_text.encode("utf-8")).hexdigest(),
+                }
             })
             return
         if path == "/api/targets":

@@ -155,6 +155,22 @@ def refresh_traffic_dashboard(path: Path) -> None:
   temporary.replace(path)
 
 
+def staging_experiment_summary(funnel: dict[str, Any]) -> str:
+  page_views = int(funnel.get("stagingPackPageViews") or 0)
+  previews = int(funnel.get("stagingPackPreviews") or 0)
+  checkouts = int(funnel.get("stagingPackCheckouts") or 0)
+  reports = int(funnel.get("stagingPackReports") or 0)
+  if reports:
+    return f"已交付 **{reports}** 份，首单路径已验证；下一步核对来源、退款率和支持成本。"
+  if checkouts:
+    return f"已有 **{checkouts}** 次结账但尚无交付；优先检查 PayPal 取消或错误。"
+  if previews >= 20:
+    return f"已有 **{previews}** 次预览但无结账；优先调整样例、付费结果或价格，不增加泛流量。"
+  if page_views >= 100:
+    return f"商品页已有 **{page_views}** 次访问但预览不足 20；优先调整首屏、预设和预览按钮。"
+  return f"商品页 **{page_views}/100** · 免费预览 **{previews}/20**；样本不足，继续合格引流。"
+
+
 def traffic_card_elements(traffic: dict[str, Any] | None, error: str = "") -> list[dict[str, Any]]:
   if not traffic:
     note = "今日流量暂时无法读取。" + (f" 原因：{error}" if error else "")
@@ -180,6 +196,7 @@ def traffic_card_elements(traffic: dict[str, Any] | None, error: str = "") -> li
     f"发起结账 **{int(funnel.get('checkoutStarts') or 0)}** · 支付成功 **{int(funnel.get('paymentSuccesses') or 0)}**\n"
     f"新商品：免费预览 **{int(funnel.get('stagingPackPreviews') or 0)}** · "
     f"开始结账 **{int(funnel.get('stagingPackCheckouts') or 0)}** · 报告交付 **{int(funnel.get('stagingPackReports') or 0)}**\n"
+    f"首单判断：{staging_experiment_summary(funnel)}\n"
     f"热门页面：{page_summary}"
   )
   return [

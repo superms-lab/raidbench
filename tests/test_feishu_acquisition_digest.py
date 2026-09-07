@@ -187,7 +187,13 @@ class RaidBenchAcquisitionDigestTests(unittest.TestCase):
       "metrics": {"today": 21, "last7Days": 80, "last30Days": 330},
       "daily": [],
       "topPages": [{"path": "/games/poe2/", "views": 18}],
-      "funnel": {"accountEntries": 3, "checkoutStarts": 1, "paymentSuccesses": 0},
+      "funnel": {
+        "accountEntries": 3,
+        "checkoutStarts": 1,
+        "paymentSuccesses": 0,
+        "stagingPackPageViews": 12,
+        "stagingPackPreviews": 4,
+      },
     }
     payload = digest.build_digest_card(drafts, traffic=traffic)
     content = "\n".join(
@@ -198,7 +204,15 @@ class RaidBenchAcquisitionDigestTests(unittest.TestCase):
     self.assertIn("[POE2]", content)
     self.assertIn("今日 **21**", content)
     self.assertIn("发起结账 **1**", content)
+    self.assertIn("商品页 **12/100**", content)
     self.assertIn("`/games/poe2/` 18", content)
+
+  def test_staging_experiment_summary_identifies_the_active_bottleneck(self) -> None:
+    self.assertIn("首单路径已验证", digest.staging_experiment_summary({"stagingPackReports": 1}))
+    self.assertIn("PayPal", digest.staging_experiment_summary({"stagingPackCheckouts": 2}))
+    self.assertIn("调整样例", digest.staging_experiment_summary({"stagingPackPreviews": 20}))
+    self.assertIn("调整首屏", digest.staging_experiment_summary({"stagingPackPageViews": 100}))
+    self.assertIn("0/100", digest.staging_experiment_summary({}))
 
   def test_yesterdays_unnotified_draft_is_not_recycled(self) -> None:
     drafts = [{

@@ -30,12 +30,15 @@ const ALLOWED_EVENTS = new Set([
   "raid_reset",
   "raid_shared_route_open",
   "staging_pack_checkout_start",
+  "staging_pack_card_download",
   "staging_pack_json_download",
   "staging_pack_payment_return",
   "staging_pack_preview",
+  "staging_pack_preset",
   "staging_pack_print",
   "staging_pack_private_link_copy",
   "staging_pack_report_ready",
+  "staging_pack_sample_open",
   "staging_pack_share",
   "upkeep_input_change",
   "widget_embed_code_copy",
@@ -108,6 +111,11 @@ async function readAnalyticsSummary(request, env) {
         COALESCE(SUM(CASE WHEN day = date('now', '-1 day') THEN views ELSE 0 END), 0) AS yesterday,
         COALESCE(SUM(CASE WHEN day >= date('now', '-6 days') THEN views ELSE 0 END), 0) AS last_7_days,
         COALESCE(SUM(CASE WHEN day >= date('now', '-29 days') THEN views ELSE 0 END), 0) AS last_30_days,
+        (SELECT COALESCE(SUM(acquisition.views), 0)
+          FROM acquisition_page_views acquisition
+          WHERE acquisition.day >= date('now', '-29 days')
+            AND acquisition.path IN ('/rust-raid-staging-pack', '/rust-raid-staging-pack.html')
+            AND acquisition.source <> 'qa') AS staging_pack_page_views,
         COUNT(DISTINCT path) AS measured_pages
       FROM page_views
       WHERE day >= date('now', '-29 days')`,
@@ -141,6 +149,9 @@ async function readAnalyticsSummary(request, env) {
         COALESCE(SUM(CASE WHEN event_name IN ('checkout_start', 'staging_pack_checkout_start') THEN events ELSE 0 END), 0) AS checkout_starts,
         COALESCE(SUM(CASE WHEN event_name IN ('payment_capture_success', 'staging_pack_report_ready') THEN events ELSE 0 END), 0) AS payment_successes,
         COALESCE(SUM(CASE WHEN event_name = 'staging_pack_preview' THEN events ELSE 0 END), 0) AS staging_pack_previews,
+        COALESCE(SUM(CASE WHEN event_name = 'staging_pack_sample_open' THEN events ELSE 0 END), 0) AS staging_pack_samples,
+        COALESCE(SUM(CASE WHEN event_name = 'staging_pack_preset' THEN events ELSE 0 END), 0) AS staging_pack_presets,
+        COALESCE(SUM(CASE WHEN event_name = 'staging_pack_card_download' THEN events ELSE 0 END), 0) AS staging_pack_cards,
         COALESCE(SUM(CASE WHEN event_name = 'staging_pack_checkout_start' THEN events ELSE 0 END), 0) AS staging_pack_checkouts,
         COALESCE(SUM(CASE WHEN event_name = 'staging_pack_report_ready' THEN events ELSE 0 END), 0) AS staging_pack_reports,
         COALESCE(SUM(events), 0) AS tracked_events
@@ -168,7 +179,11 @@ async function readAnalyticsSummary(request, env) {
       accountEntries: Number(funnel.account_entries || 0),
       checkoutStarts: Number(funnel.checkout_starts || 0),
       paymentSuccesses: Number(funnel.payment_successes || 0),
+      stagingPackPageViews: Number(summary.staging_pack_page_views || 0),
       stagingPackPreviews: Number(funnel.staging_pack_previews || 0),
+      stagingPackSamples: Number(funnel.staging_pack_samples || 0),
+      stagingPackPresets: Number(funnel.staging_pack_presets || 0),
+      stagingPackCards: Number(funnel.staging_pack_cards || 0),
       stagingPackCheckouts: Number(funnel.staging_pack_checkouts || 0),
       stagingPackReports: Number(funnel.staging_pack_reports || 0),
       trackedEvents: Number(funnel.tracked_events || 0),

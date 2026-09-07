@@ -17,12 +17,18 @@ assert.match(html, /<h1[^>]*>Rust Full Raid Staging Pack<\/h1>/);
 assert.match(html, /"price":"4\.99","priceCurrency":"USD"/);
 assert.match(html, /No account required/);
 assert.match(html, /id="copy-private-report"/);
+assert.match(html, /data-view-sample/);
+assert.match(html, /id="download-route-card"/);
+assert.match(html, /id="route-presets"/);
 assert.ok(
   html.indexOf("staging-pack.js") < html.indexOf("analytics.js"),
   "the staging script must strip payment and private-link tokens before analytics loads",
 );
 assert.match(script, /\/api\/guest\/raid-pack\/preview/);
 assert.match(script, /\/api\/guest\/raid-pack\/checkout/);
+assert.match(script, /\/api\/guest\/raid-pack\/sample/);
+assert.match(script, /staging_pack_card_download/);
+assert.match(script, /staging_pack_preset/);
 assert.match(script, /#report=/);
 assert.match(headers, /\/rust-raid-staging-pack[\s\S]*Referrer-Policy: no-referrer/);
 assert.match(redirects, /\/rust-raid-plan \/rust-raid-staging-pack 301/);

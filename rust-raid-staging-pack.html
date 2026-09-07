@@ -50,6 +50,11 @@
           </div>
           <p class="staging-section-copy">Add the visible layers in the order you expect to breach them. Hidden layers, splash damage, misses, sealing, and counter pressure remain outside the calculation.</p>
 
+          <div class="staging-presets" aria-label="Common Rust raid route presets">
+            <div><strong>Start with a common route</strong><span>Use it as a starting point, then edit the visible layers.</span></div>
+            <div class="staging-preset-list" id="route-presets"><span>Loading current presets...</span></div>
+          </div>
+
           <div class="staging-add-grid">
             <label>Target<select id="staging-target"></select></label>
             <label>Quantity<input id="staging-quantity" type="number" min="1" max="99" value="1" inputmode="numeric" /></label>
@@ -105,6 +110,7 @@
             <strong>See whether the route is ready before buying the report.</strong>
             <p>The free check returns the selected sulfur total, buffered target, readiness state, and the largest immediate resource gap.</p>
             <ol><li>Build the visible breach layers.</li><li>Add current stock and team size.</li><li>Run the free check in seconds.</li></ol>
+            <button class="staging-secondary-button" type="button" data-view-sample>View a Full Sample Report</button>
           </div>
 
           <div id="preview-result" hidden>
@@ -116,6 +122,12 @@
               <div><span>Gunpowder</span><strong id="preview-gunpowder">0</strong></div>
             </div>
             <div class="staging-gap"><span>Immediate finding</span><strong id="gap-label"></strong><p id="gap-value"></p></div>
+
+            <div class="staging-free-actions" aria-label="Free route sharing">
+              <button type="button" id="download-route-card">Download Route Card</button>
+              <button type="button" id="copy-preview-route">Copy Free Route Link</button>
+              <button type="button" data-view-sample>View Full Sample</button>
+            </div>
 
             <div class="staging-locked">
               <h3>Full report unlocks</h3>
@@ -141,7 +153,7 @@
 
       <section class="staging-report" id="staging-report" hidden aria-labelledby="report-title">
         <div class="staging-report-header">
-          <div><span class="staging-report-kicker">Paid report ready</span><h2 id="report-title">Rust raid staging decision</h2><p id="report-decision"></p></div>
+          <div><span class="staging-report-kicker" id="report-kicker">Paid report ready</span><h2 id="report-title">Rust raid staging decision</h2><p id="report-decision"></p></div>
           <div class="staging-report-actions"><button type="button" id="download-report">Download JSON</button><button type="button" id="print-report">Print / Save PDF</button><button type="button" id="copy-private-report">Copy Private Report Link</button><button type="button" id="share-route">Copy Free Route Link</button></div>
         </div>
 

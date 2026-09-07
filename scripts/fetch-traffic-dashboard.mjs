@@ -11,6 +11,11 @@ SELECT
   COALESCE(SUM(CASE WHEN day = date('now') THEN views ELSE 0 END), 0) AS today,
   COALESCE(SUM(CASE WHEN day >= date('now', '-6 days') THEN views ELSE 0 END), 0) AS last_7_days,
   COALESCE(SUM(CASE WHEN day >= date('now', '-29 days') THEN views ELSE 0 END), 0) AS last_30_days,
+  (SELECT COALESCE(SUM(acquisition.views), 0)
+    FROM acquisition_page_views acquisition
+    WHERE acquisition.day >= date('now', '-29 days')
+      AND acquisition.path IN ('/rust-raid-staging-pack', '/rust-raid-staging-pack.html')
+      AND acquisition.source <> 'qa') AS staging_pack_page_views,
   COUNT(DISTINCT path) AS measured_pages
 FROM page_views
 WHERE day >= date('now', '-29 days');
@@ -59,6 +64,9 @@ SELECT
   COALESCE(SUM(CASE WHEN event_name IN ('checkout_start', 'staging_pack_checkout_start') THEN events ELSE 0 END), 0) AS checkout_starts,
   COALESCE(SUM(CASE WHEN event_name IN ('payment_capture_success', 'staging_pack_report_ready') THEN events ELSE 0 END), 0) AS payment_successes,
   COALESCE(SUM(CASE WHEN event_name = 'staging_pack_preview' THEN events ELSE 0 END), 0) AS staging_pack_previews,
+  COALESCE(SUM(CASE WHEN event_name = 'staging_pack_sample_open' THEN events ELSE 0 END), 0) AS staging_pack_samples,
+  COALESCE(SUM(CASE WHEN event_name = 'staging_pack_preset' THEN events ELSE 0 END), 0) AS staging_pack_presets,
+  COALESCE(SUM(CASE WHEN event_name = 'staging_pack_card_download' THEN events ELSE 0 END), 0) AS staging_pack_cards,
   COALESCE(SUM(CASE WHEN event_name = 'staging_pack_checkout_start' THEN events ELSE 0 END), 0) AS staging_pack_checkouts,
   COALESCE(SUM(CASE WHEN event_name = 'staging_pack_report_ready' THEN events ELSE 0 END), 0) AS staging_pack_reports,
   COALESCE(SUM(CASE WHEN event_name = 'answer_ready' THEN events ELSE 0 END), 0) AS answers_ready,
@@ -136,7 +144,11 @@ const dashboard = {
     accountEntries: Number(funnel.account_entries || 0),
     checkoutStarts: Number(funnel.checkout_starts || 0),
     paymentSuccesses: Number(funnel.payment_successes || 0),
+    stagingPackPageViews: Number(summary.staging_pack_page_views || 0),
     stagingPackPreviews: Number(funnel.staging_pack_previews || 0),
+    stagingPackSamples: Number(funnel.staging_pack_samples || 0),
+    stagingPackPresets: Number(funnel.staging_pack_presets || 0),
+    stagingPackCards: Number(funnel.staging_pack_cards || 0),
     stagingPackCheckouts: Number(funnel.staging_pack_checkouts || 0),
     stagingPackReports: Number(funnel.staging_pack_reports || 0),
     answersReady: Number(funnel.answers_ready || 0),

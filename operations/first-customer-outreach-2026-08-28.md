@@ -3,6 +3,8 @@
 Updated: 2026-08-28
 Status: both approved emails sent; provider accepted, final delivery unverified
 
+Historical record: the emails below were already sent and should not be reused as current product copy. The former `/rust-raid-plan` URL now redirects to the account-free Rust staging pack. Current acquisition and decision rules live in `operations/staging-pack-first-sale-experiment.md`.
+
 ## Verified Funnel Snapshot
 
 - Last 7 days: 57 page views.
@@ -91,7 +93,7 @@ support@raidbench.com
 
 ## Measurement Rules
 
-- `reddit_profile` visit but no account entry: strengthen the sample result and explain the $5 outcome more concretely.
+- `reddit_profile` visit but no staging preview: strengthen the first viewport, presets, and free-preview action.
 - Account entry but no checkout start: inspect registration, consent, trust, and PayPal handoff before changing price.
 - Partner reply but no placement: offer the embed snippet and one original supporting paragraph; do not add a paid sponsorship.
 - No qualified visit after three published Reddit replies and the profile post: test a capped paid-search experiment only after an explicit budget decision.

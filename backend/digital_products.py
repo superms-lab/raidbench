@@ -10,6 +10,27 @@ STAGING_PACK_SKU = "rust-staging-pack-v1"
 STAGING_PACK_PRICE_USD = 4.99
 
 
+def staging_pack_sample_input() -> dict[str, Any]:
+    return {
+        "serverType": "vanilla",
+        "targets": [
+            {"targetId": "garage-door", "quantity": 2, "method": "rockets"},
+            {"targetId": "armored-door", "quantity": 1, "method": "c4"},
+        ],
+        "bufferPercent": 15,
+        "availableSulfur": 18_000,
+        "teamSize": 2,
+        "routePreference": "fewest_items",
+        "ownedInventory": {
+            "rockets": 6,
+            "c4": 3,
+            "satchels": 0,
+            "explosiveAmmo": 0,
+        },
+        "notes": "Public sample: two garage doors into one armored door; preserve a separate seal kit.",
+    }
+
+
 def staging_pack_product(*, available: bool, demo: bool = False) -> dict[str, Any]:
     return {
         "id": STAGING_PACK_SKU,
@@ -139,3 +160,17 @@ def build_staging_pack(
         ),
     }
     return preview, report
+
+
+def build_staging_pack_sample(
+    data: dict[str, Any],
+    *,
+    now: datetime | None = None,
+) -> tuple[dict[str, Any], dict[str, Any]]:
+    preview, report = build_staging_pack(staging_pack_sample_input(), data, now=now)
+    return preview, {
+        **report,
+        "reportKind": "public_sample",
+        "pricePaid": None,
+        "sampleLabel": "Two garage doors into one armored door",
+    }

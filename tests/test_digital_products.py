@@ -12,6 +12,7 @@ from backend.digital_products import (
     STAGING_PACK_PRICE_USD,
     STAGING_PACK_SKU,
     build_staging_pack,
+    build_staging_pack_sample,
     staging_pack_product,
 )
 
@@ -61,6 +62,19 @@ class DigitalProductTests(unittest.TestCase):
         self.assertEqual(report["qa"]["status"], "approved")
         self.assertEqual(len(report["plan"]["teamRoles"]), 2)
         self.assertEqual(report["inputs"]["notes"], "Use the west-side approach.")
+
+    def test_public_sample_uses_the_same_approved_engine_without_claiming_payment(self) -> None:
+        preview, report = build_staging_pack_sample(
+            self.data,
+            now=datetime(2026, 9, 6, 12, tzinfo=timezone.utc),
+        )
+        self.assertEqual(report["reportKind"], "public_sample")
+        self.assertIsNone(report["pricePaid"])
+        self.assertEqual(report["qa"]["status"], "approved")
+        self.assertEqual(report["totals"]["sulfur"], 15000)
+        self.assertEqual(report["totals"]["bufferedSulfur"], 17250)
+        self.assertEqual(report["plan"]["readiness"], "ready_to_stage")
+        self.assertEqual(preview["selected"]["itemCount"], 9)
 
 
 if __name__ == "__main__":

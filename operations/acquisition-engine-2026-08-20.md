@@ -1,12 +1,12 @@
 # RaidBench Acquisition Engine
 
-Updated: 2026-08-20
+Updated: 2026-09-07
 Market: United States and Canada
-Primary offer: verified Rust PC raid answer ($5) and multi-layer raid plan ($19)
+Primary offer: account-free Rust Full Raid Staging Pack ($4.99 one time)
 
 ## Current commercial truth
 
-RaidBench can accept a live PayPal payment and deliver a supported answer inside the player account, but it has not yet completed an unrelated customer order. The latest measured funnel had traffic but no checkout start, so this release concentrates on qualified discovery and preserving a player's exact raid problem from the free calculator through purchase.
+RaidBench can accept a live PayPal payment and immediately deliver one deterministic report through a private link, JSON download, and print workflow without an account. It has not yet completed an unrelated customer order. The current experiment concentrates on qualified product-page visits, free previews, public sample views, share-card downloads, checkout starts, and completed report delivery.
 
 ## Acquisition system now owned by RaidBench
 
@@ -23,18 +23,18 @@ A qualified visit lands on a Rust calculator, target-cost guide, route guide, of
 
 | Signal after 100 visits | Diagnosis | Next action |
 | --- | --- | --- |
-| No calculator use or shared route | Search promise and page utility do not match | Rewrite title/opening answer and put the relevant preset above the fold |
-| Calculator use but no account entry | Paid outcome is not specific enough | Strengthen the exact deliverable, example answer, freshness proof, and no-charge boundary |
-| Account entry but no checkout | Trust, price, or PayPal UX is blocking | Test the $5 pack first, shorten account setup, and inspect checkout errors |
+| 100 product-page visits but fewer than 20 previews | Search promise and page utility do not match | Rewrite the first viewport, preset labels, and free-preview action |
+| 20 previews but no checkout | Paid outcome, sample, or price is not persuasive | Improve the full sample and paid deliverable; test price only as a measured experiment |
+| Sample views or card downloads but no checkout | The free asset is useful but the paid delta is weak | Make inventory, crafting, and route-alternative value more concrete |
 | Checkout start but no payment | Payment handoff is blocking | Inspect PayPal cancellation/errors and test a second provider only after evidence |
-| Payment but no accepted answer | Product quality is blocking | Stop acquisition, review the question gate, correct or refund, then resume |
+| Payment but no report delivery | Product quality is blocking | Stop acquisition, inspect capture/webhook/token state, correct or refund, then resume |
 
 ## Channel order
 
 1. Owned search, GEO, shared routes, data downloads, and widget referrals run continuously.
 2. Answer-first community participation runs only on a newly discovered, relevant question and without a link. The daily queue rejects previously notified and prior-day drafts instead of recycling inventory.
 3. Publisher and creator partnerships offer the free widget or data source; no video or personal appearance is required.
-4. Exact-match search ads begin only after either one unrelated organic sale or 100 qualified Rust visits with measurable account intent. The first cap is $10 per day for seven days, with campaign-level tracking.
+4. Exact-match search ads begin only after either one unrelated organic sale or 100 qualified staging-page visits with measurable preview intent. The first cap remains $10 per day for seven days and still requires an explicit budget decision.
 5. Retargeting, mass email, affiliate payouts, and sponsorships wait until gross margin and answer quality are demonstrated by real orders.
 
 ## Weekly operating loop

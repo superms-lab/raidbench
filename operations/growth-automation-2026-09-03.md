@@ -13,7 +13,7 @@ Timezone: Asia/Shanghai
 | 3 patch-sensitive refreshes | Monday, Wednesday, and Friday rotate through the patch registry | A source change marks the page for revision; the system never changes a review date merely to look fresh | Active; first baseline completed |
 | 6 link-free professional Reddit replies per day | Up to ten hourly search slots run from 08:50 through 17:50 China time; failed searches do not count toward the six-draft target, and a game is not repeated that day | No Reddit API, bulk crawl, links, brand promotion, or automatic public posting | Active; owner still performs public posting |
 | Daily first-party traffic brief | The 20:00 Feishu task refreshes Cloudflare D1 and reports today, yesterday, 7-day, 30-day, top-page, and conversion totals | Aggregate metrics only; the operational brief is Feishu-only | Active |
-| One disclosed UTM link on the Reddit profile | Prepared profile post points to the free planner/paid offer with `reddit_profile` UTM attribution | Standalone promotional posts require owner review | Prepared, not verified as published or pinned |
+| One disclosed UTM link on the Reddit profile | Current owner-review draft points to the free staging preview and $4.99 account-free report with `reddit_profile` UTM attribution | Standalone promotional posts require owner review | New staging-pack draft queued for owner review; not verified as published or pinned |
 | 6 Rust partner contacts per week | Tuesday Agent finds only official public partnership/business contacts; strict validation, one contact per domain, no automatic follow-up | Gambling, skin trading, cheats, RMT, private contacts, and unverified addresses are rejected | Six contacts completed in the current rolling seven-day window |
 
 ## Timers

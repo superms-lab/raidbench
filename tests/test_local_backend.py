@@ -763,6 +763,12 @@ class HttpFlowTests(unittest.TestCase):
         self.assertEqual(missing_status, 404)
         self.assertEqual(missing["error"]["code"], "report_not_found")
 
+        sample_status, sample = self.request("/api/guest/raid-pack/sample")
+        self.assertEqual(sample_status, 200)
+        self.assertEqual(sample["sample"]["report"]["reportKind"], "public_sample")
+        self.assertEqual(sample["sample"]["report"]["totals"]["sulfur"], 15000)
+        self.assertEqual(len(sample["sample"]["reportSha256"]), 64)
+
     def test_accountless_paypal_checkout_captures_once_and_delivers_report(self) -> None:
         class FakePayPal:
             configured = True

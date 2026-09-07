@@ -111,6 +111,10 @@
       tbody tr:last-child td { border-bottom: 0; }
       .path { overflow-wrap: anywhere; }
       .empty { padding: 24px; border: 1px solid var(--line); border-radius: 7px; background: var(--surface); color: var(--muted); }
+      .experiment-decision { margin-top: 14px; padding: 16px 18px; border-left: 4px solid var(--blue); background: var(--blue-soft); color: #25465f; font-size: 13px; line-height: 1.6; }
+      .experiment-decision strong { display: block; margin-bottom: 3px; color: var(--ink); font-size: 14px; }
+      .experiment-decision.is-success { border-left-color: var(--green); background: var(--green-soft); color: #285d43; }
+      .experiment-decision.is-warning { border-left-color: var(--gold); background: var(--gold-soft); color: #6f501c; }
       .status-error { color: var(--red); }
       @media (max-width: 860px) {
         .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -179,15 +183,26 @@
           <article class="metric"><div class="metric-label">开始结账</div><div class="metric-value" id="funnel-checkout">--</div></article>
           <article class="metric"><div class="metric-label">支付确认</div><div class="metric-value" id="funnel-payment">--</div></article>
           <article class="metric"><div class="metric-label">答案交付</div><div class="metric-value" id="funnel-answer">--</div></article>
-          <article class="metric"><div class="metric-label">新商品免费预览</div><div class="metric-value" id="funnel-staging-preview">--</div></article>
-          <article class="metric"><div class="metric-label">新商品开始结账</div><div class="metric-value" id="funnel-staging-checkout">--</div></article>
-          <article class="metric"><div class="metric-label">新商品报告交付</div><div class="metric-value" id="funnel-staging-report">--</div></article>
         </div>
         <div class="tables conversion-tables">
           <div class="table-block"><h3>页面访问渠道</h3><div id="traffic-sources-table"></div></div>
           <div class="table-block"><h3>转化事件</h3><div id="events-table"></div></div>
           <div class="table-block"><h3>渠道产生的动作</h3><div id="campaigns-table"></div></div>
         </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head"><h2>Rust 新商品七天实验</h2><span class="subtitle">100 次商品页访问或 20 次预览后做第一次判断</span></div>
+        <div class="funnel">
+          <article class="metric"><div class="metric-label">商品页访问</div><div class="metric-value" id="funnel-staging-page">--</div></article>
+          <article class="metric"><div class="metric-label">查看完整样例</div><div class="metric-value" id="funnel-staging-sample">--</div></article>
+          <article class="metric"><div class="metric-label">生成免费预览</div><div class="metric-value" id="funnel-staging-preview">--</div></article>
+          <article class="metric"><div class="metric-label">使用路线预设</div><div class="metric-value" id="funnel-staging-preset">--</div></article>
+          <article class="metric"><div class="metric-label">下载路线卡</div><div class="metric-value" id="funnel-staging-card">--</div></article>
+          <article class="metric"><div class="metric-label">开始 PayPal 结账</div><div class="metric-value" id="funnel-staging-checkout">--</div></article>
+          <article class="metric"><div class="metric-label">报告交付</div><div class="metric-value" id="funnel-staging-report">--</div></article>
+        </div>
+        <div class="experiment-decision" id="staging-decision"><strong>正在判断</strong>等待最新漏斗数据。</div>
       </section>
     </main>
 
@@ -218,6 +233,9 @@
           answer_held: "问题暂缓且未扣点",
           account_auth_success: "登录或注册成功",
           staging_pack_preview: "新商品免费预览",
+          staging_pack_sample_open: "查看完整样例",
+          staging_pack_preset: "使用路线预设",
+          staging_pack_card_download: "下载免费路线卡",
           staging_pack_checkout_start: "新商品开始结账",
           staging_pack_payment_return: "PayPal 返回网站",
           staging_pack_report_ready: "新商品报告交付",
@@ -244,6 +262,18 @@
 
       function escapeHtml(value) {
         return String(value).replace(/[&<>'"]/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" })[character]);
+      }
+
+      function stagingDecision(funnel) {
+        const pageViews = Number(funnel.stagingPackPageViews || 0);
+        const previews = Number(funnel.stagingPackPreviews || 0);
+        const checkouts = Number(funnel.stagingPackCheckouts || 0);
+        const reports = Number(funnel.stagingPackReports || 0);
+        if (reports > 0) return { className: "is-success", title: "首单路径已被真实验证", detail: `已交付 ${reports} 份报告。下一步核对退款率、支持成本和来源渠道，再决定是否测试 6.99 美元。` };
+        if (checkouts > 0) return { className: "is-warning", title: "已有结账意图，付款完成仍是卡点", detail: `已有 ${checkouts} 次结账但尚无报告交付。优先观察 PayPal 取消与错误，不要先改内容或购买广告。` };
+        if (previews >= 20) return { className: "is-warning", title: "免费价值成立，付费价值尚未成立", detail: `已有 ${previews} 次预览但没有结账。应先调整样例、付费结果表述或价格实验，而不是继续增加泛流量。` };
+        if (pageViews >= 100) return { className: "is-warning", title: "商品页有流量，预览入口仍不够有吸引力", detail: `已有 ${pageViews} 次商品页访问但预览不足 20 次。优先修改首屏、预设和按钮表达。` };
+        return { className: "", title: "继续积累合格访问", detail: `商品页 ${pageViews}/100，免费预览 ${previews}/20。当前样本不足，不改价格、不买广告。` };
       }
 
       function render(data) {
@@ -279,9 +309,17 @@
         document.getElementById("funnel-checkout").textContent = number.format(funnel.checkoutStarts || 0);
         document.getElementById("funnel-payment").textContent = number.format(funnel.paymentSuccesses || 0);
         document.getElementById("funnel-answer").textContent = number.format(funnel.answersReady || 0);
+        document.getElementById("funnel-staging-page").textContent = number.format(funnel.stagingPackPageViews || 0);
+        document.getElementById("funnel-staging-sample").textContent = number.format(funnel.stagingPackSamples || 0);
         document.getElementById("funnel-staging-preview").textContent = number.format(funnel.stagingPackPreviews || 0);
+        document.getElementById("funnel-staging-preset").textContent = number.format(funnel.stagingPackPresets || 0);
+        document.getElementById("funnel-staging-card").textContent = number.format(funnel.stagingPackCards || 0);
         document.getElementById("funnel-staging-checkout").textContent = number.format(funnel.stagingPackCheckouts || 0);
         document.getElementById("funnel-staging-report").textContent = number.format(funnel.stagingPackReports || 0);
+        const decision = stagingDecision(funnel);
+        const decisionNode = document.getElementById("staging-decision");
+        decisionNode.className = `experiment-decision ${decision.className}`.trim();
+        decisionNode.innerHTML = `<strong>${escapeHtml(decision.title)}</strong>${escapeHtml(decision.detail)}`;
         document.getElementById("traffic-sources-table").innerHTML = sourceTable(data.acquisitionSources || []);
         document.getElementById("events-table").innerHTML = eventTable(data.topEvents || []);
         document.getElementById("campaigns-table").innerHTML = campaignTable(data.campaigns || []);
